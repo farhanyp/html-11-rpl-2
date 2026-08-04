@@ -17,7 +17,9 @@ export default function Sidebar() {
     { href: '/list-tabel', icon: 'format_list_bulleted', label: 'List & Tabel' },
     { href: '/form', icon: 'check_box', label: 'Form HTML' },
     { href: '/semantic', icon: 'view_quilt', label: 'Semantic HTML' },
-    { href: '/project', icon: 'web', label: 'Project Biodata' },
+    { href: '/multimedia', icon: 'play_circle', label: 'Multimedia & Embed' },
+    { href: '/meta-head-seo', icon: 'travel_explore', label: 'Meta, HEAD & SEO' },
+    // { href: '/project', icon: 'web', label: 'Project Biodata' },
   ];
 
   return (
