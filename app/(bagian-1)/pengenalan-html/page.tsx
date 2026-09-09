@@ -152,6 +152,70 @@ export default function PengenalanHTMLPage() {
               </div>
             </section>
 
+            {/* Section 3: Struktur Dasar HTML */}
+            <section className="bg-white border-4 border-black shadow-[4px_4px_0px_0px_rgba(0,0,0,1)] md:shadow-[8px_8px_0px_0px_rgba(0,0,0,1)] p-6 md:p-12">
+              <h2 className="text-2xl md:text-4xl font-black text-black uppercase mb-6 md:mb-8 border-b-4 border-black pb-4 flex items-center gap-3 md:gap-4">
+                <span className="bg-[#FF49DB] text-white w-10 h-10 md:w-14 md:h-14 flex items-center justify-center border-2 md:border-4 border-black shadow-[4px_4px_0px_0px_rgba(0,0,0,1)] flex-shrink-0 text-xl md:text-3xl">3</span>
+                Struktur Dasar Wajib HTML5
+              </h2>
+
+              <div className="flex flex-col lg:flex-row gap-6 lg:gap-10 mb-8 items-start">
+                <div className="flex-1 space-y-6">
+                  <p className="text-base md:text-xl font-bold text-black/80 leading-relaxed">
+                    Setiap kali kamu membuat file HTML baru, kamu harus selalu menuliskan kerangka dasarnya. Tanpa kerangka ini, browser bisa salah membaca isi website kamu. Ibaratnya, ini adalah <strong className="bg-[#2DD4BF] px-1 border-2 border-black text-black">Cetak Biru</strong> dari website-mu!
+                  </p>
+                  
+                  {/* Penjelasan Tag/Atribut */}
+                  <div className="space-y-4">
+                    <div className="bg-[#F4F0EA] border-4 border-black p-4 shadow-[4px_4px_0px_0px_rgba(0,0,0,1)] hover:-translate-x-1 hover:-translate-y-1 hover:shadow-[6px_6px_0px_0px_rgba(0,0,0,1)] transition-transform flex flex-col md:flex-row md:items-center gap-4">
+                      <div className="flex-shrink-0">
+                        <span className="bg-white px-3 py-2 border-2 border-black font-mono font-black shadow-[2px_2px_0px_0px_rgba(0,0,0,1)] text-lg">&lt;!DOCTYPE html&gt;</span>
+                      </div>
+                      <p className="font-bold text-black/80 text-sm md:text-base leading-relaxed">Baris paling atas yang <strong className="bg-[#FACC15] px-1 border-2 border-black text-black">wajib</strong> ada. Ini memberitahu browser, "Hei, ini adalah file HTML versi 5 (terbaru)!"</p>
+                    </div>
+
+                    <div className="bg-[#F4F0EA] border-4 border-black p-4 shadow-[4px_4px_0px_0px_rgba(0,0,0,1)] hover:-translate-x-1 hover:-translate-y-1 hover:shadow-[6px_6px_0px_0px_rgba(0,0,0,1)] transition-transform flex flex-col md:flex-row md:items-center gap-4">
+                      <div className="flex-shrink-0">
+                        <span className="bg-white px-3 py-2 border-2 border-black font-mono font-black shadow-[2px_2px_0px_0px_rgba(0,0,0,1)] text-lg">&lt;html lang="id"&gt;</span>
+                      </div>
+                      <p className="font-bold text-black/80 text-sm md:text-base leading-relaxed">Membungkus seluruh halaman. Atribut <code className="bg-white px-1 border-2 border-black font-black">lang="id"</code> memberitahu Google dan Browser bahwa website ini menggunakan bahasa Indonesia.</p>
+                    </div>
+
+                    <div className="bg-[#F4F0EA] border-4 border-black p-4 shadow-[4px_4px_0px_0px_rgba(0,0,0,1)] hover:-translate-x-1 hover:-translate-y-1 hover:shadow-[6px_6px_0px_0px_rgba(0,0,0,1)] transition-transform flex flex-col md:flex-row md:items-center gap-4">
+                      <div className="flex-shrink-0 flex gap-2">
+                        <span className="bg-white px-3 py-2 border-2 border-black font-mono font-black shadow-[2px_2px_0px_0px_rgba(0,0,0,1)] text-lg">&lt;head&gt;</span>
+                        <span className="bg-white px-3 py-2 border-2 border-black font-mono font-black shadow-[2px_2px_0px_0px_rgba(0,0,0,1)] text-lg">&lt;body&gt;</span>
+                      </div>
+                      <p className="font-bold text-black/80 text-sm md:text-base leading-relaxed">Tag <code className="bg-[#2DD4BF] px-1 border-2 border-black text-black font-black">&lt;head&gt;</code> untuk pengaturan (seperti judul tab), sedangkan <code className="bg-[#2DD4BF] px-1 border-2 border-black text-black font-black">&lt;body&gt;</code> adalah tempat semua konten ditampilkan.</p>
+                    </div>
+                  </div>
+                </div>
+
+                {/* Code Block Visual */}
+                <div className="w-full lg:w-2/5 border-4 border-black shadow-[8px_8px_0px_0px_rgba(0,0,0,1)] bg-[#1e1e1e] group overflow-hidden flex flex-col mt-4 lg:mt-0 rotate-1 hover:rotate-0 transition-transform">
+                  <div className="w-full h-10 border-b-4 border-black bg-[#E5E5E5] flex items-center px-4 gap-2">
+                    <div className="w-4 h-4 rounded-full bg-[#FF5F56] border-2 border-black"></div>
+                    <div className="w-4 h-4 rounded-full bg-[#FFBD2E] border-2 border-black"></div>
+                    <div className="w-4 h-4 rounded-full bg-[#27C93F] border-2 border-black"></div>
+                    <span className="ml-4 font-black uppercase text-sm text-black bg-white px-2 border-2 border-black shadow-[2px_2px_0px_0px_rgba(0,0,0,1)]">index.html</span>
+                  </div>
+                  <div className="p-6 relative">
+                    <pre className="font-mono text-sm md:text-base whitespace-pre-wrap leading-relaxed relative z-10">
+<span className="text-gray-500">&lt;!</span><span className="text-[#FF49DB] font-bold">DOCTYPE</span> <span className="text-[#2DD4BF]">html</span><span className="text-gray-500">&gt;</span><br/>
+<span className="text-gray-500">&lt;</span><span className="text-[#FACC15] font-bold">html</span> <span className="text-[#2DD4BF]">lang</span><span className="text-gray-500">=</span><span className="text-[#FF49DB]">"id"</span><span className="text-gray-500">&gt;</span><br/>
+<span className="text-gray-500">&lt;</span><span className="text-[#FACC15] font-bold">head</span><span className="text-gray-500">&gt;</span><br/>
+  <span className="text-gray-500">&lt;</span><span className="text-[#FACC15] font-bold">title</span><span className="text-gray-500">&gt;</span><span className="text-white">Halaman Pertamaku</span><span className="text-gray-500">&lt;/</span><span className="text-[#FACC15] font-bold">title</span><span className="text-gray-500">&gt;</span><br/>
+<span className="text-gray-500">&lt;/</span><span className="text-[#FACC15] font-bold">head</span><span className="text-gray-500">&gt;</span><br/>
+<span className="text-gray-500">&lt;</span><span className="text-[#FACC15] font-bold">body</span><span className="text-gray-500">&gt;</span><br/>
+  <span className="text-[#2DD4BF]">{"<!--"} Isi website ditaruh di sini {"-->"}</span><br/>
+<span className="text-gray-500">&lt;/</span><span className="text-[#FACC15] font-bold">body</span><span className="text-gray-500">&gt;</span><br/>
+<span className="text-gray-500">&lt;/</span><span className="text-[#FACC15] font-bold">html</span><span className="text-gray-500">&gt;</span>
+                    </pre>
+                  </div>
+                </div>
+              </div>
+            </section>
+
             {/* Footer / Penutup */}
             <footer className="bg-[#2DD4BF] border-4 border-black p-6 md:p-8 shadow-[4px_4px_0px_0px_rgba(0,0,0,1)] md:shadow-[8px_8px_0px_0px_rgba(0,0,0,1)] text-center relative rotate-1 hover:rotate-0 transition-transform">
               <span className="material-symbols-outlined absolute -top-3 -right-3 md:-top-4 md:-right-4 text-4xl md:text-5xl text-black bg-white rounded-full border-2 md:border-4 border-black p-2 shadow-[2px_2px_0px_0px_rgba(0,0,0,1)]">push_pin</span>

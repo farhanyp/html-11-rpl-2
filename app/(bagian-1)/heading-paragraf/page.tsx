@@ -166,6 +166,50 @@ export default function HeadingParagrafPage() {
               </div>
             </section>
 
+            {/* Section 4: Inline CSS */}
+            <section className="bg-white border-4 border-black shadow-[4px_4px_0px_0px_rgba(0,0,0,1)] md:shadow-[8px_8px_0px_0px_rgba(0,0,0,1)] p-6 md:p-12 rotate-1 hover:rotate-0 transition-transform">
+              <h2 className="text-xl sm:text-2xl md:text-4xl font-black text-black uppercase mb-6 md:mb-8 border-b-4 border-black pb-4 flex items-center gap-3 md:gap-4">
+                <span className="bg-[#FF49DB] text-white w-10 h-10 md:w-14 md:h-14 flex items-center justify-center border-2 md:border-4 border-black shadow-[4px_4px_0px_0px_rgba(0,0,0,1)] flex-shrink-0 text-xl md:text-3xl">4</span>
+                Atribut Style (Inline CSS)
+              </h2>
+
+              <p className="text-base md:text-xl font-bold text-black/80 leading-relaxed mb-6">
+                Meskipun biasanya warna dan desain diatur di file terpisah (CSS), HTML mengizinkan kita melakukan desain <strong className="bg-[#FACC15] px-1 border-2 border-black text-black">"dadakan"</strong> langsung di dalam tag menggunakan atribut <code className="bg-[#2DD4BF] px-1 border-2 border-black text-black">style</code>. Ini disebut sebagai <strong>Inline CSS</strong>.
+              </p>
+
+              <div className="flex flex-col lg:flex-row gap-6 mb-8">
+                <div className="w-full lg:w-1/2 border-4 border-black shadow-[6px_6px_0px_0px_rgba(0,0,0,1)] p-0">
+                  <div className="bg-[#2DD4BF] border-b-4 border-black p-3 font-black uppercase flex gap-2 items-center">
+                    <span className="material-symbols-outlined">code</span> Contoh Penggunaan
+                  </div>
+                  <CodeBlock 
+                    language="html"
+                    code={`<p style="color: red; font-size: 20px;">Teks ini berwarna merah dan besar.</p>\n<span style="background-color: yellow;">Teks dengan stabilo kuning</span>`}
+                  />
+                </div>
+                
+                <div className="w-full lg:w-1/2 border-4 border-black shadow-[6px_6px_0px_0px_rgba(0,0,0,1)] bg-white p-6 flex flex-col gap-4 justify-center">
+                  <div className="bg-[#FF49DB] text-white border-4 border-black p-3 font-black uppercase drop-shadow-[2px_2px_0px_rgba(0,0,0,1)] mb-2 self-start">
+                    Hasil:
+                  </div>
+                  <div className="border-2 border-dashed border-gray-400 p-4">
+                    <p style={{ color: 'red', fontSize: '20px' }} className="mb-2">Teks ini berwarna merah dan besar.</p>
+                    <span style={{ backgroundColor: 'yellow', color: 'black' }}>Teks dengan stabilo kuning</span>
+                  </div>
+                </div>
+              </div>
+
+              <div className="bg-[#F4F0EA] border-4 border-black p-4 flex gap-4 items-start shadow-[4px_4px_0px_0px_rgba(0,0,0,1)]">
+                <span className="material-symbols-outlined text-4xl text-[#FF49DB] drop-shadow-[2px_2px_0px_rgba(0,0,0,1)]">warning</span>
+                <div>
+                  <h4 className="font-black uppercase mb-1">Catatan Penting</h4>
+                  <p className="font-bold text-black/80 text-sm md:text-base">
+                    Penggunaan <code className="bg-white px-1 border-2 border-black">style</code> di HTML (Inline CSS) biasanya hanya digunakan untuk kasus darurat atau spesifik. Desainer web profesional selalu meletakkan desainnya di file CSS terpisah agar kode HTML tetap bersih dan mudah dikelola!
+                  </p>
+                </div>
+              </div>
+            </section>
+
             {/* Footer */}
             <footer className="mt-12 mb-12 flex flex-col md:flex-row justify-between items-center gap-4 opacity-70">
               <p className="font-black text-xs md:text-sm uppercase tracking-widest text-black text-center md:text-left">© 2024 EDUBRUTAL // SYSTEM STATUS: NOMINAL</p>

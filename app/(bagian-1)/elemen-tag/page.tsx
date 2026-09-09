@@ -151,6 +151,74 @@ export default function ElemenTagPage() {
               </div>
             </section>
 
+            {/* Section 4: Atribut Khusus Class dan ID */}
+            <section className="bg-white border-4 border-black shadow-[4px_4px_0px_0px_rgba(0,0,0,1)] md:shadow-[8px_8px_0px_0px_rgba(0,0,0,1)] p-6 md:p-12">
+              <h2 className="text-xl sm:text-2xl md:text-4xl font-black text-black uppercase mb-6 md:mb-8 border-b-4 border-black pb-4 flex items-center gap-3 md:gap-4">
+                <span className="bg-[#FF49DB] text-white w-10 h-10 md:w-14 md:h-14 flex items-center justify-center border-2 md:border-4 border-black shadow-[4px_4px_0px_0px_rgba(0,0,0,1)] flex-shrink-0 text-xl md:text-3xl">4</span>
+                Atribut Identitas: class dan id
+              </h2>
+
+              <p className="text-base md:text-xl font-bold text-black/80 leading-relaxed mb-8">
+                Halaman web biasanya memiliki puluhan paragraf atau kotak. Bagaimana cara kita memberikan warna atau memodifikasi satu kotak spesifik tanpa mempengaruhi kotak yang lain? Kita menggunakan atribut <strong className="bg-[#FACC15] px-1 border-2 border-black text-black">Identitas</strong>.
+              </p>
+
+              <div className="grid grid-cols-1 md:grid-cols-2 gap-6 mb-10">
+                {/* ID Attribute */}
+                <div className="bg-[#F4F0EA] border-4 border-black p-6 shadow-[4px_4px_0px_0px_rgba(0,0,0,1)] hover:-translate-y-1 hover:shadow-[6px_6px_0px_0px_rgba(0,0,0,1)] transition-transform flex flex-col h-full">
+                  <div className="flex items-center gap-4 mb-4 border-b-4 border-black pb-4 border-dashed">
+                    <span className="bg-[#2DD4BF] px-3 py-2 border-2 border-black font-mono font-black shadow-[2px_2px_0px_0px_rgba(0,0,0,1)] text-lg md:text-xl">id="nama"</span>
+                    <span className="font-black uppercase tracking-wider text-black/60 text-sm md:text-base">Unik</span>
+                  </div>
+                  <p className="font-bold text-black/80 mb-4 flex-grow">
+                    Hanya boleh ada <strong>SATU</strong> di seluruh halaman. Tidak boleh ada elemen lain yang menggunakan ID yang sama.
+                  </p>
+                  <div className="bg-white border-2 border-black p-3 flex items-start gap-3 shadow-[2px_2px_0px_0px_rgba(0,0,0,1)]">
+                    <span className="text-xl">🧑‍🎓</span>
+                    <p className="text-sm font-bold text-black/70"><strong>Analogi:</strong> Seperti Nomor KTP atau NISN. Hanya satu orang yang memiliki nomor tersebut.</p>
+                  </div>
+                </div>
+
+                {/* Class Attribute */}
+                <div className="bg-[#F4F0EA] border-4 border-black p-6 shadow-[4px_4px_0px_0px_rgba(0,0,0,1)] hover:-translate-y-1 hover:shadow-[6px_6px_0px_0px_rgba(0,0,0,1)] transition-transform flex flex-col h-full">
+                  <div className="flex items-center gap-4 mb-4 border-b-4 border-black pb-4 border-dashed">
+                    <span className="bg-[#FF49DB] text-white px-3 py-2 border-2 border-black font-mono font-black shadow-[2px_2px_0px_0px_rgba(0,0,0,1)] text-lg md:text-xl drop-shadow-[1px_1px_0px_rgba(0,0,0,1)]">class="nama"</span>
+                    <span className="font-black uppercase tracking-wider text-black/60 text-sm md:text-base">Berulang</span>
+                  </div>
+                  <p className="font-bold text-black/80 mb-4 flex-grow">
+                    Boleh digunakan berkali-kali oleh elemen yang berbeda di dalam satu halaman yang sama.
+                  </p>
+                  <div className="bg-white border-2 border-black p-3 flex items-start gap-3 shadow-[2px_2px_0px_0px_rgba(0,0,0,1)]">
+                    <span className="text-xl">👕</span>
+                    <p className="text-sm font-bold text-black/70"><strong>Analogi:</strong> Seperti Seragam Sekolah. Semua siswa kelas 11 RPL bisa memakai class <code>seragam-rpl</code>.</p>
+                  </div>
+                </div>
+              </div>
+
+              <div className="flex flex-col lg:flex-row gap-6 lg:gap-10 items-stretch">
+                <div className="w-full lg:w-1/2 border-4 border-black shadow-[6px_6px_0px_0px_rgba(0,0,0,1)] bg-[#1e1e1e] group overflow-hidden flex flex-col">
+                  <div className="w-full h-10 border-b-4 border-black bg-[#E5E5E5] flex items-center px-4 gap-2">
+                     <span className="font-black uppercase text-xs text-black">Contoh Penggunaan</span>
+                  </div>
+                  <div className="flex-grow">
+                    <CodeBlock 
+                      language="html"
+                      code={`<h1 id="judul-utama">Selamat Datang</h1>\n<p class="teks-tebal">Paragraf pertama.</p>\n<p class="teks-tebal">Paragraf kedua juga memakai desain yang sama.</p>`}
+                    />
+                  </div>
+                </div>
+
+                <div className="w-full lg:w-1/2 bg-[#2DD4BF] border-4 border-black p-6 shadow-[6px_6px_0px_0px_rgba(0,0,0,1)] flex flex-col justify-center rotate-[-1deg] hover:rotate-0 transition-transform">
+                  <div className="flex items-center gap-4 mb-4">
+                    <span className="material-symbols-outlined text-4xl md:text-5xl text-white drop-shadow-[2px_2px_0px_rgba(0,0,0,1)]">lightbulb</span>
+                    <h3 className="text-xl md:text-2xl font-black text-black uppercase">Fungsi Utama</h3>
+                  </div>
+                  <p className="text-base md:text-xl font-bold text-black/90 leading-relaxed bg-white p-4 border-2 border-black shadow-[4px_4px_0px_0px_rgba(0,0,0,1)]">
+                    Nantinya, CSS dan JavaScript akan menggunakan <code className="bg-[#FACC15] px-1 border-2 border-black text-black">id</code> dan <code className="bg-[#FACC15] px-1 border-2 border-black text-black">class</code> ini untuk mencari elemen mana yang ingin diberi warna atau diberi animasi!
+                  </p>
+                </div>
+              </div>
+            </section>
+
             {/* Footer */}
             <footer className="mt-12 mb-12 flex flex-col md:flex-row justify-between items-center gap-4 opacity-70">
               <p className="font-black text-xs md:text-sm uppercase tracking-widest text-black text-center md:text-left">© 2024 EDUBRUTAL // SYSTEM STATUS: NOMINAL</p>

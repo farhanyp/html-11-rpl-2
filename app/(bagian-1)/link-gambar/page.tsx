@@ -80,6 +80,18 @@ export default function LinkGambarPage() {
                     code={`<a href="https://www.wikipedia.org" target="_blank">Buka Wikipedia di Tab Baru</a>`}
                   />
                 </div>
+
+                {/* Anchor Link */}
+                <div className="border-4 border-black shadow-[4px_4px_0px_0px_rgba(0,0,0,1)] p-6 bg-[#FF49DB] text-white">
+                  <h3 className="font-black text-xl uppercase mb-2 drop-shadow-[2px_2px_0px_rgba(0,0,0,1)]">4. Link Meloncat di Halaman yang Sama (Anchor Link)</h3>
+                  <p className="text-sm font-bold text-white/90 mb-4">
+                    Pernahkah kamu mengklik menu di sebuah website, lalu halamannya otomatis <em>scroll</em> ke bawah secara mulus? Itu disebut <strong>Anchor Link</strong>. Caranya adalah dengan menghubungkan nilai <code className="bg-white text-black px-1 border-2 border-black">href</code> dengan <code className="bg-white text-black px-1 border-2 border-black">id</code> dari elemen tujuan menggunakan tanda pagar (<code className="bg-white text-black px-1 border-2 border-black">#</code>).
+                  </p>
+                  <CodeBlock 
+                    language="html"
+                    code={`<!-- Tombol yang diklik -->\n<a href="#bagian-kontak">Pergi ke Bawah</a>\n\n<p>... banyak konten panjang di sini ...</p>\n\n<!-- Tujuan tempat mendarat -->\n<section id="bagian-kontak">\n    <h2>Hubungi Kami</h2>\n</section>`}
+                  />
+                </div>
               </div>
             </section>
 
@@ -152,6 +164,58 @@ export default function LinkGambarPage() {
                   language="html"
                   code={`<a href="https://www.youtube.com" target="_blank">\n  <img src="logo-youtube.png" alt="Buka YouTube">\n</a>`}
                 />
+              </div>
+            </section>
+
+            {/* Section 4: Gambar Vektor (SVG) */}
+            <section className="bg-white border-4 border-black shadow-[4px_4px_0px_0px_rgba(0,0,0,1)] md:shadow-[8px_8px_0px_0px_rgba(0,0,0,1)] p-6 md:p-12 mt-8 md:mt-16 relative">
+              <h2 className="text-xl sm:text-2xl md:text-4xl font-black text-black uppercase mb-6 md:mb-8 border-b-4 border-black pb-4 flex items-center gap-3 md:gap-4">
+                <span className="bg-[#FF49DB] text-white w-10 h-10 md:w-14 md:h-14 flex items-center justify-center border-2 md:border-4 border-black shadow-[4px_4px_0px_0px_rgba(0,0,0,1)] flex-shrink-0 text-xl md:text-3xl">4</span>
+                Gambar Vektor (SVG)
+              </h2>
+
+              <p className="font-bold text-black/80 text-base md:text-lg mb-6 leading-relaxed">
+                Selain menggunakan <code className="bg-[#F4F0EA] px-1 border-2 border-black">&lt;img&gt;</code> untuk memasukkan foto (JPG/PNG), HTML modern sering menggunakan <strong className="bg-[#FACC15] px-1 border-2 border-black text-black">SVG (Scalable Vector Graphics)</strong> untuk menampilkan logo atau ikon.
+              </p>
+
+              <div className="flex flex-col md:flex-row gap-6 mb-8">
+                <div className="flex-1 border-4 border-black shadow-[6px_6px_0px_0px_rgba(0,0,0,1)] bg-[#F4F0EA] p-6 -rotate-1 hover:rotate-0 transition-transform">
+                  <h3 className="font-black text-xl uppercase mb-2 text-[#FF49DB] drop-shadow-[1px_1px_0px_rgba(0,0,0,1)]">Keunggulan SVG</h3>
+                  <p className="font-bold text-black/80 text-sm md:text-base leading-relaxed">
+                    SVG adalah gambar yang dibuat menggunakan <em>kode matematika</em>, bukan kumpulan pixel. Kelebihannya: gambar SVG tidak akan pernah pecah (blur) meskipun di-zoom sebesar apapun!
+                  </p>
+                </div>
+                
+                <div className="md:w-1/3 flex justify-center items-center">
+                  <svg width="120" height="120" viewBox="0 0 100 100" className="drop-shadow-[6px_6px_0px_rgba(0,0,0,1)] hover:scale-110 transition-transform cursor-pointer">
+                    <circle cx="50" cy="50" r="45" stroke="black" strokeWidth="6" fill="#FACC15" />
+                    <circle cx="35" cy="40" r="8" fill="black" />
+                    <circle cx="65" cy="40" r="8" fill="black" />
+                    <path d="M 30 65 Q 50 85 70 65" stroke="black" strokeWidth="6" fill="transparent" strokeLinecap="round" />
+                  </svg>
+                </div>
+              </div>
+
+              <div className="border-4 border-black shadow-[6px_6px_0px_0px_rgba(0,0,0,1)] p-0 mb-8 bg-[#1e1e1e]">
+                <div className="bg-[#E5E5E5] border-b-4 border-black p-3 font-black uppercase flex gap-2 items-center text-sm">
+                  <span className="material-symbols-outlined text-black">code</span> <span className="text-black">Contoh kode SVG</span>
+                </div>
+                <div className="p-0">
+                  <CodeBlock 
+                    language="html"
+                    code={`<!-- Contoh kode SVG untuk membuat sebuah lingkaran -->\n<svg width="100" height="100">\n  <circle cx="50" cy="50" r="40" stroke="green" stroke-width="4" fill="yellow" />\n</svg>`}
+                  />
+                </div>
+              </div>
+
+              <div className="bg-[#2DD4BF] border-4 border-black p-4 flex gap-4 items-start shadow-[4px_4px_0px_0px_rgba(0,0,0,1)]">
+                <span className="material-symbols-outlined text-4xl text-black drop-shadow-[2px_2px_0px_rgba(255,255,255,1)]">info</span>
+                <div>
+                  <h4 className="font-black uppercase mb-1 text-black">Info Penting</h4>
+                  <p className="font-bold text-black/90 text-sm md:text-base">
+                    Dalam template modern, ikon seperti logo Instagram atau GitHub biasanya berupa barisan kode <code className="bg-white px-1 border-2 border-black">svg</code> dan <code className="bg-white px-1 border-2 border-black">path</code> yang panjang. Kamu tidak perlu menghafalnya, karena ikon ini biasanya di-copy paste langsung dari situs penyedia ikon (seperti <em>FontAwesome</em> atau <em>FeatherIcons</em>).
+                  </p>
+                </div>
               </div>
             </section>
 
