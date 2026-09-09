@@ -245,6 +245,18 @@ export default function Sidebar() {
         </div>
         {renderLinks(cssBagian5)}
 
+        {/* Projects Section */}
+        <div className="p-5 border-4 border-black mb-4 bg-black mx-4 mt-6">
+          <h2 className="text-xl font-black text-white uppercase tracking-tight flex items-center gap-2">
+            <span className="material-symbols-outlined text-[#2DD4BF]">rocket_launch</span>
+            Labs & Projects
+          </h2>
+        </div>
+        {renderLinks([
+          { href: '/project-1', icon: 'integration_instructions', label: 'Project 1: Portfolio HTML', color: 'bg-[#FACC15] text-black' },
+          { href: '/project-2', icon: 'brush', label: 'Project 2: Portfolio CSS', color: 'bg-[#FF49DB] text-black' }
+        ])}
+
       </aside>
     </>
   );
