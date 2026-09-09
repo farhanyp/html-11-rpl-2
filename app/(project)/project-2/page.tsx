@@ -490,7 +490,7 @@ footer {
             </section>
 
             <section className="bg-white border-4 border-black shadow-[4px_4px_0px_0px_rgba(0,0,0,1)] md:shadow-[8px_8px_0px_0px_rgba(0,0,0,1)] p-6 md:p-12">
-              
+
               <div className="bg-[#FACC15] border-4 border-black p-6 mb-12 shadow-[4px_4px_0px_0px_rgba(0,0,0,1)]">
                 <h3 className="text-xl font-black uppercase mb-2 flex items-center gap-2">
                   <span className="material-symbols-outlined">warning</span> Instruksi Pengerjaan
@@ -504,7 +504,7 @@ footer {
                 <span className="material-symbols-outlined text-4xl md:text-5xl text-[#FF49DB]">brush</span>
                 Kode Utama CSS
               </h2>
-              
+
               <div className="mb-12 relative">
                 {/* Header Action Bar */}
                 <div className="bg-[#FF49DB] border-4 border-black border-b-0 p-3 flex justify-between items-center w-full shadow-[4px_0px_0px_0px_rgba(0,0,0,1)]">
@@ -514,7 +514,7 @@ footer {
                     <div className="w-3 h-3 rounded-full bg-white border-2 border-black"></div>
                   </div>
                   <div className="flex gap-2">
-                    <button 
+                    <button
                       onClick={() => {
                         const newShowFullCode = !showFullCode;
                         setShowFullCode(newShowFullCode);
@@ -530,7 +530,7 @@ footer {
                       </span>
                       <span className="hidden sm:inline">{showFullCode ? 'Sembunyikan' : 'Lihat Full Kode'}</span>
                     </button>
-                    <button 
+                    <button
                       onClick={() => {
                         navigator.clipboard.writeText(fullCssCode);
                         setIsCopied(true);
@@ -549,10 +549,10 @@ footer {
                 {/* Code Area */}
                 <div id="code-section" className="border-4 border-black shadow-[4px_4px_0px_0px_rgba(0,0,0,1)] bg-black transition-all relative">
                   <CodeBlock language="css" code={showFullCode ? fullCssCode : snippetCssCode} />
-                  
+
                   {/* Click to expand overlay (only if snippet) */}
                   {!showFullCode && (
-                    <div 
+                    <div
                       onClick={() => setShowFullCode(true)}
                       className="absolute inset-0 bg-gradient-to-b from-transparent to-black/90 flex items-end justify-center pb-6 md:pb-12 cursor-pointer hover:to-black/100 transition-all"
                     >
@@ -563,6 +563,20 @@ footer {
                       </button>
                     </div>
                   )}
+                </div>
+              </div>
+
+              {/* Tempat Gambar Hasil Akhir */}
+              <div className="mb-16 bg-white border-4 border-black p-6 md:p-10 shadow-[4px_4px_0px_0px_rgba(0,0,0,1)] text-center relative overflow-hidden">
+                <h2 className="text-2xl md:text-3xl font-black text-black uppercase mb-4 flex justify-center items-center gap-2">
+                  <span className="material-symbols-outlined text-4xl text-[#FF49DB]">image</span>
+                  Hasil Tampilan CSS (Preview)
+                </h2>
+                <p className="font-bold text-black/80 mb-6 bg-[#F4F0EA] p-3 border-2 border-black inline-block">
+                  Ini adalah keajaiban CSS! Beginilah tampilan website portofolio tersebut <strong>setelah file CSS ini dihubungkan</strong> ke dalam HTML.
+                </p>
+                <div className="border-4 border-dashed border-black bg-[#F4F0EA] min-h-[400px] flex items-center justify-center relative group overflow-hidden">
+                  <img src="/project-2/msedge_yR6wKPDQyH.png" alt="Hasil Akhir CSS" className="w-full h-auto object-cover relative z-10" />
                 </div>
               </div>
 
@@ -592,7 +606,7 @@ footer {
                   <h3 className="text-xl md:text-2xl font-black uppercase mb-3 text-[#FF49DB]">2. Sticky Navbar & Flexbox</h3>
                   <p className="font-bold text-black/80 leading-relaxed">
                     Lihat *class* <code>.nav</code>. Di sana tertulis <code>position: sticky; top: 24px;</code>. Rumus ini membuat Navbar akan "menempel" di atas layar saat kamu melakukan *scroll* ke bawah!
-                    <br/><br/>
+                    <br /><br />
                     Di sana juga ada <code>display: flex; justify-content: space-between;</code> yang bertugas menyebar Logo ke ujung kiri, dan kumpulan Tautan Menu ke ujung kanan dengan otomatis.
                   </p>
                 </div>
@@ -602,7 +616,7 @@ footer {
                   <h3 className="text-xl md:text-2xl font-black uppercase mb-3">3. Senjata Rahasia CSS Grid</h3>
                   <p className="font-bold text-black/80 leading-relaxed">
                     Lihatlah class <code>.projects-grid</code>. Ini adalah ilmu tingkat lanjut! Kode <code>grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));</code> adalah rumus ajaib.
-                    <br/><br/>
+                    <br /><br />
                     <strong>Artinya:</strong> "Buatkan saya beberapa kolom. Lebar tiap kolom jangan sampai kurang dari <code>300px</code>. Jika layar membesar, penuhi ruang yang tersisa (<code>1fr</code>). Jika layar menyempit, pindahkan sisanya ke baris bawah otomatis tanpa <em>Media Query</em>!"
                   </p>
                 </div>
@@ -624,8 +638,8 @@ footer {
                   <h3 className="text-xl md:text-2xl font-black uppercase mb-3 text-[#2DD4BF]">5. Responsive (Media Queries)</h3>
                   <p className="font-bold text-white/80 leading-relaxed">
                     Di baris paling bawah, terdapat <code>@media (max-width: 768px)</code>. Jika ukuran layar pengguna lebih kecil dari 768px (ukuran layar HP):
-                    <br/>1. <code>.nav-links</code> (menu kanan) akan di-<code>display: none;</code> agar tidak berjejalan.
-                    <br/>2. <code>.hero</code> diubah menjadi <code>flex-direction: column-reverse;</code>. Artinya gambar akan dipindah ke atas, dan teks di pindah ke bawah agar lebih mudah dibaca saat dipegang vertikal!
+                    <br />1. <code>.nav-links</code> (menu kanan) akan di-<code>display: none;</code> agar tidak berjejalan.
+                    <br />2. <code>.hero</code> diubah menjadi <code>flex-direction: column-reverse;</code>. Artinya gambar akan dipindah ke atas, dan teks di pindah ke bawah agar lebih mudah dibaca saat dipegang vertikal!
                   </p>
                 </div>
 
