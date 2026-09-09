@@ -17,103 +17,140 @@ export default function SintaksSelectorPage() {
       <div className="flex pt-[88px] min-h-screen">
         <Sidebar />
 
-        <main className="md:ml-[280px] w-full p-4 md:p-10 bg-[#F4F0EA] relative" style={{ backgroundImage: 'radial-gradient(#000 1px, transparent 1px)', backgroundSize: '20px 20px' }}>
-          <div className="max-w-5xl mx-auto space-y-8 md:space-y-16">
+        <main className="md:ml-[280px] w-full p-4 md:p-10 bg-canvas relative" style={{ backgroundImage: 'radial-gradient(var(--color-outline) 1px, transparent 1px)', backgroundSize: '24px 24px' }}>
+          <div className="max-w-5xl mx-auto space-y-12 md:space-y-16">
 
-            <section className="bg-[#FF49DB] border-4 border-black p-6 md:p-10 shadow-[4px_4px_0px_0px_rgba(0,0,0,1)] md:shadow-[8px_8px_0px_0px_rgba(0,0,0,1)] text-center relative overflow-hidden">
-              <h1 className="text-4xl sm:text-5xl md:text-6xl font-black text-white tracking-tighter uppercase mb-4 md:mb-6 drop-shadow-[2px_2px_0px_rgba(0,0,0,1)]">
-                3. Sintaks & Selector
+            <section className="bg-white border-4 border-black p-6 md:p-12 shadow-neo-xl text-center relative overflow-hidden transform rotate-1 hover:rotate-0 transition-transform">
+              <div className="absolute top-0 left-0 bg-jade-vibrant text-white font-black px-4 py-1 border-b-4 border-r-4 border-black shadow-neo-sm z-20">
+                MATERI 03
+              </div>
+              <h1 className="text-4xl sm:text-5xl md:text-7xl font-black text-black tracking-tighter uppercase mt-6 mb-4 md:mb-6">
+                Sintaks & Selector
               </h1>
-              <p className="text-base md:text-xl font-bold text-black bg-white inline-block px-3 py-2 md:px-4 md:py-2 border-2 md:border-4 border-black shadow-[4px_4px_0px_0px_rgba(0,0,0,1)]">
-                Setiap blok CSS terdiri dari 3 bagian penting: Selector, Property, dan Value.
+              <p className="text-base md:text-xl font-bold text-white bg-forest-teal inline-block px-4 py-2 md:px-6 md:py-3 border-4 border-black mb-4 md:mb-6 shadow-neo-md uppercase tracking-tight">
+                Setiap blok CSS selalu mutlak terdiri dari 3 organ inti: Selector, Property, dan Value.
               </p>
             </section>
 
-            <section className="bg-white border-4 border-black shadow-[4px_4px_0px_0px_rgba(0,0,0,1)] md:shadow-[8px_8px_0px_0px_rgba(0,0,0,1)] p-6 md:p-12">
-              <div className="flex flex-col md:flex-row gap-8 mb-12">
-                <div className="md:w-1/2 space-y-6">
-                  <h2 className="text-2xl md:text-4xl font-black text-black uppercase mb-4 border-b-4 border-black pb-2">Anatomi CSS</h2>
-                  <ul className="space-y-4">
-                    <li className="bg-[#FACC15] p-4 border-4 border-black font-bold flex gap-4 items-center shadow-[4px_4px_0px_0px_rgba(0,0,0,1)]">
-                      <span className="text-3xl">🎯</span>
-                      <div><strong className="text-xl block">Selector:</strong> Siapa yang mau didandani?</div>
+            <section className="bg-white border-4 border-black shadow-neo-xl p-6 md:p-12">
+              <h2 className="text-2xl sm:text-3xl md:text-5xl font-black text-black uppercase mb-8 md:mb-10 border-b-4 border-black pb-4 tracking-tighter">
+                Anatomi Kode CSS
+              </h2>
+              
+              <div className="flex flex-col xl:flex-row gap-8 lg:gap-10 mb-16 items-stretch">
+                <div className="xl:w-1/2 space-y-6">
+                  <ul className="space-y-6">
+                    <li className="bg-canvas p-4 border-4 border-black font-bold flex flex-col sm:flex-row gap-4 items-start sm:items-center shadow-neo-sm hover:translate-x-2 transition-transform">
+                      <span className="text-4xl bg-white border-4 border-black p-2 shadow-[2px_2px_0px_rgba(0,0,0,1)] flex-shrink-0">🎯</span>
+                      <div>
+                        <strong className="text-xl md:text-2xl block uppercase tracking-widest mb-1 text-black">Selector</strong> 
+                        <span className="text-forest-teal text-base md:text-lg">Objek siapa yang mau ditargetkan dan didandani?</span>
+                      </div>
                     </li>
-                    <li className="bg-[#2DD4BF] p-4 border-4 border-black font-bold flex gap-4 items-center shadow-[4px_4px_0px_0px_rgba(0,0,0,1)]">
-                      <span className="text-3xl">🎨</span>
-                      <div><strong className="text-xl block">Property:</strong> Apa yang mau diubah?</div>
+                    <li className="bg-canvas p-4 border-4 border-black font-bold flex flex-col sm:flex-row gap-4 items-start sm:items-center shadow-neo-sm hover:translate-x-2 transition-transform">
+                      <span className="text-4xl bg-white border-4 border-black p-2 shadow-[2px_2px_0px_rgba(0,0,0,1)] flex-shrink-0">🎨</span>
+                      <div>
+                        <strong className="text-xl md:text-2xl block uppercase tracking-widest mb-1 text-black">Property</strong> 
+                        <span className="text-forest-teal text-base md:text-lg">Sifat atau bagian tubuh apa yang mau diubah (warna, ukuran)?</span>
+                      </div>
                     </li>
-                    <li className="bg-[#FF49DB] text-white p-4 border-4 border-black font-bold flex gap-4 items-center shadow-[4px_4px_0px_0px_rgba(0,0,0,1)]">
-                      <span className="text-3xl">🔢</span>
-                      <div><strong className="text-xl block drop-shadow-[1px_1px_0px_rgba(0,0,0,1)]">Value:</strong> Nilainya apa?</div>
+                    <li className="bg-pine-deep text-white p-4 border-4 border-black font-bold flex flex-col sm:flex-row gap-4 items-start sm:items-center shadow-neo-sm hover:translate-x-2 transition-transform">
+                      <span className="text-4xl bg-black border-4 border-white p-2 shadow-[2px_2px_0px_rgba(255,255,255,1)] flex-shrink-0">🔢</span>
+                      <div>
+                        <strong className="text-xl md:text-2xl block uppercase tracking-widest mb-1 drop-shadow-[2px_2px_0px_rgba(0,0,0,1)]">Value</strong> 
+                        <span className="text-mint-soft text-base md:text-lg">Nilai spesifik dari perubahannya (merah, 120px)?</span>
+                      </div>
                     </li>
                   </ul>
                 </div>
-                <div className="md:w-1/2 w-full rotate-1 hover:rotate-0 transition-transform">
-                  <CodeBlock 
-                    language="css" 
-                    code={`/* Selector */
+                
+                <div className="xl:w-1/2 w-full flex flex-col bg-black border-4 border-black p-1 shadow-neo-lg transform rotate-1 hover:rotate-0 transition-transform">
+                   <div className="bg-mint-soft border-b-4 border-black p-3 font-black uppercase text-center text-black tracking-widest">Sintaks Fundamental CSS</div>
+                  <div className="flex-grow p-1">
+                    <CodeBlock 
+                      language="css" 
+                      code={`/* 1. Targetkan (Selector) */
 h1 {
-  /* Property: Value; */
+  /* 2. Sifat (Property) : 3. Isi (Value); */
   color: blue;
   font-size: 24px;
 }`} 
-                  />
+                    />
+                  </div>
                 </div>
               </div>
 
-              <h2 className="text-2xl md:text-4xl font-black text-black uppercase mb-6 md:mb-8 border-b-4 border-black pb-4">Tiga Selector Paling Dasar</h2>
-              <div className="grid grid-cols-1 lg:grid-cols-3 gap-6">
-                <div className="bg-white border-4 border-black p-6 shadow-[4px_4px_0px_0px_rgba(0,0,0,1)] hover:-translate-y-2 hover:shadow-[8px_8px_0px_0px_rgba(0,0,0,1)] transition-all flex flex-col">
-                  <div className="bg-[#2DD4BF] border-2 border-black px-3 py-1 inline-block font-black uppercase text-sm mb-4 self-start">Tag Selector</div>
-                  <p className="font-bold text-black/80 mb-4 flex-1">Menargetkan semua tag HTML tersebut. Akan mengubah <strong className="bg-[#FACC15] px-1 border-2 border-black text-black">semua</strong> elemen.</p>
-                  <div className="border-2 border-black">
+              <h2 className="text-2xl sm:text-3xl md:text-5xl font-black text-black uppercase mb-8 md:mb-10 border-b-4 border-black pb-4 tracking-tighter mt-16">
+                Tiga Selector Panglima Dasar
+              </h2>
+              <div className="grid grid-cols-1 lg:grid-cols-3 gap-6 lg:gap-8">
+                <div className="bg-white border-4 border-black p-6 md:p-8 shadow-neo-md hover:-translate-y-2 hover:shadow-neo-lg transition-all flex flex-col">
+                  <div className="bg-mint-canvas border-4 border-black px-4 py-2 inline-block font-black uppercase text-sm mb-6 self-start tracking-widest shadow-[2px_2px_0px_rgba(0,0,0,1)]">Tag Selector</div>
+                  <p className="font-bold text-forest-teal text-base md:text-lg mb-6 flex-1">Menargetkan murni berdasarkan nama tag HTML aslinya. Akan memukul mundur dan mengubah <strong className="bg-jade-vibrant text-black px-2 py-1 border-2 border-black uppercase font-black">semua</strong> elemen tersebut dalam 1 halaman.</p>
+                  <div className="bg-black border-4 border-black p-1 shadow-neo-sm transform rotate-1 hover:rotate-0 transition-transform">
                     <CodeBlock language="css" code={`p {\n  color: red;\n}`} />
                   </div>
                 </div>
-                <div className="bg-white border-4 border-black p-6 shadow-[4px_4px_0px_0px_rgba(0,0,0,1)] hover:-translate-y-2 hover:shadow-[8px_8px_0px_0px_rgba(0,0,0,1)] transition-all flex flex-col">
-                  <div className="bg-[#FF49DB] text-white border-2 border-black px-3 py-1 inline-block font-black uppercase text-sm mb-4 self-start">Class Selector (.)</div>
-                  <p className="font-bold text-black/80 mb-4 flex-1">Menargetkan elemen yang memiliki atribut class. Sangat fleksibel dipakai berkali-kali.</p>
-                  <div className="border-2 border-black">
+                
+                <div className="bg-white border-4 border-black p-6 md:p-8 shadow-neo-md hover:-translate-y-2 hover:shadow-neo-lg transition-all flex flex-col">
+                  <div className="bg-pine-deep text-white border-4 border-black px-4 py-2 inline-block font-black uppercase text-sm mb-6 self-start tracking-widest shadow-[2px_2px_0px_rgba(0,0,0,1)]">Class (.) Selector</div>
+                  <p className="font-bold text-forest-teal text-base md:text-lg mb-6 flex-1">Senjata paling fleksibel! Menargetkan elemen yang memiliki atribut <code>class="nama"</code> spesifik. Bebas dipakai berulang kali tanpa batas.</p>
+                  <div className="bg-black border-4 border-black p-1 shadow-neo-sm transform -rotate-1 hover:rotate-0 transition-transform">
                     <CodeBlock language="css" code={`.btn {\n  background: blue;\n}`} />
                   </div>
                 </div>
-                <div className="bg-white border-4 border-black p-6 shadow-[4px_4px_0px_0px_rgba(0,0,0,1)] hover:-translate-y-2 hover:shadow-[8px_8px_0px_0px_rgba(0,0,0,1)] transition-all flex flex-col">
-                  <div className="bg-[#FACC15] border-2 border-black px-3 py-1 inline-block font-black uppercase text-sm mb-4 self-start">ID Selector (#)</div>
-                  <p className="font-bold text-black/80 mb-4 flex-1">Menargetkan satu elemen spesifik. Tidak boleh ada dua elemen dengan ID yang sama.</p>
-                  <div className="border-2 border-black">
+                
+                <div className="bg-white border-4 border-black p-6 md:p-8 shadow-neo-md hover:-translate-y-2 hover:shadow-neo-lg transition-all flex flex-col">
+                  <div className="bg-jade-vibrant text-black border-4 border-black px-4 py-2 inline-block font-black uppercase text-sm mb-6 self-start tracking-widest shadow-[2px_2px_0px_rgba(0,0,0,1)]">ID (#) Selector</div>
+                  <p className="font-bold text-forest-teal text-base md:text-lg mb-6 flex-1">Super eksklusif. Menargetkan hanya SATU elemen mutlak di seluruh halaman yang memegang kunci atribut <code>id="nama"</code> tersebut.</p>
+                  <div className="bg-black border-4 border-black p-1 shadow-neo-sm transform rotate-1 hover:rotate-0 transition-transform">
                     <CodeBlock language="css" code={`#navbar {\n  height: 60px;\n}`} />
                   </div>
                 </div>
               </div>
 
-              <h2 className="text-2xl md:text-4xl font-black text-black uppercase mt-12 mb-6 md:mb-8 border-b-4 border-black pb-4 flex items-center gap-4">
-                <span className="bg-[#2DD4BF] text-black w-10 h-10 md:w-14 md:h-14 flex items-center justify-center border-2 md:border-4 border-black shadow-[4px_4px_0px_0px_rgba(0,0,0,1)] flex-shrink-0 text-xl md:text-3xl">+</span>
-                Selector Gabungan & Universal
+              <h2 className="text-2xl sm:text-3xl md:text-5xl font-black text-black uppercase mt-16 mb-8 md:mb-10 border-b-4 border-black pb-4 flex items-center gap-3 md:gap-4 tracking-tighter">
+                <span className="bg-black text-white w-12 h-12 md:w-16 md:h-16 flex items-center justify-center border-4 border-black shadow-neo-sm flex-shrink-0 text-3xl md:text-5xl font-black">+</span>
+                Kombinasi & Kehancuran Massal
               </h2>
-              <div className="flex flex-col lg:flex-row gap-8">
+              <div className="flex flex-col lg:flex-row gap-8 lg:gap-10">
                 {/* Grouping Selector */}
-                <div className="bg-white border-4 border-black p-6 md:p-8 shadow-[4px_4px_0px_0px_rgba(0,0,0,1)] flex-1">
-                  <h3 className="text-xl md:text-2xl font-black uppercase mb-4 flex items-center gap-2"><span className="material-symbols-outlined text-[#FF49DB] text-3xl">group</span> Grouping Selector (,)</h3>
-                  <p className="font-bold text-black/80 mb-6 text-sm md:text-base leading-relaxed">Jika kamu ingin memberikan gaya yang persis sama untuk beberapa elemen berbeda, gunakan koma untuk memisahkan selectornya agar kodemu lebih bersih!</p>
-                  <div className="rotate-1 hover:rotate-0 transition-transform">
+                <div className="bg-canvas border-4 border-black p-6 md:p-10 shadow-neo-md flex-1 hover:-translate-y-1 hover:shadow-neo-lg transition-transform">
+                  <h3 className="text-xl md:text-3xl font-black uppercase mb-6 flex flex-col sm:flex-row items-start sm:items-center gap-3 tracking-widest">
+                    <span className="material-symbols-outlined bg-white text-black p-2 border-4 border-black shadow-[2px_2px_0px_rgba(0,0,0,1)] text-3xl md:text-4xl">group</span> 
+                    Grouping (,)
+                  </h3>
+                  <p className="font-bold text-forest-teal mb-8 text-base md:text-lg leading-relaxed bg-white border-4 border-black p-4">
+                    Jika kamu ingin memberikan gaya seragam mutlak untuk beberapa ras elemen berbeda, gunakan koma untuk memborong dan menembak semuanya sekaligus!
+                  </p>
+                  <div className="bg-black border-4 border-black p-1 shadow-[4px_4px_0px_rgba(0,0,0,1)] rotate-1 hover:rotate-0 transition-transform">
+                    <div className="bg-mint-soft border-b-4 border-black p-2 font-black uppercase text-center text-xs text-black">Grouping Koma</div>
                     <CodeBlock 
                       language="css" 
-                      code={`h1, h2, p {
+                      code={`/* Targetkan ketiganya secara bersamaan! */
+h1, h2, p {
   text-align: center;
-  color: #333;
+  color: var(--pine-deep);
 }`} 
                     />
                   </div>
                 </div>
 
                 {/* Universal Selector */}
-                <div className="bg-white border-4 border-black p-6 md:p-8 shadow-[4px_4px_0px_0px_rgba(0,0,0,1)] flex-1">
-                  <h3 className="text-xl md:text-2xl font-black uppercase mb-4 flex items-center gap-2"><span className="material-symbols-outlined text-[#FACC15] text-3xl">public</span> Universal Selector (*)</h3>
-                  <p className="font-bold text-black/80 mb-6 text-sm md:text-base leading-relaxed">Menargetkan <strong>semua elemen</strong> di halaman tanpa terkecuali. Sering digunakan oleh profesional untuk mereset margin bawaan dari browser.</p>
-                  <div className="-rotate-1 hover:rotate-0 transition-transform">
+                <div className="bg-jade-vibrant border-4 border-black p-6 md:p-10 shadow-neo-md flex-1 text-white hover:-translate-y-1 hover:shadow-neo-lg transition-transform">
+                  <h3 className="text-xl md:text-3xl font-black uppercase mb-6 flex flex-col sm:flex-row items-start sm:items-center gap-3 tracking-widest drop-shadow-[2px_2px_0px_rgba(0,0,0,1)]">
+                    <span className="material-symbols-outlined bg-black text-white p-2 border-4 border-white shadow-[2px_2px_0px_rgba(255,255,255,1)] text-3xl md:text-4xl">public</span> 
+                    Universal (*)
+                  </h3>
+                  <p className="font-bold text-black mb-8 text-base md:text-lg leading-relaxed bg-white border-4 border-black p-4 shadow-[4px_4px_0px_rgba(0,0,0,1)]">
+                    Senjata pemusnah massal. Menargetkan <strong>SELURUH ELEMEN</strong> di dalam halaman tanpa ampun. Sering digunakan pro-player untuk me-reset format bawaan browser.
+                  </p>
+                  <div className="bg-black border-4 border-white p-1 shadow-[4px_4px_0px_rgba(255,255,255,1)] -rotate-1 hover:rotate-0 transition-transform">
+                    <div className="bg-mint-soft border-b-4 border-white p-2 font-black uppercase text-center text-xs text-black">Reset Massal Bintang</div>
                     <CodeBlock 
                       language="css" 
-                      code={`* {
+                      code={`/* Senjata Reset HTML (Wajib untuk Proyek Besar) */
+* {
   margin: 0;
   padding: 0;
   box-sizing: border-box;
@@ -125,14 +162,18 @@ h1 {
             </section>
 
             {/* Footer / Penutup */}
-            <footer className="bg-[#FACC15] border-4 border-black p-6 md:p-8 shadow-[4px_4px_0px_0px_rgba(0,0,0,1)] md:shadow-[8px_8px_0px_0px_rgba(0,0,0,1)] text-center relative hover:-translate-y-1 transition-transform">
-              <span className="material-symbols-outlined absolute -top-3 -right-3 md:-top-4 md:-right-4 text-4xl md:text-5xl text-black bg-white rounded-full border-2 md:border-4 border-black p-2 shadow-[2px_2px_0px_0px_rgba(0,0,0,1)]">sports_score</span>
-              <p className="text-xl md:text-3xl font-black text-black uppercase leading-relaxed max-w-4xl mx-auto">
-                "Kuasai Selector dengan baik, ibarat seorang Sniper yang tahu persis target mana yang akan dibidik!"
+            <footer className="bg-pine-deep border-4 border-black p-8 md:p-12 shadow-neo-xl text-center relative hover:-translate-y-1 transition-transform">
+              <span className="material-symbols-outlined absolute -top-4 -right-4 md:-top-6 md:-right-6 text-5xl md:text-6xl text-black bg-mint-soft rounded-none border-4 border-black p-3 shadow-neo-md hover:scale-110 transition-transform cursor-pointer">sports_score</span>
+              <p className="text-2xl md:text-4xl font-black text-white uppercase leading-relaxed max-w-4xl mx-auto drop-shadow-[2px_2px_0px_rgba(0,0,0,1)] tracking-tight">
+                "Kuasai rantai komando Selector dengan presisi, maka kamu ibarat Sniper Elit yang tahu pasti koordinat mana yang akan dibidik hancur!"
               </p>
             </footer>
 
-            <div className="h-12 w-full"></div>
+            <div className="mt-16 mb-8 flex flex-col md:flex-row justify-between items-center gap-4 border-t-4 border-black pt-8">
+              <p className="font-black text-sm md:text-base uppercase tracking-widest text-forest-teal bg-white border-4 border-black px-4 py-2 shadow-neo-sm text-center md:text-left">
+                © 2026 FARHAN YUDHA PRATAMA
+              </p>
+            </div>
           </div>
         </main>
       </div>

@@ -171,36 +171,39 @@ export default function Project1Page() {
       <div className="flex pt-[88px] min-h-screen">
         <Sidebar />
 
-        <main className="md:ml-[280px] w-full p-4 md:p-10 bg-[#F4F0EA] relative" style={{ backgroundImage: 'radial-gradient(#000 1px, transparent 1px)', backgroundSize: '20px 20px' }}>
-          <div className="max-w-5xl mx-auto space-y-8 md:space-y-16">
+        <main className="md:ml-[280px] w-full p-4 md:p-10 bg-canvas relative" style={{ backgroundImage: 'radial-gradient(var(--color-outline) 1px, transparent 1px)', backgroundSize: '24px 24px' }}>
+          <div className="max-w-5xl mx-auto space-y-12 md:space-y-16">
 
-            <section className="bg-[#FF49DB] border-4 border-black p-6 md:p-10 shadow-[4px_4px_0px_0px_rgba(0,0,0,1)] md:shadow-[8px_8px_0px_0px_rgba(0,0,0,1)] text-center relative overflow-hidden">
-              <h1 className="text-4xl sm:text-5xl md:text-6xl font-black text-white tracking-tighter uppercase mb-4 md:mb-6 drop-shadow-[2px_2px_0px_rgba(0,0,0,1)]">
-                Project 1: Portfolio HTML
+            <section className="bg-pine-deep border-4 border-black p-6 md:p-12 shadow-neo-xl text-center relative overflow-hidden transform rotate-1 hover:rotate-0 transition-transform">
+              <div className="absolute top-0 left-0 bg-jade-vibrant text-black font-black px-4 py-1 border-b-4 border-r-4 border-black shadow-neo-sm z-20">
+                PROJECT 1
+              </div>
+              <h1 className="text-4xl sm:text-5xl md:text-7xl font-black text-white tracking-tighter uppercase mt-6 mb-4 md:mb-6 drop-shadow-[2px_2px_0px_rgba(0,0,0,1)]">
+                Portfolio HTML
               </h1>
-              <p className="text-base md:text-xl font-bold text-black bg-[#FACC15] inline-block px-3 py-2 md:px-4 md:py-2 border-2 md:border-4 border-black shadow-[4px_4px_0px_0px_rgba(0,0,0,1)]">
+              <p className="text-base md:text-xl font-bold text-black bg-mint-soft inline-block px-4 py-2 md:px-6 md:py-3 border-4 border-black mb-4 md:mb-6 shadow-neo-md uppercase tracking-tight">
                 Membedah Struktur Kerangka Website Portfolio Profesional!
               </p>
             </section>
 
-            <section className="bg-white border-4 border-black shadow-[4px_4px_0px_0px_rgba(0,0,0,1)] md:shadow-[8px_8px_0px_0px_rgba(0,0,0,1)] p-6 md:p-12">
-              <h2 className="text-2xl md:text-4xl font-black text-black uppercase mb-6 md:mb-8 border-b-4 border-black pb-4 flex items-center gap-4">
-                <span className="material-symbols-outlined text-4xl md:text-5xl text-[#2DD4BF]">code_blocks</span>
+            <section className="bg-white border-4 border-black shadow-neo-xl p-6 md:p-12">
+              <h2 className="text-2xl sm:text-3xl md:text-5xl font-black text-black uppercase mb-8 md:mb-10 border-b-4 border-black pb-4 flex items-center gap-3 md:gap-4 tracking-tighter">
+                <span className="material-symbols-outlined text-4xl md:text-5xl text-white bg-black p-2 border-4 border-black shadow-neo-sm flex-shrink-0">code_blocks</span>
                 Kode Utama HTML
               </h2>
-              <p className="font-bold text-black/80 text-lg leading-relaxed mb-6 bg-[#F4F0EA] p-4 border-2 border-black shadow-[4px_4px_0px_0px_rgba(0,0,0,1)]">
-                Di bawah ini adalah <em>blueprint</em> atau kerangka kasar dari sebuah halaman Portofolio modern. Saat ini mungkin belum terlihat cantik karena belum ada CSS-nya, namun secara struktur HTML-nya sudah sangat rapi dan siap pakai! <strong>Silakan salin (copy) kode di bawah ini untuk memulai proyek pertamamu!</strong>
+              <p className="font-bold text-forest-teal text-lg md:text-xl leading-relaxed mb-10 bg-mint-canvas p-4 border-4 border-black shadow-neo-sm">
+                Di bawah ini adalah <em>blueprint</em> atau kerangka kasar dari sebuah halaman Portofolio modern. Saat ini mungkin belum terlihat cantik karena belum ada CSS-nya, namun secara struktur HTML-nya sudah sangat rapi dan siap pakai! <strong className="text-black uppercase">Silakan salin (copy) kode di bawah ini untuk memulai proyek pertamamu!</strong>
               </p>
 
-              <div className="mb-12 relative">
+              <div className="mb-16 relative">
                 {/* Header Action Bar */}
-                <div className="bg-[#FF49DB] border-4 border-black border-b-0 p-3 flex justify-between items-center w-full shadow-[4px_0px_0px_0px_rgba(0,0,0,1)]">
+                <div className="bg-jade-vibrant border-4 border-black border-b-0 p-3 md:p-4 flex justify-between items-center w-full shadow-neo-sm">
                   <div className="flex gap-2">
-                    <div className="w-3 h-3 rounded-full bg-white border-2 border-black"></div>
-                    <div className="w-3 h-3 rounded-full bg-white border-2 border-black"></div>
-                    <div className="w-3 h-3 rounded-full bg-white border-2 border-black"></div>
+                    <div className="w-4 h-4 rounded-full bg-white border-2 border-black"></div>
+                    <div className="w-4 h-4 rounded-full bg-white border-2 border-black"></div>
+                    <div className="w-4 h-4 rounded-full bg-white border-2 border-black"></div>
                   </div>
-                  <div className="flex gap-2">
+                  <div className="flex gap-3">
                     <button 
                       onClick={() => {
                         const newShowFullCode = !showFullCode;
@@ -210,9 +213,9 @@ export default function Project1Page() {
                           window.scrollTo({ top: document.getElementById('code-section-html')?.offsetTop || 0, behavior: 'smooth' });
                         }
                       }}
-                      className="bg-black text-white px-3 py-1 text-sm font-bold border-2 border-black hover:-translate-y-1 hover:shadow-[2px_2px_0px_0px_rgba(255,255,255,1)] transition-all flex items-center gap-1"
+                      className="bg-black text-white px-3 py-2 md:px-4 text-sm md:text-base font-black uppercase tracking-widest border-2 border-black hover:-translate-y-1 hover:shadow-[4px_4px_0px_rgba(255,255,255,1)] transition-all flex items-center gap-2"
                     >
-                      <span className="material-symbols-outlined text-base">
+                      <span className="material-symbols-outlined text-xl">
                         {showFullCode ? 'visibility_off' : 'visibility'}
                       </span>
                       <span className="hidden sm:inline">{showFullCode ? 'Sembunyikan' : 'Lihat Full Kode'}</span>
@@ -223,9 +226,9 @@ export default function Project1Page() {
                         setIsCopied(true);
                         setTimeout(() => setIsCopied(false), 2000);
                       }}
-                      className="bg-[#2DD4BF] text-black px-3 py-1 text-sm font-bold border-2 border-black hover:-translate-y-1 hover:shadow-[2px_2px_0px_0px_rgba(0,0,0,1)] transition-all flex items-center gap-1"
+                      className="bg-mint-soft text-black px-3 py-2 md:px-4 text-sm md:text-base font-black uppercase tracking-widest border-2 border-black hover:-translate-y-1 hover:shadow-neo-sm transition-all flex items-center gap-2"
                     >
-                      <span className="material-symbols-outlined text-base">
+                      <span className="material-symbols-outlined text-xl">
                         {isCopied ? 'check' : 'content_copy'}
                       </span>
                       {isCopied ? 'Tersalin!' : 'Copy Semua'}
@@ -234,7 +237,7 @@ export default function Project1Page() {
                 </div>
 
                 {/* Code Area */}
-                <div id="code-section-html" className="border-4 border-black shadow-[4px_4px_0px_0px_rgba(0,0,0,1)] bg-black transition-all relative">
+                <div id="code-section-html" className="border-4 border-black shadow-neo-lg bg-black transition-all relative">
                   <CodeBlock language="html" code={showFullCode ? fullHtmlCode : snippetHtmlCode} />
                   
                   {/* Click to expand overlay (only if snippet) */}
@@ -243,10 +246,10 @@ export default function Project1Page() {
                       onClick={() => setShowFullCode(true)}
                       className="absolute inset-0 bg-gradient-to-b from-transparent to-black/90 flex items-end justify-center pb-6 md:pb-12 cursor-pointer hover:to-black/100 transition-all"
                     >
-                      <button className="bg-[#FACC15] text-black border-4 border-black px-4 py-2 md:px-6 md:py-3 font-black uppercase tracking-wider flex items-center gap-2 hover:-translate-y-1 hover:shadow-[4px_4px_0px_0px_rgba(0,0,0,1)] transition-all text-sm md:text-base">
-                        <span className="material-symbols-outlined">expand_more</span>
+                      <button className="bg-pine-deep text-white border-4 border-black px-4 py-3 md:px-8 md:py-4 font-black uppercase tracking-widest flex items-center gap-2 hover:-translate-y-2 hover:shadow-[4px_4px_0px_rgba(255,255,255,1)] transition-all text-sm md:text-lg">
+                        <span className="material-symbols-outlined text-2xl">expand_more</span>
                         Tampilkan Kode Lengkap (210 Baris)
-                        <span className="material-symbols-outlined">expand_more</span>
+                        <span className="material-symbols-outlined text-2xl">expand_more</span>
                       </button>
                     </div>
                   )}
@@ -254,99 +257,125 @@ export default function Project1Page() {
               </div>
 
               {/* Tempat Gambar Hasil Akhir */}
-              <div className="mb-16 bg-white border-4 border-black p-6 md:p-10 shadow-[4px_4px_0px_0px_rgba(0,0,0,1)] text-center relative overflow-hidden">
-                <h2 className="text-2xl md:text-3xl font-black text-black uppercase mb-4 flex justify-center items-center gap-2">
-                  <span className="material-symbols-outlined text-4xl text-[#FF49DB]">image</span>
-                  Hasil Tampilan (Preview)
+              <div className="mb-16 bg-canvas border-4 border-black p-6 md:p-12 shadow-neo-xl text-center relative overflow-hidden transform -rotate-1 hover:rotate-0 transition-transform">
+                <h2 className="text-2xl md:text-3xl font-black text-black uppercase mb-6 flex justify-center items-center gap-3">
+                  <span className="material-symbols-outlined text-4xl text-black bg-white p-2 border-4 border-black shadow-[2px_2px_0px_rgba(0,0,0,1)]">image</span>
+                  Hasil Render (Preview)
                 </h2>
-                <p className="font-bold text-black/80 mb-6 bg-[#F4F0EA] p-3 border-2 border-black inline-block">
-                  Ini adalah gambaran hasil akhir dari HTML di atas jika dibuka di browser <strong>sebelum diberikan CSS</strong>.
+                <p className="font-bold text-forest-teal text-base md:text-lg mb-8 bg-white p-4 border-4 border-black inline-block shadow-neo-sm">
+                  Ini adalah penampakan tengkorak hasil akhir dari HTML murni di atas jika dijalankan di browser <strong className="text-black uppercase">sebelum diberikan riasan CSS</strong>.
                 </p>
-                <div className="border-4 border-dashed border-black bg-[#F4F0EA] min-h-[400px] flex items-center justify-center relative group overflow-hidden">
+                <div className="border-4 border-black border-dashed bg-mint-canvas min-h-[400px] flex items-center justify-center relative group overflow-hidden shadow-inner p-4">
 
                   {/* ===== TEMPAT GAMBAR ===== */}
-                  {/* Hapus komentar dan ganti src dengan lokasi gambar yang benar nantinya */}
-                  <img src="/project-1/msedge_8KrNhRDZ8C.png" alt="Hasil Render HTML" className="w-full h-auto object-cover relative z-10" />
+                  <img src="/project-1/msedge_8KrNhRDZ8C.png" alt="Hasil Render HTML" className="w-full h-auto object-cover relative z-10 border-4 border-black shadow-neo-md" />
 
                 </div>
               </div>
 
-              <h2 className="text-2xl md:text-4xl font-black text-black uppercase mb-6 md:mb-8 border-b-4 border-black pb-4 flex items-center gap-4 mt-16">
-                <span className="material-symbols-outlined text-4xl md:text-5xl text-[#FACC15]">search_insights</span>
-                Membedah Struktur Kode
+              <h2 className="text-2xl sm:text-3xl md:text-5xl font-black text-black uppercase mb-8 md:mb-12 border-b-4 border-black pb-4 flex items-center gap-3 md:gap-4 mt-20 tracking-tighter">
+                <span className="material-symbols-outlined text-4xl md:text-5xl text-black bg-mint-soft p-2 border-4 border-black shadow-neo-sm flex-shrink-0">search_insights</span>
+                Membedah Anatomi Kode
               </h2>
 
-              <div className="space-y-8">
+              <div className="space-y-10">
                 {/* Bagian 1 */}
-                <div className="bg-[#F4F0EA] border-4 border-black p-6 md:p-8 relative hover:-translate-y-1 transition-transform shadow-[4px_4px_0px_0px_rgba(0,0,0,1)]">
-                  <div className="absolute -top-5 -left-5 bg-black text-white w-10 h-10 flex items-center justify-center font-black text-xl border-2 border-white rounded-full">1</div>
-                  <h3 className="text-xl md:text-2xl font-black uppercase mb-3 text-[#FF49DB] drop-shadow-[1px_1px_0px_rgba(0,0,0,1)]">Meta & Tag HEAD</h3>
-                  <p className="font-bold text-black/80 mb-4 leading-relaxed">
-                    Bagian <code>&lt;head&gt;</code> adalah otak dari dokumen HTML yang menyimpan pengaturan penting:
-                  </p>
-                  <ul className="list-disc ml-6 font-bold text-black/70 space-y-3">
-                    <li><code className="bg-white px-1 border border-black">meta name="viewport"</code>: Aturan mutlak agar website bisa menyesuaikan diri dengan lebar layar perangkat (responsif di HP/Tablet).</li>
-                    <li><code className="bg-white px-1 border border-black">meta name="description"</code>: Deskripsi singkat web yang akan dibaca oleh mesin pencari seperti Google (SEO).</li>
-                    <li><code className="bg-white px-1 border border-black">Google Fonts</code>: Meminjam gaya huruf "Outfit" dari server Google agar tipografi web lebih modern dan tebal.</li>
-                    <li><code className="bg-white px-1 border border-black">style.css</code>: Tempat nantinya kita meracik CSS ajaib untuk memperindah kerangka HTML ini.</li>
-                  </ul>
+                <div className="bg-canvas border-4 border-black p-6 md:p-10 relative hover:-translate-y-2 hover:shadow-neo-lg transition-transform shadow-neo-md flex flex-col md:flex-row gap-6 items-start">
+                  <div className="flex-shrink-0 bg-black text-white w-14 h-14 flex items-center justify-center font-black text-3xl border-4 border-white rounded-none shadow-[4px_4px_0px_rgba(0,0,0,1)] -mt-2 md:-mt-4 -ml-2 md:-ml-4">1</div>
+                  <div>
+                    <h3 className="text-xl md:text-3xl font-black uppercase mb-4 text-black tracking-widest border-b-4 border-black pb-2 inline-block">Meta & Tag HEAD</h3>
+                    <p className="font-bold text-forest-teal text-base md:text-lg mb-6 leading-relaxed">
+                      Ruang kontrol <code>&lt;head&gt;</code> adalah otak dari dokumen HTML yang menyembunyikan pengaturan vital:
+                    </p>
+                    <ul className="space-y-4 font-bold text-black text-base md:text-lg">
+                      <li className="flex items-start gap-3">
+                        <span className="text-jade-vibrant text-2xl">⚡</span>
+                        <span><code className="bg-white px-2 py-1 border-2 border-black uppercase font-black tracking-widest text-sm">meta name="viewport"</code>: Aturan mutlak kepatuhan agar website merespons lebar layar perangkat genggam (Responsif).</span>
+                      </li>
+                      <li className="flex items-start gap-3">
+                        <span className="text-jade-vibrant text-2xl">⚡</span>
+                        <span><code className="bg-white px-2 py-1 border-2 border-black uppercase font-black tracking-widest text-sm">meta name="description"</code>: KTP website yang akan dibaca intel mesin pencari Google (SEO).</span>
+                      </li>
+                      <li className="flex items-start gap-3">
+                        <span className="text-jade-vibrant text-2xl">⚡</span>
+                        <span><code className="bg-white px-2 py-1 border-2 border-black uppercase font-black tracking-widest text-sm">Google Fonts</code>: Mencuri suplai gaya huruf "Outfit" langsung dari markas besar Google Fonts.</span>
+                      </li>
+                      <li className="flex items-start gap-3">
+                        <span className="text-jade-vibrant text-2xl">⚡</span>
+                        <span><code className="bg-white px-2 py-1 border-2 border-black uppercase font-black tracking-widest text-sm">style.css</code>: Jalur sutra penghubung ke file racikan CSS ajaib kita nantinya.</span>
+                      </li>
+                    </ul>
+                  </div>
                 </div>
 
                 {/* Bagian 2 */}
-                <div className="bg-[#2DD4BF] border-4 border-black p-6 md:p-8 relative hover:-translate-y-1 transition-transform shadow-[4px_4px_0px_0px_rgba(0,0,0,1)]">
-                  <div className="absolute -top-5 -left-5 bg-white text-black w-10 h-10 flex items-center justify-center font-black text-xl border-2 border-black rounded-full shadow-[2px_2px_0px_0px_rgba(0,0,0,1)]">2</div>
-                  <h3 className="text-xl md:text-2xl font-black uppercase mb-3">Navigasi Utama (Navbar)</h3>
-                  <p className="font-bold text-black/80 mb-4 leading-relaxed">
-                    Dibungkus dalam semantic tag <code>&lt;nav&gt;</code>, bagian ini dibagi dua: <code>.logo</code> untuk teks/gambar logo, dan <code>.nav-links</code> untuk menu navigasinya.
-                  </p>
-                  <div className="bg-black text-white p-4 border-2 border-white font-bold mb-4">
-                    <strong>Penting: Tanda Pagar (#) pada href</strong><br />
-                    Alih-alih memanggil file HTML baru seperti <code>about.html</code>, kita menggunakan Anchor Link (misal: <code>href="#projects"</code>). Ini akan memerintahkan browser untuk langsung meluncur (scroll) ke bagian <code>&lt;section id="projects"&gt;</code> di dalam file yang sama!
+                <div className="bg-pine-deep text-white border-4 border-black p-6 md:p-10 relative hover:-translate-y-2 hover:shadow-neo-lg transition-transform shadow-neo-md flex flex-col md:flex-row gap-6 items-start">
+                  <div className="flex-shrink-0 bg-jade-vibrant text-black w-14 h-14 flex items-center justify-center font-black text-3xl border-4 border-black rounded-none shadow-[4px_4px_0px_rgba(255,255,255,1)] -mt-2 md:-mt-4 -ml-2 md:-ml-4">2</div>
+                  <div>
+                    <h3 className="text-xl md:text-3xl font-black uppercase mb-4 text-white tracking-widest border-b-4 border-white pb-2 inline-block drop-shadow-[2px_2px_0px_rgba(0,0,0,1)]">Navigasi Utama (Navbar)</h3>
+                    <p className="font-bold text-mint-soft text-base md:text-lg mb-6 leading-relaxed">
+                      Dibungkus ketat dalam semantic tag <code>&lt;nav&gt;</code>, kompartemen ini dibagi dua kubu: <code>.logo</code> untuk teks/gambar merek, dan <code>.nav-links</code> untuk pasukan tautan menu.
+                    </p>
+                    <div className="bg-black text-white p-6 border-4 border-white font-bold mb-2 shadow-[4px_4px_0px_rgba(255,255,255,1)] transform rotate-1">
+                      <strong className="text-xl uppercase text-jade-vibrant block mb-2 tracking-widest">⚠️ PENTING: Tanda Pagar (#) pada Href</strong>
+                      Alih-alih memanggil file HTML beda benua seperti <code>about.html</code>, kita menggunakan Anchor Link peluncur cepat (misal: <code>href="#projects"</code>). Ini adalah perintah sakti agar browser langsung meluncur turun (scroll) ke koordinat <code>&lt;section id="projects"&gt;</code> di dalam file halaman yang persis sama!
+                    </div>
                   </div>
                 </div>
 
                 {/* Bagian 3 */}
-                <div className="bg-[#FACC15] border-4 border-black p-6 md:p-8 relative hover:-translate-y-1 transition-transform shadow-[4px_4px_0px_0px_rgba(0,0,0,1)]">
-                  <div className="absolute -top-5 -left-5 bg-black text-white w-10 h-10 flex items-center justify-center font-black text-xl border-2 border-white rounded-full shadow-[2px_2px_0px_0px_rgba(0,0,0,1)]">3</div>
-                  <h3 className="text-xl md:text-2xl font-black uppercase mb-3">Seksi Konten & Inline Style</h3>
-                  <p className="font-bold text-black/80 leading-relaxed mb-4">
-                    Website dipecah menjadi blok-blok menggunakan <code>&lt;section&gt;</code>. Di dalam "Hero Section" (beranda atas), perhatikan kode ini:
-                    <br /><br />
-                    <code className="bg-white px-2 py-1 border border-black inline-block shadow-[2px_2px_0px_0px_rgba(0,0,0,1)]">&lt;span style="color: var(--accent-color);"&gt;</code>
-                  </p>
-                  <p className="font-bold text-black/80 leading-relaxed">
-                    Itu adalah <strong>Inline CSS</strong> yang digabungkan dengan <strong>CSS Variable</strong>. Nantinya, saat kita mendefinisikan <code>--accent-color: biru;</code> di file CSS, nama kamu akan otomatis berubah menjadi warna biru!
-                  </p>
+                <div className="bg-jade-vibrant text-black border-4 border-black p-6 md:p-10 relative hover:-translate-y-2 hover:shadow-neo-lg transition-transform shadow-neo-md flex flex-col md:flex-row gap-6 items-start">
+                  <div className="flex-shrink-0 bg-white text-black w-14 h-14 flex items-center justify-center font-black text-3xl border-4 border-black rounded-none shadow-[4px_4px_0px_rgba(0,0,0,1)] -mt-2 md:-mt-4 -ml-2 md:-ml-4">3</div>
+                  <div>
+                    <h3 className="text-xl md:text-3xl font-black uppercase mb-4 text-black tracking-widest border-b-4 border-black pb-2 inline-block drop-shadow-[2px_2px_0px_rgba(255,255,255,1)]">Seksi Konten & Inline Style</h3>
+                    <p className="font-bold text-black text-base md:text-lg leading-relaxed mb-6 bg-white p-4 border-4 border-black shadow-neo-sm">
+                      Lanskap website dipecah belah menjadi blok-blok teritorial menggunakan <code>&lt;section&gt;</code>. Di area "Hero Section" (beranda atas), perhatikan kode penyusup ini:
+                      <br /><br />
+                      <code className="bg-black text-jade-vibrant font-black uppercase tracking-widest px-3 py-2 border-4 border-black inline-block shadow-[4px_4px_0px_rgba(255,255,255,1)]">&lt;span style="color: var(--accent-color);"&gt;</code>
+                    </p>
+                    <p className="font-bold text-black text-base md:text-lg leading-relaxed">
+                      Itu adalah serangan <strong>Inline CSS</strong> yang digabungkan licik dengan <strong>CSS Variable</strong>. Nantinya, saat kita mengumumkan <code>--accent-color: biru;</code> di file CSS terpisah, nama panggungmu akan otomatis berubah menyala biru tanpa harus disentuh lagi!
+                    </p>
+                  </div>
                 </div>
 
                 {/* Bagian 4 */}
-                <div className="bg-white border-4 border-black p-6 md:p-8 relative hover:-translate-y-1 transition-transform shadow-[4px_4px_0px_0px_rgba(0,0,0,1)]">
-                  <div className="absolute -top-5 -left-5 bg-[#FF49DB] text-white w-10 h-10 flex items-center justify-center font-black text-xl border-2 border-black rounded-full shadow-[2px_2px_0px_0px_rgba(0,0,0,1)]">4</div>
-                  <h3 className="text-xl md:text-2xl font-black uppercase mb-3">Struktur Kartu (Card) Project</h3>
-                  <p className="font-bold text-black/80 leading-relaxed">
-                    Pada seksi "Featured Projects", terdapat <code>&lt;div class="projects-grid"&gt;</code> yang bertugas menjadi wadah (kontainer). Di dalamnya terdapat beberapa anak berupa <code>&lt;div class="project-card"&gt;</code>.
-                    <br /><br />
-                    Pola desain "Pembungkus & Anak" ini disiapkan agar nantinya saat kita belajar <strong>CSS Flexbox/Grid</strong>, kita bisa dengan mudah menyulap kartu-kartu yang berjejer ke bawah ini menjadi grid (kotak-kotak) menyamping dengan sangat rapi!
-                  </p>
+                <div className="bg-canvas border-4 border-black p-6 md:p-10 relative hover:-translate-y-2 hover:shadow-neo-lg transition-transform shadow-neo-md flex flex-col md:flex-row gap-6 items-start">
+                  <div className="flex-shrink-0 bg-mint-soft text-black w-14 h-14 flex items-center justify-center font-black text-3xl border-4 border-black rounded-none shadow-[4px_4px_0px_rgba(0,0,0,1)] -mt-2 md:-mt-4 -ml-2 md:-ml-4">4</div>
+                  <div>
+                    <h3 className="text-xl md:text-3xl font-black uppercase mb-4 text-black tracking-widest border-b-4 border-black pb-2 inline-block">Arsitektur Kartu (Card)</h3>
+                    <p className="font-bold text-forest-teal text-base md:text-lg leading-relaxed">
+                      Pada distrik "Featured Projects", bersemayam <code>&lt;div class="projects-grid"&gt;</code> yang ditunjuk menjadi wadah induk (kontainer). Di dalam rahimnya bersarang beberapa prajurit <code>&lt;div class="project-card"&gt;</code>.
+                      <br /><br />
+                      Strategi formasi "Pembungkus & Pasukan" ini disiapkan matang agar nantinya saat kita mengerahkan kekuatan tempur <strong>CSS Flexbox/Grid</strong>, kita bisa dengan sadis menyulap kartu-kartu yang menumpuk ke bawah ini menjadi formasi grid (kotak-kotak) menyamping menyapu layar dengan sangat rapi dan responsif!
+                    </p>
+                  </div>
                 </div>
 
                 {/* Bagian 5 */}
-                <div className="bg-black text-white border-4 border-black p-6 md:p-8 relative hover:-translate-y-1 transition-transform shadow-[4px_4px_0px_0px_rgba(0,0,0,1)]">
-                  <div className="absolute -top-5 -left-5 bg-[#2DD4BF] text-black w-10 h-10 flex items-center justify-center font-black text-xl border-2 border-black rounded-full shadow-[2px_2px_0px_0px_rgba(0,0,0,1)]">5</div>
-                  <h3 className="text-xl md:text-2xl font-black uppercase mb-3 text-[#FACC15]">Formulir Kontak & SVG Ikon</h3>
-                  <p className="font-bold text-white/80 leading-relaxed mb-4">
-                    Di seksi terakhir, terdapat formulir menggunakan tag <code>&lt;form&gt;</code>. Inputnya disetel sebagai <code>required</code> (wajib isi) sehingga pengguna tidak bisa menekan tombol kirim jika masih kosong.
-                  </p>
-                  <p className="font-bold text-white/80 leading-relaxed">
-                    Sedangkan di bagian <code>&lt;footer&gt;</code>, kamu akan menemukan banyak angka yang aneh (<code>&lt;path d="M16 8a6..."&gt;</code>). Itu adalah <strong>SVG (Scalable Vector Graphics)</strong>.
-                    Itu adalah cara memasukkan ikon (seperti logo LinkedIn dan GitHub) secara murni menggunakan kode matematika pembentuk garis, sehingga ukurannya tidak akan pernah pecah (blur) sekecil atau sebesar apapun ia di-zoom!
-                  </p>
+                <div className="bg-black text-white border-4 border-black p-6 md:p-10 relative hover:-translate-y-2 hover:shadow-neo-lg transition-transform shadow-[6px_6px_0px_rgba(45,212,191,1)] flex flex-col md:flex-row gap-6 items-start">
+                  <div className="flex-shrink-0 bg-white text-black w-14 h-14 flex items-center justify-center font-black text-3xl border-4 border-black rounded-none shadow-[4px_4px_0px_rgba(255,255,255,1)] -mt-2 md:-mt-4 -ml-2 md:-ml-4">5</div>
+                  <div>
+                    <h3 className="text-xl md:text-3xl font-black uppercase mb-4 text-mint-soft tracking-widest border-b-4 border-mint-soft pb-2 inline-block">Form Kontak & Vector SVG</h3>
+                    <p className="font-bold text-white/80 text-base md:text-lg leading-relaxed mb-6">
+                      Di wilayah terakhir pertahanan, terdapat posko formulir interogasi menggunakan tag <code>&lt;form&gt;</code>. Tiap kolom inputnya dikunci keras dengan atribut <code className="bg-mint-canvas text-black px-1 font-black uppercase">required</code> (wajib isi) sehingga pengguna ditolak paksa menekan tombol kirim jika masih ada yang melompong kosong.
+                    </p>
+                    <p className="font-bold text-white text-base md:text-lg leading-relaxed bg-pine-deep p-4 border-4 border-white shadow-[4px_4px_0px_rgba(255,255,255,1)] transform rotate-1">
+                      Sedangkan di bunker <code>&lt;footer&gt;</code> paling bawah, kamu akan menatap sandi angka koordinat yang sangat panjang (seperti <code>&lt;path d="M16 8a6..."&gt;</code>). Itu adalah senjata <strong>SVG (Scalable Vector Graphics)</strong> mutakhir.
+                      Itu adalah rekayasa rahasia memanggil ikon visual (logo LinkedIn, GitHub, dsb) secara murni menggunakan bahasa rumus matematika pembentuk garis, sehingga ketajaman pisaunya tidak akan pernah pecah (blur) sekecil bakteri atau sebesar galaksi apapun layarnya di-zoom!
+                    </p>
+                  </div>
                 </div>
 
               </div>
             </section>
 
-            <div className="h-12 w-full"></div>
+            {/* Footer / Penutup */}
+            <div className="mt-16 mb-8 flex flex-col md:flex-row justify-between items-center gap-4 border-t-4 border-black pt-8">
+              <p className="font-black text-sm md:text-base uppercase tracking-widest text-forest-teal bg-white border-4 border-black px-4 py-2 shadow-neo-sm text-center md:text-left">
+                © 2026 FARHAN YUDHA PRATAMA
+              </p>
+            </div>
           </div>
         </main>
       </div>

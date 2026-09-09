@@ -17,93 +17,98 @@ export default function PseudoClassesPage() {
       <div className="flex pt-[88px] min-h-screen">
         <Sidebar />
 
-        <main className="md:ml-[280px] w-full p-4 md:p-10 bg-[#F4F0EA] relative" style={{ backgroundImage: 'radial-gradient(#000 1px, transparent 1px)', backgroundSize: '20px 20px' }}>
-          <div className="max-w-5xl mx-auto space-y-8 md:space-y-16">
+        <main className="md:ml-[280px] w-full p-4 md:p-10 bg-canvas relative" style={{ backgroundImage: 'radial-gradient(var(--color-outline) 1px, transparent 1px)', backgroundSize: '24px 24px' }}>
+          <div className="max-w-5xl mx-auto space-y-12 md:space-y-16">
 
-            <section className="bg-[#FF49DB] border-4 border-black p-6 md:p-10 shadow-[4px_4px_0px_0px_rgba(0,0,0,1)] md:shadow-[8px_8px_0px_0px_rgba(0,0,0,1)] text-center relative overflow-hidden">
-              <h1 className="text-4xl sm:text-5xl md:text-6xl font-black text-white tracking-tighter uppercase mb-4 md:mb-6 drop-shadow-[2px_2px_0px_rgba(0,0,0,1)]">
-                14. Interaksi & Animasi
+            <section className="bg-white border-4 border-black p-6 md:p-12 shadow-neo-xl text-center relative overflow-hidden transform rotate-1 hover:rotate-0 transition-transform">
+              <div className="absolute top-0 left-0 bg-jade-vibrant text-white font-black px-4 py-1 border-b-4 border-r-4 border-black shadow-neo-sm z-20">
+                MATERI 14
+              </div>
+              <h1 className="text-4xl sm:text-5xl md:text-7xl font-black text-black tracking-tighter uppercase mt-6 mb-4 md:mb-6">
+                Interaksi & Animasi
               </h1>
-              <p className="text-base md:text-xl font-bold text-black bg-white inline-block px-3 py-2 md:px-4 md:py-2 border-2 md:border-4 border-black shadow-[4px_4px_0px_0px_rgba(0,0,0,1)]">
-                Menghidupkan elemen kaku menjadi interaktif dengan Pseudo-classes!
+              <p className="text-base md:text-xl font-bold text-white bg-forest-teal inline-block px-4 py-2 md:px-6 md:py-3 border-4 border-black mb-4 md:mb-6 shadow-neo-md uppercase tracking-tight">
+                Menghidupkan elemen kaku menjadi super interaktif dengan Pseudo-classes!
               </p>
             </section>
 
-            <section className="bg-white border-4 border-black shadow-[4px_4px_0px_0px_rgba(0,0,0,1)] md:shadow-[8px_8px_0px_0px_rgba(0,0,0,1)] p-6 md:p-12">
-              <h2 className="text-2xl md:text-4xl font-black text-black uppercase mb-6 md:mb-8 border-b-4 border-black pb-4 flex items-center gap-4">
-                <span className="material-symbols-outlined text-4xl md:text-5xl text-[#2DD4BF]">touch_app</span>
-                Mersepons Sentuhan
+            <section className="bg-white border-4 border-black shadow-neo-xl p-6 md:p-12">
+              <h2 className="text-2xl sm:text-3xl md:text-5xl font-black text-black uppercase mb-8 md:mb-10 border-b-4 border-black pb-4 flex items-center gap-3 md:gap-4 tracking-tighter">
+                <span className="material-symbols-outlined text-4xl md:text-5xl text-white bg-pine-deep p-2 border-4 border-black shadow-neo-sm flex-shrink-0">touch_app</span>
+                Merespons Sentuhan
               </h2>
 
-              <div className="flex flex-col lg:flex-row gap-8 mb-12">
-                <div className="lg:w-1/2 space-y-6">
-                  <p className="font-bold text-black/80 text-lg leading-relaxed">
-                    Kamu bisa memberikan CSS khusus ketika elemen sedang berada dalam <em>keadaan tertentu</em> (misalnya sedang disentuh kursor) menggunakan <strong>Pseudo-classes</strong> (ditandai dengan awalan titik dua <code className="bg-gray-200 px-1 border border-black">:</code>).
+              <div className="flex flex-col lg:flex-row gap-8 lg:gap-10 mb-12 items-stretch">
+                <div className="lg:w-1/2 space-y-8">
+                  <p className="font-bold text-forest-teal text-lg md:text-xl leading-relaxed bg-mint-canvas p-4 border-4 border-black shadow-neo-sm">
+                    Kamu bisa memberikan gaya CSS khusus menyala ketika elemen sedang berada dalam <em>keadaan tertentu</em> (misal sedang disentuh/ditekan) menggunakan <strong className="text-black uppercase underline decoration-4 decoration-jade-vibrant">Pseudo-classes</strong> (ditandai dengan awalan titik dua <code className="bg-white px-2 py-1 border-2 border-black font-black text-black">:</code>).
                   </p>
                   
-                  <ul className="space-y-4">
-                    <li className="flex items-start gap-3">
-                      <span className="bg-[#2DD4BF] p-1 border-2 border-black inline-block mt-1">🖱️</span>
+                  <ul className="space-y-6">
+                    <li className="flex items-start gap-4 bg-canvas border-4 border-black p-4 shadow-neo-sm hover:translate-x-2 transition-transform">
+                      <span className="bg-white p-2 border-4 border-black shadow-[2px_2px_0px_rgba(0,0,0,1)] text-2xl flex-shrink-0">🖱️</span>
                       <div>
-                        <strong className="block text-xl uppercase font-black">:hover</strong>
-                        <p className="font-bold text-black/70">Memicu perubahan CSS saat kursor mouse melayang di atas elemen.</p>
+                        <strong className="block text-xl uppercase font-black text-black tracking-widest mb-1">:hover</strong>
+                        <p className="font-bold text-forest-teal text-base">Memicu ledakan perubahan CSS instan saat kursor mouse melayang di atas tubuh elemen.</p>
                       </div>
                     </li>
-                    <li className="flex items-start gap-3">
-                      <span className="bg-[#FACC15] p-1 border-2 border-black inline-block mt-1">⌨️</span>
+                    <li className="flex items-start gap-4 bg-canvas border-4 border-black p-4 shadow-neo-sm hover:translate-x-2 transition-transform">
+                      <span className="bg-white p-2 border-4 border-black shadow-[2px_2px_0px_rgba(0,0,0,1)] text-2xl flex-shrink-0">⌨️</span>
                       <div>
-                        <strong className="block text-xl uppercase font-black">:focus</strong>
-                        <p className="font-bold text-black/70">Memicu perubahan CSS saat elemen (seperti input teks) diklik dan sedang diketik oleh pengguna.</p>
+                        <strong className="block text-xl uppercase font-black text-black tracking-widest mb-1">:focus</strong>
+                        <p className="font-bold text-forest-teal text-base">Memicu perubahan CSS saat elemen (seperti kotak input teks) sedang diklik aktif dan diketik oleh pengguna.</p>
                       </div>
                     </li>
                   </ul>
                   
-                  <div className="bg-[#F4F0EA] border-4 border-black p-4 shadow-[4px_4px_0px_0px_rgba(0,0,0,1)] mt-8">
-                    <p className="font-bold text-sm uppercase mb-3 text-black/60 tracking-widest text-center">Cobalah Interaksi Berikut!</p>
-                    <div className="flex flex-col gap-4">
+                  <div className="bg-mint-soft border-4 border-black p-6 shadow-neo-md mt-10">
+                    <p className="font-black text-sm md:text-base uppercase mb-4 text-black tracking-widest text-center border-b-2 border-black pb-2">🕹️ Area Bermain Interaktif!</p>
+                    <div className="flex flex-col gap-6">
                       {/* Interactive Hover */}
-                      <button className="bg-black text-white font-black p-3 border-2 border-black hover:bg-[#FF49DB] transition-colors cursor-pointer text-left pl-4">
-                        Arahkan Mouse ke Sini (:hover)
+                      <button className="bg-black text-white text-lg md:text-xl font-black p-4 border-4 border-black shadow-[4px_4px_0px_rgba(0,0,0,1)] hover:bg-jade-vibrant hover:text-black hover:-translate-y-2 hover:shadow-[6px_6px_0px_rgba(0,0,0,1)] active:translate-y-[4px] active:translate-x-[4px] active:shadow-none transition-all cursor-pointer text-center uppercase tracking-widest">
+                        Arahkan Mouse (:hover)
                       </button>
                       {/* Interactive Focus */}
                       <input 
                         type="text" 
                         placeholder="Klik dan ketik sesuatu... (:focus)" 
-                        className="bg-white p-3 border-2 border-black outline-none focus:border-[#2DD4BF] focus:shadow-[4px_4px_0px_0px_rgba(45,212,191,1)] transition-all font-bold placeholder:font-normal"
+                        className="bg-white text-black p-4 border-4 border-black outline-none focus:border-pine-deep focus:-translate-y-1 focus:shadow-[4px_4px_0px_0px_rgba(0,0,0,1)] transition-all font-bold placeholder:font-normal text-lg"
                       />
                     </div>
                   </div>
                 </div>
 
-                <div className="lg:w-1/2 space-y-6">
+                <div className="lg:w-1/2 space-y-8 flex flex-col">
                   
-                  <div className="bg-black text-white border-4 border-black p-6 shadow-[4px_4px_0px_0px_rgba(0,0,0,1)] relative rotate-1 hover:rotate-0 transition-transform">
-                    <h3 className="font-black text-2xl mb-4 text-[#FACC15] flex items-center gap-2">
-                      <span className="material-symbols-outlined">animation</span>
+                  <div className="bg-black text-white border-4 border-black p-6 shadow-neo-lg relative transform -rotate-1 hover:rotate-0 transition-transform flex-1 flex flex-col">
+                    <h3 className="font-black text-2xl md:text-3xl mb-6 text-mint-soft flex items-center gap-3 border-b-4 border-white pb-3">
+                      <span className="material-symbols-outlined text-4xl">animation</span>
                       Animasi Halus!
                     </h3>
-                    <p className="font-bold text-white/80 mb-4 leading-relaxed">
-                      Perubahan warna yang tiba-tiba sangat kaku. Tambahkan <code className="bg-white/20 px-1 border border-white">transition</code> agar perubahannya punya durasi waktu. Dan gunakan <code className="bg-white/20 px-1 border border-white">transform</code> untuk efek bergerak memutar, membesar, atau terangkat!
+                    <p className="font-bold text-white/90 text-lg mb-6 leading-relaxed bg-[#222] p-4 border-4 border-white">
+                      Perubahan warna yang instan sangat kaku. Tambahkan <code className="bg-jade-vibrant text-black px-2 py-1 font-black inline-block mt-1 sm:mt-0">transition</code> agar perubahannya punya durasi waktu *smooth*. Dan kombinasikan dengan <code className="bg-jade-vibrant text-black px-2 py-1 font-black inline-block mt-1 sm:mt-0">transform</code> untuk efek bergerak memutar, melar, atau terangkat gravitasi!
                     </p>
-                    <CodeBlock 
-                      language="css" 
-                      code={`.btn {
+                    <div className="flex-grow flex flex-col">
+                      <CodeBlock 
+                        language="css" 
+                        code={`.btn {
   background-color: blue;
   
-  /* Semua efek butuh waktu 0.3 detik */
+  /* Rahasia efek transisi smooth 0.3 detik */
   transition: all 0.3s ease; 
 }
 
 .btn:hover {
   background-color: darkblue;
   
-  /* Elemen akan terangkat 5 pixel! */
+  /* Elemen akan melayang terangkat 5 pixel! */
   transform: translateY(-5px); 
 }`} 
-                    />
+                      />
+                    </div>
                     
-                    <div className="mt-6 flex justify-center">
-                      <button className="bg-[#2DD4BF] text-black text-xl font-black px-6 py-3 border-4 border-black shadow-[4px_4px_0px_0px_rgba(0,0,0,1)] hover:-translate-y-2 hover:bg-[#FF49DB] transition-all duration-300 ease-out cursor-pointer">
+                    <div className="mt-8 flex justify-center">
+                      <button className="bg-jade-vibrant text-black text-xl md:text-2xl font-black px-8 py-4 border-4 border-black shadow-[4px_4px_0px_0px_rgba(255,255,255,1)] hover:-translate-y-3 hover:shadow-[6px_6px_0px_0px_rgba(255,255,255,1)] hover:rotate-3 active:translate-y-0 active:translate-x-0 active:shadow-none active:rotate-0 transition-all duration-300 ease-out cursor-pointer uppercase tracking-widest w-full">
                         Hover Me! 🚀
                       </button>
                     </div>
@@ -113,77 +118,84 @@ export default function PseudoClassesPage() {
               </div>
 
               {/* Structural Pseudo-classes */}
-              <div className="bg-[#2DD4BF] border-4 border-black p-6 md:p-8 shadow-[4px_4px_0px_0px_rgba(0,0,0,1)] mt-12 flex flex-col md:flex-row gap-8 items-center text-black">
-                <div className="md:w-1/2 space-y-6">
-                  <h3 className="text-2xl font-black uppercase flex items-center gap-2">
-                    <span className="material-symbols-outlined text-4xl bg-white rounded-full p-1 border-2 border-black">format_list_numbered</span>
+              <div className="bg-pine-deep border-4 border-black p-6 md:p-12 shadow-neo-xl mt-16 flex flex-col xl:flex-row gap-10 items-stretch text-white transform rotate-1 hover:rotate-0 transition-transform">
+                <div className="xl:w-1/2 space-y-8">
+                  <h3 className="text-2xl md:text-4xl font-black uppercase flex items-center gap-3 drop-shadow-[2px_2px_0px_rgba(0,0,0,1)]">
+                    <span className="material-symbols-outlined text-4xl md:text-5xl bg-mint-soft text-black p-2 rounded-none border-4 border-black shadow-[2px_2px_0px_rgba(0,0,0,1)]">format_list_numbered</span>
                     Targeting Spesifik
                   </h3>
-                  <p className="font-bold text-black/80 leading-relaxed">
-                    Selain efek interaktif, Pseudo-classes juga sangat sakti untuk memanipulasi elemen berdasarkan <strong>urutan posisinya</strong> di dalam HTML (tanpa perlu repot memberi <code>class</code> satu per satu pada tiap elemen!).
+                  <p className="font-bold text-lg md:text-xl leading-relaxed bg-black p-4 border-4 border-mint-soft">
+                    Selain efek interaktif, Pseudo-classes juga merupakan senjata pemusnah massal untuk memanipulasi elemen berdasarkan <strong className="text-jade-vibrant uppercase">urutan posisinya</strong> di dalam HTML (tanpa perlu capek ngasih <code className="bg-white text-black px-1">class</code> manual satu per satu!).
                   </p>
                   
-                  <ul className="space-y-4">
-                    <li className="flex items-start gap-3">
-                      <span className="bg-[#FACC15] p-1 border-2 border-black inline-block mt-1">1️⃣</span>
+                  <ul className="space-y-6">
+                    <li className="flex items-start gap-4 bg-white text-black border-4 border-black p-4 shadow-[4px_4px_0px_rgba(0,0,0,1)] hover:-translate-y-1 transition-transform">
+                      <span className="bg-canvas p-2 border-4 border-black text-2xl flex-shrink-0">1️⃣</span>
                       <div>
-                        <strong className="block text-xl uppercase font-black text-black">:first-child / :last-child</strong>
-                        <p className="font-bold text-black/70">Membidik elemen anak pertama atau anak terakhir saja secara instan. Sangat berguna untuk menghapus garis batas (border) pada ujung sebuah list!</p>
+                        <strong className="block text-xl md:text-2xl uppercase font-black tracking-widest mb-1 text-jade-vibrant">:first-child / :last-child</strong>
+                        <p className="font-bold text-forest-teal text-base">Membidik secara absolut elemen anak pertama atau anak terakhir saja. Sangat mematikan untuk menghapus garis batas (border) pada ekor sebuah list navigasi!</p>
                       </div>
                     </li>
-                    <li className="flex items-start gap-3">
-                      <span className="bg-[#FF49DB] text-white p-1 border-2 border-black inline-block mt-1">🔢</span>
+                    <li className="flex items-start gap-4 bg-white text-black border-4 border-black p-4 shadow-[4px_4px_0px_rgba(0,0,0,1)] hover:-translate-y-1 transition-transform">
+                      <span className="bg-canvas p-2 border-4 border-black text-2xl flex-shrink-0">🔢</span>
                       <div>
-                        <strong className="block text-xl uppercase font-black text-black">:nth-child(n)</strong>
-                        <p className="font-bold text-black/70">Kamu bisa mengisi kurungnya dengan urutan angka (misal: 3), atau menggunakan kata ajaib <code className="bg-white/50 px-1 border border-black text-sm text-black">odd</code> (Ganjil) dan <code className="bg-white/50 px-1 border border-black text-sm text-black">even</code> (Genap) untuk membuat desain tabel belang-belang (Zebra Striping).</p>
+                        <strong className="block text-xl md:text-2xl uppercase font-black tracking-widest mb-1 text-jade-vibrant">:nth-child(n)</strong>
+                        <p className="font-bold text-forest-teal text-base">Isi kurungnya dengan urutan angka (misal: 3), atau gunakan mantra magis <code className="bg-mint-canvas px-2 border-2 border-black font-black text-black uppercase">odd</code> (Ganjil) dan <code className="bg-mint-canvas px-2 border-2 border-black font-black text-black uppercase">even</code> (Genap) untuk otomatis membuat desain tabel belang-belang anti-pusing (Zebra Striping).</p>
                       </div>
                     </li>
                   </ul>
                   
-                  <div className="bg-white border-2 border-black p-4 mt-6 shadow-[4px_4px_0px_0px_rgba(0,0,0,1)]">
-                    <p className="font-bold text-sm uppercase mb-3 text-black/60 tracking-widest text-center">Visualisasi :nth-child(odd)</p>
-                    <ul className="border-2 border-black font-bold">
-                      <li className="p-2 bg-[#FACC15] border-b-2 border-black">Baris 1 (Ganjil)</li>
-                      <li className="p-2 bg-white border-b-2 border-black">Baris 2 (Genap)</li>
-                      <li className="p-2 bg-[#FACC15] border-b-2 border-black">Baris 3 (Ganjil)</li>
-                      <li className="p-2 bg-white">Baris 4 (Genap)</li>
+                  <div className="bg-canvas text-black border-4 border-black p-6 mt-8 shadow-[6px_6px_0px_0px_rgba(0,0,0,1)]">
+                    <p className="font-black text-sm md:text-base uppercase mb-4 text-black tracking-widest text-center border-b-4 border-black pb-2 bg-white inline-block px-4">Zebra Striping Visual</p>
+                    <ul className="border-4 border-black font-black text-lg uppercase tracking-wider">
+                      <li className="p-3 bg-jade-vibrant border-b-4 border-black flex justify-between"><span>Baris 1</span> <span>(Ganjil)</span></li>
+                      <li className="p-3 bg-white border-b-4 border-black flex justify-between"><span>Baris 2</span> <span>(Genap)</span></li>
+                      <li className="p-3 bg-jade-vibrant border-b-4 border-black flex justify-between text-white drop-shadow-[2px_2px_0px_rgba(0,0,0,1)] relative"><span className="absolute -left-4 -top-2 text-3xl rotate-[-20deg]">🎯</span> <span>Baris 3</span> <span>(Target ke-3)</span></li>
+                      <li className="p-3 bg-white flex justify-between"><span>Baris 4</span> <span>(Genap)</span></li>
                     </ul>
                   </div>
                 </div>
 
-                <div className="md:w-1/2 w-full rotate-1 hover:rotate-0 transition-transform">
-                  <CodeBlock 
-                    language="css" 
-                    code={`/* Menghapus garis bawah pada baris terakhir list */
+                <div className="xl:w-1/2 w-full flex flex-col bg-black border-4 border-black p-1 shadow-neo-md">
+                   <div className="bg-mint-soft border-b-4 border-black p-3 font-black uppercase text-center text-black">Structural Targeting</div>
+                  <div className="flex-grow p-1">
+                    <CodeBlock 
+                      language="css" 
+                      code={`/* Menghapus garis bawah pada baris terujung */
 li:last-child {
   border-bottom: none;
 }
 
-/* Mewarnai kuning pada setiap baris GANJIL */
-/* Trik jitu untuk membuat "Zebra Tabel" */
+/* Trik Dewa mewarnai baris GANJIL otomatis */
+/* Sangat rapi untuk "Zebra Tabel" */
 li:nth-child(odd) {
-  background-color: #FACC15;
+  background-color: var(--jade-vibrant);
 }
 
-/* Mewarnai teks merah di baris ke-3 spesifik */
+/* Mengeksekusi warna berbeda tepat di baris ke-3 */
 li:nth-child(3) {
-  color: red;
+  color: white;
 }`} 
-                  />
+                    />
+                  </div>
                 </div>
               </div>
 
             </section>
 
             {/* Footer / Penutup */}
-            <footer className="bg-white border-4 border-black p-6 md:p-8 shadow-[4px_4px_0px_0px_rgba(0,0,0,1)] md:shadow-[8px_8px_0px_0px_rgba(0,0,0,1)] text-center relative hover:-translate-y-1 transition-transform">
-              <span className="material-symbols-outlined absolute -top-3 -right-3 md:-top-4 md:-right-4 text-4xl md:text-5xl text-white bg-black rounded-full border-2 md:border-4 border-black p-2 shadow-[2px_2px_0px_0px_rgba(0,0,0,1)]">sports_esports</span>
-              <p className="text-xl md:text-3xl font-black text-black uppercase leading-relaxed max-w-4xl mx-auto">
-                "Sebuah website tanpa efek :hover bagaikan benda mati. Hidupkan dengan Transition!"
+            <footer className="bg-jade-vibrant border-4 border-black p-8 md:p-12 shadow-neo-xl text-center relative hover:-translate-y-1 transition-transform">
+              <span className="material-symbols-outlined absolute -top-4 -right-4 md:-top-6 md:-right-6 text-5xl md:text-6xl text-white bg-pine-deep rounded-none border-4 border-black p-3 shadow-neo-md hover:scale-110 transition-transform cursor-pointer">sports_esports</span>
+              <p className="text-2xl md:text-4xl font-black text-white uppercase leading-relaxed max-w-4xl mx-auto drop-shadow-[2px_2px_0px_rgba(0,0,0,1)] tracking-tight">
+                "Sebuah website mati kutu tanpa efek :hover. Bangkitkan dari kubur dengan kekuatan Transition!"
               </p>
             </footer>
 
-            <div className="h-12 w-full"></div>
+            <div className="mt-16 mb-8 flex flex-col md:flex-row justify-between items-center gap-4 border-t-4 border-black pt-8">
+              <p className="font-black text-sm md:text-base uppercase tracking-widest text-forest-teal bg-white border-4 border-black px-4 py-2 shadow-neo-sm text-center md:text-left">
+                © 2026 FARHAN YUDHA PRATAMA
+              </p>
+            </div>
           </div>
         </main>
       </div>

@@ -17,123 +17,132 @@ export default function DisplayCSSPage() {
       <div className="flex pt-[88px] min-h-screen">
         <Sidebar />
 
-        <main className="md:ml-[280px] w-full p-4 md:p-10 bg-[#F4F0EA] relative" style={{ backgroundImage: 'radial-gradient(#000 1px, transparent 1px)', backgroundSize: '20px 20px' }}>
-          <div className="max-w-5xl mx-auto space-y-8 md:space-y-16">
+        <main className="md:ml-[280px] w-full p-4 md:p-10 bg-canvas relative" style={{ backgroundImage: 'radial-gradient(var(--color-outline) 1px, transparent 1px)', backgroundSize: '24px 24px' }}>
+          <div className="max-w-5xl mx-auto space-y-12 md:space-y-16">
 
-            <section className="bg-white border-4 border-black p-6 md:p-10 shadow-[4px_4px_0px_0px_rgba(0,0,0,1)] md:shadow-[8px_8px_0px_0px_rgba(0,0,0,1)] text-center relative overflow-hidden">
-              <h1 className="text-4xl sm:text-5xl md:text-6xl font-black text-black tracking-tighter uppercase mb-4 md:mb-6">
-                8. Sifat Tampilan (Display)
+            <section className="bg-white border-4 border-black p-6 md:p-12 shadow-neo-xl text-center relative overflow-hidden transform rotate-1 hover:rotate-0 transition-transform">
+              <div className="absolute top-0 left-0 bg-jade-vibrant text-white font-black px-4 py-1 border-b-4 border-r-4 border-black shadow-neo-sm z-20">
+                MATERI 08
+              </div>
+              <h1 className="text-4xl sm:text-5xl md:text-7xl font-black text-black tracking-tighter uppercase mt-6 mb-4 md:mb-6">
+                Sifat Tampilan <br/> <span className="text-pine-deep bg-mint-soft px-4 inline-block transform -rotate-2 border-4 border-black shadow-[4px_4px_0px_rgba(0,0,0,1)] mt-2">(Display)</span>
               </h1>
-              <p className="text-base md:text-xl font-bold text-black bg-[#FACC15] inline-block px-3 py-2 md:px-4 md:py-2 border-2 md:border-4 border-black shadow-[4px_4px_0px_0px_rgba(0,0,0,1)]">
-                Properti "display" menentukan bagaimana suatu elemen memakan ruang di layar.
+              <p className="text-base md:text-xl font-bold text-white bg-forest-teal inline-block px-4 py-2 md:px-6 md:py-3 border-4 border-black mt-4 md:mb-6 shadow-neo-md uppercase tracking-tight">
+                Properti pengendali paling sakti untuk menentukan bagaimana ruang dimakan di layar!
               </p>
             </section>
 
-            <section className="bg-white border-4 border-black shadow-[4px_4px_0px_0px_rgba(0,0,0,1)] md:shadow-[8px_8px_0px_0px_rgba(0,0,0,1)] p-6 md:p-12">
-              <h2 className="text-2xl md:text-4xl font-black text-black uppercase mb-6 md:mb-8 border-b-4 border-black pb-4 flex items-center gap-4">
-                <span className="material-symbols-outlined text-4xl md:text-5xl text-[#2DD4BF]">view_in_ar</span>
+            <section className="bg-white border-4 border-black shadow-neo-xl p-6 md:p-12">
+              <h2 className="text-2xl sm:text-3xl md:text-5xl font-black text-black uppercase mb-8 md:mb-10 border-b-4 border-black pb-4 flex items-center gap-3 md:gap-4 tracking-tighter">
+                <span className="material-symbols-outlined text-4xl md:text-5xl text-white bg-pine-deep p-2 border-4 border-black shadow-neo-sm flex-shrink-0">view_in_ar</span>
                 4 Jenis Display Utama
               </h2>
 
-              <div className="space-y-8 mb-12">
+              <div className="space-y-10 md:space-y-12 mb-16">
                 
                 {/* Block */}
-                <div className="bg-[#F4F0EA] border-4 border-black p-6 shadow-[6px_6px_0px_0px_rgba(0,0,0,1)] flex flex-col md:flex-row gap-6 hover:scale-[1.01] transition-transform">
-                  <div className="md:w-1/3 flex flex-col justify-center items-center p-4 bg-white border-4 border-black shadow-[4px_4px_0px_0px_rgba(0,0,0,1)] text-center">
-                    <div className="w-full h-8 bg-[#FF49DB] border-2 border-black mb-2"></div>
-                    <div className="w-full h-8 bg-[#FF49DB] border-2 border-black"></div>
+                <div className="bg-canvas border-4 border-black p-6 md:p-8 shadow-neo-lg flex flex-col md:flex-row gap-8 hover:-translate-y-2 hover:shadow-neo-xl transition-all">
+                  <div className="md:w-1/3 flex flex-col justify-center items-center p-6 bg-white border-4 border-black shadow-neo-sm text-center">
+                    <div className="w-full h-10 bg-jade-vibrant border-4 border-black mb-3 shadow-[2px_2px_0px_rgba(0,0,0,1)]"></div>
+                    <div className="w-full h-10 bg-jade-vibrant border-4 border-black shadow-[2px_2px_0px_rgba(0,0,0,1)]"></div>
                   </div>
                   <div className="md:w-2/3 flex flex-col justify-center">
-                    <h3 className="text-2xl font-black uppercase mb-2 flex items-center gap-2">
-                      <span className="bg-[#FF49DB] text-white px-2 py-1 border-2 border-black text-sm">block</span>
+                    <h3 className="text-3xl font-black uppercase mb-4 flex items-center gap-2">
+                      <span className="bg-jade-vibrant text-white px-4 py-1 border-4 border-black shadow-neo-sm tracking-widest">block</span>
                     </h3>
-                    <p className="font-bold text-black/80 mb-4 leading-relaxed">
-                      Elemen mengambil <strong>satu baris penuh</strong> (100% lebar). Memaksa elemen selanjutnya untuk turun ke bawah. (Contoh bawaan: <code className="bg-white px-1 border border-black">&lt;div&gt;</code>, <code className="bg-white px-1 border border-black">&lt;h1&gt;</code>, <code className="bg-white px-1 border border-black">&lt;p&gt;</code>).
+                    <p className="font-bold text-forest-teal text-lg md:text-xl mb-6 leading-relaxed bg-white border-4 border-black p-4">
+                      Sifatnya serakah. Elemen mengambil <strong className="text-black uppercase">satu baris penuh</strong> (100% lebar). Memaksa elemen kawan selanjutnya untuk minggir turun ke bawah. (Contoh bawaan: <code className="bg-mint-canvas text-black font-black px-2 border-2 border-black">&lt;div&gt;</code>, <code className="bg-mint-canvas text-black font-black px-2 border-2 border-black">&lt;h1&gt;</code>).
                     </p>
-                    <CodeBlock language="css" code={`.kotak { display: block; }`} />
+                    <div className="border-4 border-black shadow-neo-sm"><CodeBlock language="css" code={`.kotak { display: block; }`} /></div>
                   </div>
                 </div>
 
                 {/* Inline */}
-                <div className="bg-[#F4F0EA] border-4 border-black p-6 shadow-[6px_6px_0px_0px_rgba(0,0,0,1)] flex flex-col md:flex-row gap-6 hover:scale-[1.01] transition-transform">
-                  <div className="md:w-1/3 flex flex-row justify-center items-center gap-2 p-4 bg-white border-4 border-black shadow-[4px_4px_0px_0px_rgba(0,0,0,1)]">
-                    <div className="w-12 h-8 bg-[#2DD4BF] border-2 border-black flex items-center justify-center font-bold text-xs">teks</div>
-                    <div className="w-16 h-8 bg-[#2DD4BF] border-2 border-black flex items-center justify-center font-bold text-xs">lagi</div>
+                <div className="bg-canvas border-4 border-black p-6 md:p-8 shadow-neo-lg flex flex-col md:flex-row gap-8 hover:-translate-y-2 hover:shadow-neo-xl transition-all">
+                  <div className="md:w-1/3 flex flex-row justify-center items-center gap-3 p-6 bg-white border-4 border-black shadow-neo-sm">
+                    <div className="w-16 h-10 bg-mint-soft border-4 border-black flex items-center justify-center font-black text-sm uppercase shadow-[2px_2px_0px_rgba(0,0,0,1)]">teks</div>
+                    <div className="w-20 h-10 bg-mint-soft border-4 border-black flex items-center justify-center font-black text-sm uppercase shadow-[2px_2px_0px_rgba(0,0,0,1)]">lagi</div>
                   </div>
                   <div className="md:w-2/3 flex flex-col justify-center">
-                    <h3 className="text-2xl font-black uppercase mb-2 flex items-center gap-2">
-                      <span className="bg-[#2DD4BF] text-black px-2 py-1 border-2 border-black text-sm">inline</span>
+                    <h3 className="text-3xl font-black uppercase mb-4 flex items-center gap-2">
+                      <span className="bg-mint-soft text-black px-4 py-1 border-4 border-black shadow-neo-sm tracking-widest">inline</span>
                     </h3>
-                    <p className="font-bold text-black/80 mb-4 leading-relaxed">
-                      Elemen hanya selebar isinya dan <strong>bersebelahan</strong>. Aturan <code className="bg-white px-1 border border-black">width</code> dan <code className="bg-white px-1 border border-black">height</code> <strong>TIDAK</strong> akan berpengaruh! (Contoh bawaan: <code className="bg-white px-1 border border-black">&lt;span&gt;</code>, <code className="bg-white px-1 border border-black">&lt;a&gt;</code>).
+                    <p className="font-bold text-forest-teal text-lg md:text-xl mb-6 leading-relaxed bg-white border-4 border-black p-4">
+                      Sifatnya merendah. Elemen hanya mengambil ruang selebar isinya dan suka <strong className="text-black uppercase">bersebelahan</strong>. Peringatan: Aturan <code className="text-black bg-mint-canvas px-2 border-2 border-black font-black">width</code> dan <code className="text-black bg-mint-canvas px-2 border-2 border-black font-black">height</code> <strong className="text-red-600 uppercase underline">TIDAK</strong> akan berguna di sini! (Contoh bawaan: <code className="text-black bg-mint-canvas px-2 border-2 border-black font-black">&lt;span&gt;</code>, <code className="text-black bg-mint-canvas px-2 border-2 border-black font-black">&lt;a&gt;</code>).
                     </p>
-                    <CodeBlock language="css" code={`.link { display: inline; }`} />
+                    <div className="border-4 border-black shadow-neo-sm"><CodeBlock language="css" code={`.link { display: inline; }`} /></div>
                   </div>
                 </div>
 
                 {/* Inline-Block */}
-                <div className="bg-[#F4F0EA] border-4 border-black p-6 shadow-[6px_6px_0px_0px_rgba(0,0,0,1)] flex flex-col md:flex-row gap-6 hover:scale-[1.01] transition-transform">
-                  <div className="md:w-1/3 flex flex-row justify-center items-center gap-2 p-4 bg-white border-4 border-black shadow-[4px_4px_0px_0px_rgba(0,0,0,1)]">
-                    <div className="w-20 h-12 bg-[#FACC15] border-2 border-black flex items-center justify-center font-bold text-xs">Box</div>
-                    <div className="w-16 h-12 bg-[#FACC15] border-2 border-black flex items-center justify-center font-bold text-xs">Box</div>
+                <div className="bg-canvas border-4 border-black p-6 md:p-8 shadow-neo-lg flex flex-col md:flex-row gap-8 hover:-translate-y-2 hover:shadow-neo-xl transition-all">
+                  <div className="md:w-1/3 flex flex-row justify-center items-center gap-3 p-6 bg-white border-4 border-black shadow-neo-sm">
+                    <div className="w-24 h-16 bg-pine-deep text-white border-4 border-black flex items-center justify-center font-black text-base uppercase shadow-[4px_4px_0px_rgba(0,0,0,1)] hover:-translate-y-1 cursor-pointer transition-transform">Btn 1</div>
+                    <div className="w-20 h-16 bg-pine-deep text-white border-4 border-black flex items-center justify-center font-black text-base uppercase shadow-[4px_4px_0px_rgba(0,0,0,1)] hover:-translate-y-1 cursor-pointer transition-transform">Btn 2</div>
                   </div>
                   <div className="md:w-2/3 flex flex-col justify-center">
-                    <h3 className="text-2xl font-black uppercase mb-2 flex items-center gap-2">
-                      <span className="bg-[#FACC15] text-black px-2 py-1 border-2 border-black text-sm">inline-block</span>
+                    <h3 className="text-3xl font-black uppercase mb-4 flex items-center gap-2">
+                      <span className="bg-pine-deep text-white px-4 py-1 border-4 border-black shadow-neo-sm tracking-widest">inline-block</span>
                     </h3>
-                    <p className="font-bold text-black/80 mb-4 leading-relaxed">
-                      Kombinasi terbaik! Elemen tetap bersebelahan seperti <em>inline</em>, <strong>TAPI</strong> kamu bisa mengatur <code className="bg-white px-1 border border-black">width</code> dan <code className="bg-white px-1 border border-black">height</code>-nya seperti <em>block</em>. Sering dipakai membuat tombol.
+                    <p className="font-bold text-forest-teal text-lg md:text-xl mb-6 leading-relaxed bg-white border-4 border-black p-4">
+                      Kombinasi dewa! Elemen bisa jejer bersebelahan seperti <em>inline</em>, <strong className="text-black uppercase">TETAPI AJAIBNYA</strong> kamu bisa dengan bebas mengatur <code className="text-black bg-mint-canvas px-2 border-2 border-black font-black">width</code> dan <code className="text-black bg-mint-canvas px-2 border-2 border-black font-black">height</code>-nya persis seperti <em>block</em>. Sangat sering dipakai untuk merancang bentuk tombol navigasi.
                     </p>
-                    <CodeBlock language="css" code={`.btn { display: inline-block; width: 150px; }`} />
+                    <div className="border-4 border-black shadow-neo-sm"><CodeBlock language="css" code={`.btn {\n  display: inline-block;\n  width: 150px;\n  height: 60px;\n}`} /></div>
                   </div>
                 </div>
 
                 {/* None */}
-                <div className="bg-[#1e1e1e] border-4 border-black p-6 shadow-[6px_6px_0px_0px_rgba(0,0,0,1)] flex flex-col md:flex-row gap-6 items-center hover:scale-[1.01] transition-transform">
-                  <div className="md:w-1/3 flex justify-center text-white">
-                    <span className="material-symbols-outlined text-6xl opacity-50">visibility_off</span>
+                <div className="bg-black text-white border-4 border-black p-6 md:p-8 shadow-[8px_8px_0px_0px_rgba(255,255,255,0.2)] flex flex-col md:flex-row gap-8 items-center hover:-translate-y-2 transition-all">
+                  <div className="md:w-1/3 flex justify-center text-white p-6 border-4 border-white border-dashed bg-[#1a1a1a]">
+                    <span className="material-symbols-outlined text-[80px] opacity-20">visibility_off</span>
                   </div>
                   <div className="md:w-2/3 text-white flex flex-col justify-center">
-                    <h3 className="text-2xl font-black uppercase mb-2 flex items-center gap-2">
-                      <span className="bg-black text-white px-2 py-1 border-2 border-white text-sm">none</span>
+                    <h3 className="text-3xl font-black uppercase mb-4 flex items-center gap-2">
+                      <span className="bg-white text-black px-4 py-1 border-4 border-white tracking-widest">none</span>
                     </h3>
-                    <p className="font-bold text-white/80 mb-4 leading-relaxed">
-                      Menyembunyikan elemen seolah-olah dihapus dari layar (tidak memakan tempat sama sekali). Sangat berguna untuk elemen yang disembunyikan pakai JavaScript (misal: modal / dropdown).
+                    <p className="font-bold text-white/80 text-lg md:text-xl mb-6 leading-relaxed bg-[#222] p-4 border-4 border-white">
+                      Membumihanguskan elemen dari mata telanjang (disembunyikan sempurna dan tidak memakan space sejengkal pun). Jurus ini wajib dipakai saat membuat fitur interaktif dengan JavaScript (seperti Pop-up, Modal, Sidebar Toggle).
                     </p>
-                    <CodeBlock language="css" code={`.hilang { display: none; }`} />
+                    <div className="border-4 border-white"><CodeBlock language="css" code={`.hilang-dari-radar { display: none; }`} /></div>
                   </div>
                 </div>
 
               </div>
 
               {/* Modern Display Teaser */}
-              <div className="bg-[#2DD4BF] border-4 border-black p-6 md:p-10 shadow-[4px_4px_0px_0px_rgba(0,0,0,1)] relative mt-12 flex flex-col md:flex-row gap-6 items-center">
-                <span className="material-symbols-outlined absolute -top-5 -right-5 text-4xl text-black bg-[#FF49DB] rounded-full border-4 border-black p-2 shadow-[2px_2px_0px_0px_rgba(0,0,0,1)] -rotate-12">rocket_launch</span>
+              <div className="bg-jade-vibrant border-4 border-black p-6 md:p-12 shadow-neo-xl relative mt-16 flex flex-col md:flex-row gap-8 items-center text-white transform rotate-1 hover:rotate-0 transition-transform">
+                <span className="material-symbols-outlined absolute -top-5 -right-5 md:-top-8 md:-right-8 text-5xl md:text-7xl text-black bg-mint-soft rounded-full border-4 border-black p-3 shadow-neo-md -rotate-12 hover:rotate-12 transition-transform cursor-pointer">rocket_launch</span>
                 <div className="flex-1">
-                  <h3 className="text-2xl font-black text-black uppercase mb-4 flex items-center gap-2">
-                    <span className="material-symbols-outlined text-3xl">star</span>
+                  <h3 className="text-2xl md:text-4xl font-black uppercase mb-6 flex items-center gap-3 drop-shadow-[2px_2px_0px_rgba(0,0,0,1)]">
+                    <span className="material-symbols-outlined text-4xl md:text-5xl">star</span>
                     Display Modern (Flex & Grid)
                   </h3>
-                  <p className="font-bold text-black/80 text-lg mb-4 leading-relaxed">
-                    Selain 4 tipe dasar di atas, CSS modern memiliki dua senjata terkuat untuk menyusun tata letak: <code className="bg-white px-1 border-2 border-black">display: flex;</code> dan <code className="bg-white px-1 border-2 border-black">display: grid;</code>.
-                  </p>
-                  <p className="font-bold text-black/80 text-lg mb-0 leading-relaxed">
-                    Keduanya sangat <em>powerful</em> sehingga kita akan mempelajarinya secara mendalam dan khusus pada bab <strong>Materi Pokok 4 (Dimensi & Tata Letak)</strong> nanti. Bersiaplah!
-                  </p>
+                  <div className="space-y-4">
+                    <p className="font-bold text-black text-lg md:text-xl leading-relaxed bg-white border-4 border-black p-4 shadow-neo-sm">
+                      Selain 4 tipe kuno di atas, CSS modern telah dianugerahi dua senjata pamungkas super absolut untuk menyusun tata letak: <code className="bg-pine-deep text-white font-black px-2 py-1 border-2 border-black inline-block mt-1 sm:mt-0">display: flex;</code> dan <code className="bg-pine-deep text-white font-black px-2 py-1 border-2 border-black inline-block mt-1 sm:mt-0">display: grid;</code>.
+                    </p>
+                    <p className="font-bold text-black text-lg md:text-xl leading-relaxed bg-white border-4 border-black p-4 shadow-neo-sm">
+                      Keduanya begitu <strong className="uppercase">luar biasa overpower</strong> sehingga kita akan membedahnya secara khusus dalam bab "Materi Pokok 4 (Dimensi & Tata Letak)". Persiapkan dirimu!
+                    </p>
+                  </div>
                 </div>
               </div>
 
             </section>
 
             {/* Footer / Penutup */}
-            <footer className="bg-[#2DD4BF] border-4 border-black p-6 md:p-8 shadow-[4px_4px_0px_0px_rgba(0,0,0,1)] md:shadow-[8px_8px_0px_0px_rgba(0,0,0,1)] text-center relative hover:-translate-y-1 transition-transform">
-              <span className="material-symbols-outlined absolute -top-3 -right-3 md:-top-4 md:-right-4 text-4xl md:text-5xl text-black bg-white rounded-full border-2 md:border-4 border-black p-2 shadow-[2px_2px_0px_0px_rgba(0,0,0,1)]">layers</span>
-              <p className="text-xl md:text-3xl font-black text-black uppercase leading-relaxed max-w-4xl mx-auto">
-                "Pahami sifat Display, karena inilah rahasia utama menyusun tata letak sebuah website!"
+            <footer className="bg-pine-deep border-4 border-black p-8 md:p-12 shadow-neo-xl text-center relative hover:-translate-y-1 transition-transform">
+              <span className="material-symbols-outlined absolute -top-4 -right-4 md:-top-6 md:-right-6 text-5xl md:text-6xl text-black bg-white rounded-full border-4 border-black p-3 shadow-neo-md hover:scale-110 transition-transform cursor-pointer">layers</span>
+              <p className="text-2xl md:text-4xl font-black text-white uppercase leading-relaxed max-w-4xl mx-auto drop-shadow-[2px_2px_0px_rgba(0,0,0,1)] tracking-tight">
+                "Pahami karakter 4 serangkai Display, karena inilah pondasi rahasia untuk memanipulasi posisi struktur website sesukamu!"
               </p>
             </footer>
 
-            <div className="h-12 w-full"></div>
+            <div className="mt-16 mb-8 flex flex-col md:flex-row justify-between items-center gap-4 border-t-4 border-black pt-8">
+              <p className="font-black text-sm md:text-base uppercase tracking-widest text-forest-teal bg-white border-4 border-black px-4 py-2 shadow-neo-sm text-center md:text-left">
+                © 2026 FARHAN YUDHA PRATAMA
+              </p>
+            </div>
           </div>
         </main>
       </div>

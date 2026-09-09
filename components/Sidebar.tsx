@@ -29,33 +29,21 @@ export default function Sidebar() {
     { href: '/meta-head-seo', icon: 'travel_explore', label: 'Meta, HEAD & SEO', color: 'bg-jade-vibrant text-white' },
   ];
 
-  const cssBagian1 = [
+  const cssLinks = [
     { href: '/pengenalan-css', icon: 'school', label: '1. Pengenalan CSS', color: 'bg-pine-deep text-white' },
     { href: '/pemanggilan-css', icon: 'route', label: '2. Cara Memanggil', color: 'bg-canvas text-black' },
     { href: '/sintaks-selector', icon: 'data_object', label: '3. Sintaks & Selector', color: 'bg-mint-soft text-black' },
     { href: '/specificity-css', icon: 'account_tree', label: '4. Hirarki (Specificity)', color: 'bg-jade-vibrant text-white' },
     { href: '/satuan-ukuran', icon: 'straighten', label: '5. Satuan Ukuran', color: 'bg-pine-deep text-white' },
-  ];
-
-  const cssBagian2 = [
     { href: '/tipografi', icon: 'font_download', label: '6. Tipografi & Font', color: 'bg-canvas text-black' },
     { href: '/warna-background', icon: 'format_color_fill', label: '7. Warna & Background', color: 'bg-mint-soft text-black' },
     { href: '/display-css', icon: 'visibility', label: '8. Sifat Display', color: 'bg-jade-vibrant text-white' },
-  ];
-
-  const cssBagian3 = [
     { href: '/box-model', icon: 'crop_square', label: '9. Box Model', color: 'bg-pine-deep text-white' },
     { href: '/flexbox', icon: 'view_kanban', label: '10. Flexbox Layout', color: 'bg-canvas text-black' },
     { href: '/css-grid', icon: 'grid_view', label: '11. Grid Layout', color: 'bg-mint-soft text-black' },
-  ];
-
-  const cssBagian4 = [
     { href: '/koordinat-zindex', icon: 'layers', label: '12. Posisi & Z-Index', color: 'bg-jade-vibrant text-white' },
     { href: '/pseudo-elements', icon: 'auto_awesome', label: '13. Pseudo-elements', color: 'bg-pine-deep text-white' },
     { href: '/pseudo-classes', icon: 'touch_app', label: '14. Pseudo-classes', color: 'bg-canvas text-black' },
-  ];
-
-  const cssBagian5 = [
     { href: '/responsive-design', icon: 'devices', label: '15. Responsive Design', color: 'bg-mint-soft text-black' },
   ];
 
@@ -68,20 +56,8 @@ export default function Sidebar() {
   const activeIndexHTML = htmlLinks.findIndex(link => isLinkActive(link.href));
   const progressHTML = activeIndexHTML !== -1 ? Math.round(((activeIndexHTML + 1) / htmlLinks.length) * 100) : 100;
 
-  const activeIndexCSS1 = cssBagian1.findIndex(link => isLinkActive(link.href));
-  const progressCSS1 = activeIndexCSS1 !== -1 ? Math.round(((activeIndexCSS1 + 1) / cssBagian1.length) * 100) : (activeIndexHTML !== -1 ? 0 : 100);
-
-  const activeIndexCSS2 = cssBagian2.findIndex(link => isLinkActive(link.href));
-  const progressCSS2 = activeIndexCSS2 !== -1 ? Math.round(((activeIndexCSS2 + 1) / cssBagian2.length) * 100) : (activeIndexHTML !== -1 || activeIndexCSS1 !== -1 ? 0 : 100);
-
-  const activeIndexCSS3 = cssBagian3.findIndex(link => isLinkActive(link.href));
-  const progressCSS3 = activeIndexCSS3 !== -1 ? Math.round(((activeIndexCSS3 + 1) / cssBagian3.length) * 100) : (activeIndexHTML !== -1 || activeIndexCSS1 !== -1 || activeIndexCSS2 !== -1 ? 0 : 100);
-
-  const activeIndexCSS4 = cssBagian4.findIndex(link => isLinkActive(link.href));
-  const progressCSS4 = activeIndexCSS4 !== -1 ? Math.round(((activeIndexCSS4 + 1) / cssBagian4.length) * 100) : (activeIndexHTML !== -1 || activeIndexCSS1 !== -1 || activeIndexCSS2 !== -1 || activeIndexCSS3 !== -1 ? 0 : 100);
-
-  const activeIndexCSS5 = cssBagian5.findIndex(link => isLinkActive(link.href));
-  const progressCSS5 = activeIndexCSS5 !== -1 ? Math.round(((activeIndexCSS5 + 1) / cssBagian5.length) * 100) : (activeIndexHTML !== -1 || activeIndexCSS1 !== -1 || activeIndexCSS2 !== -1 || activeIndexCSS3 !== -1 || activeIndexCSS4 !== -1 ? 0 : 100);
+  const activeIndexCSS = cssLinks.findIndex(link => isLinkActive(link.href));
+  const progressCSS = activeIndexCSS !== -1 ? Math.round(((activeIndexCSS + 1) / cssLinks.length) * 100) : (activeIndexHTML !== -1 ? 0 : 100);
 
   const renderLinks = (links: any[]) => (
     <nav className="flex flex-col px-4 gap-4 mb-8">
@@ -155,14 +131,14 @@ export default function Sidebar() {
         </div>
         {renderLinks(htmlLinks)}
 
-        {/* CSS Fundamental Section */}
+        {/* CSS Section */}
         <div className="p-5 border-4 border-black mb-4 bg-mint-soft shadow-neo-md mx-4 mt-2 transform hover:-rotate-1 transition-transform">
           <h2 className="text-xl font-black text-black uppercase tracking-tight">Materi Pokok 2</h2>
-          <p className="text-xs font-bold text-black uppercase mt-1">Fundamental CSS</p>
+          <p className="text-xs font-bold text-black uppercase mt-1">CSS Styling</p>
           <div className="mt-4 w-full bg-white border-4 border-black h-5 relative">
             <div
               className="bg-forest-teal h-full border-r-4 border-black transition-all duration-500 ease-in-out"
-              style={{ width: `${progressCSS1}%` }}
+              style={{ width: `${progressCSS}%` }}
             ></div>
           </div>
         </div>
@@ -171,79 +147,7 @@ export default function Sidebar() {
             Bagian 2
           </span>
         </div>
-        {renderLinks(cssBagian1)}
-
-        {/* CSS Visual Section */}
-        <div className="p-5 border-4 border-black mb-4 bg-jade-vibrant shadow-neo-md mx-4 mt-2 transform hover:rotate-1 transition-transform">
-          <h2 className="text-xl font-black text-white uppercase tracking-tight">Materi Pokok 3</h2>
-          <p className="text-xs font-bold text-white uppercase mt-1">Visual & Tampilan</p>
-          <div className="mt-4 w-full bg-mint-canvas border-4 border-black h-5 relative">
-            <div
-              className="bg-forest-teal h-full border-r-4 border-black transition-all duration-500 ease-in-out"
-              style={{ width: `${progressCSS2}%` }}
-            ></div>
-          </div>
-        </div>
-        <div className="px-4 mb-2">
-          <span className="bg-white text-black font-black uppercase text-xs px-2 py-1 border-4 border-black inline-block -rotate-1 shadow-neo-sm">
-            Bagian 3
-          </span>
-        </div>
-        {renderLinks(cssBagian2)}
-
-        {/* CSS Layout Section */}
-        <div className="p-5 border-4 border-black mb-4 bg-pine-deep shadow-neo-md mx-4 mt-2 transform hover:-rotate-1 transition-transform">
-          <h2 className="text-xl font-black text-white uppercase tracking-tight">Materi Pokok 4</h2>
-          <p className="text-xs font-bold text-white uppercase mt-1">Dimensi & Tata Letak</p>
-          <div className="mt-4 w-full bg-white border-4 border-black h-5 relative">
-            <div
-              className="bg-jade-vibrant h-full border-r-4 border-black transition-all duration-500 ease-in-out"
-              style={{ width: `${progressCSS3}%` }}
-            ></div>
-          </div>
-        </div>
-        <div className="px-4 mb-2">
-          <span className="bg-white text-black font-black uppercase text-xs px-2 py-1 border-4 border-black inline-block rotate-1 shadow-neo-sm">
-            Bagian 4
-          </span>
-        </div>
-        {renderLinks(cssBagian3)}
-
-        {/* CSS Sihir Visual Section */}
-        <div className="p-5 border-4 border-black mb-4 bg-white shadow-neo-md mx-4 mt-2 transform hover:rotate-1 transition-transform">
-          <h2 className="text-xl font-black text-black uppercase tracking-tight">Materi Pokok 5</h2>
-          <p className="text-xs font-bold text-black uppercase mt-1">Posisi & Visual</p>
-          <div className="mt-4 w-full bg-mint-canvas border-4 border-black h-5 relative">
-            <div
-              className="bg-forest-teal h-full border-r-4 border-black transition-all duration-500 ease-in-out"
-              style={{ width: `${progressCSS4}%` }}
-            ></div>
-          </div>
-        </div>
-        <div className="px-4 mb-2">
-          <span className="bg-white text-black font-black uppercase text-xs px-2 py-1 border-4 border-black inline-block -rotate-2 shadow-neo-sm">
-            Bagian 5
-          </span>
-        </div>
-        {renderLinks(cssBagian4)}
-
-        {/* CSS Level Lanjut Section */}
-        <div className="p-5 border-4 border-black mb-4 bg-mint-soft shadow-neo-md mx-4 mt-2 transform hover:-rotate-1 transition-transform">
-          <h2 className="text-xl font-black text-black uppercase tracking-tight">Materi Pokok 6</h2>
-          <p className="text-xs font-bold text-black uppercase mt-1">Level Lanjut</p>
-          <div className="mt-4 w-full bg-white border-4 border-black h-5 relative">
-            <div
-              className="bg-pine-deep h-full border-r-4 border-black transition-all duration-500 ease-in-out"
-              style={{ width: `${progressCSS5}%` }}
-            ></div>
-          </div>
-        </div>
-        <div className="px-4 mb-2">
-          <span className="bg-white text-black font-black uppercase text-xs px-2 py-1 border-4 border-black inline-block rotate-2 shadow-neo-sm">
-            Bagian 6
-          </span>
-        </div>
-        {renderLinks(cssBagian5)}
+        {renderLinks(cssLinks)}
 
         {/* Projects Section */}
         <div className="p-5 border-4 border-black mb-4 bg-forest-teal shadow-neo-sm mx-4 mt-6">

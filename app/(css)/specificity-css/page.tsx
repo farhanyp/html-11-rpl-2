@@ -17,124 +17,146 @@ export default function SpecificityCSSPage() {
       <div className="flex pt-[88px] min-h-screen">
         <Sidebar />
 
-        <main className="md:ml-[280px] w-full p-4 md:p-10 bg-[#F4F0EA] relative" style={{ backgroundImage: 'radial-gradient(#000 1px, transparent 1px)', backgroundSize: '20px 20px' }}>
-          <div className="max-w-5xl mx-auto space-y-8 md:space-y-16">
+        <main className="md:ml-[280px] w-full p-4 md:p-10 bg-canvas relative" style={{ backgroundImage: 'radial-gradient(var(--color-outline) 1px, transparent 1px)', backgroundSize: '24px 24px' }}>
+          <div className="max-w-5xl mx-auto space-y-12 md:space-y-16">
 
-            <section className="bg-white border-4 border-black p-6 md:p-10 shadow-[4px_4px_0px_0px_rgba(0,0,0,1)] md:shadow-[8px_8px_0px_0px_rgba(0,0,0,1)] text-center relative overflow-hidden">
-              <h1 className="text-4xl sm:text-5xl md:text-6xl font-black text-black tracking-tighter uppercase mb-4 md:mb-6">
-                4. Hirarki (Specificity)
+            <section className="bg-white border-4 border-black p-6 md:p-12 shadow-neo-xl text-center relative overflow-hidden transform rotate-1 hover:rotate-0 transition-transform">
+              <div className="absolute top-0 left-0 bg-jade-vibrant text-white font-black px-4 py-1 border-b-4 border-r-4 border-black shadow-neo-sm z-20">
+                MATERI 04
+              </div>
+              <h1 className="text-4xl sm:text-5xl md:text-7xl font-black text-black tracking-tighter uppercase mt-6 mb-4 md:mb-6">
+                Hirarki (Specificity)
               </h1>
-              <p className="text-base md:text-xl font-bold text-black bg-[#2DD4BF] inline-block px-3 py-2 md:px-4 md:py-2 border-2 md:border-4 border-black shadow-[4px_4px_0px_0px_rgba(0,0,0,1)]">
-                Pernah menulis kode CSS tapi tidak ada perubahan? Kemungkinan kodemu "kalah kasta".
+              <p className="text-base md:text-xl font-bold text-white bg-forest-teal inline-block px-4 py-2 md:px-6 md:py-3 border-4 border-black mb-4 md:mb-6 shadow-neo-md uppercase tracking-tight">
+                Pernah ngetik kode CSS tapi wujudnya menolak berubah? Berarti kodemu kalah "Kasta"!
               </p>
             </section>
 
-            <section className="bg-white border-4 border-black shadow-[4px_4px_0px_0px_rgba(0,0,0,1)] md:shadow-[8px_8px_0px_0px_rgba(0,0,0,1)] p-6 md:p-12">
-              <h2 className="text-2xl md:text-4xl font-black text-black uppercase mb-6 md:mb-8 border-b-4 border-black pb-4 text-center">Urutan Kasta Terkuat hingga Terlemah</h2>
+            <section className="bg-white border-4 border-black shadow-neo-xl p-6 md:p-12">
+              <h2 className="text-2xl sm:text-3xl md:text-5xl font-black text-black uppercase mb-8 md:mb-12 border-b-4 border-black pb-4 text-center tracking-tighter">
+                Urutan Kasta Terkuat ke Terlemah
+              </h2>
               
-              <div className="space-y-4 mb-12 max-w-3xl mx-auto">
-                <div className="bg-[#FF49DB] text-white border-4 border-black p-6 shadow-[4px_4px_0px_0px_rgba(0,0,0,1)] flex flex-col md:flex-row items-start md:items-center justify-between hover:scale-[1.02] transition-transform gap-4">
+              <div className="space-y-6 mb-16 max-w-4xl mx-auto">
+                <div className="bg-pine-deep text-white border-4 border-black p-6 md:p-8 shadow-neo-md flex flex-col sm:flex-row items-start sm:items-center justify-between hover:scale-[1.02] hover:-translate-y-2 hover:shadow-neo-lg transition-all gap-4">
                   <div className="flex items-center gap-4">
-                    <span className="text-4xl">🥇</span>
-                    <h3 className="text-2xl font-black uppercase drop-shadow-[2px_2px_0px_rgba(0,0,0,1)]">Inline Style</h3>
+                    <span className="text-5xl md:text-6xl drop-shadow-[2px_2px_0px_rgba(0,0,0,1)]">🥇</span>
+                    <h3 className="text-2xl md:text-3xl font-black uppercase drop-shadow-[2px_2px_0px_rgba(0,0,0,1)] tracking-widest">Inline Style</h3>
                   </div>
-                  <code className="bg-white text-black px-2 py-1 border-2 border-black font-black">style="..."</code>
+                  <code className="bg-black text-jade-vibrant px-3 py-2 border-4 border-white font-black text-lg md:text-xl shadow-[4px_4px_0px_rgba(255,255,255,1)]">style="..."</code>
                 </div>
 
-                <div className="bg-[#2DD4BF] border-4 border-black p-6 shadow-[4px_4px_0px_0px_rgba(0,0,0,1)] flex flex-col md:flex-row items-start md:items-center justify-between hover:scale-[1.02] transition-transform ml-0 lg:ml-8 gap-4">
+                <div className="bg-jade-vibrant border-4 border-black p-6 md:p-8 shadow-neo-md flex flex-col sm:flex-row items-start sm:items-center justify-between hover:scale-[1.02] hover:-translate-y-2 hover:shadow-neo-lg transition-all ml-0 lg:ml-8 gap-4">
                   <div className="flex items-center gap-4">
-                    <span className="text-4xl">🥈</span>
-                    <h3 className="text-2xl font-black uppercase">ID Selector</h3>
+                    <span className="text-5xl md:text-6xl drop-shadow-[2px_2px_0px_rgba(255,255,255,1)]">🥈</span>
+                    <h3 className="text-2xl md:text-3xl font-black uppercase text-black tracking-widest">ID Selector</h3>
                   </div>
-                  <code className="bg-white text-black px-2 py-1 border-2 border-black font-black">#nama</code>
+                  <code className="bg-white text-black px-3 py-2 border-4 border-black font-black text-lg md:text-xl shadow-[4px_4px_0px_rgba(0,0,0,1)]">#nama</code>
                 </div>
 
-                <div className="bg-[#FACC15] border-4 border-black p-6 shadow-[4px_4px_0px_0px_rgba(0,0,0,1)] flex flex-col md:flex-row items-start md:items-center justify-between hover:scale-[1.02] transition-transform ml-0 lg:ml-16 gap-4">
+                <div className="bg-mint-soft border-4 border-black p-6 md:p-8 shadow-neo-md flex flex-col sm:flex-row items-start sm:items-center justify-between hover:scale-[1.02] hover:-translate-y-2 hover:shadow-neo-lg transition-all ml-0 lg:ml-16 gap-4">
                   <div className="flex items-center gap-4">
-                    <span className="text-4xl">🥉</span>
-                    <h3 className="text-2xl font-black uppercase">Class Selector</h3>
+                    <span className="text-5xl md:text-6xl drop-shadow-[2px_2px_0px_rgba(0,0,0,1)]">🥉</span>
+                    <h3 className="text-2xl md:text-3xl font-black uppercase text-black tracking-widest">Class Selector</h3>
                   </div>
-                  <code className="bg-white text-black px-2 py-1 border-2 border-black font-black">.nama</code>
+                  <code className="bg-white text-black px-3 py-2 border-4 border-black font-black text-lg md:text-xl shadow-[4px_4px_0px_rgba(0,0,0,1)]">.nama</code>
                 </div>
 
-                <div className="bg-white border-4 border-black p-6 shadow-[4px_4px_0px_0px_rgba(0,0,0,1)] flex flex-col md:flex-row items-start md:items-center justify-between hover:scale-[1.02] transition-transform ml-0 lg:ml-24 gap-4">
+                <div className="bg-canvas border-4 border-black p-6 md:p-8 shadow-neo-md flex flex-col sm:flex-row items-start sm:items-center justify-between hover:scale-[1.02] hover:-translate-y-2 hover:shadow-neo-lg transition-all ml-0 lg:ml-24 gap-4">
                   <div className="flex items-center gap-4">
-                    <span className="text-4xl">🗿</span>
-                    <h3 className="text-2xl font-black uppercase">Tag Selector</h3>
+                    <span className="text-5xl md:text-6xl drop-shadow-[2px_2px_0px_rgba(0,0,0,1)]">🗿</span>
+                    <h3 className="text-2xl md:text-3xl font-black uppercase text-black tracking-widest">Tag Selector</h3>
                   </div>
-                  <code className="bg-[#F4F0EA] text-black px-2 py-1 border-2 border-black font-black">h1, p</code>
+                  <code className="bg-white text-black px-3 py-2 border-4 border-black font-black text-lg md:text-xl shadow-[4px_4px_0px_rgba(0,0,0,1)]">h1, p</code>
                 </div>
               </div>
 
               {/* Conflict Example */}
-              <div className="border-t-4 border-black border-dashed pt-12 mb-12">
-                <h2 className="text-2xl md:text-3xl font-black text-black uppercase mb-6 flex items-center gap-3">
-                  <span className="material-symbols-outlined text-4xl text-[#FF49DB]">swords</span>
-                  Contoh Pertarungan CSS
+              <div className="border-t-4 border-black border-dashed pt-12 mb-16">
+                <h2 className="text-2xl sm:text-3xl md:text-5xl font-black text-black uppercase mb-8 md:mb-10 flex items-center gap-3 tracking-tighter">
+                  <span className="material-symbols-outlined text-4xl md:text-5xl bg-black text-white p-2 border-4 border-black shadow-neo-sm flex-shrink-0">swords</span>
+                  Arena Pertarungan CSS
                 </h2>
-                <div className="flex flex-col lg:flex-row gap-8">
-                  <div className="lg:w-1/2 space-y-4">
-                    <p className="font-bold text-black/80 text-lg leading-relaxed">
-                      Perhatikan kode di samping. Ada sebuah elemen <code className="bg-[#F4F0EA] px-1 border-2 border-black">&lt;h1&gt;</code> yang memiliki <code className="bg-[#F4F0EA] px-1 border-2 border-black">id="judul"</code> dan <code className="bg-[#F4F0EA] px-1 border-2 border-black">class="teks-utama"</code>.
+                <div className="flex flex-col xl:flex-row gap-8 lg:gap-10">
+                  <div className="xl:w-1/2 space-y-6">
+                    <p className="font-bold text-forest-teal text-lg md:text-xl leading-relaxed bg-mint-canvas p-4 border-4 border-black shadow-neo-sm">
+                      Perhatikan kode pertempuran di samping. Ada sebuah elemen target berupa <code className="bg-white text-black px-2 py-1 border-2 border-black font-black uppercase tracking-widest">&lt;h1&gt;</code> yang dibekali atribut <code className="bg-white text-black px-2 py-1 border-2 border-black font-black uppercase tracking-widest">id="judul"</code> dan juga <code className="bg-white text-black px-2 py-1 border-2 border-black font-black uppercase tracking-widest">class="teks-utama"</code>.
                     </p>
-                    <p className="font-bold text-black/80 text-lg leading-relaxed">
-                      Lalu di CSS, kita memberikan warna yang berbeda untuk Tag, Class, dan ID. <strong className="bg-[#FACC15] px-1 border-2 border-black text-black">Warna apa yang akan muncul?</strong>
+                    <p className="font-bold text-forest-teal text-lg md:text-xl leading-relaxed bg-white border-4 border-black p-4 shadow-neo-sm">
+                      Lalu di dalam file CSS, kita dengan iseng memberikan warna yang bertabrakan berbeda untuk Tag, Class, dan ID-nya sekaligus. <strong className="bg-jade-vibrant text-black px-2 py-1 border-2 border-black uppercase inline-block mt-2">Warna apakah yang akan menang muncul?</strong>
                     </p>
-                    <div className="bg-[#2DD4BF] border-4 border-black p-4 shadow-[4px_4px_0px_0px_rgba(0,0,0,1)] -rotate-1 mt-6">
-                      <p className="font-black text-xl text-black uppercase flex items-center gap-2">
-                        <span className="material-symbols-outlined">celebration</span>
-                        Pemenangnya: MERAH!
+                    
+                    <div className="bg-black text-white border-4 border-black p-6 shadow-neo-md mt-8 transform -rotate-1 hover:rotate-0 transition-transform">
+                      <p className="font-black text-2xl md:text-3xl uppercase flex items-center gap-3 mb-2 text-jade-vibrant tracking-widest border-b-4 border-white pb-3">
+                        <span className="material-symbols-outlined text-4xl">celebration</span>
+                        Pemenang Mutlak: MERAH!
                       </p>
-                      <p className="font-bold text-black/80 mt-2">Karena ID (<code className="bg-white px-1">#judul</code>) memiliki kasta tertinggi dibandingkan Class maupun Tag.</p>
+                      <p className="font-bold text-white/90 text-lg mt-4 leading-relaxed">Sesuai hirarki kasta piramida di atas, karena ID (<code className="bg-white text-black px-2 py-1 border-2 border-black">#judul</code>) memiliki tingkat kasta spesifisitas yang <strong className="text-jade-vibrant uppercase">jauh lebih tinggi</strong> dibandingkan kasta Class (.teks-utama) maupun Tag (h1) rakyat jelata.</p>
                     </div>
                   </div>
-                  <div className="lg:w-1/2 space-y-4">
-                    <div className="rotate-1 hover:rotate-0 transition-transform">
-                      <CodeBlock 
-                        language="html" 
-                        code={`<h1 id="judul" class="teks-utama">
+                  
+                  <div className="xl:w-1/2 space-y-6 flex flex-col">
+                    <div className="bg-black border-4 border-black p-1 shadow-neo-md transform rotate-1 hover:rotate-0 transition-transform">
+                      <div className="bg-mint-soft border-b-4 border-black p-2 font-black uppercase text-center text-xs text-black">Arena HTML</div>
+                      <div className="p-1">
+                        <CodeBlock 
+                          language="html" 
+                          code={`<h1 id="judul" class="teks-utama">
   Website Ku
 </h1>`} 
-                      />
+                        />
+                      </div>
                     </div>
-                    <div className="-rotate-1 hover:rotate-0 transition-transform">
-                      <CodeBlock 
-                        language="css" 
-                        code={`h1 { color: blue; }         /* Tag (Lemah) */
+                    
+                    <div className="bg-black border-4 border-black p-1 shadow-neo-md transform -rotate-1 hover:rotate-0 transition-transform flex-1">
+                      <div className="bg-jade-vibrant border-b-4 border-black p-2 font-black uppercase text-center text-xs text-black">Tembakan CSS</div>
+                      <div className="p-1 h-full">
+                        <CodeBlock 
+                          language="css" 
+                          code={`h1 { color: blue; }         /* Tag (Lemah) */
 .teks-utama { color: green; } /* Class (Menengah) */
 #judul { color: red; }        /* ID (Kuat!) */`} 
-                      />
+                        />
+                      </div>
                     </div>
                   </div>
                 </div>
               </div>
 
               {/* The Exceptions */}
-              <div className="grid grid-cols-1 md:grid-cols-2 gap-8 mt-12">
-                <div className="bg-[#F4F0EA] border-4 border-black p-6 md:p-8 shadow-[4px_4px_0px_0px_rgba(0,0,0,1)]">
-                  <h3 className="text-xl md:text-2xl font-black text-black uppercase mb-4 flex items-center gap-2"><span className="material-symbols-outlined text-[#FF49DB] text-3xl">find_replace</span> Aturan Cascading</h3>
-                  <p className="text-base font-bold text-black/80 leading-relaxed mb-4">
-                    Bagaimana jika spesifisitasnya <strong>sama kuat</strong>? (Misalnya sama-sama menggunakan nama class).
+              <div className="grid grid-cols-1 md:grid-cols-2 gap-8 lg:gap-10 mt-16">
+                <div className="bg-canvas border-4 border-black p-6 md:p-8 shadow-neo-md hover:-translate-y-2 hover:shadow-neo-lg transition-transform flex flex-col">
+                  <h3 className="text-2xl md:text-3xl font-black text-black uppercase mb-6 flex items-center gap-3 tracking-tighter">
+                    <span className="material-symbols-outlined bg-white text-black p-2 border-4 border-black shadow-[2px_2px_0px_rgba(0,0,0,1)] text-3xl">find_replace</span> 
+                    Hukum Cascading (Timpaan)
+                  </h3>
+                  <p className="text-base md:text-lg font-bold text-forest-teal leading-relaxed mb-4">
+                    Lalu bagaimana jika spesifisitas senjatanya <strong>sama persis kuatnya</strong>? (Misalnya kamu secara brutal mendeklarasikan dua nama class yang sama persis tapi beda warna).
                   </p>
-                  <p className="text-base font-bold text-black/80 leading-relaxed mb-6">
-                    Maka kode yang ditulis <strong className="bg-[#FACC15] px-1 border-2 border-black text-black">paling bawah / terakhir</strong> yang akan menang, karena dibaca terakhir oleh browser!
+                  <p className="text-base md:text-lg font-bold text-forest-teal leading-relaxed mb-6">
+                    Sesuai nama "Cascading" (Air Terjun), maka kode yang posisinya ditulis <strong className="bg-white px-2 py-1 border-2 border-black text-black uppercase">paling bawah / terakhir</strong> yang akan mutlak menang! Karena kode dibaca urut dari atas ke bawah.
                   </p>
-                  <CodeBlock 
-                    language="css" 
-                    code={`.btn { color: blue; }
-.btn { color: red; } /* Menang! */`} 
-                  />
+                  <div className="bg-black border-4 border-black p-1 shadow-neo-sm transform rotate-1 mt-auto">
+                    <CodeBlock 
+                      language="css" 
+                      code={`.btn { color: blue; }
+.btn { color: red; } /* Menang karena di bawah! */`} 
+                    />
+                  </div>
                 </div>
 
-                <div className="bg-[#1e1e1e] border-4 border-black p-6 md:p-8 shadow-[4px_4px_0px_0px_rgba(0,0,0,1)] text-white relative overflow-hidden">
-                  <span className="material-symbols-outlined absolute -bottom-4 -right-4 text-8xl text-white/10 rotate-12">warning</span>
-                  <h3 className="text-xl md:text-2xl font-black uppercase mb-4 flex items-center gap-2 text-[#FF49DB]"><span className="material-symbols-outlined text-3xl">bolt</span> Senjata Pamungkas</h3>
-                  <p className="text-base font-bold text-white/80 leading-relaxed mb-4">
-                    Ada satu <em>cheat code</em> yang bisa mengalahkan kasta apapun bahkan Inline Style, yaitu:
+                <div className="bg-pine-deep border-4 border-black p-6 md:p-8 shadow-neo-md text-white relative overflow-hidden hover:-translate-y-2 hover:shadow-neo-lg transition-transform flex flex-col group">
+                  <span className="material-symbols-outlined absolute -bottom-4 -right-4 text-8xl text-black/20 rotate-12 group-hover:rotate-0 group-hover:scale-125 transition-transform">warning</span>
+                  <h3 className="text-2xl md:text-3xl font-black uppercase mb-6 flex items-center gap-3 tracking-tighter text-jade-vibrant drop-shadow-[2px_2px_0px_rgba(0,0,0,1)]">
+                    <span className="material-symbols-outlined bg-black text-white p-2 border-4 border-white shadow-[2px_2px_0px_rgba(255,255,255,1)] text-3xl">bolt</span> 
+                    Cheat Code Terlarang
+                  </h3>
+                  <p className="text-base md:text-lg font-bold text-mint-soft leading-relaxed mb-6">
+                    Hanya ada satu <em>cheat code sakti</em> di seluruh dunia CSS yang bisa mengalahkan kasta tertinggi apapun secara brutal dan sepihak, yaitu:
                   </p>
-                  <code className="block bg-black p-3 border-2 border-white font-mono font-black text-center text-[#2DD4BF] mb-4 text-xl">!important</code>
-                  <p className="text-sm font-bold text-[#FACC15] leading-relaxed italic">
-                    Gunakan ini hanya saat terdesak (misalnya menimpa desain bawaan dari library seperti Bootstrap), karena membuat kode sulit di-debug nantinya!
+                  <code className="block bg-black p-4 border-4 border-white font-mono font-black text-center text-white mb-6 text-2xl md:text-3xl uppercase tracking-widest shadow-[4px_4px_0px_rgba(255,255,255,1)] transform -rotate-2">!important</code>
+                  <p className="text-sm md:text-base font-bold bg-white text-black p-4 border-4 border-black shadow-[4px_4px_0px_rgba(0,0,0,1)] leading-relaxed relative z-10 mt-auto">
+                    <strong className="uppercase block mb-1">⚠️ PERINGATAN KERAS:</strong> Gunakan senjata ini <strong>HANYA</strong> saat kamu sudah sangat terdesak (misalnya gagal menimpa desain keras kepala bawaan dari library seperti Bootstrap), karena penggunannya akan membuat seluruh kodemu sangat hancur dan sulit di-debug kedepannya!
                   </p>
                 </div>
               </div>
@@ -142,14 +164,18 @@ export default function SpecificityCSSPage() {
             </section>
 
             {/* Footer / Penutup */}
-            <footer className="bg-[#FF49DB] border-4 border-black p-6 md:p-8 shadow-[4px_4px_0px_0px_rgba(0,0,0,1)] md:shadow-[8px_8px_0px_0px_rgba(0,0,0,1)] text-center relative hover:-translate-y-1 transition-transform">
-              <span className="material-symbols-outlined absolute -top-3 -right-3 md:-top-4 md:-right-4 text-4xl md:text-5xl text-black bg-white rounded-full border-2 md:border-4 border-black p-2 shadow-[2px_2px_0px_0px_rgba(0,0,0,1)]">balance</span>
-              <p className="text-xl md:text-3xl font-black text-white drop-shadow-[2px_2px_0px_rgba(0,0,0,1)] uppercase leading-relaxed max-w-4xl mx-auto">
-                "Pahami spesifisitas agar kamu tidak bingung kenapa warna elemenmu tidak mau berubah!"
+            <footer className="bg-jade-vibrant border-4 border-black p-8 md:p-12 shadow-neo-xl text-center relative hover:-translate-y-1 transition-transform">
+              <span className="material-symbols-outlined absolute -top-4 -right-4 md:-top-6 md:-right-6 text-5xl md:text-6xl text-white bg-black rounded-none border-4 border-white p-3 shadow-[4px_4px_0px_rgba(255,255,255,1)] hover:scale-110 transition-transform cursor-pointer">balance</span>
+              <p className="text-2xl md:text-4xl font-black text-black uppercase leading-relaxed max-w-4xl mx-auto drop-shadow-[2px_2px_0px_rgba(255,255,255,1)] tracking-tight">
+                "Pahami dan ingat hirarki spesifisitas ini agar kamu tidak pernah lagi buang waktu berjam-jam menangis bingung kenapa warna elemen di websitemu tidak mau berubah!"
               </p>
             </footer>
 
-            <div className="h-12 w-full"></div>
+            <div className="mt-16 mb-8 flex flex-col md:flex-row justify-between items-center gap-4 border-t-4 border-black pt-8">
+              <p className="font-black text-sm md:text-base uppercase tracking-widest text-forest-teal bg-white border-4 border-black px-4 py-2 shadow-neo-sm text-center md:text-left">
+                © 2026 FARHAN YUDHA PRATAMA
+              </p>
+            </div>
           </div>
         </main>
       </div>
