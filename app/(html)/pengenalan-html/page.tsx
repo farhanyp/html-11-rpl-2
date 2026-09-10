@@ -69,16 +69,12 @@ export default function PengenalanHTMLPage() {
                     Bayangkan kamu sedang membangun sebuah <strong className="bg-jade-vibrant text-white px-2 py-1 border-2 border-black uppercase font-black tracking-widest inline-block mb-1">Rumah</strong>. Sebelum rumah itu dicat cantik atau dialiri listrik, kamu harus membangun pondasi, dinding bata, dan tiang penyangganya yang kokoh. Nah, <strong className="bg-black text-white px-2 py-1 border-2 border-black inline-block mt-2 mb-1">HTML (HyperText Markup Language)</strong> adalah cetak biru kerangka dari sebuah halaman web. Tanpa HTML, tidak akan ada teks, gambar, atau elemen logis apapun yang bisa nongol di layarmu!
                   </p>
                 </div>
-                <div className="md:w-1/3 border-4 border-black shadow-neo-md rotate-2 hover:rotate-0 transition-transform flex items-center justify-center bg-white p-6 h-auto min-h-[200px]">
-                  {/* Brutalist House SVG / Mockup */}
-                  <div className="w-full h-full flex flex-col items-center justify-end relative pb-4">
-                    <div className="w-0 h-0 border-l-[60px] border-l-transparent border-r-[60px] border-r-transparent border-b-[60px] border-b-pine-deep drop-shadow-[4px_4px_0px_rgba(0,0,0,1)] z-10 relative">
-                      <div className="absolute top-[20px] left-[-60px] w-[120px] h-[60px] border-b-4 border-black"></div>
-                    </div>
-                    <div className="w-[100px] h-[80px] bg-jade-vibrant border-4 border-black relative shadow-neo-sm">
-                      <div className="absolute bottom-0 left-1/2 -translate-x-1/2 w-[30px] h-[50px] bg-black border-t-4 border-x-4 border-black"></div>
-                    </div>
-                  </div>
+                <div className="md:w-1/3 border-4 border-black shadow-neo-md rotate-2 hover:rotate-0 transition-transform flex items-center justify-center bg-white p-4 h-auto min-h-[200px]">
+                  <img 
+                    src="/pengenalan-html/image1.jpg" 
+                    alt="Analogi Rumah" 
+                    className="w-full h-full object-cover border-4 border-black shadow-neo-sm" 
+                  />
                 </div>
               </div>
 
@@ -102,7 +98,7 @@ export default function PengenalanHTMLPage() {
                     <span className="material-symbols-outlined text-4xl text-mint-soft font-black">integration_instructions</span>
                   </div>
                   <h3 className="text-xl md:text-2xl font-black text-black uppercase mb-3">Bukan Coding Sulit</h3>
-                  <p className="text-base font-bold text-forest-teal">HTML ini bahasa "Markup", bukan bahasa pemrograman alien yang punya logika matematika ribet.</p>
+                  <p className="text-base font-bold text-forest-teal">HTML ini bahasa "Markup", bukan bahasa pemrograman yang punya logika matematika ribet.</p>
                 </div>
               </div>
 
@@ -184,7 +180,7 @@ export default function PengenalanHTMLPage() {
               <div className="flex flex-col lg:flex-row gap-8 lg:gap-10 items-stretch">
                 <div className="flex-1 space-y-8">
                   <p className="text-lg md:text-xl font-bold text-forest-teal leading-relaxed bg-canvas p-6 border-4 border-black shadow-neo-sm">
-                    Setiap kali membuat file web baru, kamu <strong>wajib</strong> menuliskan kerangka dasarnya. Tanpa mantra kerangka ini, browser akan bingung dan ngawur merender website kamu. Inilah <strong className="bg-black text-white px-2 py-1 uppercase tracking-widest font-black inline-block mt-1">Cetak Biru</strong> sesungguhnya!
+                    Setiap kali membuat file web baru, kamu <strong>wajib</strong> menuliskan kerangka dasarnya. Tanpa kerangka ini, browser akan bingung dan ngawur merender website kamu. Inilah <strong className="bg-black text-white px-2 py-1 uppercase tracking-widest font-black inline-block mt-1">Cetak Biru</strong> sesungguhnya!
                   </p>
 
                   {/* Penjelasan Tag/Atribut */}

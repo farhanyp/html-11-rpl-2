@@ -89,6 +89,23 @@ export default function ElemenTagPage() {
                         code={`<div>Ini adalah blok pertama</div>\n<p>Ini adalah blok kedua (di baris baru)</p>`}
                       />
                     </div>
+                    
+                    {/* Ilustrasi Visual Block */}
+                    <div className="mb-8 bg-mint-canvas border-4 border-black p-4 md:p-6 relative mt-10 shadow-neo-sm">
+                      <div className="absolute top-[-20px] left-4 bg-jade-vibrant text-black px-3 py-1 border-4 border-black font-black uppercase text-sm shadow-[2px_2px_0px_rgba(0,0,0,1)]">Ilustrasi Visual</div>
+                      <div className="flex flex-col gap-3 mt-2 border-2 border-dashed border-black/30 p-2 relative">
+                        <div className="absolute -top-3 right-2 text-xs font-bold text-black/50 bg-mint-canvas px-1">Layar / Wadah Induk</div>
+                        <div className="w-full bg-pine-deep text-white border-4 border-black p-3 font-bold flex justify-between items-center shadow-[4px_4px_0px_rgba(0,0,0,1)] hover:-translate-y-1 hover:translate-x-1 transition-transform cursor-default">
+                          <span>&lt;div&gt; Blok pertama</span>
+                          <span className="text-xs bg-black text-white px-2 py-1 hidden sm:inline-block">Full Width 100%</span>
+                        </div>
+                        <div className="w-full bg-forest-teal text-white border-4 border-black p-3 font-bold flex justify-between items-center shadow-[4px_4px_0px_rgba(0,0,0,1)] hover:-translate-y-1 hover:translate-x-1 transition-transform cursor-default">
+                          <span>&lt;p&gt; Blok kedua</span>
+                          <span className="text-xs bg-black text-white px-2 py-1 hidden sm:inline-block">Baris Baru, 100%</span>
+                        </div>
+                      </div>
+                    </div>
+
                     <div className="bg-mint-soft border-4 border-black p-4 font-bold text-black uppercase tracking-wide">
                       <span className="bg-black text-white px-2 py-1 mr-2">Contoh Tag:</span>
                       <code>&lt;div&gt;</code>, <code>&lt;p&gt;</code>, <code>&lt;h1&gt;</code>-<code>&lt;h6&gt;</code>, <code>&lt;ul&gt;</code>, <code>&lt;ol&gt;</code>, <code>&lt;li&gt;</code>, <code>&lt;form&gt;</code>
@@ -109,7 +126,24 @@ export default function ElemenTagPage() {
                         code={`<span>Teks Satu</span> dan <span>Teks Dua</span> berada di baris yang sama.`}
                       />
                     </div>
-                    <div className="bg-mint-canvas border-4 border-black p-4 font-bold text-forest-teal uppercase tracking-wide">
+
+                    {/* Ilustrasi Visual Inline */}
+                    <div className="mb-8 bg-mint-canvas border-4 border-black p-4 md:p-6 relative mt-10 shadow-neo-sm">
+                      <div className="absolute top-[-20px] left-4 bg-jade-vibrant text-black px-3 py-1 border-4 border-black font-black uppercase text-sm shadow-[2px_2px_0px_rgba(0,0,0,1)]">Ilustrasi Visual</div>
+                      <div className="mt-2 border-2 border-dashed border-black/30 p-4 leading-loose relative">
+                        <div className="absolute -top-3 right-2 text-xs font-bold text-black/50 bg-mint-canvas px-1">Layar / Wadah Induk</div>
+                        <span className="inline-block bg-[#ff90e8] text-black border-4 border-black px-3 py-2 font-bold shadow-[4px_4px_0px_rgba(0,0,0,1)] hover:-translate-y-1 hover:translate-x-1 transition-transform cursor-default mr-3 mb-3">
+                          &lt;span&gt; Teks Satu
+                        </span>
+                        <span className="font-bold text-lg mr-3">dan</span>
+                        <span className="inline-block bg-[#ffc900] text-black border-4 border-black px-3 py-2 font-bold shadow-[4px_4px_0px_rgba(0,0,0,1)] hover:-translate-y-1 hover:translate-x-1 transition-transform cursor-default mr-3 mb-3">
+                          &lt;span&gt; Teks Dua
+                        </span>
+                        <span className="font-bold text-lg">berada di baris yang sama.</span>
+                      </div>
+                    </div>
+
+                    <div className="bg-mint-soft border-4 border-black p-4 font-bold text-forest-teal uppercase tracking-wide">
                       <span className="bg-forest-teal text-white px-2 py-1 mr-2">Contoh Tag:</span>
                       <code>&lt;span&gt;</code>, <code>&lt;a&gt;</code>, <code>&lt;strong&gt;</code>, <code>&lt;em&gt;</code>, <code>&lt;img&gt;</code>, <code>&lt;button&gt;</code>
                     </div>

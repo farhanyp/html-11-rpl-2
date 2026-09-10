@@ -229,6 +229,73 @@ export default function ListTabelPage() {
                   </div>
                 </div>
               </div>
+
+              {/* Jarak Sel (Cellpadding & Cellspacing) */}
+              <div className="mt-16 border-t-4 border-black pt-12">
+                <h3 className="font-black text-2xl md:text-3xl uppercase mb-6 text-black border-b-4 border-black pb-2 inline-block">Mengatur Jarak Sel (Cellpadding & Cellspacing)</h3>
+                <div className="font-bold text-forest-teal text-lg md:text-xl mb-8 leading-relaxed">
+                  Selain menggabungkan sel, kamu juga bisa mengatur ruang kosong pada tabel menggunakan dua atribut klasik ini:
+                  <ul className="list-disc pl-6 mt-4 space-y-2">
+                    <li><code className="bg-canvas px-1 border-2 border-black text-black">cellpadding</code>: Mengatur jarak antara <strong>isi konten (teks)</strong> dengan batas sel (dinding kotaknya). Semakin besar nilainya, semakin lega isi selnya.</li>
+                    <li><code className="bg-canvas px-1 border-2 border-black text-black">cellspacing</code>: Mengatur jarak antara <strong>satu sel dengan sel lainnya</strong>. Secara default tabel memiliki sedikit cellspacing, kamu bisa mengaturnya menjadi <code>0</code> agar sel saling menempel.</li>
+                  </ul>
+                  <p className="mt-4 text-sm bg-mint-canvas p-4 border-4 border-black shadow-neo-sm">
+                    <em>Catatan: Di HTML5 modern, penggunaan atribut ini perlahan mulai digantikan oleh CSS (seperti <code>padding</code> dan <code>border-spacing</code>), tetapi sangat penting untuk mengetahuinya karena masih sering ditemui pada kode-kode lama atau email template HTML!</em>
+                  </p>
+                </div>
+
+                <div className="flex flex-col xl:flex-row gap-8 lg:gap-10">
+                  {/* Kode Cellpadding & Cellspacing */}
+                  <div className="flex-1 border-4 border-black shadow-neo-lg bg-black p-1 flex flex-col">
+                    <div className="bg-mint-soft border-b-4 border-black p-4 font-black uppercase tracking-tight text-black">
+                      Contoh Kode Cellpadding & Cellspacing
+                    </div>
+                    <div className="flex-grow">
+                      <CodeBlock
+                        language="html"
+                        code={`<!-- Tabel dengan Cellpadding besar dan Cellspacing 0 -->\n<table border="1" cellpadding="20" cellspacing="0">\n  <tr>\n    <th>Nama Lengkap</th>\n    <th>Nilai</th>\n  </tr>\n  <tr>\n    <td>Andi</td>\n    <td>95</td>\n  </tr>\n</table>\n\n<!-- Tabel dengan Cellspacing besar -->\n<table border="1" cellpadding="5" cellspacing="15">\n  <tr>\n    <td>Budi</td>\n    <td>80</td>\n  </tr>\n</table>`}
+                      />
+                    </div>
+                  </div>
+
+                  {/* Visualisasi Cellpadding & Cellspacing */}
+                  <div className="xl:w-1/3 border-4 border-black shadow-neo-lg bg-jade-vibrant p-6 md:p-8 flex flex-col justify-center gap-8 transform hover:scale-[1.01] transition-transform">
+                    <div>
+                      <h3 className="font-black text-white text-xl uppercase mb-4 text-center drop-shadow-[2px_2px_0px_rgba(0,0,0,1)]">Hasil: Cellpadding="20", Cellspacing="0"</h3>
+                      <div className="bg-white border-4 border-black w-full overflow-hidden shadow-neo-sm p-4">
+                        {/* Mensimulasikan cellspacing="0" dan cellpadding="20" dengan Tailwind */}
+                        <table className="w-full text-left border-collapse border-4 border-black">
+                          <tbody>
+                            <tr className="bg-forest-teal border-b-4 border-black">
+                              <th className="p-[20px] border-r-4 border-black font-black text-center text-white text-sm uppercase tracking-widest">Nama Lengkap</th>
+                              <th className="p-[20px] font-black text-center text-white text-sm uppercase tracking-widest">Nilai</th>
+                            </tr>
+                            <tr className="font-bold text-black bg-white">
+                              <td className="p-[20px] border-r-4 border-black text-center">Andi</td>
+                              <td className="p-[20px] text-center">95</td>
+                            </tr>
+                          </tbody>
+                        </table>
+                      </div>
+                    </div>
+
+                    <div>
+                      <h3 className="font-black text-white text-xl uppercase mb-4 text-center drop-shadow-[2px_2px_0px_rgba(0,0,0,1)]">Hasil: Cellspacing="15"</h3>
+                      <div className="bg-white border-4 border-black w-full overflow-hidden shadow-neo-sm p-4 flex justify-center">
+                        {/* Mensimulasikan cellspacing="15" dengan Tailwind (border-separate & border-spacing) */}
+                        <table className="w-full text-left border-separate border-4 border-black bg-mint-canvas" style={{ borderSpacing: '15px' }}>
+                          <tbody>
+                            <tr className="font-bold text-black bg-white">
+                              <td className="p-[5px] border-4 border-black text-center">Budi</td>
+                              <td className="p-[5px] border-4 border-black text-center">80</td>
+                            </tr>
+                          </tbody>
+                        </table>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
             </section>
 
             {/* Section 4: Semantic Table (<thead>, <tbody>, <tfoot>) */}

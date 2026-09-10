@@ -60,7 +60,7 @@ export default function LinkGambarPage() {
                   </div>
                   <div className="bg-white border-4 border-black p-4 flex items-center gap-4 shadow-neo-sm">
                     <span className="font-black uppercase text-sm text-forest-teal">Hasil:</span>
-                    <a href="#" className="text-jade-vibrant font-black underline decoration-4 hover:text-pine-deep transition-colors text-lg">Buka Google</a>
+                    <a href="https://google.com" className="text-jade-vibrant font-black underline decoration-4 hover:text-pine-deep transition-colors text-lg">Buka Google</a>
                   </div>
                 </div>
 
@@ -80,11 +80,15 @@ export default function LinkGambarPage() {
                 <div className="border-4 border-black shadow-neo-md p-6 bg-jade-vibrant text-white md:col-span-2 hover:-translate-y-1 transition-transform">
                   <h3 className="font-black text-3xl uppercase mb-4 text-white">3. Membuka Link di Tab Baru</h3>
                   <p className="text-lg font-bold text-white mb-6">Gunakan atribut <strong className="bg-forest-teal text-white px-2 py-1 border-2 border-black">target="_blank"</strong> agar saat link diklik, browser akan membuka tab baru secara otomatis.</p>
-                  <div className="border-4 border-black max-w-2xl">
+                  <div className="border-4 border-black max-w-2xl mb-4">
                     <CodeBlock
                       language="html"
                       code={`<a href="https://wikipedia.org" target="_blank">Buka Wikipedia</a>`}
                     />
+                  </div>
+                  <div className="bg-white border-4 border-black p-4 flex items-center gap-4 shadow-neo-sm max-w-2xl text-black">
+                    <span className="font-black uppercase text-sm text-forest-teal">Hasil:</span>
+                    <a href="https://wikipedia.org" target="_blank" rel="noopener noreferrer" className="text-jade-vibrant font-black underline decoration-4 hover:text-pine-deep transition-colors text-lg">Buka Wikipedia <span className="material-symbols-outlined text-sm align-middle ml-1">open_in_new</span></a>
                   </div>
                 </div>
 
@@ -94,18 +98,22 @@ export default function LinkGambarPage() {
                   <p className="text-base md:text-lg font-bold text-white mb-6 leading-relaxed">
                     Pernahkah kamu mengklik menu di sebuah website, lalu halamannya otomatis <em>scroll</em> ke bawah secara mulus? Itu disebut <strong>Anchor Link</strong>. Caranya adalah dengan menghubungkan nilai <code className="bg-jade-vibrant px-1 border-2 border-black">href</code> dengan <code className="bg-jade-vibrant px-1 border-2 border-black">id</code> dari elemen tujuan menggunakan awalan tanda pagar (<code className="bg-white text-black px-1 border-2 border-black">#</code>).
                   </p>
-                  <div className="border-4 border-black">
+                  <div className="border-4 border-black mb-4">
                     <CodeBlock
                       language="html"
                       code={`<!-- Tombol yang diklik -->\n<a href="#bagian-kontak">Pergi ke Bawah</a>\n\n<p>... banyak konten panjang di sini ...</p>\n\n<!-- Tujuan tempat mendarat -->\n<section id="bagian-kontak">\n    <h2>Hubungi Kami</h2>\n</section>`}
                     />
+                  </div>
+                  <div className="bg-white border-4 border-black p-4 flex items-center gap-4 shadow-neo-sm max-w-2xl text-black">
+                    <span className="font-black uppercase text-sm text-forest-teal">Hasil:</span>
+                    <a href="#section-gambar" className="text-jade-vibrant font-black underline decoration-4 hover:text-pine-deep transition-colors text-lg">Lompat ke Bagian Gambar <span className="material-symbols-outlined text-sm align-middle ml-1">arrow_downward</span></a>
                   </div>
                 </div>
               </div>
             </section>
 
             {/* Section 2: Gambar */}
-            <section className="bg-white border-4 border-black shadow-neo-xl p-6 md:p-12 transform -rotate-1 hover:rotate-0 transition-transform">
+            <section id="section-gambar" className="bg-white border-4 border-black shadow-neo-xl p-6 md:p-12 transform -rotate-1 hover:rotate-0 transition-transform scroll-mt-[120px]">
               <h2 className="text-2xl sm:text-3xl md:text-5xl font-black text-black uppercase mb-8 md:mb-10 border-b-4 border-black pb-4 flex items-center gap-3 md:gap-4 tracking-tighter">
                 <span className="bg-pine-deep text-white w-12 h-12 md:w-16 md:h-16 flex items-center justify-center border-4 border-black shadow-neo-sm flex-shrink-0 text-2xl md:text-4xl">02</span>
                 Gambar Menggunakan &lt;img&gt;
@@ -140,10 +148,30 @@ export default function LinkGambarPage() {
               {/* Contoh Penggunaan Gambar */}
               <div className="border-4 border-black bg-white shadow-neo-lg p-6 md:p-8 mb-10">
                 <h3 className="font-black text-2xl uppercase mb-6 border-b-4 border-black pb-2 inline-block">Contoh Code Gambar</h3>
-                <CodeBlock
-                  language="html"
-                  code={`<!-- Menampilkan gambar dengan teks alternatif -->\n<img src="kucing.jpg" alt="Foto Anak Kucing Lucu">\n\n<!-- Gambar dari URL Internet dengan pengaturan ukuran -->\n<img src="https://example.com/logo.png" alt="Logo Perusahaan" width="200" height="100">`}
-                />
+                <div className="mb-6 border-4 border-black">
+                  <CodeBlock
+                    language="html"
+                    code={`<!-- Gambar berhasil dimuat -->\n<img src="/link-gambar/image1.jpg" alt="Pemandangan Alam yang Indah">\n\n<!-- Gambar GAGAL dimuat (karena salah URL atau file tidak ada) -->\n<img src="/gambar-salah.jpg" alt="Gambar ini gagal dimuat karena URL salah">`}
+                  />
+                </div>
+                
+                <h4 className="font-black text-xl uppercase mb-4 text-forest-teal">Hasil Render di Browser:</h4>
+                <div className="grid grid-cols-1 md:grid-cols-2 gap-6 bg-mint-canvas border-4 border-black p-4 md:p-6 shadow-[4px_4px_0px_rgba(0,0,0,1)]">
+                  {/* Gambar Sukses */}
+                  <div className="flex flex-col border-4 border-black bg-white p-2 shadow-neo-sm">
+                    <span className="font-black text-sm bg-jade-vibrant text-black px-2 py-1 border-b-4 border-black text-center uppercase tracking-widest">Berhasil Dimuat</span>
+                    <img src="/link-gambar/image1.jpg" alt="Pemandangan Alam yang Indah" className="w-full aspect-video object-cover mt-2 border-2 border-black" />
+                  </div>
+
+                  {/* Gambar Gagal (Menampilkan ALT) */}
+                  <div className="flex flex-col border-4 border-black bg-white p-2 shadow-neo-sm">
+                    <span className="font-black text-sm bg-[#ff90e8] text-black px-2 py-1 border-b-4 border-black text-center uppercase tracking-widest">Gagal Dimuat (ALT Muncul)</span>
+                    <div className="w-full aspect-video mt-2 border-4 border-dashed border-black bg-white flex items-center justify-center p-4">
+                      {/* Sengaja membuat img dengan src yang salah untuk melihat render alt text bawaan browser */}
+                      <img src="/gambar-salah-yang-tidak-ada.jpg" alt="⚠️ Gambar ini gagal dimuat karena URL salah" className="font-bold text-center text-lg break-words" />
+                    </div>
+                  </div>
+                </div>
               </div>
 
               <div className="bg-pine-deep border-4 border-black p-6 md:p-8 flex flex-col md:flex-row gap-6 items-start shadow-neo-md text-white hover:-translate-y-2 transition-transform">
@@ -168,13 +196,40 @@ export default function LinkGambarPage() {
                 Kita bisa menggabungkan tag <code className="text-mint-soft">&lt;a&gt;</code> dan <code className="text-mint-soft">&lt;img&gt;</code> dengan cara memasukkan tag gambar ke dalam tag tautan. Dengan begini, saat gambar diklik, pengguna akan otomatis diarahkan ke sebuah halaman atau link tujuan.
               </p>
 
-              <div className="border-4 border-black shadow-neo-lg p-0 bg-black">
+              <div className="border-4 border-black shadow-neo-lg p-0 bg-black mb-8">
                 <div className="p-1">
                   <CodeBlock
                     language="html"
-                    code={`<a href="https://www.youtube.com" target="_blank">\n  <img src="logo-youtube.png" alt="Buka YouTube">\n</a>`}
+                    code={`<!-- Link ke GitHub -->\n<a href="https://github.com" target="_blank">\n  <img src="logo-github.png" alt="Profil GitHub">\n</a>\n\n<!-- Link ke TikTok -->\n<a href="https://tiktok.com" target="_blank">\n  <img src="logo-tiktok.png" alt="Profil TikTok">\n</a>\n\n<!-- Link ke Instagram -->\n<a href="https://instagram.com" target="_blank">\n  <img src="logo-instagram.png" alt="Profil Instagram">\n</a>`}
                   />
                 </div>
+              </div>
+
+              <h3 className="font-black text-2xl uppercase mb-4 text-white border-b-4 border-white pb-2 inline-block">Hasil Render di Browser:</h3>
+              <div className="bg-white border-4 border-black p-6 md:p-8 flex flex-wrap gap-8 justify-center md:justify-start shadow-[4px_4px_0px_rgba(0,0,0,1)] text-black">
+                {/* GitHub */}
+                <a href="https://github.com" target="_blank" rel="noopener noreferrer" className="group flex flex-col items-center gap-3">
+                  <div className="w-24 h-24 bg-mint-canvas border-4 border-black flex items-center justify-center shadow-neo-sm group-hover:-translate-y-2 group-hover:shadow-neo-md transition-all">
+                    <img src="https://cdn.simpleicons.org/github/black" alt="GitHub Logo" className="w-12 h-12 group-hover:scale-110 transition-transform" />
+                  </div>
+                  <span className="font-black text-black uppercase tracking-widest text-sm group-hover:text-jade-vibrant transition-colors">GitHub</span>
+                </a>
+                
+                {/* TikTok */}
+                <a href="https://tiktok.com" target="_blank" rel="noopener noreferrer" className="group flex flex-col items-center gap-3">
+                  <div className="w-24 h-24 bg-[#ff90e8] border-4 border-black flex items-center justify-center shadow-neo-sm group-hover:-translate-y-2 group-hover:shadow-neo-md transition-all">
+                    <img src="https://cdn.simpleicons.org/tiktok/black" alt="TikTok Logo" className="w-12 h-12 group-hover:scale-110 transition-transform" />
+                  </div>
+                  <span className="font-black text-black uppercase tracking-widest text-sm group-hover:text-jade-vibrant transition-colors">TikTok</span>
+                </a>
+
+                {/* Instagram */}
+                <a href="https://instagram.com" target="_blank" rel="noopener noreferrer" className="group flex flex-col items-center gap-3">
+                  <div className="w-24 h-24 bg-[#ffc900] border-4 border-black flex items-center justify-center shadow-neo-sm group-hover:-translate-y-2 group-hover:shadow-neo-md transition-all">
+                    <img src="https://cdn.simpleicons.org/instagram/black" alt="Instagram Logo" className="w-12 h-12 group-hover:scale-110 transition-transform" />
+                  </div>
+                  <span className="font-black text-black uppercase tracking-widest text-sm group-hover:text-jade-vibrant transition-colors">Instagram</span>
+                </a>
               </div>
             </section>
 

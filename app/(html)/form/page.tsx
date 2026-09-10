@@ -31,10 +31,45 @@ export default function FormPage() {
               </p>
             </section>
 
-            {/* Section 1: Konsep Form Dasar */}
+            {/* Section 1: Pengenalan Form */}
+            <section className="bg-mint-soft border-4 border-black shadow-neo-xl p-6 md:p-12 transform hover:translate-x-1 transition-transform">
+              <h2 className="text-2xl sm:text-3xl md:text-5xl font-black text-black uppercase mb-8 md:mb-10 border-b-4 border-black pb-4 flex items-center gap-3 md:gap-4 tracking-tighter">
+                <span className="bg-jade-vibrant text-black w-12 h-12 md:w-16 md:h-16 flex items-center justify-center border-4 border-black shadow-neo-sm flex-shrink-0 text-2xl md:text-4xl">01</span>
+                Apa Itu Form?
+              </h2>
+
+              <div className="flex flex-col lg:flex-row gap-8 items-center">
+                <div className="flex-1">
+                  <p className="font-bold text-forest-teal text-lg md:text-xl mb-6 leading-relaxed bg-white p-4 border-4 border-black shadow-neo-sm">
+                    Bayangkan kamu sedang mendaftar sekolah atau membuka akun Instagram baru. Kamu pasti diminta untuk mengisi nama, email, dan password, kan? Nah, kumpulan kolom isian itulah yang disebut sebagai <strong className="text-black uppercase text-2xl tracking-widest bg-[#ffc900] px-2 py-1 mx-1 border-2 border-black inline-block transform -rotate-2">Form</strong> di dalam dunia web.
+                  </p>
+                  <p className="font-bold text-black text-lg">
+                    Form bertugas untuk "mengumpulkan data" dari pengunjung website, lalu mengirimkannya ke server (sistem di balik layar) agar bisa diproses (misal: untuk login, daftar akun, atau mengirim pesan).
+                  </p>
+                </div>
+                
+                {/* Contoh Visual Form (Mockup UI) */}
+                <div className="lg:w-1/3 bg-white border-4 border-black shadow-[8px_8px_0px_rgba(0,0,0,1)] p-6 rotate-2 w-full max-w-sm">
+                  <h3 className="font-black text-xl uppercase mb-6 text-center border-b-4 border-black pb-2">Contoh Real: Form Login</h3>
+                  <div className="space-y-4">
+                    <div>
+                      <label className="font-bold text-sm uppercase block mb-1">Email</label>
+                      <input type="email" placeholder="contoh@email.com" className="w-full border-4 border-black p-2 bg-mint-canvas focus:outline-none" disabled />
+                    </div>
+                    <div>
+                      <label className="font-bold text-sm uppercase block mb-1">Password</label>
+                      <input type="password" placeholder="••••••••" className="w-full border-4 border-black p-2 bg-mint-canvas focus:outline-none" disabled />
+                    </div>
+                    <button disabled className="w-full bg-jade-vibrant text-white font-black uppercase tracking-widest p-3 border-4 border-black mt-2">Masuk</button>
+                  </div>
+                </div>
+              </div>
+            </section>
+
+            {/* Section 2: Konsep Form Dasar */}
             <section className="bg-white border-4 border-black shadow-neo-xl p-6 md:p-12">
               <h2 className="text-2xl sm:text-3xl md:text-5xl font-black text-black uppercase mb-8 md:mb-10 border-b-4 border-black pb-4 flex items-center gap-3 md:gap-4 tracking-tighter">
-                <span className="bg-forest-teal text-mint-soft w-12 h-12 md:w-16 md:h-16 flex items-center justify-center border-4 border-black shadow-neo-sm flex-shrink-0 text-2xl md:text-4xl">01</span>
+                <span className="bg-forest-teal text-mint-soft w-12 h-12 md:w-16 md:h-16 flex items-center justify-center border-4 border-black shadow-neo-sm flex-shrink-0 text-2xl md:text-4xl">02</span>
                 Struktur Tag &lt;form&gt;
               </h2>
 
@@ -70,10 +105,10 @@ export default function FormPage() {
               </div>
             </section>
 
-            {/* Section 2: Input & Label */}
+            {/* Section 3: Input & Label */}
             <section className="bg-white border-4 border-black shadow-neo-xl p-6 md:p-12">
               <h2 className="text-2xl sm:text-3xl md:text-5xl font-black text-black uppercase mb-8 md:mb-10 border-b-4 border-black pb-4 flex items-center gap-3 md:gap-4 tracking-tighter">
-                <span className="bg-jade-vibrant text-white w-12 h-12 md:w-16 md:h-16 flex items-center justify-center border-4 border-black shadow-neo-sm flex-shrink-0 text-2xl md:text-4xl">02</span>
+                <span className="bg-jade-vibrant text-white w-12 h-12 md:w-16 md:h-16 flex items-center justify-center border-4 border-black shadow-neo-sm flex-shrink-0 text-2xl md:text-4xl">03</span>
                 Mengenal Input & Label
               </h2>
 
@@ -108,16 +143,19 @@ export default function FormPage() {
                 <div className="border-4 border-black bg-white shadow-neo-lg flex flex-col xl:flex-row">
                   <div className="flex-1 p-6 md:p-8 border-b-4 xl:border-b-0 xl:border-r-4 border-black">
                     <h3 className="font-black text-2xl md:text-3xl uppercase mb-6 flex items-center gap-3"><span className="material-symbols-outlined text-pine-deep text-3xl md:text-4xl">fact_check</span> Radio & Checkbox</h3>
-                    <p className="text-base md:text-lg font-bold text-forest-teal mb-6 bg-mint-canvas p-3 border-4 border-black shadow-neo-sm"><strong className="text-black uppercase">Radio:</strong> Pilih salah satu opsi saja.<br /><strong className="text-black uppercase mt-2 block">Checkbox:</strong> Boleh pilih banyak opsi.</p>
+                    <div className="text-base md:text-lg font-bold text-forest-teal mb-6 bg-mint-canvas p-4 border-4 border-black shadow-neo-sm">
+                      <p className="mb-3"><strong className="bg-black text-white px-2 py-1 uppercase mr-2 shadow-neo-sm">Radio</strong> Hanya bisa memilih <strong>SATU</strong> opsi saja dari sebuah kelompok (contoh: Jenis Kelamin).</p>
+                      <p><strong className="bg-black text-white px-2 py-1 uppercase mr-2 shadow-neo-sm">Checkbox</strong> Bisa dipilih <strong>LEBIH DARI SATU</strong> opsi secara bersamaan (contoh: Hobi atau Keahlian).</p>
+                    </div>
                     <CodeBlock
                       language="html"
-                      code={`<!-- name="gender" harus SAMA agar terhubung! -->\n<input type="radio" id="pria" name="gender">\n<label for="pria">Pria</label>\n<input type="radio" id="wanita" name="gender">\n<label for="wanita">Wanita</label>\n\n<input type="checkbox" id="setuju">\n<label for="setuju">Saya setuju dengan syarat</label>`}
+                      code={`<!-- RADIO: name="gender" harus SAMA agar cuma bisa pilih 1 -->\n<input type="radio" id="pria" name="gender">\n<label for="pria">Pria</label>\n<input type="radio" id="wanita" name="gender">\n<label for="wanita">Wanita</label>\n\n<!-- CHECKBOX: name="hobi" juga disamakan, tapi user BEBAS pilih banyak -->\n<input type="checkbox" id="coding" name="hobi">\n<label for="coding">Coding</label>\n<input type="checkbox" id="gaming" name="hobi">\n<label for="gaming">Gaming</label>\n<input type="checkbox" id="design" name="hobi">\n<label for="design">Design</label>`}
                     />
                   </div>
                   <div className="xl:w-1/3 bg-canvas p-6 md:p-8 flex flex-col justify-center gap-8">
-                    <div>
-                      <p className="font-black uppercase tracking-tight text-sm block mb-4 text-forest-teal">Gender (Radio):</p>
-                      <div className="flex gap-6">
+                    <div className="border-b-4 border-black pb-6">
+                      <p className="font-black uppercase tracking-tight text-sm block mb-4 text-forest-teal">Gender (Radio - Pilih Satu):</p>
+                      <div className="flex flex-col sm:flex-row xl:flex-col gap-4">
                         <label className="flex items-center gap-3 font-bold text-lg cursor-pointer hover:text-jade-vibrant transition-colors">
                           <input type="radio" name="demo-gender" className="w-6 h-6 accent-jade-vibrant cursor-pointer border-4 border-black" /> Pria
                         </label>
@@ -127,10 +165,18 @@ export default function FormPage() {
                       </div>
                     </div>
                     <div>
-                      <p className="font-black uppercase tracking-tight text-sm block mb-4 text-forest-teal">Persetujuan (Checkbox):</p>
-                      <label className="flex items-center gap-3 font-bold text-lg cursor-pointer hover:text-pine-deep transition-colors">
-                        <input type="checkbox" className="w-6 h-6 accent-pine-deep cursor-pointer border-4 border-black" /> Saya setuju
-                      </label>
+                      <p className="font-black uppercase tracking-tight text-sm block mb-4 text-forest-teal">Hobi (Checkbox - Pilih Bebas):</p>
+                      <div className="flex flex-col sm:flex-row xl:flex-col gap-4">
+                        <label className="flex items-center gap-3 font-bold text-lg cursor-pointer hover:text-pine-deep transition-colors">
+                          <input type="checkbox" className="w-6 h-6 accent-pine-deep cursor-pointer border-4 border-black" /> Coding
+                        </label>
+                        <label className="flex items-center gap-3 font-bold text-lg cursor-pointer hover:text-pine-deep transition-colors">
+                          <input type="checkbox" className="w-6 h-6 accent-pine-deep cursor-pointer border-4 border-black" /> Gaming
+                        </label>
+                        <label className="flex items-center gap-3 font-bold text-lg cursor-pointer hover:text-pine-deep transition-colors">
+                          <input type="checkbox" className="w-6 h-6 accent-pine-deep cursor-pointer border-4 border-black" /> Design
+                        </label>
+                      </div>
                     </div>
                   </div>
                 </div>
@@ -138,10 +184,10 @@ export default function FormPage() {
               </div>
             </section>
 
-            {/* Section 3: Select, Textarea & Button */}
+            {/* Section 4: Select, Textarea & Button */}
             <section className="bg-white border-4 border-black shadow-neo-xl p-6 md:p-12 transform -rotate-1 hover:rotate-0 transition-transform">
               <h2 className="text-2xl sm:text-3xl md:text-5xl font-black text-black uppercase mb-8 md:mb-10 border-b-4 border-black pb-4 flex items-center gap-3 md:gap-4 tracking-tighter">
-                <span className="bg-pine-deep text-white w-12 h-12 md:w-16 md:h-16 flex items-center justify-center border-4 border-black shadow-neo-sm flex-shrink-0 text-2xl md:text-4xl">03</span>
+                <span className="bg-pine-deep text-white w-12 h-12 md:w-16 md:h-16 flex items-center justify-center border-4 border-black shadow-neo-sm flex-shrink-0 text-2xl md:text-4xl">04</span>
                 Dropdown, Pesan, & Tombol
               </h2>
 
