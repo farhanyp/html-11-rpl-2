@@ -58,21 +58,17 @@ export default function MultimediaPage() {
                     <div className="border-4 border-black mb-6">
                       <CodeBlock
                         language="html"
-                        code={`<!-- controls memunculkan UI putar -->\n<audio controls>\n  <source src="lagu.mp3" type="audio/mpeg">\n  Ganti browsermu kocak.\n</audio>`}
+                        code={`<!-- controls memunculkan UI putar -->\n<audio controls>\n  <source src="/multimedia/faaah.mp3" type="audio/mpeg">\n  Ganti browsermu kocak.\n</audio>`}
                       />
                     </div>
                   </div>
-                  <div className="bg-white border-t-4 border-black p-6 font-bold">
-                    <p className="mb-4 font-black uppercase text-sm tracking-widest text-forest-teal border-b-2 border-black pb-1 inline-block">Mockup Player:</p>
-                    {/* Dummy Audio Player Brutalist */}
-                    <div className="bg-mint-canvas border-4 border-black h-16 flex items-center px-4 gap-4 shadow-neo-sm hover:translate-x-[2px] hover:translate-y-[2px] hover:shadow-none transition-transform cursor-pointer">
-                      <div className="w-10 h-10 bg-jade-vibrant border-2 border-black rounded-full flex items-center justify-center shadow-[2px_2px_0px_rgba(0,0,0,1)] active:shadow-none active:translate-y-[2px]">
-                        <span className="material-symbols-outlined text-white text-xl font-black">play_arrow</span>
-                      </div>
-                      <div className="flex-1 h-3 border-2 border-black bg-white rounded-full relative overflow-hidden">
-                        <div className="absolute top-0 left-0 h-full w-[45%] bg-pine-deep border-r-2 border-black"></div>
-                      </div>
-                      <span className="font-black text-sm text-black bg-white px-2 py-1 border-2 border-black">1:03</span>
+                  <div className="bg-white border-t-4 border-black p-6 font-bold flex-1 flex flex-col justify-end">
+                    <p className="mb-4 font-black uppercase text-sm tracking-widest text-forest-teal border-b-2 border-black pb-1 inline-block">Hasil Render Browser:</p>
+                    <div className="bg-mint-canvas border-4 border-black p-4 shadow-neo-sm flex items-center justify-center">
+                      <audio controls className="w-full outline-none">
+                        <source src="/multimedia/faaah.mp3" type="audio/mpeg" />
+                        Browser kamu tidak mendukung tag audio.
+                      </audio>
                     </div>
                   </div>
                 </div>
@@ -89,25 +85,17 @@ export default function MultimediaPage() {
                     <div className="border-4 border-black mb-6">
                       <CodeBlock
                         language="html"
-                        code={`<video width="320" height="240" controls>\n  <source src="film.mp4" type="video/mp4">\n  Browser kamu busuk.\n</video>`}
+                        code={`<video width="320" height="240" controls>\n  <source src="/multimedia/youtube-audio.mp3" type="video/mp4">\n  Browser kamu busuk.\n</video>`}
                       />
                     </div>
                   </div>
                   <div className="bg-white border-t-4 border-black p-6 font-bold flex-1 flex flex-col justify-end">
-                    <p className="mb-4 font-black uppercase text-sm tracking-widest text-forest-teal border-b-2 border-black pb-1 inline-block">Mockup Player:</p>
-                    {/* Dummy Video Player Brutalist */}
-                    <div className="bg-black w-full aspect-video border-4 border-black relative flex items-center justify-center shadow-neo-sm overflow-hidden group cursor-pointer">
-                      <div className="absolute inset-0 bg-pine-deep opacity-20 group-hover:opacity-40 transition-opacity"></div>
-                      <div className="w-16 h-16 bg-white border-4 border-black rounded-full flex items-center justify-center shadow-neo-sm z-10 group-hover:scale-110 group-active:scale-95 transition-transform">
-                        <span className="material-symbols-outlined text-black text-4xl ml-1">play_arrow</span>
-                      </div>
-                      <div className="absolute bottom-0 w-full h-12 bg-white border-t-4 border-black flex items-center px-4 gap-4 translate-y-full group-hover:translate-y-0 transition-transform">
-                        <span className="material-symbols-outlined text-black font-black text-xl hover:text-jade-vibrant">pause</span>
-                        <div className="flex-1 h-3 bg-canvas border-2 border-black rounded-full relative overflow-hidden">
-                          <div className="h-full w-1/4 bg-jade-vibrant border-r-2 border-black"></div>
-                        </div>
-                        <span className="font-black text-xs text-black">10:42</span>
-                      </div>
+                    <p className="mb-4 font-black uppercase text-sm tracking-widest text-forest-teal border-b-2 border-black pb-1 inline-block">Hasil Render Browser:</p>
+                    <div className="bg-black w-full aspect-video border-4 border-black relative flex items-center justify-center shadow-neo-sm overflow-hidden">
+                      <video controls className="w-full h-full object-cover outline-none">
+                        <source src="/multimedia/youtube-audio.mp3" type="audio/mpeg" />
+                        Browser kamu tidak mendukung tag video.
+                      </video>
                     </div>
                   </div>
                 </div>
@@ -153,38 +141,32 @@ export default function MultimediaPage() {
                 </div>
               </div>
 
-              <div className="flex flex-col xl:flex-row gap-8 lg:gap-10 items-stretch">
-                <div className="flex-1 bg-black border-4 border-black p-1 shadow-neo-lg flex flex-col">
+              <div className="flex flex-col gap-8 lg:gap-10">
+                <div className="bg-black border-4 border-black p-1 shadow-neo-lg flex flex-col">
                   <div className="bg-mint-soft border-b-4 border-black p-4 font-black text-xl uppercase text-black">Kode Integrasi</div>
                   <div className="flex-grow">
                     <CodeBlock
                       language="html"
-                      code={`<!-- Contoh Memasukkan Halaman Web -->\n<iframe \n  src="https://id.wikipedia.org/" \n  title="Wikipedia Indonesia"\n  width="100%" \n  height="300">\n</iframe>`}
+                      code={`<!-- Contoh Memasukkan Video YouTube -->\n<iframe \n  width="100%" \n  height="300" \n  src="https://www.youtube.com/embed/62bIsvRcPv0" \n  title="SPIDER-MAN: BRAND NEW DAY – New Trailer (4K)" \n  frameborder="0" \n  allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" \n  referrerpolicy="strict-origin-when-cross-origin" \n  allowfullscreen>\n</iframe>`}
                     />
                   </div>
                   <div className="bg-white border-t-4 border-black p-4">
-                    <p className="text-sm font-bold text-forest-teal bg-mint-canvas border-4 border-black p-3"><strong className="text-black uppercase">Peringatan Keras:</strong><br />Tidak semua website (seperti google.com biasa) mengizinkan webnya di-embed oleh web lain karena alasan keamanan <em>XSS/Clickjacking</em>.</p>
+                    <p className="text-sm font-bold text-forest-teal bg-mint-canvas border-4 border-black p-3"><strong className="text-black uppercase">Tips:</strong><br />Di YouTube, kamu bisa mendapatkan kode <code>&lt;iframe&gt;</code> ini dengan mengeklik tombol <strong>Bagikan</strong> (Share) &rarr; <strong>Sematkan</strong> (Embed).</p>
                   </div>
                 </div>
 
-                <div className="xl:w-1/2 bg-pine-deep border-4 border-black p-6 md:p-8 shadow-neo-lg flex flex-col justify-center hover:scale-[1.02] transition-transform">
-                  <h3 className="font-black text-white text-2xl uppercase mb-6 text-center drop-shadow-[2px_2px_0px_rgba(0,0,0,1)]">Tampilan Embed (Simulasi)</h3>
-                  <div className="bg-white border-4 border-black w-full h-56 md:h-64 overflow-hidden relative shadow-neo-sm">
-                    {/* Fake Wikipedia Header */}
-                    <div className="w-full h-12 border-b-4 border-black flex items-center px-4 bg-canvas gap-4">
-                      <div className="w-7 h-7 rounded-none border-2 border-black bg-white flex items-center justify-center font-serif font-black text-sm">W</div>
-                      <span className="font-serif font-black text-black text-lg tracking-tight">Wikipedia</span>
-                      <div className="ml-auto w-24 h-7 bg-white border-2 border-black flex items-center justify-end px-2 shadow-[2px_2px_0px_rgba(0,0,0,1)]"><span className="material-symbols-outlined text-[14px] text-black font-black">search</span></div>
-                    </div>
-                    {/* Fake Content Brutalist */}
-                    <div className="p-6 space-y-4">
-                      <div className="w-3/4 h-8 bg-black"></div>
-                      <div className="space-y-3 mt-6">
-                        <div className="w-full h-3 bg-mint-canvas border-b-2 border-black"></div>
-                        <div className="w-full h-3 bg-mint-canvas border-b-2 border-black"></div>
-                        <div className="w-5/6 h-3 bg-mint-canvas border-b-2 border-black"></div>
-                      </div>
-                    </div>
+                <div className="bg-pine-deep border-4 border-black p-6 md:p-8 shadow-neo-lg flex flex-col justify-center hover:scale-[1.01] transition-transform">
+                  <h3 className="font-black text-white text-2xl uppercase mb-6 text-center drop-shadow-[2px_2px_0px_rgba(0,0,0,1)]">Hasil Render Browser</h3>
+                  <div className="bg-white border-4 border-black w-full max-w-4xl mx-auto overflow-hidden relative shadow-neo-sm">
+                    <iframe 
+                      className="w-full aspect-video"
+                      src="https://www.youtube.com/embed/62bIsvRcPv0" 
+                      title="SPIDER-MAN: BRAND NEW DAY – New Trailer (4K)" 
+                      frameBorder="0" 
+                      allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" 
+                      referrerPolicy="strict-origin-when-cross-origin" 
+                      allowFullScreen
+                    ></iframe>
                   </div>
                 </div>
               </div>

@@ -204,23 +204,26 @@ export default function MetaHeadSeoPage() {
                   </div>
 
                   {/* WhatsApp/Open Graph Preview */}
-                  <div className="bg-canvas text-black border-4 border-black p-6 md:p-8 shadow-neo-lg flex flex-col relative overflow-hidden h-[340px] justify-center hover:scale-[1.02] transition-transform">
-                    <h4 className="font-black uppercase text-center mb-6 border-b-4 border-black pb-2 text-black tracking-widest absolute top-6 left-0 right-0 mx-6">Simulasi Chat WhatsApp</h4>
+                  <div className="bg-canvas text-black border-4 border-black p-6 md:p-8 shadow-neo-lg flex flex-col hover:scale-[1.02] transition-transform">
+                    <h4 className="font-black uppercase text-center mb-6 border-b-4 border-black pb-2 text-black tracking-widest">Simulasi Chat WhatsApp</h4>
                     {/* Chat Bubble (Mockup) */}
-                    <div className="bg-white p-3 border-4 border-black max-w-[90%] self-end shadow-neo-sm transform translate-y-6">
-                      <div className="bg-mint-canvas border-2 border-black overflow-hidden mb-2">
+                    <div className="bg-[#DCF8C6] p-3 md:p-4 border-4 border-black max-w-[95%] sm:max-w-[85%] self-end shadow-neo-sm rounded-tl-xl rounded-bl-xl rounded-br-xl relative">
+                      <div className="bg-[#F0F2F5] border-4 border-black overflow-hidden mb-3 hover:bg-white transition-colors cursor-pointer">
                         {/* Fake image from og:image */}
-                        <div className="h-32 bg-jade-vibrant border-b-2 border-black flex items-center justify-center pattern-isometric relative">
+                        <div className="h-32 bg-jade-vibrant border-b-4 border-black flex items-center justify-center pattern-isometric relative">
                           <span className="font-black text-white tracking-widest text-3xl drop-shadow-[2px_2px_0px_rgba(0,0,0,1)] -rotate-6">EDUBRUTAL</span>
                         </div>
                         <div className="p-3 bg-white">
                           <h5 className="font-black text-base text-black uppercase mb-1">WebPoint HTML</h5>
-                          <p className="text-sm font-bold text-gray-600 line-clamp-1 mb-1">Belajar HTML brutal paling seru.</p>
-                          <p className="text-xs font-black text-gray-400 uppercase tracking-widest">edubrutal.com</p>
+                          <p className="text-sm font-bold text-gray-600 line-clamp-2 mb-1">Belajar HTML brutal paling seru. Tutorial super lengkap dan interaktif.</p>
+                          <p className="text-xs font-black text-gray-400 uppercase tracking-widest mt-2">edubrutal.com</p>
                         </div>
                       </div>
-                      <p className="text-base font-bold text-black mb-1">Nih cek link belajarnya gaes!</p>
-                      <span className="text-xs font-black text-gray-400 float-right">10:45 AM</span>
+                      <p className="text-base md:text-lg font-bold text-black mb-1 leading-snug">Nih cek link belajarnya gaes!</p>
+                      <div className="flex justify-end items-center gap-1 mt-1">
+                        <span className="text-[10px] md:text-xs font-black text-gray-500">10:45 AM</span>
+                        <span className="text-blue-500 material-symbols-outlined text-[14px]">done_all</span>
+                      </div>
                     </div>
                   </div>
                 </div>
