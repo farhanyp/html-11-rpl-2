@@ -27,6 +27,7 @@ export default function Sidebar() {
     { href: '/semantic', icon: 'view_quilt', label: 'Semantic HTML', color: 'bg-canvas text-black' },
     { href: '/multimedia', icon: 'play_circle', label: 'Multimedia & Embed', color: 'bg-mint-soft text-black' },
     { href: '/meta-head-seo', icon: 'travel_explore', label: 'Meta, HEAD & SEO', color: 'bg-jade-vibrant text-white' },
+    { href: '/project-1', icon: 'integration_instructions', label: 'Project 1: Portfolio HTML', color: 'bg-jade-vibrant text-white' },
   ];
 
   const cssLinks = [
@@ -45,6 +46,7 @@ export default function Sidebar() {
     { href: '/pseudo-elements', icon: 'auto_awesome', label: '13. Pseudo-elements', color: 'bg-pine-deep text-white' },
     { href: '/pseudo-classes', icon: 'touch_app', label: '14. Pseudo-classes', color: 'bg-canvas text-black' },
     { href: '/responsive-design', icon: 'devices', label: '15. Responsive Design', color: 'bg-mint-soft text-black' },
+    { href: '/project-2', icon: 'brush', label: 'Project 2: Portfolio CSS', color: 'bg-mint-soft text-black' },
   ];
 
   const isLinkActive = (href: string) => {
@@ -148,18 +150,6 @@ export default function Sidebar() {
           </span>
         </div>
         {renderLinks(cssLinks)}
-
-        {/* Projects Section */}
-        <div className="p-5 border-4 border-black mb-4 bg-forest-teal shadow-neo-sm mx-4 mt-6">
-          <h2 className="text-xl font-black text-white uppercase tracking-tight flex items-center gap-2">
-            <span className="material-symbols-outlined text-mint-soft">rocket_launch</span>
-            Labs & Projects
-          </h2>
-        </div>
-        {renderLinks([
-          { href: '/project-1', icon: 'integration_instructions', label: 'Project 1: Portfolio HTML', color: 'bg-jade-vibrant text-white' },
-          { href: '/project-2', icon: 'brush', label: 'Project 2: Portfolio CSS', color: 'bg-mint-soft text-black' }
-        ])}
 
       </aside>
     </>

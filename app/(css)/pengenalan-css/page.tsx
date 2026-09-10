@@ -61,12 +61,16 @@ export default function PengenalanCSSPage() {
 
               <div className="flex flex-col md:flex-row gap-8 lg:gap-10 mb-10 md:mb-12 items-stretch">
                 <div className="md:w-2/3">
-                  <p className="text-lg md:text-xl font-bold text-forest-teal leading-relaxed bg-mint-canvas p-6 border-4 border-black shadow-neo-sm">
+                  <p className="text-lg md:text-xl font-bold text-forest-teal leading-relaxed bg-mint-canvas p-6 border-4 border-black shadow-neo-sm hover:-translate-y-1 transition-transform">
                     Jika <strong className="bg-white px-2 py-1 border-2 border-black text-black uppercase tracking-widest shadow-[2px_2px_0px_rgba(0,0,0,1)]">HTML</strong> adalah susunan batu bata, pondasi, dan tiang bangunan (kerangka), maka <strong className="bg-jade-vibrant text-white px-2 py-1 border-2 border-black uppercase tracking-widest shadow-[2px_2px_0px_rgba(0,0,0,1)]">CSS</strong> adalah cat tembok, wallpaper, lampu hias, dan tirai jendelanya. Tanpa CSS, halaman web (seperti Facebook atau YouTube) hanya akan berupa rentetan teks hitam putih yang berjejer kaku dari atas ke bawah.
                   </p>
                 </div>
-                <div className="md:w-1/3 border-4 border-black shadow-neo-md -rotate-2 hover:rotate-2 transition-transform flex items-center justify-center bg-pine-deep p-8 flex-1 min-h-[160px]">
-                  <span className="material-symbols-outlined text-[80px] md:text-[100px] text-white drop-shadow-[4px_4px_0px_rgba(0,0,0,1)]">palette</span>
+                <div className="md:w-1/3 border-4 border-black shadow-neo-md rotate-2 hover:rotate-0 transition-transform flex items-center justify-center bg-white p-4 h-auto min-h-[200px]">
+                  <img 
+                    src="/pengenalan-css/image1.jpg" 
+                    alt="Analogi Rumah" 
+                    className="w-full h-full object-cover border-4 border-black shadow-neo-sm" 
+                  />
                 </div>
               </div>
 
