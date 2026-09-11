@@ -27,7 +27,7 @@ export default function Sidebar() {
     { href: '/semantic', icon: 'view_quilt', label: 'Semantic HTML', color: 'bg-canvas text-black' },
     { href: '/multimedia', icon: 'play_circle', label: 'Multimedia & Embed', color: 'bg-mint-soft text-black' },
     { href: '/meta-head-seo', icon: 'travel_explore', label: 'Meta, HEAD & SEO', color: 'bg-jade-vibrant text-white' },
-    { href: '/project-1', icon: 'integration_instructions', label: 'Project 1: Portfolio HTML', color: 'bg-jade-vibrant text-white' },
+    { href: '/project-1-html', icon: 'integration_instructions', label: 'Project 1: Portfolio HTML', color: 'bg-jade-vibrant text-white' },
   ];
 
   const cssLinks = [
@@ -46,7 +46,15 @@ export default function Sidebar() {
     { href: '/pseudo-elements', icon: 'auto_awesome', label: '13. Pseudo-elements', color: 'bg-pine-deep text-white' },
     { href: '/pseudo-classes', icon: 'touch_app', label: '14. Pseudo-classes', color: 'bg-canvas text-black' },
     { href: '/responsive-design', icon: 'devices', label: '15. Responsive Design', color: 'bg-mint-soft text-black' },
-    { href: '/project-2', icon: 'brush', label: 'Project 2: Portfolio CSS', color: 'bg-mint-soft text-black' },
+    { href: '/project-2-css', icon: 'brush', label: 'Project 2: Portfolio CSS', color: 'bg-mint-soft text-black' },
+  ];
+
+  const jsLinks = [
+    { href: '/pengantar-js', icon: 'emoji_objects', label: '1. Pengantar & Interaksi', color: 'bg-pine-deep text-white' },
+    { href: '/dom-function', icon: 'build', label: '2. DOM & Function', color: 'bg-canvas text-black' },
+    { href: '/logika-keputusan', icon: 'alt_route', label: '3. Logika (Conditionals)', color: 'bg-mint-soft text-black' },
+    { href: '/array-perulangan', icon: 'repeat', label: '4. Array & Perulangan', color: 'bg-jade-vibrant text-white' },
+    { href: '/crud-localstorage', icon: 'storage', label: '5. CRUD & Local Storage', color: 'bg-pine-deep text-white' },
   ];
 
   const isLinkActive = (href: string) => {
@@ -60,6 +68,9 @@ export default function Sidebar() {
 
   const activeIndexCSS = cssLinks.findIndex(link => isLinkActive(link.href));
   const progressCSS = activeIndexCSS !== -1 ? Math.round(((activeIndexCSS + 1) / cssLinks.length) * 100) : (activeIndexHTML !== -1 ? 0 : 100);
+
+  const activeIndexJS = jsLinks.findIndex(link => isLinkActive(link.href));
+  const progressJS = activeIndexJS !== -1 ? Math.round(((activeIndexJS + 1) / jsLinks.length) * 100) : ((activeIndexHTML !== -1 || activeIndexCSS !== -1) ? 0 : 100);
 
   const renderLinks = (links: any[]) => (
     <nav className="flex flex-col px-4 gap-4 mb-8">
@@ -150,6 +161,24 @@ export default function Sidebar() {
           </span>
         </div>
         {renderLinks(cssLinks)}
+
+        {/* JS Section */}
+        <div className="p-5 border-4 border-black mb-4 bg-canvas shadow-neo-md mx-4 mt-6 transform hover:rotate-1 transition-transform">
+          <h2 className="text-xl font-black text-black uppercase tracking-tight">Materi Pokok 3</h2>
+          <p className="text-xs font-bold text-black uppercase mt-1">JavaScript Dasar</p>
+          <div className="mt-4 w-full bg-mint-canvas border-4 border-black h-5 relative">
+            <div
+              className="bg-pine-deep h-full border-r-4 border-black transition-all duration-500 ease-in-out"
+              style={{ width: `${progressJS}%` }}
+            ></div>
+          </div>
+        </div>
+        <div className="px-4 mb-2">
+          <span className="bg-white text-black font-black uppercase text-xs px-2 py-1 border-4 border-black inline-block -rotate-2 shadow-neo-sm">
+            Bagian 3
+          </span>
+        </div>
+        {renderLinks(jsLinks)}
 
       </aside>
     </>
