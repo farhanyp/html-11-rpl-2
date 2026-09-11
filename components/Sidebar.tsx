@@ -55,6 +55,7 @@ export default function Sidebar() {
     { href: '/logika-keputusan', icon: 'alt_route', label: '3. Logika (Conditionals)', color: 'bg-mint-soft text-black' },
     { href: '/array-perulangan', icon: 'repeat', label: '4. Array & Perulangan', color: 'bg-jade-vibrant text-white' },
     { href: '/crud-localstorage', icon: 'storage', label: '5. CRUD & Local Storage', color: 'bg-pine-deep text-white' },
+    { href: '/project-3-js', icon: 'integration_instructions', label: 'Project 3: Aplikasi Laundry', color: 'bg-canvas text-black' },
   ];
 
   const isLinkActive = (href: string) => {
