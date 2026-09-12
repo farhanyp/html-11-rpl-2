@@ -58,6 +58,17 @@ export default function Sidebar() {
     { href: '/project-3-js', icon: 'integration_instructions', label: 'Project 3: Aplikasi Laundry', color: 'bg-canvas text-black' },
   ];
 
+  const arsitekturWebLinks = [
+    { href: '/arsitektur-aplikasi-web-frontend-vs-backend', icon: 'account_tree', label: '1. Frontend vs Backend', color: 'bg-pine-deep text-white' },
+    { href: '/siklus-request-response', icon: 'sync_alt', label: '2. Request & Response', color: 'bg-canvas text-black' },
+    { href: '/web-statis-vs-web-dinamis', icon: 'dynamic_feed', label: '3. Web Statis vs Dinamis', color: 'bg-mint-soft text-black' },
+    { href: '/anatomi-url-alamat-web', icon: 'link', label: '4. Anatomi URL', color: 'bg-jade-vibrant text-white' },
+    { href: '/mengenal-web-server-apache', icon: 'dns', label: '5. Web Server & Apache', color: 'bg-pine-deep text-white' },
+    { href: '/metode-komunikasi-http-kata-kerja-web', icon: 'http', label: '6. Metode HTTP', color: 'bg-canvas text-black' },
+    { href: '/konsep-port-kode-status-http', icon: 'settings_ethernet', label: '7. Port & Status HTTP', color: 'bg-mint-soft text-black' },
+    { href: '/localhost-pengenalan-xampp', icon: 'computer', label: '8. Localhost & XAMPP', color: 'bg-jade-vibrant text-white' },
+  ];
+
   const isLinkActive = (href: string) => {
     if (!pathname) return false;
     if (href === '/') return pathname === '/';
@@ -72,6 +83,9 @@ export default function Sidebar() {
 
   const activeIndexJS = jsLinks.findIndex(link => isLinkActive(link.href));
   const progressJS = activeIndexJS !== -1 ? Math.round(((activeIndexJS + 1) / jsLinks.length) * 100) : ((activeIndexHTML !== -1 || activeIndexCSS !== -1) ? 0 : 100);
+
+  const activeIndexArsitekturWeb = arsitekturWebLinks.findIndex(link => isLinkActive(link.href));
+  const progressArsitekturWeb = activeIndexArsitekturWeb !== -1 ? Math.round(((activeIndexArsitekturWeb + 1) / arsitekturWebLinks.length) * 100) : ((activeIndexHTML !== -1 || activeIndexCSS !== -1 || activeIndexJS !== -1) ? 0 : 100);
 
   const renderLinks = (links: any[]) => (
     <nav className="flex flex-col px-4 gap-4 mb-8">
@@ -180,6 +194,24 @@ export default function Sidebar() {
           </span>
         </div>
         {renderLinks(jsLinks)}
+
+        {/* Arsitektur Web Section */}
+        <div className="p-5 border-4 border-black mb-4 bg-white shadow-neo-md mx-4 mt-6 transform hover:rotate-1 transition-transform">
+          <h2 className="text-xl font-black text-black uppercase tracking-tight">Materi Pokok 4</h2>
+          <p className="text-xs font-bold text-black uppercase mt-1">Arsitektur Web</p>
+          <div className="mt-4 w-full bg-mint-canvas border-4 border-black h-5 relative">
+            <div
+              className="bg-forest-teal h-full border-r-4 border-black transition-all duration-500 ease-in-out"
+              style={{ width: `${progressArsitekturWeb}%` }}
+            ></div>
+          </div>
+        </div>
+        <div className="px-4 mb-2">
+          <span className="bg-white text-black font-black uppercase text-xs px-2 py-1 border-4 border-black inline-block rotate-2 shadow-neo-sm">
+            Bagian 4
+          </span>
+        </div>
+        {renderLinks(arsitekturWebLinks)}
 
       </aside>
     </>
