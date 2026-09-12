@@ -20,7 +20,9 @@ export default function Headbar({ links = [] }: HeadbarProps) {
     { label: 'HTML', href: '/pengenalan-html', color: 'bg-jade-vibrant text-white' },
     { label: 'CSS', href: '/pengenalan-css', color: 'bg-[#2965F1] text-white' },
     { label: 'JS', href: '/pengantar-js', color: 'bg-[#F0DB4F] text-black' },
-    { label: 'Arsitektur Web', href: '/arsitektur-aplikasi-web-frontend-vs-backend', color: 'bg-pine-deep text-white' }
+    { label: 'Arsitektur Web', href: '/arsitektur-aplikasi-web-frontend-vs-backend', color: 'bg-pine-deep text-white' },
+    { label: 'Database', href: '/konsep-database', color: 'bg-[#00758F] text-white' },
+    { label: 'PHP', href: '/pengantar-php', color: 'bg-[#777BB4] text-white' }
   ];
 
   return (

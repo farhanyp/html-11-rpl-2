@@ -69,6 +69,32 @@ export default function Sidebar() {
     { href: '/localhost-pengenalan-xampp', icon: 'computer', label: '8. Localhost & XAMPP', color: 'bg-jade-vibrant text-white' },
   ];
 
+  const databaseLinks = [
+    { href: '/konsep-database', icon: 'database', label: '1. Konsep Dasar', color: 'bg-pine-deep text-white' },
+    { href: '/teknis-database-modern', icon: 'storage', label: '2. Database Modern', color: 'bg-canvas text-black' },
+    { href: '/erd-database', icon: 'schema', label: '3. Merancang ERD', color: 'bg-mint-soft text-black' },
+    { href: '/relasi-tabel', icon: 'account_tree', label: '4. Relasi Antar Tabel', color: 'bg-jade-vibrant text-white' },
+    { href: '/anatomi-tipe-data-tabel', icon: 'table_chart', label: '5. Anatomi & Tipe Data', color: 'bg-pine-deep text-white' },
+    { href: '/sql-dasar-ddl-dml', icon: 'terminal', label: '6. SQL Dasar', color: 'bg-canvas text-black' },
+    { href: '/advanced-query-sql', icon: 'manage_search', label: '7. Advanced Query', color: 'bg-mint-soft text-black' },
+    { href: '/join-matematika-bisnis', icon: 'join_inner', label: '8. JOIN & Agregasi', color: 'bg-jade-vibrant text-white' },
+    { href: '/project-laundry-db', icon: 'local_laundry_service', label: '9. Project: Laundry DB', color: 'bg-pine-deep text-white' },
+    { href: '/ujian-akhir-database', icon: 'school', label: '10. Ujian Akhir DB', color: 'bg-canvas text-black' },
+  ];
+
+  const phpLinks = [
+    { href: '/pengantar-php', icon: 'php', label: '1. Pengantar PHP', color: 'bg-pine-deep text-white' },
+    { href: '/aturan-pulau-php', icon: 'code_blocks', label: '2. Pulau PHP', color: 'bg-canvas text-black' },
+    { href: '/sintaks-dasar-php', icon: 'data_object', label: '3. Sintaks Dasar', color: 'bg-mint-soft text-black' },
+    { href: '/error-php-layar-putih', icon: 'error', label: '4. Error Layar Putih', color: 'bg-jade-vibrant text-white' },
+    { href: '/debugging-php', icon: 'bug_report', label: '5. Teknik Debugging', color: 'bg-pine-deep text-white' },
+    { href: '/hard-refresh-browser', icon: 'refresh', label: '6. Hard Refresh', color: 'bg-canvas text-black' },
+    { href: '/get-vs-post-php', icon: 'move_up', label: '7. GET vs POST', color: 'bg-mint-soft text-black' },
+    { href: '/undefined-array-key', icon: 'warning', label: '8. Undefined Array Key', color: 'bg-jade-vibrant text-white' },
+    { href: '/koneksi-mysql-php', icon: 'cable', label: '9. Koneksi MySQL', color: 'bg-pine-deep text-white' },
+    { href: '/project-crud-buku-tamu', icon: 'menu_book', label: '10. Project: Buku Tamu', color: 'bg-canvas text-black' },
+  ];
+
   const isLinkActive = (href: string) => {
     if (!pathname) return false;
     if (href === '/') return pathname === '/';
@@ -86,6 +112,12 @@ export default function Sidebar() {
 
   const activeIndexArsitekturWeb = arsitekturWebLinks.findIndex(link => isLinkActive(link.href));
   const progressArsitekturWeb = activeIndexArsitekturWeb !== -1 ? Math.round(((activeIndexArsitekturWeb + 1) / arsitekturWebLinks.length) * 100) : ((activeIndexHTML !== -1 || activeIndexCSS !== -1 || activeIndexJS !== -1) ? 0 : 100);
+
+  const activeIndexDatabase = databaseLinks.findIndex(link => isLinkActive(link.href));
+  const progressDatabase = activeIndexDatabase !== -1 ? Math.round(((activeIndexDatabase + 1) / databaseLinks.length) * 100) : ((activeIndexHTML !== -1 || activeIndexCSS !== -1 || activeIndexJS !== -1 || activeIndexArsitekturWeb !== -1) ? 0 : 100);
+
+  const activeIndexPHP = phpLinks.findIndex(link => isLinkActive(link.href));
+  const progressPHP = activeIndexPHP !== -1 ? Math.round(((activeIndexPHP + 1) / phpLinks.length) * 100) : ((activeIndexHTML !== -1 || activeIndexCSS !== -1 || activeIndexJS !== -1 || activeIndexArsitekturWeb !== -1 || activeIndexDatabase !== -1) ? 0 : 100);
 
   const renderLinks = (links: any[]) => (
     <nav className="flex flex-col px-4 gap-4 mb-8">
@@ -212,6 +244,42 @@ export default function Sidebar() {
           </span>
         </div>
         {renderLinks(arsitekturWebLinks)}
+
+        {/* Database Section */}
+        <div className="p-5 border-4 border-black mb-4 bg-mint-soft shadow-neo-md mx-4 mt-6 transform hover:-rotate-1 transition-transform">
+          <h2 className="text-xl font-black text-black uppercase tracking-tight">Materi Pokok 5</h2>
+          <p className="text-xs font-bold text-black uppercase mt-1">Database SQL</p>
+          <div className="mt-4 w-full bg-white border-4 border-black h-5 relative">
+            <div
+              className="bg-jade-vibrant h-full border-r-4 border-black transition-all duration-500 ease-in-out"
+              style={{ width: `${progressDatabase}%` }}
+            ></div>
+          </div>
+        </div>
+        <div className="px-4 mb-2">
+          <span className="bg-white text-black font-black uppercase text-xs px-2 py-1 border-4 border-black inline-block -rotate-2 shadow-neo-sm">
+            Bagian 5
+          </span>
+        </div>
+        {renderLinks(databaseLinks)}
+
+        {/* PHP Section */}
+        <div className="p-5 border-4 border-black mb-4 bg-canvas shadow-neo-md mx-4 mt-6 transform hover:rotate-1 transition-transform">
+          <h2 className="text-xl font-black text-black uppercase tracking-tight">Materi Pokok 6</h2>
+          <p className="text-xs font-bold text-black uppercase mt-1">PHP Dinamis</p>
+          <div className="mt-4 w-full bg-mint-canvas border-4 border-black h-5 relative">
+            <div
+              className="bg-pine-deep h-full border-r-4 border-black transition-all duration-500 ease-in-out"
+              style={{ width: `${progressPHP}%` }}
+            ></div>
+          </div>
+        </div>
+        <div className="px-4 mb-2">
+          <span className="bg-white text-black font-black uppercase text-xs px-2 py-1 border-4 border-black inline-block rotate-2 shadow-neo-sm">
+            Bagian 6
+          </span>
+        </div>
+        {renderLinks(phpLinks)}
 
       </aside>
     </>
