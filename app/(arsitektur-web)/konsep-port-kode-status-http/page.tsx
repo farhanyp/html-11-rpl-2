@@ -30,7 +30,7 @@ export default function PortDanStatusPage() {
         
         <div className="bg-forest-teal text-white p-6 border-4 border-black shadow-[4px_4px_0px_0px_#000] max-w-4xl">
           <p className="text-xl font-bold leading-relaxed">
-            Dua hal ini ibarat <strong>"Nomor Pintu"</strong> dan <strong>"Bahasa Sandi"</strong> antara Browsermu dengan Server. Mari kita bongkar rahasianya!
+            Komponen fundamental arsitektur jaringan yang merepresentasikan <strong>"Titik Akses Endpoint" (Port)</strong> dan <strong>"Protokol Respons Komunikasi" (HTTP Status)</strong> antara Klien dan Web Server.
           </p>
         </div>
       </section>
@@ -41,38 +41,38 @@ export default function PortDanStatusPage() {
           <div className="bg-black text-white p-3 border-4 border-black shadow-[4px_4px_0px_0px_#000]">
             <span className="material-symbols-outlined text-3xl">meeting_room</span>
           </div>
-          <h2 className="text-3xl font-black uppercase tracking-tight text-black">A. Apa itu Port?</h2>
+          <h2 className="text-3xl font-black uppercase tracking-tight text-black">A. Terminologi Port Jaringan</h2>
         </div>
 
         <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
           <div className="border-4 border-black bg-white p-6 shadow-[8px_8px_0px_0px_#000]">
             <h3 className="text-xl font-black uppercase tracking-tight text-jade-vibrant mb-3 flex items-center gap-2">
               <span className="material-symbols-outlined">apartment</span> 
-              Analogi Gedung
+              Konsep Logical Endpoint
             </h3>
             <p className="font-bold text-black text-lg mb-4">
-              Setiap komputer di internet punya Alamat IP (ibarat "Alamat Gedung"). Tapi di dalam gedung itu pasti ada banyak ruangan. <strong>Port</strong> adalah "Nomor Pintu" menuju ruangan aplikasi tersebut.
+              Sebuah <em>host</em> (komputer) dalam jaringan diidentifikasi melalui <em>IP Address</em>. Namun, sebuah <em>host</em> dapat menjalankan berbagai layanan secara simultan. <strong>Port</strong> adalah representasi titik akses logis 16-bit (<em>logical endpoint</em>) yang mendelegasikan trafik koneksi ke layanan yang spesifik.
             </p>
             <p className="font-medium text-black">
-              Browser harus tahu nomor pintu yang tepat agar datanya tidak nyasar masuk ke aplikasi lain!
+              Klien jaringan harus menspesifikasikan nomor port yang dituju secara eksplisit agar proses <em>routing</em> data diterima oleh <em>service daemon</em> (layanan) yang bersangkutan tanpa intervensi layanan lain.
             </p>
           </div>
 
           <div className="border-4 border-black bg-pine-deep text-white p-6 shadow-[8px_8px_0px_0px_#000]">
-            <h3 className="text-xl font-black uppercase tracking-tight text-mint-soft mb-4">Pintu Populer:</h3>
+            <h3 className="text-xl font-black uppercase tracking-tight text-mint-soft mb-4">Alokasi Port Standar (<em>Well-Known Ports</em>):</h3>
             
             <div className="space-y-4">
               <div className="flex items-center gap-4 bg-white text-black p-3 border-2 border-black">
                 <span className="font-black text-2xl w-16 text-center">80</span>
-                <span className="font-bold">Pintu standar Web Server (Apache). HTTP biasa.</span>
+                <span className="font-bold">Protokol komunikasi <em>Hypertext Transfer Protocol</em> (HTTP) <em>unencrypted</em>. Digunakan standar oleh Web Server.</span>
               </div>
               <div className="flex items-center gap-4 bg-white text-black p-3 border-2 border-black">
                 <span className="font-black text-2xl w-16 text-center">443</span>
-                <span className="font-bold">Pintu standar Web Server (Aman/HTTPS).</span>
+                <span className="font-bold">Protokol komunikasi HTTP <em>Secure</em> (HTTPS) berbasis enkripsi SSL/TLS.</span>
               </div>
               <div className="flex items-center gap-4 bg-white text-black p-3 border-2 border-black">
                 <span className="font-black text-2xl w-16 text-center text-[#4479A1]">3306</span>
-                <span className="font-bold">Pintu standar Database (MySQL).</span>
+                <span className="font-bold">Protokol standar komunikasi Database Management System (MySQL/MariaDB).</span>
               </div>
             </div>
           </div>
@@ -82,9 +82,9 @@ export default function PortDanStatusPage() {
         <div className="mt-8 bg-[#ffdddd] border-4 border-black p-5 shadow-[4px_4px_0px_0px_#000] flex gap-4 items-start">
           <span className="material-symbols-outlined text-4xl text-red-600">error</span>
           <div>
-            <h4 className="font-black uppercase text-red-600 mb-1">Catatan Penting XAMPP!</h4>
+            <h4 className="font-black uppercase text-red-600 mb-1">Resolusi Konflik Port (Troubleshooting)</h4>
             <p className="font-bold text-black">
-              Jika nanti Apache-mu gagal menyala (error merah di XAMPP), biasanya karena <strong>Port 80</strong> sedang ditutup atau dibajak oleh aplikasi lain (seperti Skype atau VMware). Kamu hanya perlu mengganti nomor pintunya!
+              Apabila modul <em>Apache HTTP Server</em> gagal diinisialisasi (error PID/Port), isu utama seringkali disebabkan karena alokasi <strong>Port 80</strong> atau <strong>443</strong> telah direkayasa atau diakuisisi (<em>binding</em>) oleh layanan latar belakang eksternal (seperti modul IIS atau VMware Host). Penanggulangannya adalah merekonfigurasi variabel port <em>Listen</em> ke alokasi alternatif.
             </p>
           </div>
         </div>
@@ -96,11 +96,11 @@ export default function PortDanStatusPage() {
           <div className="bg-jade-vibrant text-white p-3 border-4 border-black shadow-[4px_4px_0px_0px_#000]">
             <span className="material-symbols-outlined text-3xl">password</span>
           </div>
-          <h2 className="text-3xl font-black uppercase tracking-tight text-black">B. Kode Status HTTP</h2>
+          <h2 className="text-3xl font-black uppercase tracking-tight text-black">B. Arsitektur HTTP Status Code</h2>
         </div>
 
         <p className="font-bold text-xl mb-6 bg-white border-4 border-black p-4 shadow-[4px_4px_0px_0px_#000]">
-          Saat server merespons pesananmu, dia selalu mengirimkan kode sandi rahasia 3 digit ke browser untuk memberitahu statusnya. Ini dia artinya:
+          Setiap respons balasan (<em>HTTP Response</em>) dari mesin Web Server mencakup representasi kode numerik 3 digit yang mengklasifikasikan kondisi eksekusi dari <em>request</em> sebelumnya:
         </p>
 
         <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
@@ -110,7 +110,7 @@ export default function PortDanStatusPage() {
             <span className="bg-black text-white px-2 py-1 font-black uppercase text-sm border-2 border-black">OK</span>
             <div className="mt-4">
               <p className="font-bold text-black">
-                Semua Lancar! Pesanan berhasil diproses dan dikirim. (Kamu tidak melihat kode ini karena langsung muncul halaman webnya).
+                Indikator Keberhasilan (<em>Success</em>). Permintaan (<em>request</em>) Klien telah berhasil diterima, dipahami, diproses, dan direspons sesuai harapan (payload telah dirender).
               </p>
             </div>
           </div>
@@ -121,7 +121,7 @@ export default function PortDanStatusPage() {
             <span className="bg-black text-white px-2 py-1 font-black uppercase text-sm border-2 border-black">Not Found</span>
             <div className="mt-4">
               <p className="font-bold text-black">
-                File atau halaman yang kamu minta <strong>TIDAK ADA</strong>. Mungkin kamu salah ketik nama file, salah folder, atau file-nya sudah dihapus oleh pemilik web.
+                Indikator Kesalahan Klien (<em>Client Error</em>). Endpoint (<em>URI/URL</em>) sumber daya yang direquest klien <strong>TIDAK DITEMUKAN</strong> pada indeks hierarki direktori <em>server</em>. Umum disebabkan oleh invalidasi URL (404).
               </p>
             </div>
           </div>
@@ -132,7 +132,7 @@ export default function PortDanStatusPage() {
             <span className="bg-black text-white px-2 py-1 font-black uppercase text-sm border-2 border-black">Internal Error</span>
             <div className="mt-4">
               <p className="font-bold text-black">
-                File-nya ada, tapi koki di dapur melakukan kesalahan! Artinya ada kode PHP kamu yang <em>error</em>, salah logika, atau <em>typo</em>. Dapur berantakan!
+                Indikator Kesalahan Server (<em>Server Error</em>). Endpoint valid, namun terjadi kesalahan komputasi internal pada <em>interpreter script server-side</em> (seperti syntax error, logic error pada <em>PHP</em>, atau timeout database) (500).
               </p>
             </div>
           </div>

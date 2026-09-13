@@ -29,7 +29,7 @@ export default function WebServerApachePage() {
         </h1>
         
         <p className="text-lg md:text-xl font-bold text-black max-w-4xl leading-relaxed border-l-8 border-jade-vibrant pl-6 bg-mint-canvas p-4 border-4 border-black shadow-[4px_4px_0px_0px_#000]">
-          Mengapa file HTML bisa langsung dibuka, sedangkan file PHP selalu gagal atau malah menampilkan teks kode yang aneh di layar? Di sinilah kita butuh pahlawan bernama <strong>Web Server</strong>!
+          Mengapa representasi dokumen HTML dapat dirender secara instan oleh peramban, sedangkan <em>source code</em> PHP akan dieksekusi secara gagal atau terekspos mentah sebagai teks murni? Fenomena arsitektural ini membutuhkan intervensi modul bernama <strong>Web Server</strong>.
         </p>
       </section>
 
@@ -40,14 +40,14 @@ export default function WebServerApachePage() {
             <div className="bg-[#E44D26] text-white p-4 border-4 border-black shadow-[4px_4px_0px_0px_#000]">
               <span className="material-symbols-outlined text-4xl">html</span>
             </div>
-            <h2 className="text-2xl font-black uppercase tracking-tight text-black">Klik Ganda HTML</h2>
+            <h2 className="text-2xl font-black uppercase tracking-tight text-black">Render Sisi Klien (HTML)</h2>
           </div>
           <p className="font-bold text-black text-lg mb-4">
-            Pernahkah kamu membuat file <code>index.html</code>, lalu di-klik ganda (double-click)?
+            Ketika Anda menginisiasi file statis seperti <code>index.html</code> secara langsung melalui sistem operasi (file protocol),
           </p>
           <div className="bg-canvas border-4 border-black p-4 shadow-[4px_4px_0px_0px_#000]">
             <p className="font-medium text-black">
-              File itu langsung terbuka <strong>sempurna</strong> di Google Chrome! Chrome langsung paham cara menampilkan tombol, gambar, dan warna dari HTML & CSS kamu.
+              Dokumen tersebut akan dirender dengan <strong>sempurna</strong> pada klien (seperti Google Chrome). Engine browser memiliki kapabilitas kompilator bawaan untuk mem-parsing dan me-render sintaks DOM (HTML) dan <em>styling</em> (CSS) secara langsung.
             </p>
           </div>
         </div>
@@ -57,14 +57,14 @@ export default function WebServerApachePage() {
             <div className="bg-[#777BB4] text-white p-4 border-4 border-black shadow-[4px_4px_0px_0px_#000]">
               <span className="material-symbols-outlined text-4xl">php</span>
             </div>
-            <h2 className="text-2xl font-black uppercase tracking-tight text-black">Klik Ganda PHP?</h2>
+            <h2 className="text-2xl font-black uppercase tracking-tight text-black">Keterbatasan Engine Browser (PHP)</h2>
           </div>
           <p className="font-bold text-black text-lg mb-4">
-            Tapi, coba klik ganda file <code>index.php</code>... <span className="text-red-600">GAGAL!</span>
+            Namun, ketika file <code>index.php</code> diinisiasi menggunakan metode serupa... <span className="text-red-600">GAGAL!</span>
           </p>
           <div className="bg-[#ffdddd] border-4 border-black p-4 shadow-[4px_4px_0px_0px_#000]">
             <p className="font-bold text-black">
-              <strong>Kenapa?</strong> Karena Browser (seperti Chrome) itu sangat "bodoh" dalam hal logika. Browser <strong>TIDAK BISA</strong> membaca kode PHP, dan browser <strong>TIDAK TAHU</strong> cara mengambil data dari Database MySQL!
+              <strong>Mengapa?</strong> Karena browser beroperasi secara eksklusif sebagai <em>Client-Side Engine</em>. Modul ini <strong>TIDAK MEMILIKI</strong> kapabilitas <em>compiler/interpreter</em> untuk bahasa pemrosesan <em>Server-Side</em> seperti PHP, dan secara arsitektur <strong>TIDAK DIRANCANG</strong> untuk melakukan koneksi ke Database Engine (seperti MySQL)!
             </p>
           </div>
         </div>
@@ -74,31 +74,31 @@ export default function WebServerApachePage() {
       <div className="bg-pine-deep border-4 border-black shadow-[8px_8px_0px_0px_#000] p-6 md:p-10 mb-12">
         <h2 className="text-3xl font-black text-white uppercase tracking-tight mb-8 flex items-center gap-4">
           <span className="material-symbols-outlined text-5xl bg-white text-black p-2 border-4 border-black shadow-[4px_4px_0px_0px_#000]">security</span>
-          Solusinya: Web Server!
+          Arsitektur Middleware: Web Server
         </h2>
         
         <div className="bg-white border-4 border-black p-6 shadow-[4px_4px_0px_0px_#000]">
           <p className="text-xl font-bold text-black mb-6 border-b-4 border-black pb-4">
-            Web Server adalah sebuah <em>software</em> (aplikasi penjaga pintu) yang sangat pintar. Ia bertugas mendengarkan <em>Request</em> (pesanan) dari browser.
+            Web Server merupakan sebuah <em>software daemon</em> (perangkat lunak beroperasi di latar belakang) yang secara konstan melakukan metode "Listen" pada <em>port</em> spesifik jaringan, berfungsi untuk mencegat dan memproses <em>HTTP Request</em> yang masuk dari <em>client</em> (browser).
           </p>
           
           <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
             <div className="bg-mint-canvas border-4 border-black p-5 shadow-[4px_4px_0px_0px_#000] relative">
               <div className="absolute -top-4 -left-4 bg-black text-white w-8 h-8 flex items-center justify-center font-black border-2 border-black">1</div>
-              <h3 className="font-black uppercase text-lg text-black mb-2 mt-2">Mencegat Request</h3>
-              <p className="font-medium text-black">Jika browser meminta file PHP, Web Server <strong>tidak</strong> akan langsung memberikannya ke browser (karena browser pasti bingung).</p>
+              <h3 className="font-black uppercase text-lg text-black mb-2 mt-2">Intersepsi HTTP Request</h3>
+              <p className="font-medium text-black">Saat mendeteksi permintaan (<em>request</em>) berformat <em>Server-Side</em> (seperti .php), Web Server <strong>tidak</strong> akan menyajikan file tersebut secara mentah sebagai respons statis.</p>
             </div>
             
             <div className="bg-jade-vibrant border-4 border-black p-5 shadow-[4px_4px_0px_0px_#000] relative text-white">
               <div className="absolute -top-4 -left-4 bg-white text-black w-8 h-8 flex items-center justify-center font-black border-2 border-black">2</div>
-              <h3 className="font-black uppercase text-lg mb-2 mt-2">Mengolah Kode</h3>
-              <p className="font-medium">Web Server menyuruh "Mesin PHP" untuk menjalankan logika kode tersebut dan mengambil data dari Database MySQL.</p>
+              <h3 className="font-black uppercase text-lg mb-2 mt-2">Eksekusi Interpreter</h3>
+              <p className="font-medium">Web Server akan mendelegasikan eksekusi skrip ke <em>PHP Interpreter Engine</em> (seperti PHP-FPM) untuk melakukan komputasi logika bisnis dan transaksi <em>query database</em> (MySQL).</p>
             </div>
             
             <div className="bg-mint-soft border-4 border-black p-5 shadow-[4px_4px_0px_0px_#000] relative">
               <div className="absolute -top-4 -left-4 bg-black text-white w-8 h-8 flex items-center justify-center font-black border-2 border-black">3</div>
-              <h3 className="font-black uppercase text-lg text-black mb-2 mt-2">Mengubah ke HTML</h3>
-              <p className="font-medium text-black">Hasil olahan yang ribet itu "disulap" menjadi kode HTML biasa. Barulah HTML yang sudah matang ini dikirim ke Browser!</p>
+              <h3 className="font-black uppercase text-lg text-black mb-2 mt-2">Render DOM & Respons</h3>
+              <p className="font-medium text-black">Output akhir dari interpreter tersebut kemudian dikonstruksi ke dalam bentuk sintaks DOM murni (HTML). Berkas hasil kompilasi inilah yang ditransmisikan sebagai <em>HTTP Response</em> ke browser klien.</p>
             </div>
           </div>
         </div>
@@ -110,9 +110,9 @@ export default function WebServerApachePage() {
           <span className="material-symbols-outlined text-7xl block text-center">lightbulb</span>
         </div>
         <div>
-          <h2 className="text-3xl font-black uppercase tracking-tight text-black mb-2">Halo, Apache!</h2>
+          <h2 className="text-3xl font-black uppercase tracking-tight text-black mb-2">Implementasi Standar Industri: Apache</h2>
           <p className="text-xl font-bold text-black bg-mint-canvas p-4 border-l-4 border-black">
-            <strong>Apache</strong> adalah salah satu <em>software</em> Web Server yang paling terkenal dan legendaris di dunia web. Nantinya, kamu akan sering menyalakan "Apache" ini saat membuat web dengan PHP.
+            <strong>Apache HTTP Server</strong> merupakan salah satu implementasi Web Server yang paling mendominasi ekosistem internet <em>open-source</em>. Modul daemon inilah yang akan selalu diaktifkan sebagai <em>routing layer</em> utama saat mengembangkan aplikasi berbasis PHP.
           </p>
         </div>
       </div>

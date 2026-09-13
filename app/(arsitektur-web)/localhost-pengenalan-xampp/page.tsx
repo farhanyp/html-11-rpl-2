@@ -29,7 +29,7 @@ export default function LocalhostXamppPage() {
         </h1>
         
         <p className="text-lg md:text-xl font-bold text-black max-w-4xl leading-relaxed border-l-8 border-pine-deep pl-6 bg-mint-canvas p-4 border-4 border-black shadow-[4px_4px_0px_0px_#000]">
-          Untuk mulai belajar membuat web dengan PHP dan MySQL, apakah kita harus menyewa server super mahal di Amerika? <strong>TIDAK!</strong> Kita bisa menyulap laptopmu sendiri menjadi sebuah "Server Mini" gratisan menggunakan aplikasi ajaib bernama <strong>XAMPP</strong>.
+          Untuk melakukan pengembangan dan pengujian sistem berbasis PHP dan MySQL, <em>deployment</em> ke server produksi aktual (<em>production environment</em>) tidak diperlukan. Lingkungan pengembangan dapat disimulasikan secara mandiri (<em>local environment</em>) menggunakan bundel <em>software</em> infrastruktur server terintegrasi seperti <strong>XAMPP</strong>.
         </p>
       </section>
 
@@ -42,17 +42,17 @@ export default function LocalhostXamppPage() {
             <div className="bg-white text-black p-3 border-4 border-black shadow-[4px_4px_0px_0px_#000]">
               <span className="material-symbols-outlined text-4xl">extension</span>
             </div>
-            <h2 className="text-3xl font-black uppercase tracking-tight text-white">Apa itu XAMPP?</h2>
+            <h2 className="text-3xl font-black uppercase tracking-tight text-white">Terminologi XAMPP</h2>
           </div>
           
           <p className="font-bold text-lg mb-6 bg-white p-4 border-4 border-black shadow-[4px_4px_0px_0px_#000]">
-            XAMPP adalah satu paket <em>software</em> lengkap yang langsung menginstal semua kebutuhan Backend-mu. Ini arti dari singkatannya:
+            XAMPP merupakan tumpukan <em>software</em> (<em>solution stack</em>) terintegrasi yang berfungsi menyediakan <em>environment backend</em> siap pakai. Akronim ini merepresentasikan komponen:
           </p>
 
           <div className="flex flex-col space-y-3 font-black text-xl uppercase">
             <div className="flex bg-white border-4 border-black shadow-[4px_4px_0px_0px_#000]">
               <div className="bg-black text-white w-12 flex items-center justify-center border-r-4 border-black">X</div>
-              <div className="p-3">Sistem Operasi Apa Saja <span className="text-xs normal-case block font-bold text-gray-600">(Windows, Mac, Linux)</span></div>
+              <div className="p-3">Cross-Platform <span className="text-xs normal-case block font-bold text-gray-600">(Kompatibilitas lintas OS: Windows, Mac, Linux)</span></div>
             </div>
             <div className="flex bg-white border-4 border-black shadow-[4px_4px_0px_0px_#000]">
               <div className="bg-pine-deep text-white w-12 flex items-center justify-center border-r-4 border-black">A</div>
@@ -80,25 +80,25 @@ export default function LocalhostXamppPage() {
               <div className="bg-white text-black p-3 border-4 border-black shadow-[4px_4px_0px_0px_#000]">
                 <span className="material-symbols-outlined text-4xl">home</span>
               </div>
-              <h2 className="text-3xl font-black uppercase tracking-tight text-mint-soft">Apa itu Localhost?</h2>
+              <h2 className="text-3xl font-black uppercase tracking-tight text-mint-soft">Terminologi Localhost (Loopback)</h2>
             </div>
             
             <div className="space-y-6">
               <div className="bg-forest-teal border-4 border-black p-5 shadow-[4px_4px_0px_0px_#000]">
                 <h3 className="font-black text-2xl mb-2 text-jade-vibrant uppercase">127.0.0.1</h3>
                 <p className="font-bold">
-                  <code>localhost</code> adalah "Nama Panggilan" (alias) untuk komputer/laptopmu sendiri. Alamat IP aslinya di jaringan selalu <code>127.0.0.1</code>.
+                  Secara konseptual, <code>localhost</code> adalah nama <em>host</em> (alias) yang merepresentasikan komputer yang sedang dioperasikan oleh pengguna. Secara teknis, nama ini diresolusi (<em>routing</em>) ke antarmuka jaringan <em>loopback address</em> standar IPv4, yakni <code>127.0.0.1</code>.
                 </p>
               </div>
 
               <div className="bg-white text-black border-4 border-black p-5 shadow-[4px_4px_0px_0px_#000]">
                 <h3 className="font-black text-xl mb-2 uppercase flex items-center gap-2">
-                  <span className="material-symbols-outlined">theater_comedy</span> Memainkan 2 Peran
+                  <span className="material-symbols-outlined">theater_comedy</span> Arsitektur Klien-Server Internal
                 </h3>
                 <p className="font-bold">
-                  Saat XAMPP dinyalakan, laptopmu langsung main peran ganda! <br/><br/>
-                  1. Ia menjadi <strong>Server (Koki)</strong> yang melayani lewat XAMPP.<br/>
-                  2. Ia juga menjadi <strong>Klien (Pelanggan)</strong> yang memesan lewat Google Chrome.
+                  Melalui inisiasi modul XAMPP, komputer pengguna beroperasi di bawah simulasi arsitektur jaringan <em>Client-Server</em> terpadu:<br/><br/>
+                  1. Berperan sebagai <strong>Server (Host)</strong> via <em>daemon</em> (seperti Apache/MySQL).<br/>
+                  2. Berperan ganda sebagai <strong>Klien (Endpoint)</strong> via <em>Web Browser</em>.
                 </p>
               </div>
             </div>
@@ -111,38 +111,38 @@ export default function LocalhostXamppPage() {
       <div className="bg-white border-4 border-black shadow-[8px_8px_0px_0px_#000] p-6 md:p-10 mb-12">
         <h2 className="text-3xl font-black text-black uppercase tracking-tight mb-8 flex items-center gap-4">
           <span className="material-symbols-outlined text-5xl bg-red-600 text-white p-2 border-4 border-black shadow-[4px_4px_0px_0px_#000]">warning</span>
-          Aturan Suci XAMPP: Folder htdocs
+          Struktur Direktori Web Root (htdocs)
         </h2>
         
         <div className="bg-[#ffdddd] border-l-8 border-red-600 p-6 mb-8 border-y-4 border-r-4 border-black font-bold text-lg text-black">
-          Jika kamu menggunakan XAMPP, kamu <strong>TIDAK BOLEH</strong> menaruh file <code>.php</code> tugasmu sembarangan (seperti di Desktop atau My Documents). Web Server Apache itu "buta" dan hanya mau melirik ke dalam satu folder khusus!
+          Pada <em>environment</em> XAMPP, <em>source code</em> proyek (file <code>.php</code> dsb.) <strong>TIDAK DAPAT</strong> diletakkan di direktori acak pada disk lokal (seperti Desktop). Modul Apache dikonfigurasi secara absolut untuk mengeksekusi layanan <em>serving</em> file hanya dari satu indeks direktori <em>root</em> publik!
         </div>
 
         <div className="text-center mb-10">
-          <p className="font-bold text-black uppercase mb-2">Folder Suci tersebut berada di:</p>
+          <p className="font-bold text-black uppercase mb-2">Direktori <em>Document Root</em> tersebut adalah:</p>
           <div className="inline-block bg-black text-white font-mono font-black text-2xl md:text-4xl px-6 py-4 border-4 border-pine-deep shadow-[6px_6px_0px_0px_#2A835F] -rotate-1 hover:rotate-0 transition-transform cursor-crosshair">
             C:\xampp\htdocs\
           </div>
         </div>
 
-        <h3 className="text-2xl font-black text-black uppercase mb-6">Cara Kerjanya (Langkah demi Langkah):</h3>
+        <h3 className="text-2xl font-black text-black uppercase mb-6">Prosedur Eksekusi Skrip pada Localhost:</h3>
         
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-4">
           <div className="bg-canvas border-4 border-black p-4 relative pt-8 shadow-[4px_4px_0px_0px_#000]">
             <div className="absolute -top-3 -left-3 bg-black text-white font-black w-8 h-8 flex items-center justify-center border-2 border-white">1</div>
-            <p className="font-bold text-black">Buka XAMPP Control Panel, lalu klik <strong>START</strong> pada modul Apache dan MySQL.</p>
+            <p className="font-bold text-black">Inisialisasi antarmuka XAMPP Control Panel, lalu eksekusi (<strong>START</strong>) <em>daemon module</em> Apache dan MySQL.</p>
           </div>
           <div className="bg-mint-soft border-4 border-black p-4 relative pt-8 shadow-[4px_4px_0px_0px_#000]">
             <div className="absolute -top-3 -left-3 bg-black text-white font-black w-8 h-8 flex items-center justify-center border-2 border-white">2</div>
-            <p className="font-bold text-black">Buat folder baru di dalam <code>htdocs</code>. Misalnya: <code>C:\xampp\htdocs\tugas_web</code>.</p>
+            <p className="font-bold text-black">Konstruksi sub-direktori <em>project</em> di dalam hierarki <em>Document Root</em>. Contoh: <br/><code className="break-all mt-1 inline-block bg-white px-1 border border-black text-sm">C:\xampp\htdocs\tugas_web</code></p>
           </div>
           <div className="bg-jade-vibrant text-white border-4 border-black p-4 relative pt-8 shadow-[4px_4px_0px_0px_#000]">
             <div className="absolute -top-3 -left-3 bg-white text-black font-black w-8 h-8 flex items-center justify-center border-2 border-black">3</div>
-            <p className="font-bold">Ketik kode PHP-mu dan simpan sebagai <code>index.php</code> ke dalam folder <code>tugas_web</code> tersebut.</p>
+            <p className="font-bold">Implementasikan logika <em>source code</em> dan simpan file indeks hierarki dengan nama <code>index.php</code> pada <em>project root</em> tersebut.</p>
           </div>
           <div className="bg-forest-teal text-white border-4 border-black p-4 relative pt-8 shadow-[4px_4px_0px_0px_#000]">
             <div className="absolute -top-3 -left-3 bg-white text-black font-black w-8 h-8 flex items-center justify-center border-2 border-black">4</div>
-            <p className="font-bold">Buka Google Chrome, lalu ketikkan URL: <br/><code className="text-jade-vibrant bg-black px-1 mt-2 inline-block border border-white">localhost/tugas_web/</code></p>
+            <p className="font-bold">Inisiasi <em>HTTP Request</em> via peramban klien menggunakan rute <em>endpoint</em> URI: <br/><code className="text-jade-vibrant bg-black px-1 mt-2 inline-block border border-white">localhost/tugas_web/</code></p>
           </div>
         </div>
       </div>
