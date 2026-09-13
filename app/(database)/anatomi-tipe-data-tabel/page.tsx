@@ -33,10 +33,10 @@ export default function AnatomiTabelPage() {
               
               <div className="relative z-10 pt-8">
                 <h1 className="text-4xl sm:text-5xl md:text-7xl font-black text-mint-soft tracking-tighter uppercase mb-4 md:mb-6 drop-shadow-[4px_4px_0px_rgba(255,255,255,0.2)]">
-                  Anatomi Tabel <br className="hidden md:block" /> & Jebakan Data
+                  Isi Dalam Tabel: <br className="hidden md:block" /> Kolom & Tipe Data
                 </h1>
                 <p className="text-base md:text-xl font-bold text-black bg-white inline-block px-4 py-2 md:px-6 md:py-3 border-4 border-black mb-8 md:mb-10 shadow-neo-md uppercase tracking-tight">
-                  Mengenal isi perut tabel sebelum mulai memasukkan data!
+                  Mengenal Jenis-Jenis Data yang Bisa Disimpan di Database.
                 </p>
                 <div>
                   <button
@@ -44,9 +44,9 @@ export default function AnatomiTabelPage() {
                     className="bg-jade-vibrant text-white font-black text-xl md:text-3xl px-8 py-5 md:px-12 md:py-6 border-4 border-white shadow-neo-lg hover:-translate-y-2 hover:-translate-x-2 hover:shadow-[8px_8px_0px_0px_#FFF] active:translate-x-[4px] active:translate-y-[4px] active:shadow-none transition-all uppercase tracking-widest flex items-center gap-4 mx-auto"
                   >
                     {isScanned ? (
-                      <><span>Hasil Lab Keluar!</span> <span className="material-symbols-outlined font-black text-4xl animate-pulse">check_circle</span></>
+                      <><span>Skema Divisualisasi!</span> <span className="material-symbols-outlined font-black text-4xl animate-pulse">check_circle</span></>
                     ) : (
-                      <><span>Bedah Tabel</span> <span className="material-symbols-outlined font-black text-4xl">content_cut</span></>
+                      <><span>Inspeksi Struktur</span> <span className="material-symbols-outlined font-black text-4xl">content_cut</span></>
                     )}
                   </button>
                 </div>
@@ -57,11 +57,11 @@ export default function AnatomiTabelPage() {
             <section className="bg-white border-4 border-black shadow-neo-xl p-6 md:p-12 rotate-1 hover:rotate-0 transition-transform">
               <h2 className="text-2xl sm:text-3xl md:text-5xl font-black text-black uppercase mb-8 md:mb-10 border-b-4 border-black pb-4 flex items-center gap-3 md:gap-4 tracking-tighter">
                 <span className="bg-forest-teal text-white w-12 h-12 md:w-16 md:h-16 flex items-center justify-center border-4 border-black shadow-neo-sm flex-shrink-0 text-2xl md:text-4xl">01</span>
-                Aturan Mutlak Tabel
+                Dua Syarat Wajib Sebuah Tabel
               </h2>
 
               <p className="text-lg md:text-xl font-bold text-forest-teal mb-8">
-                Setiap tabel yang baik memiliki aturan baku yang pantang dilanggar. Tanpa dua hal ini, tabelmu akan kacau balau saat datanya sudah mencapai ribuan!
+                Agar tabel database tidak cepat rusak dan bingung saat datanya sudah mencapai ribuan, ada DUA syarat wajib yang harus selalu kamu pasang di setiap tabel baru.
               </p>
 
               <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
@@ -72,9 +72,9 @@ export default function AnatomiTabelPage() {
                     <h3 className="text-2xl md:text-3xl font-black uppercase text-black">Primary Key</h3>
                   </div>
                   <p className="font-bold text-black text-lg bg-white p-4 border-2 border-black">
-                    <strong>Syarat wajib tiap tabel!</strong> Ini adalah pengenal unik untuk setiap baris data yang sama sekali tidak boleh kembar.
+                    <strong>Kunci Identitas Utama.</strong> Satu kolom khusus untuk dijadikan 'Nomor Induk'. Nomor ini wajib bersifat unik (tidak boleh ada yang kembar) dan tidak boleh kosong.
                   </p>
-                  <p className="mt-4 text-sm font-black uppercase bg-[#FFD700] inline-block px-3 py-1 border-2 border-black">Mirip: NIK KTP atau NISN Siswa</p>
+                  <p className="mt-4 text-sm font-black uppercase bg-[#FFD700] inline-block px-3 py-1 border-2 border-black">Contoh: Nomor Induk Kependudukan (NIK)</p>
                 </div>
 
                 {/* Auto Increment */}
@@ -84,9 +84,9 @@ export default function AnatomiTabelPage() {
                     <h3 className="text-2xl md:text-3xl font-black uppercase text-black tracking-tight">Auto Increment</h3>
                   </div>
                   <p className="font-bold text-black text-lg bg-white p-4 border-2 border-black">
-                    <strong>Fitur ajaib database!</strong> Kolom ID akan bertambah sendiri secara otomatis (1, 2, 3...) tiap kali ada data baru masuk.
+                    <strong>Penomoran Otomatis.</strong> Fitur ajaib untuk membuat nomor urut secara otomatis (1, 2, 3, dst). Kita tidak perlu repot mengetik nomor urut manual setiap ada orang baru mendaftar.
                   </p>
-                  <p className="mt-4 text-sm font-black uppercase bg-black text-white inline-block px-3 py-1 border-2 border-white">Kita tidak perlu mengetik ID manual!</p>
+                  <p className="mt-4 text-sm font-black uppercase bg-black text-white inline-block px-3 py-1 border-2 border-white">Sangat cocok dipasangkan dengan Primary Key.</p>
                 </div>
               </div>
             </section>
@@ -95,11 +95,11 @@ export default function AnatomiTabelPage() {
             <section className="bg-pine-deep border-4 border-black shadow-neo-xl p-6 md:p-12 -rotate-1 hover:rotate-0 transition-transform">
               <h2 className="text-2xl sm:text-3xl md:text-5xl font-black text-white uppercase mb-8 md:mb-10 border-b-4 border-black pb-4 flex items-center gap-3 md:gap-4 tracking-tighter">
                 <span className="bg-white text-black w-12 h-12 md:w-16 md:h-16 flex items-center justify-center border-4 border-black shadow-neo-sm flex-shrink-0 text-2xl md:text-4xl">02</span>
-                Tipe Data Terpopuler
+                Mengenal Tipe-Tipe Data
               </h2>
 
               <p className="text-lg md:text-xl font-bold text-white mb-8 bg-black p-4 border-4 border-white shadow-[4px_4px_0px_0px_#FFF]">
-                Komputer tidak sepintar manusia. Kamu harus memberitahu secara spesifik, apakah suatu kolom itu berisi huruf, angka, atau waktu.
+                Di dalam database, kita tidak boleh sembarangan memasukkan teks ke kolom angka, begitu pula sebaliknya. Kita harus menentukan "jenis" data yang tepat untuk setiap kolom.
               </p>
 
               <div className="grid grid-cols-1 sm:grid-cols-2 gap-6 mb-12">
@@ -108,7 +108,7 @@ export default function AnatomiTabelPage() {
                   <span className="material-symbols-outlined text-4xl text-forest-teal">pin</span>
                   <div>
                     <h3 className="text-xl font-black uppercase text-black mb-1">INT (Integer)</h3>
-                    <p className="font-bold text-sm">Hanya untuk <strong>angka murni</strong> yang bisa dihitung matematika. (Contoh: Harga, Stok, ID).</p>
+                    <p className="font-bold text-sm">Tipe khusus untuk menyimpan <strong>Angka Bilangan Bulat</strong> (tanpa pecahan desimal). (Contoh: Harga Barang, Jumlah Stok, Umur).</p>
                   </div>
                 </div>
 
@@ -117,7 +117,7 @@ export default function AnatomiTabelPage() {
                   <span className="material-symbols-outlined text-4xl text-forest-teal">match_case</span>
                   <div>
                     <h3 className="text-xl font-black uppercase text-black mb-1">VARCHAR</h3>
-                    <p className="font-bold text-sm">Untuk <strong>teks pendek</strong> campuran huruf dan angka (Max 255 karakter). (Contoh: Nama, Judul).</p>
+                    <p className="font-bold text-sm">Tipe untuk menyimpan <strong>Teks / Tulisan biasa</strong> yang panjangnya wajar (Contoh: Nama Orang, Alamat Email, Password).</p>
                   </div>
                 </div>
 
@@ -126,7 +126,7 @@ export default function AnatomiTabelPage() {
                   <span className="material-symbols-outlined text-4xl text-forest-teal">article</span>
                   <div>
                     <h3 className="text-xl font-black uppercase text-black mb-1">TEXT</h3>
-                    <p className="font-bold text-sm">Untuk <strong>teks yang sangat panjang</strong> berparagraf-paragraf. (Contoh: Isi Artikel, Pesan Buku Tamu).</p>
+                    <p className="font-bold text-sm">Tipe untuk menyimpan <strong>Teks Super Panjang</strong> tanpa batasan yang ketat (Contoh: Artikel Blog, Komentar, Deskripsi Produk).</p>
                   </div>
                 </div>
 
@@ -135,7 +135,25 @@ export default function AnatomiTabelPage() {
                   <span className="material-symbols-outlined text-4xl text-forest-teal">schedule</span>
                   <div>
                     <h3 className="text-xl font-black uppercase text-black mb-1">TIMESTAMP</h3>
-                    <p className="font-bold text-sm"><strong>Penanda waktu otomatis.</strong> Akan mencatat tanggal & jam persis saat data masuk.</p>
+                    <p className="font-bold text-sm"><strong>Pencatat Waktu.</strong> Otomatis mencatat Tanggal & Jam secara persis saat sebuah data baru dimasukkan (Contoh: Waktu Transaksi Pembayaran).</p>
+                  </div>
+                </div>
+
+                {/* UUID */}
+                <div className="bg-white border-4 border-black p-6 shadow-neo-sm flex items-start gap-4 hover:translate-x-2 transition-transform">
+                  <span className="material-symbols-outlined text-4xl text-forest-teal">fingerprint</span>
+                  <div>
+                    <h3 className="text-xl font-black uppercase text-black mb-1">UUID</h3>
+                    <p className="font-bold text-sm">Tipe untuk menghasilkan <strong>Kode Unik Acak</strong> (Contoh: <code className="bg-gray-200 px-1">123e4567...</code>). Sangat sering dipakai programmer modern sebagai pengganti nomor urut ID agar data lebih aman dan sulit ditebak peretas.</p>
+                  </div>
+                </div>
+
+                {/* BOOLEAN */}
+                <div className="bg-white border-4 border-black p-6 shadow-neo-sm flex items-start gap-4 hover:translate-x-2 transition-transform">
+                  <span className="material-symbols-outlined text-4xl text-forest-teal">toggle_on</span>
+                  <div>
+                    <h3 className="text-xl font-black uppercase text-black mb-1">BOOLEAN</h3>
+                    <p className="font-bold text-sm">Tipe data super simpel yang hanya bisa menyimpan dua pilihan: <strong>TRUE (Benar/Ya)</strong> atau <strong>FALSE (Salah/Tidak)</strong>. (Contoh: Status Lunas, Status Aktif).</p>
                   </div>
                 </div>
               </div>
@@ -145,12 +163,12 @@ export default function AnatomiTabelPage() {
                 <span className="material-symbols-outlined text-white text-[80px] font-black drop-shadow-[4px_4px_0px_rgba(0,0,0,1)] animate-bounce">warning</span>
                 <div className="text-black">
                   <h3 className="text-2xl md:text-4xl font-black uppercase mb-2 text-white drop-shadow-[2px_2px_0px_rgba(0,0,0,1)] tracking-tight">
-                    Jebakan Pemula: Nomor HP!
+                    Hati-Hati: Jebakan Nomor Telepon!
                   </h3>
                   <div className="bg-white border-4 border-black p-4 mt-4 text-lg font-bold shadow-neo-sm">
-                    Jangan pernah gunakan tipe <code className="bg-black text-white px-2 uppercase">INT</code> untuk Nomor Telepon/WA! Kenapa? Karena angka <code className="text-[#FF0000]">0</code> di depan (0812...) akan dianggap tidak penting oleh matematika dan dibuang komputer menjadi (812...).
+                    Pemula sering membuat kesalahan dengan mengatur Nomor Telepon dengan tipe <code className="bg-black text-white px-2 uppercase">INT</code> (Angka). Padahal, komputer menganggap angka nol (0) di paling depan itu tidak ada gunanya untuk hitung-hitungan. Alhasil, '0812' akan otomatis dipotong dan berubah wujud menjadi '812' saja!
                     <br/><br/>
-                    <strong>Aturan Emas:</strong> Jika angka itu tidak dipakai untuk ditambah/dikali (rumus matematika), selalu gunakan <code className="bg-jade-vibrant text-white px-2 uppercase border-2 border-black">VARCHAR</code>!
+                    <strong>Aturan Emas:</strong> Jika sebuah deretan angka tidak dipakai untuk hitung-hitungan matematika (seperti Nomor Telepon atau NIK KTP), <strong>selalu gunakan tipe teks <code className="bg-jade-vibrant text-white px-2 uppercase border-2 border-black">VARCHAR</code>!</strong>
                   </div>
                 </div>
               </div>
@@ -160,31 +178,81 @@ export default function AnatomiTabelPage() {
             <section className="bg-canvas border-4 border-black shadow-neo-xl p-6 md:p-12">
               <h2 className="text-2xl sm:text-3xl md:text-5xl font-black text-black uppercase mb-8 md:mb-10 border-b-4 border-black pb-4 flex items-center gap-3 md:gap-4 tracking-tighter">
                 <span className="bg-jade-vibrant text-white w-12 h-12 md:w-16 md:h-16 flex items-center justify-center border-4 border-black shadow-neo-sm flex-shrink-0 text-2xl md:text-4xl">03</span>
-                Misteri "NULL"
+                Apa itu "NULL"?
               </h2>
 
               <div className="flex flex-col lg:flex-row gap-8 items-center">
                 <div className="flex-1 space-y-6">
                   <p className="text-lg md:text-xl font-bold text-forest-teal leading-relaxed">
-                    Dalam database, kamu akan sering melihat kata <strong className="bg-black text-white px-2 uppercase border-2 border-black">NULL</strong>. Apa artinya?
+                    Saat mengintip isi tabel <em>database</em>, kamu mungkin sering melihat tulisan aneh <strong className="bg-black text-white px-2 uppercase border-2 border-black">NULL</strong> di dalam kotak yang kosong. Sebenarnya apa sih artinya?
                   </p>
                   <p className="text-lg md:text-xl font-bold text-forest-teal leading-relaxed">
-                    <code>NULL</code> artinya <strong>"Data Benar-benar Belum Diisi / Tidak Diketahui"</strong>. 
+                    <code>NULL</code> artinya data tersebut <strong>Kosong, Tidak Ada, atau Belum Diisi sama sekali</strong>. 
                   </p>
                   <div className="bg-mint-soft border-4 border-black p-6 shadow-neo-md">
-                    <h3 className="text-xl font-black uppercase mb-2">NULL ≠ 0 atau Teks Kosong</h3>
+                    <h3 className="text-xl font-black uppercase mb-2">NULL BUKANLAH Angka 0 atau Teks Kosong</h3>
                     <ul className="font-bold text-black text-base md:text-lg list-disc pl-5 space-y-2">
-                      <li>Angka <code>0</code> adalah sebuah nilai (saldo nol rupiah).</li>
-                      <li>Teks <code>""</code> (kosong) adalah sebuah nilai teks yang panjangnya nol.</li>
-                      <li><code>NULL</code> berarti kotaknya belum tersentuh sama sekali!</li>
+                      <li>Angka <code>0</code> adalah sebuah nilai nyata (misal: saldo dompet Rp. 0). Ada isinya, yaitu nilai nol.</li>
+                      <li>String teks <code>""</code> (teks spasi kosong) juga dihitung sebagai nilai (kita sengaja mengisi kotak itu dengan spasi).</li>
+                      <li>Sedangkan <code>NULL</code> itu ibarat <em>"laci meja baru yang bahkan belum pernah disentuh sama sekali"</em>. Benar-benar tidak ada nilai apapun.</li>
                     </ul>
                   </div>
                 </div>
 
                 <div className="lg:w-1/3 bg-white border-4 border-black shadow-neo-md p-6 text-center transform rotate-2 hover:rotate-0 transition-transform">
                   <span className="material-symbols-outlined text-[80px] text-gray-400 mb-4">question_mark</span>
-                  <p className="font-black uppercase text-2xl text-black border-b-4 border-black pb-2 mb-2">Kekosongan Absolut</p>
-                  <p className="font-bold text-forest-teal">Sama seperti kertas ujian yang belum ditulisi nama sekalipun.</p>
+                  <p className="font-black uppercase text-2xl text-black border-b-4 border-black pb-2 mb-2">Kekosongan Murni</p>
+                  <p className="font-bold text-forest-teal">Tidak sama dengan angka 0, karena belum pernah diisi nilai apa-apa.</p>
+                </div>
+              </div>
+            </section>
+            
+            {/* Section 4: Praktik Tipe Data Perpustakaan */}
+            <section className="bg-white border-4 border-black shadow-neo-xl p-6 md:p-12 rotate-1 hover:rotate-0 transition-transform">
+              <h2 className="text-2xl sm:text-3xl md:text-5xl font-black text-black uppercase mb-8 md:mb-10 border-b-4 border-black pb-4 flex items-center gap-3 md:gap-4 tracking-tighter">
+                <span className="bg-[#FF0000] text-white w-12 h-12 md:w-16 md:h-16 flex items-center justify-center border-4 border-black shadow-neo-sm flex-shrink-0 text-2xl md:text-4xl">04</span>
+                Praktik: Tipe Data Perpustakaan
+              </h2>
+
+              <p className="text-lg md:text-xl font-bold text-forest-teal mb-8">
+                Mari kita bedah alasan di balik pemilihan tipe data pada tabel-tabel <strong>Sistem Perpustakaan</strong> yang sudah kita rancang di materi ERD sebelumnya!
+              </p>
+
+              <div className="space-y-6">
+                <div className="bg-canvas border-4 border-black p-6 shadow-neo-md">
+                  <h3 className="text-2xl font-black uppercase text-black mb-4 flex items-center gap-2">
+                    <span className="material-symbols-outlined text-jade-vibrant text-3xl">account_box</span>
+                    Tabel Anggota
+                  </h3>
+                  <ul className="space-y-4">
+                    <li className="bg-white p-4 border-2 border-black">
+                      <strong className="text-forest-teal bg-mint-soft px-2 border border-black">id_anggota (INT)</strong>: Kita gunakan <code>INT</code> dan menjadikannya Primary Key + Auto Increment agar setiap anggota baru otomatis mendapat nomor urut (1, 2, 3...) yang pasti tidak mungkin kembar.
+                    </li>
+                    <li className="bg-white p-4 border-2 border-black">
+                      <strong className="text-forest-teal bg-mint-soft px-2 border border-black">nama_lengkap (VARCHAR)</strong>: Jelas menggunakan <code>VARCHAR</code> karena berisi teks biasa dengan panjang yang wajar (tidak sampai berhalaman-halaman).
+                    </li>
+                    <li className="bg-white p-4 border-2 border-black border-l-8 border-l-[#FF0000]">
+                      <strong className="text-forest-teal bg-mint-soft px-2 border border-black">nomor_telepon (VARCHAR)</strong>: Ingat jebakan nomor telepon! Kita pakai <code>VARCHAR</code> agar angka "0" di awal nomor handphone tidak hilang dipotong oleh komputer.
+                    </li>
+                  </ul>
+                </div>
+
+                <div className="bg-canvas border-4 border-black p-6 shadow-neo-md">
+                  <h3 className="text-2xl font-black uppercase text-black mb-4 flex items-center gap-2">
+                    <span className="material-symbols-outlined text-jade-vibrant text-3xl">menu_book</span>
+                    Tabel Buku
+                  </h3>
+                  <ul className="space-y-4">
+                    <li className="bg-white p-4 border-2 border-black">
+                      <strong className="text-forest-teal bg-mint-soft px-2 border border-black">id_buku (INT)</strong>: Sebagai Primary Key untuk kode urut buku (1, 2, 3...).
+                    </li>
+                    <li className="bg-white p-4 border-2 border-black">
+                      <strong className="text-forest-teal bg-mint-soft px-2 border border-black">judul_buku (VARCHAR)</strong>: Judul buku adalah teks biasa, jadi menggunakan <code>VARCHAR</code>. (Kecuali jika kita mau menyimpan sinopsis cerita yang sangat panjang, barulah kita pakai <code>TEXT</code>).
+                    </li>
+                    <li className="bg-white p-4 border-2 border-black">
+                      <strong className="text-forest-teal bg-mint-soft px-2 border border-black">stok (INT)</strong>: Karena jumlah stok buku adalah angka yang bisa dipakai berhitung (ditambah saat beli baru, dikurang saat dipinjam/hilang), maka kita <strong>wajib</strong> pakai tipe <code>INT</code>.
+                    </li>
+                  </ul>
                 </div>
               </div>
             </section>

@@ -79,7 +79,6 @@ export default function Sidebar() {
     { href: '/advanced-query-sql', icon: 'manage_search', label: '7. Advanced Query', color: 'bg-mint-soft text-black' },
     { href: '/join-matematika-bisnis', icon: 'join_inner', label: '8. JOIN & Agregasi', color: 'bg-jade-vibrant text-white' },
     { href: '/project-laundry-db', icon: 'local_laundry_service', label: '9. Project: Laundry DB', color: 'bg-pine-deep text-white' },
-    { href: '/ujian-akhir-database', icon: 'school', label: '10. Ujian Akhir DB', color: 'bg-canvas text-black' },
   ];
 
   const phpLinks = [

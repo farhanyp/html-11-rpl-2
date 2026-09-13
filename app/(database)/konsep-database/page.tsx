@@ -33,10 +33,10 @@ export default function KonsepDatabasePage() {
               
               <div className="relative z-10 pt-8">
                 <h1 className="text-4xl sm:text-5xl md:text-7xl font-black text-white tracking-tighter uppercase mb-4 md:mb-6 drop-shadow-[4px_4px_0px_rgba(0,0,0,1)]">
-                  Menyeberang ke <br className="hidden md:block" /> Dunia Database
+                  Konsep Dasar <br className="hidden md:block" /> Database
                 </h1>
                 <p className="text-base md:text-xl font-bold text-black bg-mint-soft inline-block px-4 py-2 md:px-6 md:py-3 border-4 border-black mb-8 md:mb-10 shadow-neo-md uppercase tracking-tight">
-                  Waktunya meninggalkan penyimpanan sempit, beralih ke wadah raksasa!
+                  Pindah dari Penyimpanan Lokal ke Penyimpanan Server yang Lebih Aman.
                 </p>
                 <div>
                   <button
@@ -44,9 +44,9 @@ export default function KonsepDatabasePage() {
                     className="bg-jade-vibrant text-white font-black text-xl md:text-3xl px-8 py-5 md:px-12 md:py-6 border-4 border-black shadow-neo-lg hover:-translate-y-2 hover:-translate-x-2 hover:shadow-neo-xl active:translate-x-[4px] active:translate-y-[4px] active:shadow-none transition-all uppercase tracking-widest flex items-center gap-4 mx-auto"
                   >
                     {isStarted ? (
-                      <><span>Siap Menjelajah!</span> <span className="material-symbols-outlined font-black text-4xl animate-bounce">rocket_launch</span></>
+                      <><span>Memulai Modul!</span> <span className="material-symbols-outlined font-black text-4xl animate-bounce">rocket_launch</span></>
                     ) : (
-                      <><span>Mulai Petualangan</span> <span className="material-symbols-outlined font-black text-4xl">key</span></>
+                      <><span>Inisialisasi Materi</span> <span className="material-symbols-outlined font-black text-4xl">key</span></>
                     )}
                   </button>
                 </div>
@@ -57,25 +57,25 @@ export default function KonsepDatabasePage() {
             <section className="bg-white border-4 border-black shadow-neo-xl p-6 md:p-12 rotate-1 hover:rotate-0 transition-transform">
               <h2 className="text-2xl sm:text-3xl md:text-5xl font-black text-black uppercase mb-8 md:mb-10 border-b-4 border-black pb-4 flex items-center gap-3 md:gap-4 tracking-tighter">
                 <span className="bg-jade-vibrant text-white w-12 h-12 md:w-16 md:h-16 flex items-center justify-center border-4 border-black shadow-neo-sm flex-shrink-0 text-2xl md:text-4xl">01</span>
-                Kelemahan Local Storage
+                Masalah pada Local Storage
               </h2>
 
               <div className="flex flex-col md:flex-row gap-8 md:gap-10 items-stretch">
                 <div className="flex-1 space-y-6">
                   <p className="text-lg md:text-xl font-bold text-forest-teal leading-relaxed">
-                    Di materi JavaScript sebelumnya, kita sudah berhasil membuat Buku Tamu yang menyimpan pesan di <strong className="bg-mint-soft text-black px-2 border-2 border-black">Local Storage</strong>. Keren kan? Tapi tunggu dulu...
+                    Sebelumnya, kita belajar menyimpan data menggunakan <strong className="bg-mint-soft text-black px-2 border-2 border-black">Local Storage</strong> di browser. Namun, cara ini punya kelemahan besar jika dipakai untuk aplikasi web sungguhan.
                   </p>
                   <div className="bg-canvas border-4 border-black p-6 shadow-neo-md">
-                    <h3 className="text-xl font-black uppercase mb-2">Masalah Terbesarnya:</h3>
+                    <h3 className="text-xl font-black uppercase mb-2">Kelemahan Utamanya:</h3>
                     <p className="font-bold text-black text-lg">
-                      Data itu <strong>hanya tersimpan di laptopmu sendiri!</strong> Kalau temanmu membuka web buku tamumu dari HP-nya, pesanmu tidak akan terlihat di layar dia. 
+                      Data hanya tersimpan di perangkat (laptop/HP) milik pengguna itu saja. Jika temanmu membuka web yang sama dari HP-nya, ia tidak akan bisa melihat data yang kamu simpan. Datanya tidak saling terhubung (tidak sinkron)!
                     </p>
                   </div>
                 </div>
                 
                 <div className="md:w-1/3 bg-black border-4 border-black shadow-neo-md p-6 text-white flex flex-col items-center justify-center -rotate-2 hover:rotate-0 transition-transform">
                   <span className="material-symbols-outlined text-[80px] text-mint-soft mb-4">no_transfer</span>
-                  <p className="font-black uppercase text-center text-xl">Data Terkurung di Satu Browser Saja!</p>
+                  <p className="font-black uppercase text-center text-xl">Data Tidak Saling Terhubung</p>
                 </div>
               </div>
             </section>
@@ -84,13 +84,13 @@ export default function KonsepDatabasePage() {
             <section className="bg-mint-soft border-4 border-black shadow-neo-xl p-6 md:p-12 -rotate-1 hover:rotate-0 transition-transform">
               <h2 className="text-2xl sm:text-3xl md:text-5xl font-black text-black uppercase mb-8 md:mb-10 border-b-4 border-black pb-4 flex items-center gap-3 md:gap-4 tracking-tighter">
                 <span className="bg-forest-teal text-white w-12 h-12 md:w-16 md:h-16 flex items-center justify-center border-4 border-black shadow-neo-sm flex-shrink-0 text-2xl md:text-4xl">02</span>
-                Solusinya? Database!
+                Solusinya: Database Pusat
               </h2>
 
               <div className="bg-white border-4 border-black p-8 shadow-neo-lg text-center max-w-3xl mx-auto mb-10 transform hover:scale-105 transition-transform">
                 <span className="material-symbols-outlined text-6xl text-jade-vibrant mb-4">public</span>
                 <p className="text-xl md:text-3xl font-black text-black uppercase leading-relaxed tracking-tight">
-                  "Database adalah wadah penyimpanan terpusat yang bisa diakses oleh siapa saja, kapan saja!"
+                  Database (Basis Data) adalah tempat penyimpanan data terpusat di server. Dengan database, semua data disimpan di satu tempat yang aman, sehingga siapa pun yang mengakses aplikasi akan melihat data yang sama secara sinkron.
                 </p>
               </div>
             </section>
@@ -99,11 +99,11 @@ export default function KonsepDatabasePage() {
             <section className="bg-white border-4 border-black shadow-neo-xl p-6 md:p-12">
               <h2 className="text-2xl sm:text-3xl md:text-5xl font-black text-black uppercase mb-8 md:mb-10 border-b-4 border-black pb-4 flex items-center gap-3 md:gap-4 tracking-tighter">
                 <span className="bg-pine-deep text-white w-12 h-12 md:w-16 md:h-16 flex items-center justify-center border-4 border-black shadow-neo-sm flex-shrink-0 text-2xl md:text-4xl">03</span>
-                Analogi Kehidupan Nyata
+                Susunan Data dalam Database
               </h2>
 
               <p className="text-lg md:text-xl font-bold text-forest-teal mb-8 bg-mint-canvas p-6 border-4 border-black">
-                Untuk lebih mudah memahaminya, mari kita bayangkan database ini seperti lemari penyimpanan arsip di ruang Tata Usaha (TU) sekolahmu.
+                Dalam sistem database modern, data disimpan secara rapi dan terstruktur seperti tabel. Susunan ini dibagi menjadi 4 tingkatan utama agar mudah dikelola.
               </p>
 
               <div className="grid grid-cols-1 md:grid-cols-2 gap-6 md:gap-8">
@@ -116,7 +116,7 @@ export default function KonsepDatabasePage() {
                     <h3 className="text-2xl font-black uppercase text-black">Database</h3>
                   </div>
                   <p className="font-bold text-lg text-black bg-white p-4 border-2 border-black">
-                    Ibarat sebuah <strong>Lemari Arsip Besar</strong> yang ada di ruangan TU. Di sinilah semua data dikumpulkan secara aman.
+                    Ini adalah rumah utama atau wadah besar tempat penyimpanan. Satu database biasanya dibuat khusus untuk menampung seluruh data dari satu aplikasi web (misal: <em>Database Toko Online</em>).
                   </p>
                 </div>
 
@@ -129,7 +129,7 @@ export default function KonsepDatabasePage() {
                     <h3 className="text-2xl font-black uppercase text-black">Tabel</h3>
                   </div>
                   <p className="font-bold text-lg text-black bg-white p-4 border-2 border-black">
-                    Ibarat <strong>Laci-laci Spesifik</strong> di dalam lemari tersebut. Misalnya laci khusus "Data Siswa" dan laci "Data Guru".
+                    Di dalam database, data dikelompokkan ke dalam tabel-tabel terpisah sesuai jenisnya. Misalnya: <code>Tabel Siswa</code>, <code>Tabel Guru</code>, <code>Tabel Nilai</code>.
                   </p>
                 </div>
 
@@ -142,7 +142,7 @@ export default function KonsepDatabasePage() {
                     <h3 className="text-2xl font-black uppercase text-black">Kolom (Field)</h3>
                   </div>
                   <p className="font-bold text-lg text-black bg-white p-4 border-2 border-black">
-                    Ibarat <strong>Kategori Informasi</strong> di sebuah kertas (seperti kolom NISN, Nama, Alamat). Susunannya memanjang ke bawah.
+                    Kolom adalah judul atau kategori dari data yang akan diisi. Contoh dalam <em>Tabel Siswa</em>, kolomnya bisa berupa: Nama, NISN, Alamat.
                   </p>
                 </div>
 
@@ -155,7 +155,7 @@ export default function KonsepDatabasePage() {
                     <h3 className="text-2xl font-black uppercase text-black">Baris (Record)</h3>
                   </div>
                   <p className="font-bold text-lg text-black bg-white p-4 border-2 border-black">
-                    Ibarat <strong>Satu Kartu Biodata Utuh</strong> milik satu orang siswa yang mengisi kolom-kolom tersebut. Membujur mendatar.
+                    Baris adalah satu kesatuan isi datanya (satu baris utuh). Misalnya, satu baris di <em>Tabel Siswa</em> berisi data lengkap tentang Budi: (Budi, 12345, Jl. Mawar).
                   </p>
                 </div>
               </div>
@@ -164,8 +164,8 @@ export default function KonsepDatabasePage() {
               <div className="mt-12 bg-black border-4 border-black p-6 flex flex-col md:flex-row items-center gap-6 text-white shadow-neo-lg rotate-1 hover:rotate-0 transition-transform">
                 <span className="material-symbols-outlined text-6xl text-jade-vibrant animate-pulse">local_library</span>
                 <div className="text-center md:text-left">
-                  <h4 className="font-black text-2xl uppercase mb-2">Pahami Konsep Ini!</h4>
-                  <p className="font-bold text-mint-soft text-lg">Jika kamu sudah paham anatomi lemari arsip ini, belajar SQL akan terasa sangat masuk akal seperti mengatur barang di laci!</p>
+                  <h4 className="font-black text-2xl uppercase mb-2">Pentingnya Memahami Susunan Ini</h4>
+                  <p className="font-bold text-mint-soft text-lg">Memahami urutan tingkatan <strong>Database &rarr; Tabel &rarr; Kolom &rarr; Baris</strong> sangat penting sebelum kita mulai menulis kode untuk mengelola data menggunakan bahasa SQL di bab-bab selanjutnya.</p>
                 </div>
               </div>
             </section>
