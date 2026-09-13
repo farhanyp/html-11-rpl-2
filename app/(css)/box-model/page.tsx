@@ -25,10 +25,10 @@ export default function BoxModelPage() {
                 MATERI 09
               </div>
               <h1 className="text-4xl sm:text-5xl md:text-7xl font-black text-black tracking-tighter uppercase mt-6 mb-4 md:mb-6">
-                Rahasia Box Model
+                Konsep Box Model
               </h1>
               <p className="text-base md:text-xl font-bold text-white bg-forest-teal inline-block px-4 py-2 md:px-6 md:py-3 border-4 border-black mb-4 md:mb-6 shadow-neo-md uppercase tracking-tight">
-                Semua elemen di dunia website pada dasarnya adalah KOTAK!
+                Setiap elemen HTML pada halaman web pada dasarnya direpresentasikan sebagai sebuah kotak (box).
               </p>
             </section>
 
@@ -100,27 +100,27 @@ export default function BoxModelPage() {
                 <div className="xl:w-1/2 space-y-6">
                   <h3 className="text-2xl md:text-4xl font-black uppercase flex items-center gap-3 drop-shadow-[2px_2px_0px_rgba(0,0,0,1)]">
                     <span className="material-symbols-outlined text-4xl md:text-5xl bg-jade-vibrant rounded-full p-2 border-4 border-black text-white">schedule</span>
-                    Jalan Pintas (Shorthand)
+                    Penulisan Shorthand
                   </h3>
                   <p className="font-bold text-lg md:text-xl leading-relaxed bg-black p-4 border-4 border-mint-soft">
-                    Daripada capek ngetik panjang lebar <code className="bg-white/20 px-1 border border-white font-black">margin-top</code>, <code className="bg-white/20 px-1 border border-white font-black">margin-right</code>, dsb, kamu bisa menggunakan <strong className="text-jade-vibrant underline">Shorthand</strong> (Jalan Pintas)! Aturan ini berlaku persis untuk Margin maupun Padding.
+                    Untuk membuat kode lebih ringkas dibanding menulis <code className="bg-white/20 px-1 border border-white font-black">margin-top</code>, <code className="bg-white/20 px-1 border border-white font-black">margin-right</code> secara terpisah, kita dapat menggunakan <strong className="text-jade-vibrant underline">Shorthand</strong>. Aturan ini berlaku untuk Margin maupun Padding.
                   </p>
                   <p className="font-black text-xl md:text-2xl leading-relaxed bg-white text-black p-4 border-4 border-black shadow-neo-sm inline-block uppercase tracking-tight">
-                    Hafalkan Arah Jam: <br/><span className="text-jade-vibrant">ATAS ➡️ KANAN ➡️ BAWAH ➡️ KIRI</span>
+                    Mengikuti Arah Jarum Jam: <br/><span className="text-jade-vibrant">ATAS ➡️ KANAN ➡️ BAWAH ➡️ KIRI</span>
                   </p>
                   <ul className="space-y-4 font-bold text-base md:text-lg">
-                    <li className="flex gap-3 items-center"><span className="text-2xl text-jade-vibrant">🔹</span> <code className="bg-black text-white px-2 py-1 border-2 border-mint-soft font-black">margin: 10px;</code> (Tembak keempat sisi 10px sekaligus)</li>
+                    <li className="flex gap-3 items-center"><span className="text-2xl text-jade-vibrant">🔹</span> <code className="bg-black text-white px-2 py-1 border-2 border-mint-soft font-black">margin: 10px;</code> (Menerapkan 10px untuk keempat sisi sekaligus)</li>
                     <li className="flex gap-3 items-center"><span className="text-2xl text-jade-vibrant">🔹</span> <code className="bg-black text-white px-2 py-1 border-2 border-mint-soft font-black">margin: 10px 20px;</code> (Atas-Bawah 10px, Kiri-Kanan 20px)</li>
                   </ul>
                   <div className="font-bold text-black text-base md:text-lg leading-relaxed mt-6 flex flex-col sm:flex-row items-start sm:items-center gap-4 bg-mint-soft p-4 border-4 border-black shadow-neo-sm">
                     <span className="material-symbols-outlined text-5xl">lightbulb</span>
-                    <p><strong className="uppercase text-xl block mb-1 tracking-widest">Trik Rahasia:</strong> Kode <code className="bg-white px-2 py-1 border-2 border-black font-black inline-block mt-1 sm:mt-0">margin: 0 auto;</code> akan langsung meretaskan kotakmu meluncur tepat ke <strong className="underline decoration-2 underline-offset-2">tengah layar horizontal</strong> (syarat: wajib punya width)!</p>
+                    <p><strong className="uppercase text-xl block mb-1 tracking-widest">Tips Tengah Horisontal:</strong> Menggunakan <code className="bg-white px-2 py-1 border-2 border-black font-black inline-block mt-1 sm:mt-0">margin: 0 auto;</code> akan langsung membuat elemen berada tepat di <strong className="underline decoration-2 underline-offset-2">tengah secara horizontal</strong> (syarat: elemen harus memiliki nilai width eksplisit).</p>
                   </div>
                 </div>
                 <div className="xl:w-1/2 w-full flex flex-col">
                   <CodeBlock 
                     language="css" 
-                    code={`/* Cara Panjang (Capek ngetik!) */
+                    code={`/* Cara Panjang (Penulisan Individual) */
 .kotak {
   padding-top: 10px;
   padding-right: 20px;
@@ -128,7 +128,7 @@ export default function BoxModelPage() {
   padding-left: 40px;
 }
 
-/* Cara Pintas Dewa (Shorthand) */
+/* Cara Ringkas (Shorthand) */
 .kotak {
   /* Atas Kanan Bawah Kiri */
   padding: 10px 20px 30px 40px; 
@@ -151,10 +151,10 @@ export default function BoxModelPage() {
                     CSS Reset Wajib!
                   </h3>
                   <p className="text-base md:text-lg font-bold text-forest-teal leading-relaxed">
-                    Seringkali <code className="bg-mint-canvas text-black px-2 py-1 border-2 border-black font-black uppercase">padding</code> dan <code className="bg-mint-canvas text-black px-2 py-1 border-2 border-black font-black uppercase">border</code> membuat ukuran total kotak membesar tanpa izin dan mengacaukan seluruh layout website kamu.
+                    Secara default, penambahan <code className="bg-mint-canvas text-black px-2 py-1 border-2 border-black font-black uppercase">padding</code> dan <code className="bg-mint-canvas text-black px-2 py-1 border-2 border-black font-black uppercase">border</code> akan menambah dimensi total ukuran elemen, yang seringkali mengacaukan perhitungan layout secara keseluruhan.
                   </p>
                   <p className="text-base md:text-lg font-bold text-forest-teal leading-relaxed mb-4 bg-mint-soft p-4 border-4 border-black shadow-neo-sm">
-                    Gunakan mantra <strong className="text-black uppercase underline decoration-4 decoration-black">"Sapu Jagat"</strong> (selektor <code className="bg-white px-2 border-2 border-black font-black text-black text-xl">*</code>) di baris paling atas file CSS-mu! <code className="bg-jade-vibrant text-white px-2 py-1 border-2 border-black font-black">box-sizing: border-box;</code> memastikan ukuran fisik kotak terkunci mati walau kamu menambah berton-ton padding.
+                    Gunakan teknik <strong className="text-black uppercase underline decoration-4 decoration-black">"CSS Reset"</strong> (menggunakan selektor universal <code className="bg-white px-2 border-2 border-black font-black text-black text-xl">*</code>) di awal dokumen CSS. Properti <code className="bg-jade-vibrant text-white px-2 py-1 border-2 border-black font-black">box-sizing: border-box;</code> akan memastikan lebar dan tinggi kotak tidak berubah meskipun kita menambahkan padding atau border.
                   </p>
                 </div>
                 <div className="lg:w-1/2 w-full flex flex-col bg-black border-4 border-black p-1 shadow-neo-md transform group-hover:scale-[1.02] transition-transform">
@@ -162,11 +162,11 @@ export default function BoxModelPage() {
                   <div className="flex-grow p-1">
                     <CodeBlock 
                       language="css" 
-                      code={`/* Mantra Sapu Jagat (Reset CSS) */
+                      code={`/* Pengaturan Awal (Reset CSS) */
 * {
   margin: 0;
   padding: 0;
-  box-sizing: border-box; /* Kunci rahasianya disini! */
+  box-sizing: border-box; /* Menjaga konsistensi ukuran box */
 }`} 
                     />
                   </div>
@@ -179,7 +179,7 @@ export default function BoxModelPage() {
             <footer className="bg-jade-vibrant border-4 border-black p-6 md:p-12 shadow-neo-xl text-center relative rotate-1 hover:rotate-0 transition-transform">
               <span className="material-symbols-outlined absolute -top-4 -right-4 md:-top-6 md:-right-6 text-5xl md:text-6xl text-white bg-pine-deep rounded-none border-4 border-black p-3 shadow-neo-md hover:scale-110 transition-transform cursor-pointer">inventory_2</span>
               <p className="text-2xl md:text-4xl font-black text-white uppercase leading-relaxed max-w-4xl mx-auto drop-shadow-[2px_2px_0px_rgba(0,0,0,1)] tracking-tight">
-                "Pahami luar-dalam Box Model, maka kamu praktis telah menguasai hukum ruang dimensi di dunia CSS!"
+                "Pemahaman mendalam mengenai Box Model merupakan kunci fundamental untuk menguasai penyusunan tata letak (layout) dan dimensi elemen di dalam CSS!"
               </p>
             </footer>
 

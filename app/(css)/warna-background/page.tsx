@@ -28,7 +28,7 @@ export default function WarnaBackgroundPage() {
                 Warna & Background
               </h1>
               <p className="text-base md:text-xl font-bold text-white bg-forest-teal inline-block px-4 py-2 md:px-6 md:py-3 border-4 border-black mb-4 md:mb-6 shadow-neo-md uppercase tracking-tight">
-                Dunia visual website tidak akan lengkap tanpa ledakan palet warna kosmetik yang memukau layar!
+                Dunia visual website tidak akan lengkap tanpa kombinasi warna yang menarik dan harmonis!
               </p>
             </section>
 
@@ -43,7 +43,7 @@ export default function WarnaBackgroundPage() {
                 <div className="bg-canvas border-4 border-black shadow-neo-md hover:-translate-y-2 hover:shadow-neo-lg transition-transform p-6 md:p-8 flex flex-col items-center text-center">
                   <div className="w-20 h-20 bg-red-500 border-4 border-black rounded-none shadow-[4px_4px_0px_rgba(0,0,0,1)] mb-6 transform rotate-6"></div>
                   <h3 className="text-xl md:text-2xl font-black uppercase mb-4 tracking-widest text-black">Nama (Keyword)</h3>
-                  <p className="font-bold text-forest-teal text-base flex-1">Spektrum yang sangat primitif & terbatas. Mengandalkan nama inggris mutlak seperti <code className="bg-white px-2 border-2 border-black text-black font-black uppercase tracking-widest">red</code>, <code className="bg-white px-2 border-2 border-black text-black font-black uppercase tracking-widest">blue</code>, <code className="bg-white px-2 border-2 border-black text-black font-black uppercase tracking-widest">green</code>.</p>
+                  <p className="font-bold text-forest-teal text-base flex-1">Metode paling dasar namun terbatas. Menggunakan nama warna dalam bahasa Inggris seperti <code className="bg-white px-2 border-2 border-black text-black font-black uppercase tracking-widest">red</code>, <code className="bg-white px-2 border-2 border-black text-black font-black uppercase tracking-widest">blue</code>, <code className="bg-white px-2 border-2 border-black text-black font-black uppercase tracking-widest">green</code>.</p>
                 </div>
                 
                 {/* Kode Hex */}
@@ -51,7 +51,7 @@ export default function WarnaBackgroundPage() {
                   <span className="absolute top-0 right-0 bg-jade-vibrant text-black text-xs font-black px-2 py-1 border-b-4 border-l-4 border-black shadow-neo-sm">PRO CHOICE</span>
                   <div className="w-20 h-20 bg-[#3b82f6] border-4 border-white rounded-none shadow-[4px_4px_0px_rgba(255,255,255,1)] mb-6 transform -rotate-3"></div>
                   <h3 className="text-xl md:text-2xl font-black uppercase mb-4 tracking-widest text-white drop-shadow-[2px_2px_0px_rgba(0,0,0,1)]">Kode Hex</h3>
-                  <p className="font-bold text-mint-soft text-base flex-1">Senjata andalan industri! Kombinasi sandi 6 digit angka & huruf magis. Contoh presisi: <code className="bg-black px-2 py-1 border-2 border-white text-jade-vibrant font-black tracking-widest">#3b82f6</code></p>
+                  <p className="font-bold text-mint-soft text-base flex-1">Standar yang paling banyak digunakan di industri! Menggunakan kombinasi 6 digit kode alfanumerik. Contoh: <code className="bg-black px-2 py-1 border-2 border-white text-jade-vibrant font-black tracking-widest">#3b82f6</code></p>
                 </div>
 
                 {/* RGBA */}
@@ -61,7 +61,7 @@ export default function WarnaBackgroundPage() {
                     <div className="absolute inset-0 opacity-20 bg-[url('data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHdpZHRoPSI4IiBoZWlnaHQ9IjgiPgo8cmVjdCB3aWR0aD0iNCIgaGVpZ2h0PSI0IiBmaWxsPSIjMDAwIj48L3JlY3Q+CjxyZWN0IHg9IjQiIHk9IjQiIHdpZHRoPSI0IiBoZWlnaHQ9IjQiIGZpbGw9IiMwMDAiPjwvcmVjdD4KPC9zdmc+')]"></div>
                   </div>
                   <h3 className="text-xl md:text-2xl font-black uppercase mb-4 tracking-widest text-black">RGBA (Transparan)</h3>
-                  <p className="font-bold text-forest-teal text-base flex-1">Warna berdimensi ganda. Bebas merekayasa tingkat keburaman fisik/transparansi (kaca) elemen dengan nilai parameter Alpha di ujungnya.</p>
+                  <p className="font-bold text-forest-teal text-base flex-1">Warna yang mendukung transparansi (Alpha). Memungkinkan kita mengatur tingkat opasitas suatu elemen dengan fleksibel.</p>
                 </div>
               </div>
 
@@ -73,16 +73,16 @@ export default function WarnaBackgroundPage() {
                     Teks vs Latar (Background)
                   </h3>
                   <p className="text-lg font-bold text-forest-teal leading-relaxed bg-mint-canvas p-4 border-4 border-black shadow-neo-sm">
-                    Awas! Sering tertukar. Bedakan pemakaian mutlak antara deklarasi <code className="bg-white text-black px-2 py-1 font-black border-2 border-black uppercase tracking-widest">color</code> dan <code className="bg-white text-black px-2 py-1 font-black border-2 border-black uppercase tracking-widest">background-color</code>!
+                    Penting! Pastikan kamu memahami perbedaan fungsi antara properti <code className="bg-white text-black px-2 py-1 font-black border-2 border-black uppercase tracking-widest">color</code> dan <code className="bg-white text-black px-2 py-1 font-black border-2 border-black uppercase tracking-widest">background-color</code>!
                   </p>
                   <ul className="space-y-4 font-bold text-base md:text-lg">
                     <li className="flex gap-3 bg-canvas border-4 border-black p-4 shadow-neo-sm hover:translate-x-2 transition-transform">
                       <span className="text-2xl">✒️</span> 
-                      <div><code className="bg-white px-2 py-1 border-2 border-black text-black font-black uppercase">color</code>: Digunakan eksklusif khusus untuk merubah warna tinta teks/tulisan di dalamnya.</div>
+                      <div><code className="bg-white px-2 py-1 border-2 border-black text-black font-black uppercase">color</code>: Digunakan khusus untuk merubah warna teks atau tulisan pada elemen.</div>
                     </li>
                     <li className="flex gap-3 bg-pine-deep text-white border-4 border-black p-4 shadow-neo-sm hover:translate-x-2 transition-transform">
                       <span className="text-2xl">🧱</span> 
-                      <div><code className="bg-black px-2 py-1 border-2 border-white text-jade-vibrant font-black uppercase">background-color</code>: Digunakan memblok warna mengisi lantai / area tembok / latar belakang (wadah).</div>
+                      <div><code className="bg-black px-2 py-1 border-2 border-white text-jade-vibrant font-black uppercase">background-color</code>: Digunakan untuk mengisi warna latar belakang sebuah elemen atau wadah kontainer.</div>
                     </li>
                   </ul>
                 </div>
@@ -111,28 +111,29 @@ export default function WarnaBackgroundPage() {
                     Latar Belakang Visual Gambar
                   </h3>
                   <p className="font-bold text-lg md:text-xl leading-relaxed bg-white text-black p-4 border-4 border-black shadow-[4px_4px_0px_rgba(0,0,0,1)]">
-                    Tidak melulu pakai tembok warna solid, kamu juga bisa menjahit file grafis / foto raksasa sebagai kulit latar belakang elemen raksasa dengan properti wajib <code className="bg-mint-canvas text-black px-2 py-1 font-black border-2 border-black uppercase tracking-widest inline-block mt-2 sm:mt-0">background-image</code>.
+                    Selain warna solid, kamu juga dapat menggunakan gambar atau foto sebagai latar belakang elemen dengan properti <code className="bg-mint-canvas text-black px-2 py-1 font-black border-2 border-black uppercase tracking-widest inline-block mt-2 sm:mt-0">background-image</code>.
                   </p>
-                  <p className="font-bold text-black text-base md:text-lg leading-relaxed mb-4 flex items-center gap-4 bg-mint-soft p-4 border-4 border-black shadow-neo-sm">
-                    <span className="text-4xl">⚠️</span> <strong>Hukum Fisika:</strong> Jangan sampai lupa untuk selalu mengawinkan dengan <code className="bg-white text-black px-2 py-1 border-2 border-black">background-size: cover</code> agar gambar foto tersebut menutupi memaksa area memanjang tanpa pernah terpotong atau berulang seperti keramik lantai yang aneh!
-                  </p>
+                  <div className="font-bold text-black text-base md:text-lg leading-relaxed mb-4 flex items-start gap-4 bg-mint-soft p-4 border-4 border-black shadow-neo-sm">
+                    <span className="text-3xl md:text-4xl flex-shrink-0 mt-1">⚠️</span> 
+                    <p><strong>Catatan Penting:</strong> Gunakan juga <code className="bg-white text-black px-2 py-1 border-2 border-black">background-size: cover</code> agar gambar tersebut dapat menutupi seluruh area elemen secara responsif tanpa terdistorsi atau berulang!</p>
+                  </div>
                 </div>
                 <div className="xl:w-1/2 w-full flex flex-col bg-black border-4 border-black p-1 shadow-[6px_6px_0px_rgba(255,255,255,1)]">
-                   <div className="bg-mint-soft border-b-4 border-black p-3 font-black uppercase text-center text-black tracking-widest">Suntikan Background Banner</div>
+                   <div className="bg-mint-soft border-b-4 border-black p-3 font-black uppercase text-center text-black tracking-widest">Implementasi Background Image</div>
                   <div className="flex-grow p-1">
                     <CodeBlock 
                       language="css" 
                       code={`.hero-banner {
-  /* Tembak jalurnya */
+  /* Tentukan lokasi (path) file gambar */
   background-image: url('assets/pemandangan.jpg');
   
-  /* Hukum wajib agar gambar responsive menutupi area layar */
+  /* Agar gambar menutupi area secara responsif */
   background-size: cover;
   
-  /* Pusat kamera selalu di tengah foto */
+  /* Posisikan gambar di tengah area */
   background-position: center;
   
-  /* Cegah gambar berulang menjadi keramik kecil-kecil */
+  /* Mencegah gambar diulang (tiled) */
   background-repeat: no-repeat;
 }`} 
                     />
@@ -163,10 +164,10 @@ export default function WarnaBackgroundPage() {
                     Gradasi Modern (Gradient)
                   </h3>
                   <p className="font-bold text-lg md:text-xl leading-relaxed bg-black p-4 border-4 border-white shadow-[4px_4px_0px_rgba(255,255,255,1)]">
-                    Website super mewah era kekinian (Modern Web) mulai menjauhi pemakaian blok cat tembok warna murni (solid). Mereka merekayasa ilusi spektrum dengan aliran <strong className="text-jade-vibrant uppercase underline decoration-2">Gradient</strong> yang menyala!
+                    Desain web modern (Modern Web) sering menggunakan perpaduan warna yang disebut <strong className="text-jade-vibrant uppercase underline decoration-2">Gradient</strong> untuk membuat tampilan lebih hidup dan dinamis!
                   </p>
                   <p className="font-bold text-mint-soft text-base md:text-lg leading-relaxed">
-                    CSS dilengkapi fungsi rekayasa kimia <code className="bg-black px-2 py-1 font-black text-white border-2 border-white tracking-widest uppercase">linear-gradient()</code> untuk melarutkan pencampuran dua buah warna cat (atau lebih) menjadi bentuk transisi perpindahan mulus yang menghipnotis visual mata.
+                    CSS memiliki fungsi bawaan <code className="bg-black px-2 py-1 font-black text-white border-2 border-white tracking-widest uppercase">linear-gradient()</code> untuk mencampurkan dua warna (atau lebih) dengan transisi perpindahan yang halus.
                   </p>
                   {/* Brutalist visualizer for gradient */}
                   <div className="h-20 w-full border-4 border-white shadow-[6px_6px_0px_rgba(0,0,0,1)] relative flex items-center justify-center font-black uppercase tracking-widest text-black text-xl" style={{ background: 'linear-gradient(to right, #10B981, #D1FAE5)' }}>
@@ -181,7 +182,7 @@ export default function WarnaBackgroundPage() {
             <footer className="bg-jade-vibrant border-4 border-black p-8 md:p-12 shadow-neo-xl text-center relative hover:-translate-y-1 transition-transform">
               <span className="material-symbols-outlined absolute -top-4 -right-4 md:-top-6 md:-right-6 text-5xl md:text-6xl text-white bg-black rounded-none border-4 border-white p-3 shadow-[4px_4px_0px_rgba(255,255,255,1)] hover:scale-110 transition-transform cursor-pointer">imagesmode</span>
               <p className="text-2xl md:text-4xl font-black text-black uppercase leading-relaxed max-w-4xl mx-auto drop-shadow-[2px_2px_0px_rgba(255,255,255,1)] tracking-tight">
-                "Pahami kode dasarnya, buka imajinasimu, dan mulailah mewarnai duniamu dengan kombinasi ledakan Hexadesimal, RGBA Transparan, & Aliran Gradient!"
+                "Pahami properti dasarnya dan mulailah mewarnai desain website-mu dengan kombinasi warna Hexadesimal, RGBA, dan juga gradien (Gradient)!"
               </p>
             </footer>
 

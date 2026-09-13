@@ -28,7 +28,7 @@ export default function PseudoClassesPage() {
                 Interaksi & Animasi
               </h1>
               <p className="text-base md:text-xl font-bold text-white bg-forest-teal inline-block px-4 py-2 md:px-6 md:py-3 border-4 border-black mb-4 md:mb-6 shadow-neo-md uppercase tracking-tight">
-                Menghidupkan elemen kaku menjadi super interaktif dengan Pseudo-classes!
+                Menambahkan interaktivitas dan manajemen state pada elemen HTML menggunakan Pseudo-classes.
               </p>
             </section>
 
@@ -41,7 +41,7 @@ export default function PseudoClassesPage() {
               <div className="flex flex-col lg:flex-row gap-8 lg:gap-10 mb-12 items-stretch">
                 <div className="lg:w-1/2 space-y-8">
                   <p className="font-bold text-forest-teal text-lg md:text-xl leading-relaxed bg-mint-canvas p-4 border-4 border-black shadow-neo-sm">
-                    Kamu bisa memberikan gaya CSS khusus menyala ketika elemen sedang berada dalam <em>keadaan tertentu</em> (misal sedang disentuh/ditekan) menggunakan <strong className="text-black uppercase underline decoration-4 decoration-jade-vibrant">Pseudo-classes</strong> (ditandai dengan awalan titik dua <code className="bg-white px-2 py-1 border-2 border-black font-black text-black">:</code>).
+                    Pseudo-classes digunakan untuk menerapkan gaya CSS khusus saat sebuah elemen berada dalam state atau kondisi tertentu (misalnya saat di-hover atau difokuskan). Penulisannya selalu diawali dengan tanda titik dua (<code className="bg-white px-2 py-1 border-2 border-black font-black text-black">:</code>).
                   </p>
                   
                   <ul className="space-y-6">
@@ -49,20 +49,20 @@ export default function PseudoClassesPage() {
                       <span className="bg-white p-2 border-4 border-black shadow-[2px_2px_0px_rgba(0,0,0,1)] text-2xl flex-shrink-0">🖱️</span>
                       <div>
                         <strong className="block text-xl uppercase font-black text-black tracking-widest mb-1">:hover</strong>
-                        <p className="font-bold text-forest-teal text-base">Memicu ledakan perubahan CSS instan saat kursor mouse melayang di atas tubuh elemen.</p>
+                        <p className="font-bold text-forest-teal text-base">Memicu perubahan gaya CSS saat pengguna mengarahkan (hover) kursor mouse ke atas elemen tersebut.</p>
                       </div>
                     </li>
                     <li className="flex items-start gap-4 bg-canvas border-4 border-black p-4 shadow-neo-sm hover:translate-x-2 transition-transform">
                       <span className="bg-white p-2 border-4 border-black shadow-[2px_2px_0px_rgba(0,0,0,1)] text-2xl flex-shrink-0">⌨️</span>
                       <div>
                         <strong className="block text-xl uppercase font-black text-black tracking-widest mb-1">:focus</strong>
-                        <p className="font-bold text-forest-teal text-base">Memicu perubahan CSS saat elemen (seperti kotak input teks) sedang diklik aktif dan diketik oleh pengguna.</p>
+                        <p className="font-bold text-forest-teal text-base">Memicu perubahan gaya CSS saat sebuah elemen (seperti elemen input form) sedang menerima fokus, aktif, atau siap menerima input.</p>
                       </div>
                     </li>
                   </ul>
                   
                   <div className="bg-mint-soft border-4 border-black p-6 shadow-neo-md mt-10">
-                    <p className="font-black text-sm md:text-base uppercase mb-4 text-black tracking-widest text-center border-b-2 border-black pb-2">🕹️ Area Bermain Interaktif!</p>
+                    <p className="font-black text-sm md:text-base uppercase mb-4 text-black tracking-widest text-center border-b-2 border-black pb-2">🕹️ Demonstrasi Interaktif</p>
                     <div className="flex flex-col gap-6">
                       {/* Interactive Hover */}
                       <button className="bg-black text-white text-lg md:text-xl font-black p-4 border-4 border-black shadow-[4px_4px_0px_rgba(0,0,0,1)] hover:bg-jade-vibrant hover:text-black hover:-translate-y-2 hover:shadow-[6px_6px_0px_rgba(0,0,0,1)] active:translate-y-[4px] active:translate-x-[4px] active:shadow-none transition-all cursor-pointer text-center uppercase tracking-widest">
@@ -83,10 +83,10 @@ export default function PseudoClassesPage() {
                   <div className="bg-black text-white border-4 border-black p-6 shadow-neo-lg relative transform -rotate-1 hover:rotate-0 transition-transform flex-1 flex flex-col">
                     <h3 className="font-black text-2xl md:text-3xl mb-6 text-mint-soft flex items-center gap-3 border-b-4 border-white pb-3">
                       <span className="material-symbols-outlined text-4xl">animation</span>
-                      Animasi Halus!
+                      Transisi Animasi (Transition)
                     </h3>
                     <p className="font-bold text-white/90 text-lg mb-6 leading-relaxed bg-[#222] p-4 border-4 border-white">
-                      Perubahan warna yang instan sangat kaku. Tambahkan <code className="bg-jade-vibrant text-black px-2 py-1 font-black inline-block mt-1 sm:mt-0">transition</code> agar perubahannya punya durasi waktu *smooth*. Dan kombinasikan dengan <code className="bg-jade-vibrant text-black px-2 py-1 font-black inline-block mt-1 sm:mt-0">transform</code> untuk efek bergerak memutar, melar, atau terangkat gravitasi!
+                      Perubahan state yang terjadi secara instan dapat terasa kaku. Gunakan properti <code className="bg-jade-vibrant text-black px-2 py-1 font-black inline-block mt-1 sm:mt-0">transition</code> untuk mengatur durasi perubahan sehingga tampak halus (smooth). Anda juga dapat mengkombinasikannya dengan properti <code className="bg-jade-vibrant text-black px-2 py-1 font-black inline-block mt-1 sm:mt-0">transform</code> untuk efek pergerakan koordinat atau rotasi.
                     </p>
                     <div className="flex-grow flex flex-col">
                       <CodeBlock 
@@ -94,14 +94,14 @@ export default function PseudoClassesPage() {
                         code={`.btn {
   background-color: blue;
   
-  /* Rahasia efek transisi smooth 0.3 detik */
+  /* Efek transisi halus selama 0.3 detik */
   transition: all 0.3s ease; 
 }
 
 .btn:hover {
   background-color: darkblue;
   
-  /* Elemen akan melayang terangkat 5 pixel! */
+  /* Mengubah posisi elemen naik sejauh 5 pixel */
   transform: translateY(-5px); 
 }`} 
                       />
@@ -125,7 +125,7 @@ export default function PseudoClassesPage() {
                     Targeting Spesifik
                   </h3>
                   <p className="font-bold text-lg md:text-xl leading-relaxed bg-black p-4 border-4 border-mint-soft">
-                    Selain efek interaktif, Pseudo-classes juga merupakan senjata pemusnah massal untuk memanipulasi elemen berdasarkan <strong className="text-jade-vibrant uppercase">urutan posisinya</strong> di dalam HTML (tanpa perlu capek ngasih <code className="bg-white text-black px-1">class</code> manual satu per satu!).
+                    Selain untuk mengatur state interaktif, Pseudo-classes juga berfungsi sangat baik untuk menargetkan elemen berdasarkan letak struktural atau <strong className="text-jade-vibrant uppercase">posisinya di dalam hirarki HTML</strong> (serta menghindari penulisan atribut <code className="bg-white text-black px-1">class</code> berulang kali secara manual).
                   </p>
                   
                   <ul className="space-y-6">
@@ -133,14 +133,14 @@ export default function PseudoClassesPage() {
                       <span className="bg-canvas p-2 border-4 border-black text-2xl flex-shrink-0">1️⃣</span>
                       <div>
                         <strong className="block text-xl md:text-2xl uppercase font-black tracking-widest mb-1 text-jade-vibrant">:first-child / :last-child</strong>
-                        <p className="font-bold text-forest-teal text-base">Membidik secara absolut elemen anak pertama atau anak terakhir saja. Sangat mematikan untuk menghapus garis batas (border) pada ekor sebuah list navigasi!</p>
+                        <p className="font-bold text-forest-teal text-base">Menargetkan elemen anak pertama atau anak terakhir dalam sebuah struktur data. Sangat berguna, contohnya, untuk menghilangkan properti border-bottom pada elemen terakhir di dalam daftar navigasi.</p>
                       </div>
                     </li>
                     <li className="flex items-start gap-4 bg-white text-black border-4 border-black p-4 shadow-[4px_4px_0px_rgba(0,0,0,1)] hover:-translate-y-1 transition-transform">
                       <span className="bg-canvas p-2 border-4 border-black text-2xl flex-shrink-0">🔢</span>
                       <div>
                         <strong className="block text-xl md:text-2xl uppercase font-black tracking-widest mb-1 text-jade-vibrant">:nth-child(n)</strong>
-                        <p className="font-bold text-forest-teal text-base">Isi kurungnya dengan urutan angka (misal: 3), atau gunakan mantra magis <code className="bg-mint-canvas px-2 border-2 border-black font-black text-black uppercase">odd</code> (Ganjil) dan <code className="bg-mint-canvas px-2 border-2 border-black font-black text-black uppercase">even</code> (Genap) untuk otomatis membuat desain tabel belang-belang anti-pusing (Zebra Striping).</p>
+                        <p className="font-bold text-forest-teal text-base">Menerima argumen berupa spesifikasi angka (misalnya urutan ke-3). Anda juga dapat menggunakan nilai fungsi bawaan <code className="bg-mint-canvas px-2 border-2 border-black font-black text-black uppercase">odd</code> (Ganjil) dan <code className="bg-mint-canvas px-2 border-2 border-black font-black text-black uppercase">even</code> (Genap) untuk mengotomatiskan pola warna tabel yang berselang-seling secara konsisten (Zebra Striping).</p>
                       </div>
                     </li>
                   </ul>
@@ -166,13 +166,13 @@ li:last-child {
   border-bottom: none;
 }
 
-/* Trik Dewa mewarnai baris GANJIL otomatis */
-/* Sangat rapi untuk "Zebra Tabel" */
+/* Mewarnai baris bernomor urut ganjil secara otomatis */
+/* Mengimplementasikan pola Zebra Striping */
 li:nth-child(odd) {
   background-color: var(--jade-vibrant);
 }
 
-/* Mengeksekusi warna berbeda tepat di baris ke-3 */
+/* Menargetkan spesifik hanya pada baris ke-3 */
 li:nth-child(3) {
   color: white;
 }`} 
@@ -187,7 +187,7 @@ li:nth-child(3) {
             <footer className="bg-jade-vibrant border-4 border-black p-8 md:p-12 shadow-neo-xl text-center relative hover:-translate-y-1 transition-transform">
               <span className="material-symbols-outlined absolute -top-4 -right-4 md:-top-6 md:-right-6 text-5xl md:text-6xl text-white bg-pine-deep rounded-none border-4 border-black p-3 shadow-neo-md hover:scale-110 transition-transform cursor-pointer">sports_esports</span>
               <p className="text-2xl md:text-4xl font-black text-white uppercase leading-relaxed max-w-4xl mx-auto drop-shadow-[2px_2px_0px_rgba(0,0,0,1)] tracking-tight">
-                "Sebuah website mati kutu tanpa efek :hover. Bangkitkan dari kubur dengan kekuatan Transition!"
+                "Penggunaan Pseudo-classes yang dikombinasikan dengan properti Transition merupakan landasan utama dalam merancang Micro-Interactions pada antarmuka modern."
               </p>
             </footer>
 

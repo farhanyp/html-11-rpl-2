@@ -28,7 +28,7 @@ export default function ResponsiveDesignPage() {
                 Variabel & Responsif
               </h1>
               <p className="text-base md:text-xl font-bold text-white bg-forest-teal inline-block px-4 py-2 md:px-6 md:py-3 border-4 border-black mb-4 md:mb-6 shadow-neo-md uppercase tracking-tight">
-                Kunci mutlak mengelola proyek besar dan membuatnya tampil sempurna di semua perangkat!
+                Pendekatan fundamental dalam mengelola proyek berskala besar dan memastikan antarmuka adaptif di berbagai perangkat.
               </p>
             </section>
 
@@ -43,13 +43,13 @@ export default function ResponsiveDesignPage() {
               <div className="flex flex-col xl:flex-row gap-8 lg:gap-10 mb-16 items-stretch">
                 <div className="xl:w-1/2 space-y-8">
                   <p className="font-bold text-forest-teal text-lg md:text-xl leading-relaxed bg-mint-canvas p-4 border-4 border-black shadow-neo-sm">
-                    Bayangkan kamu punya 50 elemen berwarna biru. Jika bos tiba-tiba minta semua warna diubah jadi merah neon, apakah kamu mau mencari dan mengganti 50 baris kode secara manual? Tentu tidak!
+                    Dalam proyek skala besar, nilai seperti kode warna (hex) digunakan berulang kali. Mengganti nilai tersebut satu per satu secara manual sangat tidak efisien dan rentan terhadap kesalahan (*human error*).
                   </p>
                   
                   <div className="bg-jade-vibrant text-white border-4 border-black p-6 shadow-neo-md relative hover:-translate-y-2 hover:shadow-neo-lg transition-transform">
                     <span className="material-symbols-outlined absolute -top-4 -right-4 text-4xl bg-black text-mint-soft rounded-full border-4 border-black p-1">lightbulb</span>
-                    <h3 className="font-black text-2xl mb-3 uppercase tracking-tight drop-shadow-[2px_2px_0px_rgba(0,0,0,1)]">Solusi: Variabel CSS!</h3>
-                    <p className="font-bold text-lg leading-relaxed">Dengan Variabel (disimpan di induk <code className="bg-white text-black px-2 py-1 font-black shadow-[2px_2px_0px_rgba(0,0,0,1)] mt-1 inline-block">:root</code>), kamu cukup mengubah nilai di <strong>1 TEMPAT SAJA</strong>, dan seluruh website akan otomatis menyesuaikan warnanya!</p>
+                    <h3 className="font-black text-2xl mb-3 uppercase tracking-tight drop-shadow-[2px_2px_0px_rgba(0,0,0,1)]">Variabel CSS (Custom Properties)</h3>
+                    <p className="font-bold text-lg leading-relaxed">Dengan mendeklarasikan Variabel CSS (umumnya pada pseudo-class <code className="bg-white text-black px-2 py-1 font-black shadow-[2px_2px_0px_rgba(0,0,0,1)] mt-1 inline-block">:root</code>), Anda mendefinisikan <em>single source of truth</em>. Mengubah nilai pada variabel sentral tersebut akan secara otomatis merefleksikan perubahan ke seluruh elemen yang memanggilnya.</p>
                   </div>
 
                   <ul className="space-y-6">
@@ -62,7 +62,7 @@ export default function ResponsiveDesignPage() {
                     <li className="flex flex-col sm:flex-row items-start sm:items-center gap-4 bg-canvas border-4 border-black p-4 shadow-neo-sm hover:translate-x-2 transition-transform">
                       <span className="bg-black text-white px-3 py-1 border-4 border-white shadow-[2px_2px_0px_rgba(0,0,0,1)] font-black text-xl uppercase tracking-widest flex-shrink-0">var()</span>
                       <div>
-                        <p className="font-bold text-forest-teal text-base">Gunakan fungsi <code className="bg-white text-black px-1 font-black tracking-widest">var(--nama-variabel)</code> untuk memanggil dan memakai warnanya.</p>
+                        <p className="font-bold text-forest-teal text-base">Gunakan fungsi <code className="bg-white text-black px-1 font-black tracking-widest">var(--nama-variabel)</code> untuk memanggil nilai variabel tersebut ke dalam properti CSS.</p>
                       </div>
                     </li>
                   </ul>
@@ -102,19 +102,19 @@ button {
               <div className="flex flex-col xl:flex-row gap-8 lg:gap-10 items-stretch">
                 <div className="xl:w-1/2 space-y-8">
                   <p className="font-bold text-forest-teal text-lg md:text-xl leading-relaxed">
-                    Website zaman sekarang dibuka di berbagai layar: Monitor PC Raksasa, Tablet, hingga Layar HP yang super sempit. Inilah esensi inti dari <strong className="text-black uppercase">Responsive Web Design</strong>.
+                    Aksesibilitas antarmuka di berbagai ukuran resolusi layar—mulai dari monitor desktop ultra lebar hingga perangkat seluler—merupakan tantangan utama yang diselesaikan oleh prinsip <strong className="text-black uppercase">Responsive Web Design</strong>.
                   </p>
                   
                   <div className="bg-pine-deep text-white border-4 border-black p-6 shadow-neo-md relative hover:-translate-y-2 hover:shadow-neo-lg transition-transform">
                     <span className="material-symbols-outlined absolute -top-4 -right-4 text-4xl bg-mint-soft rounded-full border-4 border-black p-1 text-black">smartphone</span>
-                    <h3 className="font-black text-2xl mb-3 text-mint-soft tracking-widest uppercase">Aturan Bersyarat!</h3>
-                    <p className="font-bold text-lg text-white/90">Kita bisa memerintah browser: <em>"Tolong jalankan kode CSS ini HANYA JIKA ukuran layarnya kurang dari 768px (ukuran HP)!"</em> dengan menggunakan pelindung <strong className="bg-white text-black px-2 uppercase shadow-[2px_2px_0px_rgba(0,0,0,1)]">@media</strong> Queries.</p>
+                    <h3 className="font-black text-2xl mb-3 text-mint-soft tracking-widest uppercase">Media Queries</h3>
+                    <p className="font-bold text-lg text-white/90">Media Queries <strong className="bg-white text-black px-2 uppercase shadow-[2px_2px_0px_rgba(0,0,0,1)]">@media</strong> memungkinkan penerapan blok kode CSS secara kondisional (bersyarat) berdasarkan kriteria parameter perangkat keras, seperti resolusi lebar maksimum atau minimum *viewport* layar.</p>
                   </div>
 
                   <div className="bg-canvas border-4 border-black p-6 hover:-translate-x-1 hover:-translate-y-1 hover:shadow-neo-sm transition-transform">
-                    <p className="font-black text-sm md:text-base uppercase mb-4 text-black tracking-widest text-center border-b-4 border-black pb-2">🎯 Skenario Kasus Dunia Nyata</p>
+                    <p className="font-black text-sm md:text-base uppercase mb-4 text-black tracking-widest text-center border-b-4 border-black pb-2">🎯 Skenario Implementasi Nyata</p>
                     <p className="font-bold text-forest-teal text-base md:text-lg text-center leading-relaxed">
-                      Di layar Laptop, menu navigasi akan <strong>tampil menyamping</strong>. Tapi saat di layar HP, menu tersebut sengaja <strong>disembunyikan (display: none)</strong> agar tidak merusak tata letak, dan posisinya diganti dengan tombol Hamburger Menu yang bisa diklik.
+                      Pada layar beresolusi tinggi, elemen navigasi dirender secara horizontal. Namun pada layar perangkat seluler, navigasi tersebut disembunyikan menggunakan <strong className="bg-white text-black px-1">display: none</strong> untuk mencegah layout terdistorsi, lalu posisinya digantikan oleh komponen <em>Hamburger Menu</em>.
                     </p>
                   </div>
                 </div>
@@ -124,19 +124,19 @@ button {
                   <div className="flex-grow p-1">
                     <CodeBlock 
                       language="css" 
-                      code={`/* Tampilan Default (Layar Desktop Besar) */
+                      code={`/* Tampilan Bawaan (Desktop) */
 .nav-links { 
   display: flex; 
   gap: 20px;
 }
 
-/* Tampilan Layar Sempit (Mobile/HP) */
-/* RULES: Hanya jalan jika lebar layar max 768px */
+/* Penyesuaian untuk Layar Seluler */
+/* Blok ini dieksekusi bila resolusi viewport <= 768px */
 @media (max-width: 768px) {
   
   .nav-links {
-    /* Sembunyikan menu menyamping di HP */
-    /* Mencegah layout hancur berantakan */
+    /* Menyembunyikan menu horizontal */
+    /* Untuk menjaga integritas tata letak di layar sempit */
     display: none; 
   }
   
@@ -154,21 +154,21 @@ button {
                     Mobile-First Approach
                   </h3>
                   <p className="font-bold text-lg md:text-xl text-forest-teal leading-relaxed">
-                    Ada dua mazhab besar sekte <em>Responsive Web Design</em> di dunia kerja: <strong className="text-black uppercase">Desktop-First</strong> dan <strong className="text-jade-vibrant uppercase underline decoration-2">Mobile-First</strong>.
+                    Terdapat dua pola pendekatan arsitektur utama dalam mendesain responsivitas web: <strong className="text-black uppercase">Desktop-First</strong> dan <strong className="text-jade-vibrant uppercase underline decoration-2">Mobile-First</strong>.
                   </p>
                   <ul className="space-y-6">
                     <li className="flex flex-col sm:flex-row items-start sm:items-center gap-4 bg-white border-4 border-black p-4 shadow-neo-sm hover:translate-x-2 transition-transform">
                       <span className="bg-canvas p-2 border-4 border-black text-2xl flex-shrink-0">💻</span>
                       <div>
                         <strong className="block text-xl uppercase font-black text-black tracking-widest mb-1">Desktop First (max-width)</strong>
-                        <p className="font-bold text-forest-teal text-base">Mendesain untuk layar besar dulu (PC), lalu mengecilkannya paksa untuk layar HP menggunakan pelindung <code className="bg-mint-canvas px-1 font-black text-black border-2 border-black">max-width</code>.</p>
+                        <p className="font-bold text-forest-teal text-base">Menuliskan gaya dasar (default) untuk layar beresolusi besar (PC), kemudian menggunakan media query kondisional <code className="bg-mint-canvas px-1 font-black text-black border-2 border-black">max-width</code> untuk memangkas dan menyesuaikan tata letak pada layar seluler.</p>
                       </div>
                     </li>
                     <li className="flex flex-col sm:flex-row items-start sm:items-center gap-4 bg-white border-4 border-black p-4 shadow-neo-sm hover:translate-x-2 transition-transform">
                       <span className="bg-canvas p-2 border-4 border-black text-2xl flex-shrink-0">📱</span>
                       <div>
                         <strong className="block text-xl uppercase font-black text-black tracking-widest mb-1">Mobile First (min-width)</strong>
-                        <p className="font-bold text-forest-teal text-base">Mendesain kerangka inti untuk layar HP dulu, lalu menatanya mekar untuk layar besar menggunakan pelindung <code className="bg-mint-canvas px-1 font-black text-black border-2 border-black">min-width</code>. <strong className="text-jade-vibrant uppercase">Ini adalah standar mutlak industri saat ini!</strong></p>
+                        <p className="font-bold text-forest-teal text-base">Menuliskan gaya dasar (default) untuk antarmuka seluler terlebih dahulu, kemudian secara progresif menggunakan media query kondisional <code className="bg-mint-canvas px-1 font-black text-black border-2 border-black">min-width</code> untuk menyempurnakan tata letak pada layar besar. <strong className="text-jade-vibrant uppercase">Ini merupakan standar arsitektur industri modern.</strong></p>
                       </div>
                     </li>
                   </ul>
@@ -178,22 +178,22 @@ button {
                   <div className="flex-grow p-1">
                     <CodeBlock 
                       language="css" 
-                      code={`/* ❌ MAZHAB DESKTOP-FIRST (Kuno) */
-/* Pakai max-width (Maksimal Lebar) */
+                      code={`/* ❌ PENDEKATAN DESKTOP-FIRST (Legacy) */
+/* Mengandalkan max-width */
 .kotak { width: 1000px; } /* Default PC */
 
 @media (max-width: 768px) {
-  /* Di-override JIKA layar mengecil */
+  /* Gaya ditimpa bila viewport lebih sempit */
   .kotak { width: 100%; } 
 }
 
 
-/* ✅ MAZHAB MOBILE-FIRST (Disarankan!) */
-/* Pakai min-width (Minimal Lebar) */
+/* ✅ PENDEKATAN MOBILE-FIRST (Direkomendasikan) */
+/* Mengandalkan min-width */
 .kotak { width: 100%; } /* Default HP */
 
 @media (min-width: 768px) {
-  /* Mengembang bebas JIKA layar membesar */
+  /* Tata letak ditingkatkan (progressive) bila viewport lebih lebar */
   .kotak { width: 1000px; } 
 }`} 
                     />
@@ -206,14 +206,14 @@ button {
                 <div className="xl:w-1/2 space-y-8">
                   <h3 className="text-2xl md:text-4xl font-black uppercase flex items-center gap-3 drop-shadow-[2px_2px_0px_rgba(0,0,0,1)] text-white">
                     <span className="material-symbols-outlined text-4xl md:text-5xl bg-black text-white p-2 rounded-none border-4 border-white shadow-[2px_2px_0px_rgba(255,255,255,1)]">calculate</span>
-                    Fungsi Matematika: calc()
+                    Fungsi Kalkulasi: calc()
                   </h3>
                   <p className="font-bold text-lg md:text-xl leading-relaxed bg-black p-4 border-4 border-white shadow-[4px_4px_0px_rgba(255,255,255,1)] text-white">
-                    Tahukah kamu bahwa CSS memiliki kalkulator bawaan? Kamu bisa menyisipkan rumus matematika operasi penambahan, pengurangan, perkalian menggunakan fungsi <code className="bg-white text-black px-2 py-1 uppercase tracking-widest font-black">calc()</code>! Senjata ini luar biasa mematikan jika di-combo dengan Variabel CSS.
+                    CSS memiliki kemampuan kalkulasi bawaan yang memungkinkan eksekusi perhitungan matematis dinamis langsung di dalam properti gaya melalui fungsi <code className="bg-white text-black px-2 py-1 uppercase tracking-widest font-black">calc()</code>. Fungsionalitas algoritmik ini sangat bermanfaat ketika dipadukan dengan Variabel CSS.
                   </p>
                   <div className="font-bold text-black text-base md:text-lg leading-relaxed mt-6 flex flex-col sm:flex-row items-start sm:items-center gap-4 bg-white p-4 border-4 border-black shadow-neo-sm hover:-translate-y-1 transition-transform">
                     <span className="material-symbols-outlined text-5xl text-jade-vibrant drop-shadow-[1px_1px_0px_rgba(0,0,0,1)]">info</span>
-                    <p><strong className="uppercase tracking-widest text-xl block mb-1">Contoh Kasus:</strong> Ingin membuat tampilan Halaman Depan yang memenuhi persis seluruh layar HP (<code>100vh</code>), tapi harus dikurangi tinggi Navbar statis sebesar <code>80px</code> agar tidak *overscroll*. Rumusnya: <code>calc(100vh - 80px)</code>!</p>
+                    <p><strong className="uppercase tracking-widest text-xl block mb-1">Contoh Kasus:</strong> Merancang area tinggi utama (Hero Section) agar memenuhi tepat sisa ketinggian layar (<code>100vh</code>), setelah dikurangi dimensi statis komponen Navbar (misalnya <code>80px</code>) guna menghindari resiko kemunculan efek <em>scroll</em> berlebih. Persamaannya ditulis sebagai: <code>calc(100vh - 80px)</code>.</p>
                   </div>
                 </div>
                 <div className="xl:w-1/2 w-full flex flex-col bg-black border-4 border-black p-1 shadow-neo-md">
@@ -221,20 +221,20 @@ button {
                   <div className="flex-grow p-1">
                     <CodeBlock 
                       language="css" 
-                      code={`/* CSS BISA BERHITUNG DINAMIS! */
+                      code={`/* KALKULASI DIMENSI DINAMIS */
 .hero-section {
-  /* Tinggi layar full dikurangi tinggi navbar */
-  /* Harus ada SPASI sebelum dan sesudah minus! */
+  /* Ketinggian viewport (100vh) dikurangi dimensi absolut header */
+  /* Sintaksis mengharuskan adanya whitespace (spasi) pada operator */
   height: calc(100vh - 80px);
 }
 
-/* Combo Maut dengan Variabel CSS */
+/* Integrasi Fleksibel Bersama Variabel CSS */
 :root {
   --lebar-sidebar: 280px;
 }
 
 .konten-utama {
-  /* 100% lebar layar bebas dari jajahan Sidebar */
+  /* Lebar maksimum (100%) dikurangi dimensi konstan panel sidebar */
   width: calc(100% - var(--lebar-sidebar));
 }`} 
                     />
@@ -248,7 +248,7 @@ button {
             <footer className="bg-pine-deep border-4 border-black p-8 md:p-12 shadow-neo-xl text-center relative hover:-translate-y-1 transition-transform">
               <span className="material-symbols-outlined absolute -top-4 -right-4 md:-top-6 md:-right-6 text-5xl md:text-6xl text-white bg-jade-vibrant rounded-none border-4 border-black p-3 shadow-neo-md hover:scale-110 transition-transform cursor-pointer">verified</span>
               <p className="text-2xl md:text-4xl font-black text-white uppercase leading-relaxed max-w-4xl mx-auto drop-shadow-[2px_2px_0px_rgba(0,0,0,1)] tracking-tight">
-                "Kuasai konsep Variabel dan Media Query (@media), maka kodemu siap dilepas untuk bertempur di industri IT global!"
+                "Penguasaan atas metodologi Variabel CSS dan arsitektur kondisional Media Query (Mobile-First) merupakan syarat mutlak dalam standarisasi pengembangan UI frontend industri."
               </p>
             </footer>
 

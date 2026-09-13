@@ -28,7 +28,7 @@ export default function DisplayCSSPage() {
                 Sifat Tampilan <br/> <span className="text-pine-deep bg-mint-soft px-4 inline-block transform -rotate-2 border-4 border-black shadow-[4px_4px_0px_rgba(0,0,0,1)] mt-2">(Display)</span>
               </h1>
               <p className="text-base md:text-xl font-bold text-white bg-forest-teal inline-block px-4 py-2 md:px-6 md:py-3 border-4 border-black mt-4 md:mb-6 shadow-neo-md uppercase tracking-tight">
-                Properti pengendali paling sakti untuk menentukan bagaimana ruang dimakan di layar!
+                Properti utama untuk mengatur bagaimana suatu elemen dirender dan mengambil ruang pada layout web!
               </p>
             </section>
 
@@ -51,7 +51,7 @@ export default function DisplayCSSPage() {
                       <span className="bg-jade-vibrant text-white px-4 py-1 border-4 border-black shadow-neo-sm tracking-widest">block</span>
                     </h3>
                     <p className="font-bold text-forest-teal text-lg md:text-xl mb-6 leading-relaxed bg-white border-4 border-black p-4">
-                      Sifatnya serakah. Elemen mengambil <strong className="text-black uppercase">satu baris penuh</strong> (100% lebar). Memaksa elemen kawan selanjutnya untuk minggir turun ke bawah. (Contoh bawaan: <code className="bg-mint-canvas text-black font-black px-2 border-2 border-black">&lt;div&gt;</code>, <code className="bg-mint-canvas text-black font-black px-2 border-2 border-black">&lt;h1&gt;</code>).
+                      Elemen dengan sifat ini akan mengambil <strong className="text-black uppercase">satu baris penuh</strong> (100% lebar) secara default. Elemen berikutnya akan otomatis dipaksa untuk berada di baris baru di bawahnya. (Contoh bawaan: <code className="bg-mint-canvas text-black font-black px-2 border-2 border-black">&lt;div&gt;</code>, <code className="bg-mint-canvas text-black font-black px-2 border-2 border-black">&lt;h1&gt;</code>).
                     </p>
                     <div className="border-4 border-black shadow-neo-sm"><CodeBlock language="css" code={`.kotak { display: block; }`} /></div>
                   </div>
@@ -68,7 +68,7 @@ export default function DisplayCSSPage() {
                       <span className="bg-mint-soft text-black px-4 py-1 border-4 border-black shadow-neo-sm tracking-widest">inline</span>
                     </h3>
                     <p className="font-bold text-forest-teal text-lg md:text-xl mb-6 leading-relaxed bg-white border-4 border-black p-4">
-                      Sifatnya merendah. Elemen hanya mengambil ruang selebar isinya dan suka <strong className="text-black uppercase">bersebelahan</strong>. Peringatan: Aturan <code className="text-black bg-mint-canvas px-2 border-2 border-black font-black">width</code> dan <code className="text-black bg-mint-canvas px-2 border-2 border-black font-black">height</code> <strong className="text-red-600 uppercase underline">TIDAK</strong> akan berguna di sini! (Contoh bawaan: <code className="text-black bg-mint-canvas px-2 border-2 border-black font-black">&lt;span&gt;</code>, <code className="text-black bg-mint-canvas px-2 border-2 border-black font-black">&lt;a&gt;</code>).
+                      Elemen ini hanya mengambil ruang sesuai dengan lebar konten di dalamnya dan dapat diletakkan <strong className="text-black uppercase">bersebelahan</strong>. Catatan: Properti <code className="text-black bg-mint-canvas px-2 border-2 border-black font-black">width</code> dan <code className="text-black bg-mint-canvas px-2 border-2 border-black font-black">height</code> <strong className="text-red-600 uppercase underline">TIDAK</strong> berpengaruh pada elemen ini. (Contoh bawaan: <code className="text-black bg-mint-canvas px-2 border-2 border-black font-black">&lt;span&gt;</code>, <code className="text-black bg-mint-canvas px-2 border-2 border-black font-black">&lt;a&gt;</code>).
                     </p>
                     <div className="border-4 border-black shadow-neo-sm"><CodeBlock language="css" code={`.link { display: inline; }`} /></div>
                   </div>
@@ -85,7 +85,7 @@ export default function DisplayCSSPage() {
                       <span className="bg-pine-deep text-white px-4 py-1 border-4 border-black shadow-neo-sm tracking-widest">inline-block</span>
                     </h3>
                     <p className="font-bold text-forest-teal text-lg md:text-xl mb-6 leading-relaxed bg-white border-4 border-black p-4">
-                      Kombinasi dewa! Elemen bisa jejer bersebelahan seperti <em>inline</em>, <strong className="text-black uppercase">TETAPI AJAIBNYA</strong> kamu bisa dengan bebas mengatur <code className="text-black bg-mint-canvas px-2 border-2 border-black font-black">width</code> dan <code className="text-black bg-mint-canvas px-2 border-2 border-black font-black">height</code>-nya persis seperti <em>block</em>. Sangat sering dipakai untuk merancang bentuk tombol navigasi.
+                      Kombinasi dari keduanya. Elemen dapat disejajarkan bersebelahan layaknya <em>inline</em>, <strong className="text-black uppercase">TETAPI</strong> kamu tetap bisa mengatur nilai <code className="text-black bg-mint-canvas px-2 border-2 border-black font-black">width</code> dan <code className="text-black bg-mint-canvas px-2 border-2 border-black font-black">height</code>-nya layaknya <em>block</em>. Sering digunakan untuk membuat elemen tombol (button) atau menu navigasi.
                     </p>
                     <div className="border-4 border-black shadow-neo-sm"><CodeBlock language="css" code={`.btn {\n  display: inline-block;\n  width: 150px;\n  height: 60px;\n}`} /></div>
                   </div>
@@ -101,9 +101,9 @@ export default function DisplayCSSPage() {
                       <span className="bg-white text-black px-4 py-1 border-4 border-white tracking-widest">none</span>
                     </h3>
                     <p className="font-bold text-white/80 text-lg md:text-xl mb-6 leading-relaxed bg-[#222] p-4 border-4 border-white">
-                      Membumihanguskan elemen dari mata telanjang (disembunyikan sempurna dan tidak memakan space sejengkal pun). Jurus ini wajib dipakai saat membuat fitur interaktif dengan JavaScript (seperti Pop-up, Modal, Sidebar Toggle).
+                      Menyembunyikan elemen secara keseluruhan dari halaman sehingga elemen tersebut tidak memakan ruang layout sedikit pun. Properti ini sangat berguna ketika kita membuat fitur interaktif bersama JavaScript (seperti Pop-up, Modal, atau Menu Toggle).
                     </p>
-                    <div className="border-4 border-white"><CodeBlock language="css" code={`.hilang-dari-radar { display: none; }`} /></div>
+                    <div className="border-4 border-white"><CodeBlock language="css" code={`.elemen-tersembunyi { display: none; }`} /></div>
                   </div>
                 </div>
 
@@ -119,10 +119,10 @@ export default function DisplayCSSPage() {
                   </h3>
                   <div className="space-y-4">
                     <p className="font-bold text-black text-lg md:text-xl leading-relaxed bg-white border-4 border-black p-4 shadow-neo-sm">
-                      Selain 4 tipe kuno di atas, CSS modern telah dianugerahi dua senjata pamungkas super absolut untuk menyusun tata letak: <code className="bg-pine-deep text-white font-black px-2 py-1 border-2 border-black inline-block mt-1 sm:mt-0">display: flex;</code> dan <code className="bg-pine-deep text-white font-black px-2 py-1 border-2 border-black inline-block mt-1 sm:mt-0">display: grid;</code>.
+                      Selain 4 tipe dasar di atas, CSS modern telah dilengkapi dengan dua metode canggih yang sangat andal untuk menyusun tata letak kompleks: <code className="bg-pine-deep text-white font-black px-2 py-1 border-2 border-black inline-block mt-1 sm:mt-0">display: flex;</code> dan <code className="bg-pine-deep text-white font-black px-2 py-1 border-2 border-black inline-block mt-1 sm:mt-0">display: grid;</code>.
                     </p>
                     <p className="font-bold text-black text-lg md:text-xl leading-relaxed bg-white border-4 border-black p-4 shadow-neo-sm">
-                      Keduanya begitu <strong className="uppercase">luar biasa overpower</strong> sehingga kita akan membedahnya secara khusus dalam bab "Materi Pokok 4 (Dimensi & Tata Letak)". Persiapkan dirimu!
+                      Karena fungsionalitasnya yang <strong className="uppercase">sangat ekstensif</strong> dan penting, kita akan membahasnya lebih mendalam secara khusus pada materi selanjutnya di bab ini, yaitu <strong>Flexbox Layout</strong> dan <strong>Grid Layout</strong>.
                     </p>
                   </div>
                 </div>
@@ -134,7 +134,7 @@ export default function DisplayCSSPage() {
             <footer className="bg-pine-deep border-4 border-black p-8 md:p-12 shadow-neo-xl text-center relative hover:-translate-y-1 transition-transform">
               <span className="material-symbols-outlined absolute -top-4 -right-4 md:-top-6 md:-right-6 text-5xl md:text-6xl text-black bg-white rounded-full border-4 border-black p-3 shadow-neo-md hover:scale-110 transition-transform cursor-pointer">layers</span>
               <p className="text-2xl md:text-4xl font-black text-white uppercase leading-relaxed max-w-4xl mx-auto drop-shadow-[2px_2px_0px_rgba(0,0,0,1)] tracking-tight">
-                "Pahami karakter 4 serangkai Display, karena inilah pondasi rahasia untuk memanipulasi posisi struktur website sesukamu!"
+                "Pahami dengan baik karakter dasar dari properti Display, karena ia merupakan pondasi utama dalam menyusun dan membangun layout website!"
               </p>
             </footer>
 

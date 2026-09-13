@@ -28,7 +28,7 @@ export default function TipografiPage() {
                 Tipografi & Font
               </h1>
               <p className="text-base md:text-xl font-bold text-white bg-forest-teal inline-block px-4 py-2 md:px-6 md:py-3 border-4 border-black mb-4 md:mb-6 shadow-neo-md uppercase tracking-tight">
-                CSS bisa menyulap wajah kaku tulisan web-mu menjadi apapun yang liar kamu bayangkan!
+                CSS bisa mengubah tampilan teks pada website-mu menjadi lebih menarik dan profesional!
               </p>
             </section>
 
@@ -41,7 +41,7 @@ export default function TipografiPage() {
               <div className="flex flex-col xl:flex-row gap-8 lg:gap-10 mb-16 items-stretch">
                 <div className="xl:w-1/2 space-y-8">
                   <p className="font-bold text-forest-teal text-lg md:text-xl leading-relaxed bg-mint-canvas p-4 border-4 border-black shadow-neo-sm">
-                    Kombinasi maut kelima properti di bawah ini adalah resep dasar mutlak untuk mengatur tipografi di CSS:
+                    Lima properti di bawah ini adalah dasar utama yang wajib dikuasai untuk mengatur tipografi di CSS:
                   </p>
                   
                   <ul className="space-y-6">
@@ -107,7 +107,7 @@ export default function TipografiPage() {
                     Pernah melihat baris misterius <code className="bg-mint-canvas text-black px-2 py-1 border-2 border-black font-black uppercase tracking-widest block sm:inline-block mt-2 sm:mt-0">&lt;link href="...fonts.googleapis.com..."&gt;</code> di dalam HTML orang lain?
                   </p>
                   <p className="text-base md:text-xl font-bold leading-relaxed text-black bg-mint-soft p-4 border-4 border-black shadow-[4px_4px_0px_rgba(0,0,0,1)]">
-                    Itu adalah cara peretasan legal untuk meminjam font canggih dari server internet (seperti Google Fonts) agar bisa langsung diketik dan dipakai di properti <strong className="bg-white text-black px-2 uppercase border-2 border-black">font-family</strong> CSS-mu tanpa perlu menyuruh pengunjung repot-repot menginstalnya secara lokal di PC mereka!
+                    Itu adalah cara mengimpor font dari layanan eksternal (seperti Google Fonts) agar dapat langsung digunakan pada properti <strong className="bg-white text-black px-2 uppercase border-2 border-black">font-family</strong> CSS-mu, tanpa mengharuskan pengunjung menginstal font tersebut di perangkat mereka!
                   </p>
                 </div>
               </div>
@@ -120,28 +120,28 @@ export default function TipografiPage() {
                     Dekorasi & Spasi Mikro
                   </h3>
                   <p className="font-bold text-lg md:text-xl leading-relaxed bg-black p-4 border-4 border-white shadow-[4px_4px_0px_rgba(255,255,255,1)]">
-                    Bukan sekedar gonta-ganti jenis huruf, CSS pro juga wajib mengatur detail kosmetik dekorasi dan jarak untuk meningkatkan <em>readability</em> pengguna:
+                    Selain memilih jenis huruf, kita juga perlu mengatur detail dekorasi dan spasi untuk meningkatkan <em>readability</em> (keterbacaan) teks bagi pengguna:
                   </p>
                   <ul className="space-y-6">
                     <li className="flex flex-col sm:flex-row items-start sm:items-center gap-4 bg-white text-black border-4 border-black p-4 shadow-neo-sm hover:translate-x-2 transition-transform">
                       <span className="bg-canvas p-2 border-4 border-black text-2xl flex-shrink-0">✨</span>
                       <div>
                         <strong className="block text-xl uppercase font-black text-black tracking-widest mb-1 drop-shadow-[1px_1px_0px_rgba(45,212,191,1)]">text-transform</strong>
-                        <p className="font-bold text-forest-teal text-base">Secara brutal memaksa teks menjadi <code className="bg-black text-white px-2 py-1 border-2 border-black">uppercase</code> (KAPITAL SEMUA), <code className="bg-black text-white px-2 py-1 border-2 border-black">lowercase</code> (kecil semua), atau <code className="bg-black text-white px-2 py-1 border-2 border-black">capitalize</code> (Huruf Besar Di Awal).</p>
+                        <p className="font-bold text-forest-teal text-base">Mengubah kapitalisasi teks menjadi <code className="bg-black text-white px-2 py-1 border-2 border-black">uppercase</code> (KAPITAL SEMUA), <code className="bg-black text-white px-2 py-1 border-2 border-black">lowercase</code> (kecil semua), atau <code className="bg-black text-white px-2 py-1 border-2 border-black">capitalize</code> (Huruf Besar Di Awal).</p>
                       </div>
                     </li>
                     <li className="flex flex-col sm:flex-row items-start sm:items-center gap-4 bg-white text-black border-4 border-black p-4 shadow-neo-sm hover:translate-x-2 transition-transform">
                       <span className="bg-canvas p-2 border-4 border-black text-2xl flex-shrink-0">↕️</span>
                       <div>
                         <strong className="block text-xl uppercase font-black text-black tracking-widest mb-1 drop-shadow-[1px_1px_0px_rgba(45,212,191,1)]">line-height</strong>
-                        <p className="font-bold text-forest-teal text-base">Mengatur tinggi jarak lega (spasi) murni antar baris dalam paragraf panjang agar mata tidak sakit karena terlalu berdempetan berjejalan!</p>
+                        <p className="font-bold text-forest-teal text-base">Mengatur jarak antar baris dalam suatu paragraf agar teks tidak terlalu berdempetan dan lebih nyaman dibaca.</p>
                       </div>
                     </li>
                     <li className="flex flex-col sm:flex-row items-start sm:items-center gap-4 bg-white text-black border-4 border-black p-4 shadow-neo-sm hover:translate-x-2 transition-transform">
                       <span className="bg-canvas p-2 border-4 border-black text-2xl flex-shrink-0">➖</span>
                       <div>
                         <strong className="block text-xl uppercase font-black text-black tracking-widest mb-1 drop-shadow-[1px_1px_0px_rgba(45,212,191,1)]">text-decoration</strong>
-                        <p className="font-bold text-forest-teal text-base">Memberi efek visual garis tegas. Mulai dari garis bawah (<code className="bg-black text-white px-1">underline</code>), coret mati (<code className="bg-black text-white px-1">line-through</code>), atau menghilangkannya sama sekali (<code className="bg-black text-white px-1 text-jade-vibrant uppercase font-black">none</code> - standar industri untuk tombol link).</p>
+                        <p className="font-bold text-forest-teal text-base">Memberikan efek garis pada teks, seperti garis bawah (<code className="bg-black text-white px-1">underline</code>), coretan (<code className="bg-black text-white px-1">line-through</code>), atau menghilangkannya (<code className="bg-black text-white px-1 text-jade-vibrant uppercase font-black">none</code> - sering digunakan untuk menghilangkan garis bawah bawaan pada link).</p>
                       </div>
                     </li>
                   </ul>
@@ -177,7 +177,7 @@ a.link-bersih {
             <footer className="bg-jade-vibrant border-4 border-black p-8 md:p-12 shadow-neo-xl text-center relative hover:-translate-y-1 transition-transform">
               <span className="material-symbols-outlined absolute -top-4 -right-4 md:-top-6 md:-right-6 text-5xl md:text-6xl text-white bg-black rounded-none border-4 border-white p-3 shadow-[4px_4px_0px_rgba(255,255,255,1)] hover:scale-110 transition-transform cursor-pointer">edit_document</span>
               <p className="text-2xl md:text-4xl font-black text-black uppercase leading-relaxed max-w-4xl mx-auto drop-shadow-[2px_2px_0px_rgba(255,255,255,1)] tracking-tight">
-                "Tipografi yang dipilih dan diatur secara brilian adalah suara visual yang sangat jernih dan berkarakter bagi identitas pembaca website-mu!"
+                "Tipografi yang dipilih dan diatur dengan baik akan memberikan karakter visual yang kuat dan meningkatkan kenyamanan membaca pada website-mu!"
               </p>
             </footer>
 

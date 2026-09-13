@@ -488,7 +488,7 @@ footer {
                                 Portfolio CSS
                             </h1>
                             <p className="text-base md:text-xl font-bold text-black bg-mint-soft inline-block px-4 py-2 md:px-6 md:py-3 border-4 border-black mb-4 md:mb-6 shadow-[4px_4px_0px_rgba(255,255,255,1)] uppercase tracking-tight">
-                                Menyulap Kerangka Tengkorak HTML Menjadi Desain Web Sekelas Profesional Industri!
+                                Mengimplementasikan CSS untuk Membangun Struktur Portofolio dengan Standar Industri Modern.
                             </p>
                         </section>
 
@@ -499,13 +499,13 @@ footer {
                                     <span className="material-symbols-outlined text-4xl">warning</span> Instruksi Pengerjaan
                                 </h3>
                                 <p className="font-bold text-mint-soft text-base md:text-lg leading-relaxed">
-                                    Pada pertarungan <strong>Project 1</strong> sebelumnya, kita telah membangun kerangka tulangnya. Sekarang di <strong>Project 2</strong> ini, tugas utamamu adalah memahat membuat file baru bernama <code className="bg-black text-white px-2 py-1 font-black uppercase tracking-widest border-2 border-white shadow-[2px_2px_0px_rgba(255,255,255,1)]">style.css</code> di dalam folder utama proyekmu, lalu <strong className="text-white uppercase underline decoration-2">salin total atau ketik ulang</strong> seluruh baris kode CSS di bawah ini! Jangan sampai ada satu titik koma (<code>;</code>) atau kurung kurawal (<code>{"{}"}</code>) pun yang luput dari pandanganmu!
+                                    Melanjutkan tahap struktural di <strong>Project 1</strong>, fokus pada <strong>Project 2</strong> adalah pemformatan gaya (styling). Buatlah sebuah file baru bernama <code className="bg-black text-white px-2 py-1 font-black uppercase tracking-widest border-2 border-white shadow-[2px_2px_0px_rgba(255,255,255,1)]">style.css</code> di direktori root proyek Anda, kemudian <strong className="text-white uppercase underline decoration-2">salin atau ketik ulang</strong> sintaks CSS di bawah ini secara presisi. Pastikan seluruh struktur tanda baca seperti titik koma (<code>;</code>) dan kurung kurawal (<code>{"{}"}</code>) ditulis dengan tepat.
                                 </p>
                             </div>
 
                             <h2 className="text-2xl sm:text-3xl md:text-5xl font-black text-black uppercase mb-8 md:mb-10 border-b-4 border-black pb-4 flex items-center gap-3 md:gap-4 tracking-tighter">
                                 <span className="material-symbols-outlined text-4xl md:text-5xl text-white bg-black p-2 border-4 border-black shadow-neo-sm flex-shrink-0">brush</span>
-                                Master Code CSS
+                                Kode CSS Lengkap
                             </h2>
 
                             <div className="mb-16 relative">
@@ -576,7 +576,7 @@ footer {
                                     Hasil Desain CSS (Preview Akhir)
                                 </h2>
                                 <p className="font-bold text-forest-teal text-base md:text-lg mb-8 bg-white p-4 border-4 border-black inline-block shadow-neo-sm">
-                                    Ini adalah puncak keajaiban CSS sejati! Beginilah rupa wajah menawan website portofolio tersebut <strong>setelah file sakti CSS ini dikawinkan dihubungkan</strong> ke dalam ragam HTML murni sebelumnya.
+                                    Inilah hasil akhir arsitektur visual setelah tahapan styling. Tampilan portofolio ini merupakan wujud nyata integrasi <strong>file style.css</strong> dengan struktur semantik HTML yang telah Anda kerjakan sebelumnya.
                                 </p>
                                 <div className="border-4 border-black border-dashed bg-mint-canvas min-h-[400px] flex items-center justify-center relative group overflow-hidden shadow-inner p-4">
                                     <img src="/project-2/msedge_yR6wKPDQyH.png" alt="Hasil Akhir CSS" className="w-full h-auto object-cover relative z-10 border-4 border-black shadow-neo-md" />
@@ -585,11 +585,11 @@ footer {
 
                             <h2 className="text-2xl sm:text-3xl md:text-5xl font-black text-black uppercase mb-8 md:mb-12 border-b-4 border-black pb-4 flex items-center gap-3 md:gap-4 mt-20 tracking-tighter">
                                 <span className="material-symbols-outlined text-4xl md:text-5xl text-black bg-mint-soft p-2 border-4 border-black shadow-neo-sm flex-shrink-0">plumbing</span>
-                                Bedah Forensik CSS
+                                Analisis Kode CSS
                             </h2>
 
                             <p className="font-bold text-forest-teal text-lg md:text-xl leading-relaxed mb-10 bg-mint-canvas p-4 border-4 border-black shadow-neo-sm">
-                                Apa sih yang sebenarnya dilakukan di balik layar oleh barisan ratusan kode CSS mematikan di atas? Mari kita bedah operasi forensik satu per satu rahasia arsitekturnya!
+                                Bagaimana cara kerja sintaks CSS yang berjumlah ratusan baris tersebut? Mari kita lakukan analisis arsitektur per segmen untuk memahami mekanismenya secara komprehensif.
                             </p>
 
                             <div className="space-y-10">
@@ -599,10 +599,10 @@ footer {
                                     <div>
                                         <h3 className="text-xl md:text-3xl font-black uppercase mb-4 text-mint-soft tracking-widest border-b-4 border-mint-soft pb-2 inline-block">Variabel Global (:root) & Reset (*)</h3>
                                         <p className="font-bold text-white/80 text-base md:text-lg leading-relaxed mb-6">
-                                            Tepat di gerbang awal baris, kita menanam selektor <code>:root</code> untuk mendepositokan kepingan palet warna paten seperti <code>--bg-color</code> dan <code>--accent-color</code>. Kenapa harus repot? Agar jika besok bos klien tiba-tiba marah minta ganti tema merah neon, kamu <strong>cukup sentuh ubah 1 baris variabel ini saja</strong>, maka ratusan elemen lainnya akan sujud patuh mengikuti otomatis!
+                                            Pada bagian awal kode, selektor <code>:root</code> digunakan untuk mendeklarasikan Variabel CSS yang menyimpan skema warna, seperti <code>--bg-color</code> dan <code>--accent-color</code>. Penerapan metodologi ini menciptakan <em>Single Source of Truth</em>. Jika kelak terdapat perubahan tema warna, Anda <strong>hanya perlu memodifikasi nilai variabel tersebut di satu tempat</strong>, dan perubahannya akan teraplikasi ke seluruh komponen secara otomatis.
                                         </p>
                                         <p className="font-bold text-white/80 text-base md:text-lg leading-relaxed bg-pine-deep p-4 border-4 border-white shadow-[4px_4px_0px_rgba(255,255,255,1)] transform -rotate-1">
-                                            Tak lupa setelah itu senjata sapu jagad bintang <code>*</code> dikerahkan bertugas <strong>me-reset luluh lantakkan <em>margin</em> dan <em>padding</em> egois bawaan browser</strong> menjadi titik 0 mutlak, dan memaksa <code>box-sizing: border-box</code> agar ukuran bangunan elemen tidak melar berantakan meledak saat disuntik dengan padding tambahan.
+                                            Selanjutnya, universal selector <code>*</code> digunakan untuk melakukan CSS Reset. Blok ini <strong>menghapus <em>margin</em> dan <em>padding</em> bawaan dari browser</strong> (menjadi 0), serta menerapkan <code>box-sizing: border-box</code> untuk memastikan dimensi elemen tetap proporsional dan tidak membesar ketika diberikan atribut <em>padding</em> atau <em>border</em>.
                                         </p>
                                     </div>
                                 </div>
@@ -613,10 +613,10 @@ footer {
                                     <div>
                                         <h3 className="text-xl md:text-3xl font-black uppercase mb-4 text-black tracking-widest border-b-4 border-black pb-2 inline-block">Sticky Navbar & Flexbox</h3>
                                         <p className="font-bold text-forest-teal text-base md:text-lg leading-relaxed mb-4">
-                                            Selidiki area kompartemen <code>.nav</code>. Di sana bersarang <code>position: sticky; top: 24px;</code>. Perintah militer ini membuat bilah Navbar akan menolak pergi dan terus <strong>menempel abadi di atas layar plafon</strong> mengikuti kemanapun pengunjung melakukan gulir <em>scroll</em> ke ujung bawah neraka!
+                                            Perhatikan blok <code>nav</code> (atau <code>.nav</code>). Properti <code>position: sticky; top: 24px;</code> memastikan komponen Navbar akan menempel secara persisten di bagian atas <em>viewport</em> layar saat pengguna melakukan interaksi gulir (<em>scroll</em>).
                                         </p>
                                         <p className="font-bold text-black text-base md:text-lg leading-relaxed bg-white p-4 border-4 border-black shadow-neo-sm">
-                                            Lalu terdapat operasi <code>display: flex; justify-content: space-between;</code> yang dengan elegan bertugas menyebar membanting ujung Logo ke titik tembok kiri, dan menendang gerombolan barisan Tautan Menu ke titik pojok kanan dengan sendirinya.
+                                            Selain itu, properti <code>display: flex;</code> yang dikombinasikan dengan <code>justify-content: space-between;</code> digunakan untuk mendorong bagian Logo ke sisi kiri container, sementara elemen Tautan Menu ditempatkan di ujung sisi kanan secara responsif.
                                         </p>
                                     </div>
                                 </div>
@@ -625,13 +625,13 @@ footer {
                                 <div className="bg-pine-deep text-white border-4 border-black p-6 md:p-10 relative hover:-translate-y-2 hover:shadow-neo-lg transition-transform shadow-neo-md flex flex-col md:flex-row gap-6 items-start">
                                     <div className="flex-shrink-0 bg-jade-vibrant text-black w-14 h-14 flex items-center justify-center font-black text-3xl border-4 border-black rounded-none shadow-[4px_4px_0px_rgba(255,255,255,1)] -mt-2 md:-mt-4 -ml-2 md:-ml-4">3</div>
                                     <div>
-                                        <h3 className="text-xl md:text-3xl font-black uppercase mb-4 text-white tracking-widest border-b-4 border-white pb-2 inline-block drop-shadow-[2px_2px_0px_rgba(0,0,0,1)]">Kekuatan Murni CSS Grid</h3>
+                                        <h3 className="text-xl md:text-3xl font-black uppercase mb-4 text-white tracking-widest border-b-4 border-white pb-2 inline-block drop-shadow-[2px_2px_0px_rgba(0,0,0,1)]">Layouting dengan CSS Grid</h3>
                                         <p className="font-bold text-mint-soft text-base md:text-lg leading-relaxed mb-6">
-                                            Lihatlah tajam kode mesin <code>.projects-grid</code>. Ini adalah ilmu sihir level atas industri! Kode <code>grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));</code> adalah baris rumus matematis yang paling berbahaya.
+                                            Pada komponen <code>.projects-grid</code>, Anda dapat melihat kecanggihan fungsionalitas Grid. Sintaks <code>grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));</code> merupakan algoritma tata letak yang sangat presisi untuk merancang layout yang responsif.
                                         </p>
                                         <div className="bg-black text-white p-6 border-4 border-white font-bold mb-2 shadow-[4px_4px_0px_rgba(255,255,255,1)] transform rotate-1">
-                                            <strong className="text-xl uppercase text-jade-vibrant block mb-2 tracking-widest">ARTINYA TERJEMAHAN:</strong>
-                                            "Tolong buatkan saya beberapa belah kolom. Namun perhatikan baik-baik: Lebar fisik tiap kolomnya haram hukumnya menyusut kurang dari <code>300px</code>. Jika layar mendadak ditarik membesar, penuhi rakus seluruh sisa ruang kosongnya (<code>1fr</code>). Namun jika layar dicekik menyempit hingga kritis, pindahkan lempar elemen sisanya ke baris bawah dengan otomatis <strong className="text-white underline">TANPA</strong> campur tangan Media Query!"
+                                            <strong className="text-xl uppercase text-jade-vibrant block mb-2 tracking-widest">PENJELASAN SINTAKS:</strong>
+                                            "Instruksikan browser untuk membuat kolom sebanyak mungkin secara proporsional. Namun, tetapkan <em>constraint</em> bahwa lebar minimal setiap kolom adalah <code>300px</code>. Jika layar melebar, setiap kolom akan membesar secara ekuivalen untuk mengisi sisa ruang (berkat nilai <code>1fr</code>). Sebaliknya, jika ukuran viewport menyempit di bawah 300px per anak elemen, elemen akan secara otomatis di-<em>wrap</em> ke baris di bawahnya (berkat fungsi <code>auto-fit</code>), <strong className="text-white underline">TANPA</strong> perlu Anda campur tangan dengan Media Query tambahan!"
                                         </div>
                                     </div>
                                 </div>
@@ -640,18 +640,18 @@ footer {
                                 <div className="bg-jade-vibrant text-black border-4 border-black p-6 md:p-10 relative hover:-translate-y-2 hover:shadow-neo-lg transition-transform shadow-neo-md flex flex-col md:flex-row gap-6 items-start">
                                     <div className="flex-shrink-0 bg-white text-black w-14 h-14 flex items-center justify-center font-black text-3xl border-4 border-black rounded-none shadow-[4px_4px_0px_rgba(0,0,0,1)] -mt-2 md:-mt-4 -ml-2 md:-ml-4">4</div>
                                     <div>
-                                        <h3 className="text-xl md:text-3xl font-black uppercase mb-4 text-black tracking-widest border-b-4 border-black pb-2 inline-block drop-shadow-[2px_2px_0px_rgba(255,255,255,1)]">Sihir Timeline (Pseudo)</h3>
+                                        <h3 className="text-xl md:text-3xl font-black uppercase mb-4 text-black tracking-widest border-b-4 border-black pb-2 inline-block drop-shadow-[2px_2px_0px_rgba(255,255,255,1)]">Elemen Semu Timeline (Pseudo)</h3>
                                         <p className="font-bold text-black text-base md:text-lg leading-relaxed mb-6 bg-white p-4 border-4 border-black shadow-neo-sm">
-                                            Lalu bagaimana caranya dukun CSS menciptakan membuat garis vertikal pedang panjang dan bulatan dot presisi pada rute sejarah bagian *Experience* di atas tanpa perlu repot mencemari menambah tag fisik lagi di kerangka HTML? Panggil ilusi setan <strong>Pseudo-elements</strong>!
+                                            Bagaimana cara kita membuat garis indikator vertikal dan titik-titik dekoratif (dots) pada komponen histori (Experience) tanpa perlu mengotori markup HTML dengan menyisipkan tag div kosong? Solusinya adalah menggunakan manipulasi <strong>Pseudo-elements</strong>.
                                         </p>
                                         <ul className="space-y-4 font-bold text-black text-base md:text-lg">
                                             <li className="flex items-start gap-3 bg-canvas p-4 border-4 border-black shadow-neo-sm hover:translate-x-2 transition-transform">
                                                 <span className="text-2xl mt-1">🗡️</span>
-                                                <span>Siluman <code className="bg-black text-white px-2 py-1 uppercase font-black tracking-widest border-2 border-black">.timeline::after</code> ditugaskan eksklusif untuk menggambar bayangan sebuah "garis panjang" rel kokoh setebal 2px lurus dari kutub atas ke bawah.</span>
+                                                <span>Pseudo-element <code className="bg-black text-white px-2 py-1 uppercase font-black tracking-widest border-2 border-black">.timeline::after</code> difungsikan secara eksklusif untuk merender struktur "garis rel" vertikal yang lurus dengan ketebalan 2px dari titik sumbu atas hingga dasar wadah container.</span>
                                             </li>
                                             <li className="flex items-start gap-3 bg-canvas p-4 border-4 border-black shadow-neo-sm hover:translate-x-2 transition-transform">
                                                 <span className="text-2xl mt-1">⚪</span>
-                                                <span>Lalu siluman <code className="bg-black text-white px-2 py-1 uppercase font-black tracking-widest border-2 border-black">.timeline-item::after</code> diperintahkan menggambar patung "bulatan" putih dengan pinggiran cat cincin berwarna biru murni (<code className="bg-white text-black border-2 border-black px-1 mt-1 inline-block">border: 4px solid var(--accent-color)</code>) di tiap ujung anak tangganya layaknya pos penjagaan sejarah.</span>
+                                                <span>Sementara itu, pseudo-element <code className="bg-black text-white px-2 py-1 uppercase font-black tracking-widest border-2 border-black">.timeline-item::after</code> bertanggung jawab memproduksi titik (dot) putih dengan garis batas terluar (menggunakan <code className="bg-white text-black border-2 border-black px-1 mt-1 inline-block">border: 4px solid var(--accent-color)</code>) pada setiap perhentian item layaknya sebuah penanda timeline nyata.</span>
                                             </li>
                                         </ul>
                                     </div>
@@ -661,18 +661,18 @@ footer {
                                 <div className="bg-black text-white border-4 border-black p-6 md:p-10 relative hover:-translate-y-2 hover:shadow-neo-lg transition-transform shadow-[6px_6px_0px_rgba(255,255,255,1)] flex flex-col md:flex-row gap-6 items-start">
                                     <div className="flex-shrink-0 bg-mint-soft text-black w-14 h-14 flex items-center justify-center font-black text-3xl border-4 border-black rounded-none shadow-[4px_4px_0px_rgba(0,0,0,1)] -mt-2 md:-mt-4 -ml-2 md:-ml-4">5</div>
                                     <div>
-                                        <h3 className="text-xl md:text-3xl font-black uppercase mb-4 text-white tracking-widest border-b-4 border-white pb-2 inline-block">Aturan Responsif (Media Queries)</h3>
+                                        <h3 className="text-xl md:text-3xl font-black uppercase mb-4 text-white tracking-widest border-b-4 border-white pb-2 inline-block">Responsivitas (Media Queries)</h3>
                                         <p className="font-bold text-white/80 text-base md:text-lg leading-relaxed mb-6">
-                                            Di garis baris ujung paling bawah jurang, bertengger benteng komando <code>@media (max-width: 768px)</code>. Jika ukuran radar layar monitor pengguna terpantau lebih kecil dari sempit 768px (terdeteksi HP genggam biasa), maka sirene protokol diaktifkan:
+                                            Pada baris kode segmen terbawah, terdapat blok instruksi <code>@media (max-width: 768px)</code>. Jika resolusi viewport perangkat terdeteksi di bawah 768px (yang mengindikasikan perangkat HP), sistem browser akan mengeksekusi strategi responsif berikut:
                                         </p>
                                         <div className="space-y-4">
                                             <div className="bg-pine-deep p-4 border-4 border-white shadow-[4px_4px_0px_rgba(255,255,255,1)] transform -rotate-1">
-                                                <strong className="text-xl uppercase block mb-1 text-jade-vibrant">PROTOKOL 1: PEMUSNAHAN MENU BAR</strong>
-                                                <p className="text-white/90">Kompi <code>.nav-links</code> (menu teks berjejer kanan) akan seketika ditembak mati dihilangkan paksa dengan <code>display: none;</code> agar layar tidak berjejalan sempit hancur.</p>
+                                                <strong className="text-xl uppercase block mb-1 text-jade-vibrant">STRATEGI 1: MENYEMBUNYIKAN MENU NAVIGASI</strong>
+                                                <p className="text-white/90">Komponen <code>.nav-links</code> akan disembunyikan sesaat menggunakan <code>display: none;</code> untuk mencegah elemen bertumpuk secara paksa yang dapat mengacaukan integritas layout navbar di ruang sempit.</p>
                                             </div>
                                             <div className="bg-pine-deep p-4 border-4 border-white shadow-[4px_4px_0px_rgba(255,255,255,1)] transform rotate-1">
-                                                <strong className="text-xl uppercase block mb-1 text-jade-vibrant">PROTOKOL 2: REPOSISI VERTICAL HERO</strong>
-                                                <p className="text-white/90">Blok teritorial <code>.hero</code> formasinya disabotase diubah menjadi <code>flex-direction: column-reverse;</code>. Ini manipulasi brutal yang memutar balik posisi, menarik gambar hero ke plafon atas, dan membanting menendang teks sambutan ke posisi bawahnya agar lebih pas ergonomis mutlak saat HP digenggam secara vertikal (Portrait)!</p>
+                                                <strong className="text-xl uppercase block mb-1 text-jade-vibrant">STRATEGI 2: REPOSISI TATA LETAK HERO</strong>
+                                                <p className="text-white/90">Arah urutan formasi untuk blok <code>.hero</code> dirotasi posisinya menggunakan perintah <code>flex-direction: column-reverse;</code>. Pendekatan arsitektural ini mengkalkulasi ulang struktur susunannya—memaksa elemen gambar promosi berpindah ke titik teratas, sedangkan teks penjelasan bergeser ke bawahnya—sehingga alur baca konten (*flow*) menjadi sangat ergonomis untuk orientasi seluler vertikal (Portrait).</p>
                                             </div>
                                         </div>
                                     </div>

@@ -54,9 +54,9 @@ export default function PemanggilanCSSPage() {
                   <div className="bg-black border-4 border-black p-1 shadow-neo-md flex-1 flex flex-col">
                     <div className="bg-mint-soft border-b-4 border-black p-2 font-black uppercase text-center text-xs">Contoh Kode Inline</div>
                     <div className="flex-grow p-1">
-                      <CodeBlock 
-                        language="html" 
-                        code={`<h1 style="color: red; font-size: 20px;">Teks Merah</h1>`} 
+                      <CodeBlock
+                        language="html"
+                        code={`<h1 style="color: red; font-size: 20px;">Teks Merah</h1>`}
                       />
                     </div>
                   </div>
@@ -83,13 +83,13 @@ export default function PemanggilanCSSPage() {
                   <div className="bg-black border-4 border-black p-1 shadow-neo-md flex-1 flex flex-col">
                     <div className="bg-mint-soft border-b-4 border-black p-2 font-black uppercase text-center text-xs">Contoh Kode Internal</div>
                     <div className="flex-grow p-1">
-                      <CodeBlock 
-                        language="html" 
+                      <CodeBlock
+                        language="html"
                         code={`<style>
   h1 {
     color: blue;
   }
-</style>`} 
+</style>`}
                       />
                     </div>
                   </div>
@@ -112,7 +112,7 @@ export default function PemanggilanCSSPage() {
                     <ul className="text-sm md:text-base font-bold text-forest-teal space-y-3">
                       <li className="flex items-start gap-2"><span className="text-jade-vibrant">✔</span> File HTML menjadi jauh lebih bersih & rapi.</li>
                       <li className="flex items-start gap-2"><span className="text-jade-vibrant">✔</span> Cukup ubah 1 file CSS, 1000 halaman web akan ikut berubah (Konsistensi mutlak).</li>
-                      <li className="flex items-start gap-2"><span className="text-jade-vibrant">✔</span> File CSS di-<em>cache</em> oleh browser, membuat <em>loading</em> website super cepat.</li>
+                      <li className="flex items-start gap-2"><span className="text-jade-vibrant">✔</span> File CSS di cache oleh browser, membuat loading website super cepat.</li>
                     </ul>
                   </div>
                 </div>
@@ -120,10 +120,10 @@ export default function PemanggilanCSSPage() {
                   <div className="bg-black border-4 border-black p-1 shadow-neo-md flex-1 flex flex-col">
                     <div className="bg-mint-soft border-b-4 border-black p-2 font-black uppercase text-center text-xs text-black">Contoh Kode External</div>
                     <div className="flex-grow p-1">
-                      <CodeBlock 
-                        language="html" 
+                      <CodeBlock
+                        language="html"
                         code={`<!-- Ditaruh di dalam <head> HTML -->
-<link rel="stylesheet" href="style.css">`} 
+<link rel="stylesheet" href="style.css">`}
                       />
                     </div>
                   </div>
@@ -149,7 +149,7 @@ export default function PemanggilanCSSPage() {
                     Selalu biasakan untuk menaruh file <code className="bg-mint-canvas px-2 border-2 border-black text-black uppercase font-black">.css</code> di dalam folder khusus (misalnya <code className="bg-mint-canvas px-2 border-2 border-black text-black uppercase font-black">/css/</code> atau <code className="bg-mint-canvas px-2 border-2 border-black text-black uppercase font-black">/assets/</code>) agar proyekmu tetap terorganisir dengan disiplin ketat saat ukurannya membesar.
                   </p>
                 </div>
-                
+
                 <div className="bg-white text-black border-4 border-black p-6 shadow-neo-md flex flex-col gap-4 hover:-translate-y-2 hover:shadow-neo-lg transition-transform">
                   <div className="flex items-center gap-3">
                     <span className="material-symbols-outlined text-4xl text-black bg-mint-soft p-2 border-4 border-black shadow-neo-sm">format_quote</span>

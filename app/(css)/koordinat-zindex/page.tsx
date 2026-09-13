@@ -28,7 +28,7 @@ export default function KoordinatZIndexPage() {
                 Posisi & Z-Index
               </h1>
               <p className="text-base md:text-xl font-bold text-white bg-forest-teal inline-block px-4 py-2 md:px-6 md:py-3 border-4 border-black mb-4 md:mb-6 shadow-neo-md uppercase tracking-tight">
-                Properti "position" melepaskan elemen dari hukum alam HTML!
+                Properti "position" mengizinkan elemen untuk dilepaskan dari alur normal dokumen HTML.
               </p>
             </section>
 
@@ -41,7 +41,7 @@ export default function KoordinatZIndexPage() {
               <div className="flex flex-col lg:flex-row gap-8 lg:gap-10 mb-12 items-stretch">
                 <div className="lg:w-1/2 space-y-8">
                   <p className="font-bold text-forest-teal text-lg md:text-xl leading-relaxed bg-mint-canvas p-4 border-4 border-black shadow-neo-sm">
-                    Setiap elemen punya hukum asalnya (<em>static</em>). Dengan mengubah properti <code className="bg-white text-black px-2 border-2 border-black font-black uppercase tracking-widest">position</code>, kamu bisa menggerakkan elemen secara bebas!
+                    Setiap elemen secara default mengikuti alur normal (<code className="bg-white text-black px-2 border-2 border-black font-black tracking-widest">static</code>). Dengan mengubah properti <code className="bg-white text-black px-2 border-2 border-black font-black tracking-widest">position</code>, kita dapat mengatur penempatan elemen secara spesifik dan presisi.
                   </p>
                   <ul className="space-y-6">
                     <li className="flex items-start gap-4 bg-canvas border-4 border-black p-4 shadow-neo-sm hover:translate-x-2 transition-transform">
@@ -62,14 +62,14 @@ export default function KoordinatZIndexPage() {
                       <span className="bg-canvas p-2 border-4 border-black text-2xl flex-shrink-0">🚀</span>
                       <div>
                         <strong className="block text-xl uppercase font-black tracking-widest mb-1 text-jade-vibrant">absolute</strong>
-                        <p className="font-bold text-forest-teal text-base">Mengambang bebas tanpa batas! Elemen ini akan mencari "induk" (parent) terdekat yang memiliki posisi <em>relative</em> untuk dijadikan patokan koordinat.</p>
+                        <p className="font-bold text-forest-teal text-base">Dilepaskan dari alur normal dokumen. Elemen ini diposisikan relatif terhadap elemen induk (parent) terdekat yang memiliki posisi selain <em>static</em> (misalnya <em>relative</em>).</p>
                       </div>
                     </li>
                     <li className="flex items-start gap-4 bg-white text-black border-4 border-black p-4 shadow-[4px_4px_0px_rgba(0,0,0,1)] hover:-translate-y-1 transition-transform">
                       <span className="bg-canvas p-2 border-4 border-black text-2xl flex-shrink-0">🧲</span>
                       <div>
                         <strong className="block text-xl uppercase font-black tracking-widest mb-1 text-jade-vibrant">sticky</strong>
-                        <p className="font-bold text-forest-teal text-base">Gabungan normal dan <em>fixed</em>. Elemen akan menempel "nyangkut" di layar saat kamu nge-scroll ke bawah (Sangat berguna untuk Navbar!).</p>
+                        <p className="font-bold text-forest-teal text-base">Gabungan antara <em>relative</em> dan <em>fixed</em>. Elemen akan tertahan pada posisi tertentu di viewport saat pengguna melakukan scroll (sering digunakan untuk elemen Navbar).</p>
                       </div>
                     </li>
                   </ul>
@@ -86,19 +86,71 @@ export default function KoordinatZIndexPage() {
   position: relative;
 }
 
-/* Anak melayang bebas di pojok kanan atas wadah */
+/* Elemen diposisikan di pojok kanan atas wadah */
 .badge-notifikasi {
   position: absolute;
   top: -5px;
   right: -5px;
 }
 
-/* Navbar yang menempel di atap saat scroll */
+/* Navbar yang tertahan di atas saat scroll */
 .navbar {
   position: sticky;
   top: 0;
 }`} 
                       />
+                    </div>
+                  </div>
+                </div>
+              </div>
+
+
+              {/* Visualisasi Koordinat */}
+              <div className="bg-canvas border-4 border-black p-6 md:p-12 shadow-neo-xl mb-16 relative">
+                <h3 className="font-black uppercase text-xl md:text-2xl tracking-widest text-black bg-white px-4 py-2 border-4 border-black shadow-[4px_4px_0px_0px_#000] inline-block mb-10 -mt-10 md:-mt-16 z-10 relative transform -rotate-2">
+                  Eksperimen Interaktif
+                </h3>
+                <div className="flex flex-col lg:flex-row gap-10">
+                  {/* Relative + Absolute */}
+                  <div className="lg:w-1/2 space-y-4">
+                    <p className="font-bold text-forest-teal text-lg">
+                      1. Kombinasi <strong className="text-black uppercase">Relative + Absolute</strong> (Notifikasi)
+                    </p>
+                    <div className="bg-white border-4 border-black h-56 shadow-[inset_4px_4px_0px_0px_rgba(0,0,0,0.2)] flex items-center justify-center relative p-8">
+                      {/* Parent Box */}
+                      <div className="w-32 h-32 bg-mint-soft border-4 border-black shadow-[4px_4px_0px_0px_rgba(0,0,0,1)] relative flex flex-col items-center justify-center hover:scale-105 transition-transform cursor-pointer">
+                        <span className="material-symbols-outlined text-5xl">person</span>
+                        <span className="font-black uppercase tracking-widest text-sm mt-1">Profil</span>
+                        
+                        {/* Anak Absolute */}
+                        <div className="absolute -top-3 -right-3 w-8 h-8 bg-jade-vibrant border-4 border-black shadow-[2px_2px_0px_rgba(0,0,0,1)] flex items-center justify-center text-white font-black text-sm z-10 animate-bounce">
+                          3
+                        </div>
+                      </div>
+                      <p className="absolute bottom-4 left-0 right-0 text-center text-xs font-bold text-forest-teal/50 uppercase tracking-widest px-4">Kotak Profil adalah patokannya (Relative)</p>
+                    </div>
+                  </div>
+
+                  {/* Sticky */}
+                  <div className="lg:w-1/2 space-y-4">
+                    <p className="font-bold text-forest-teal text-lg">
+                      2. Perilaku Tertahan dengan <strong className="text-black uppercase">Sticky</strong>
+                    </p>
+                    <div className="bg-white border-4 border-black h-56 shadow-[inset_4px_4px_0px_0px_rgba(0,0,0,0.2)] overflow-y-auto relative p-4 scrollbar-hide">
+                      <p className="text-sm font-bold text-forest-teal mb-4 text-center">👇 Scroll kotak ini ke bawah</p>
+                      
+                      <div className="space-y-4 pb-20 relative">
+                        {/* Elemen Sticky */}
+                        <div className="sticky top-0 bg-pine-deep text-white font-black uppercase p-3 border-4 border-black shadow-[4px_4px_0px_0px_rgba(0,0,0,1)] text-center tracking-widest z-10">
+                          Header Sticky
+                        </div>
+                        
+                        {/* Konten Biasa */}
+                        <div className="bg-canvas border-4 border-black p-4 font-bold text-sm text-black shadow-neo-sm">Konten 1 (Static)</div>
+                        <div className="bg-canvas border-4 border-black p-4 font-bold text-sm text-black shadow-neo-sm">Konten 2 (Static)</div>
+                        <div className="bg-canvas border-4 border-black p-4 font-bold text-sm text-black shadow-neo-sm">Konten 3 (Static)</div>
+                        <div className="bg-canvas border-4 border-black p-4 font-bold text-sm text-black shadow-neo-sm">Konten 4 (Static)</div>
+                      </div>
                     </div>
                   </div>
                 </div>
@@ -112,20 +164,20 @@ export default function KoordinatZIndexPage() {
                     Position: Fixed
                   </h3>
                   <p className="font-bold text-lg md:text-xl leading-relaxed bg-black p-4 border-4 border-mint-soft">
-                    Selain empat posisi di atas, ada satu lagi yang sangat sakti: <code className="bg-white text-black font-black px-2 border-2 border-black uppercase tracking-widest">fixed</code>! 
+                    Selain keempat posisi tersebut, terdapat properti <code className="bg-white text-black font-black px-2 border-2 border-black uppercase tracking-widest">fixed</code> untuk penempatan absolut pada layar.
                   </p>
                   <p className="font-black text-xl leading-relaxed bg-white text-black p-4 border-4 border-black shadow-[4px_4px_0px_rgba(0,0,0,1)]">
-                    Elemen dengan posisi <strong>fixed</strong> akan terkunci secara absolut pada <strong className="text-jade-vibrant uppercase underline decoration-4 decoration-black">layar browser (Viewport)</strong>, bukan pada elemen induknya.
+                    Elemen dengan posisi <strong>fixed</strong> akan terkunci secara absolut pada ruang <strong className="text-jade-vibrant uppercase underline decoration-4 decoration-black">layar browser (Viewport)</strong>, alih-alih pada elemen induknya.
                   </p>
                   <ul className="space-y-6">
                     <li className="flex items-start gap-4 bg-canvas text-black border-4 border-black p-4 shadow-[4px_4px_0px_rgba(0,0,0,1)] hover:-translate-y-1 transition-transform">
                       <span className="text-3xl flex-shrink-0 mt-1">⚠️</span>
-                      <p className="font-bold text-base md:text-lg text-forest-teal"><strong className="text-black uppercase">Beda Absolute vs Fixed:</strong> <br/> Absolute akan ikut tergulung (scroll) ke atas bersama halamannya. Sedangkan Fixed akan diam mematung di kaca layar komputermu walau web di-scroll sampai ke paling bawah!</p>
+                      <p className="font-bold text-base md:text-lg text-forest-teal"><strong className="text-black uppercase">Perbedaan Absolute vs Fixed:</strong> <br/> Elemen <em>absolute</em> akan ikut bergeser (scroll) bersama dokumen halaman. Sedangkan elemen <em>fixed</em> akan tetap berada di posisi yang sama pada viewport layar meskipun halaman di-scroll.</p>
                     </li>
                   </ul>
                   <div className="font-bold text-black text-base md:text-lg leading-relaxed mt-6 flex flex-col sm:flex-row items-start sm:items-center gap-4 bg-mint-soft p-4 border-4 border-black shadow-neo-sm">
                     <span className="material-symbols-outlined text-5xl">lightbulb</span>
-                    <p><strong className="uppercase text-xl block mb-1 tracking-widest">Kasus Penggunaan:</strong> Sangat populer untuk membuat tombol melayang seperti "Chat WA", "Kembali ke Atas", atau iklan pop-up (Modal) yang menutupi layar!</p>
+                    <p><strong className="uppercase text-xl block mb-1 tracking-widest">Kasus Penggunaan:</strong> Sering digunakan untuk membuat tombol aksi statis seperti "Kembali ke Atas", ikon obrolan, atau tampilan modal (pop-up) yang menutupi antarmuka halaman.</p>
                   </div>
                 </div>
                 <div className="xl:w-1/2 w-full flex flex-col bg-black border-4 border-black p-1 shadow-neo-md">
@@ -133,9 +185,9 @@ export default function KoordinatZIndexPage() {
                   <div className="flex-grow p-1">
                     <CodeBlock 
                       language="css" 
-                      code={`/* Tombol melayang di pojok kanan bawah */
+                      code={`/* Tombol diposisikan di pojok kanan bawah layar */
 .tombol-whatsapp {
-  position: fixed; /* Mengunci ke kaca layar */
+  position: fixed; /* Terkunci relatif pada viewport */
   bottom: 20px;    /* Jarak 20px dari bawah layar */
   right: 20px;     /* Jarak 20px dari kanan layar */
   
@@ -155,10 +207,10 @@ export default function KoordinatZIndexPage() {
                     Apa itu Z-Index?
                   </h3>
                   <p className="text-base md:text-lg font-bold text-forest-teal leading-relaxed">
-                    Jika ada dua elemen yang posisinya saling bertumpuk (misalnya menggunakan <em>absolute</em> atau <em>sticky</em>), siapa yang akan tampil di atas dan menutupi yang lain?
+                    Ketika dua elemen atau lebih diposisikan saling bertumpuk (misalnya menggunakan <em>absolute</em>, <em>fixed</em>, atau <em>sticky</em>), urutan penumpukannya (layering) perlu diatur.
                   </p>
                   <p className="text-base md:text-lg font-bold text-forest-teal leading-relaxed mb-4 bg-mint-soft p-4 border-4 border-black shadow-neo-sm">
-                    Properti <code className="bg-black text-white px-2 py-1 border-2 border-black font-black uppercase tracking-widest">z-index</code> (ibarat lapisan kue) menentukan tingkat kedalamannya. <strong className="text-black uppercase">Semakin besar angkanya, semakin dia berada di depan/atas!</strong>
+                    Properti <code className="bg-black text-white px-2 py-1 border-2 border-black font-black uppercase tracking-widest">z-index</code> menentukan tingkatan sumbu-z elemen. <strong className="text-black uppercase">Elemen dengan nilai z-index yang lebih besar akan dirender di atas elemen dengan nilai yang lebih kecil.</strong>
                   </p>
                   
                   {/* Visualisasi Tumpukan Z-index Brutalist */}
@@ -201,7 +253,7 @@ export default function KoordinatZIndexPage() {
             <footer className="bg-jade-vibrant border-4 border-black p-8 md:p-12 shadow-neo-xl text-center relative hover:-translate-y-1 transition-transform">
               <span className="material-symbols-outlined absolute -top-4 -right-4 md:-top-6 md:-right-6 text-5xl md:text-6xl text-white bg-pine-deep rounded-none border-4 border-black p-3 shadow-neo-md hover:scale-110 transition-transform cursor-pointer">library_add_check</span>
               <p className="text-2xl md:text-4xl font-black text-white uppercase leading-relaxed max-w-4xl mx-auto drop-shadow-[2px_2px_0px_rgba(0,0,0,1)] tracking-tight">
-                "Kuasai kombinasi Relative & Absolute, maka tak ada lagi elemen yang letaknya berantakan!"
+                "Pemahaman mengenai kombinasi posisi Relative dan Absolute merupakan landasan utama dalam mengendalikan tata letak komponen antarmuka secara presisi!"
               </p>
             </footer>
 
@@ -212,6 +264,16 @@ export default function KoordinatZIndexPage() {
             </div>
           </div>
         </main>
+      </div>
+      {/* Tombol Fixed Nyata (Demonstrasi Position: Fixed) */}
+      <div className="fixed bottom-6 right-6 z-[999] hidden md:flex flex-col items-end gap-2 animate-bounce-slight">
+        <div className="bg-white text-black font-black uppercase text-xs px-3 py-1 border-4 border-black shadow-[2px_2px_0px_0px_rgba(0,0,0,1)]">
+          Ini Position Fixed! 👇
+        </div>
+        <button className="bg-jade-vibrant text-white font-black uppercase text-sm px-6 py-4 border-4 border-black shadow-[6px_6px_0px_0px_rgba(0,0,0,1)] hover:translate-x-[2px] hover:translate-y-[2px] hover:shadow-[4px_4px_0px_0px_rgba(0,0,0,1)] active:translate-x-[6px] active:translate-y-[6px] active:shadow-none transition-all flex items-center gap-2">
+          <span className="material-symbols-outlined">forum</span>
+          Tanya Ahli CSS
+        </button>
       </div>
     </>
   );
