@@ -25,9 +25,9 @@ export default function ArrayPerulanganPage() {
 <body>
     <div class="kontainer">
         <h2>🛠️ Keahlian Superku</h2>
-        <p>Daftar di bawah ini tidak diketik manual di HTML, melainkan disuntikkan secara ajaib oleh JavaScript!</p>
+        <p>Elemen list di bawah ini tidak di-hardcode pada HTML, melainkan di-generate secara dinamis menggunakan JavaScript.</p>
         
-        <!-- WADAH KOSONG: Di sinilah JS akan memasukkan elemen <li> -->
+        <!-- CONTAINER KOSONG: Target injeksi DOM untuk elemen <li> -->
         <ul class="skill-list" id="daftar-kemampuan"></ul>
         
     </div>
@@ -95,8 +95,8 @@ h2 {
     color: white;
 }`;
 
-  const jsCode = `// 1. DATA (ARRAY): Variabel berisi banyak nilai sekaligus
-// Kurung siku [] menandakan ini adalah sebuah Array
+  const jsCode = `// 1. Struktur Data Array: Mendeklarasikan kumpulan nilai
+// Notasi bracket [] merepresentasikan inisialisasi tipe data Array
 const dataKemampuan = [
     "HTML5 & CSS3", 
     "JavaScript Dasar", 
@@ -106,16 +106,16 @@ const dataKemampuan = [
     "Pantang Menyerah" // Kamu bisa tambah terus di sini!
 ];
 
-// 2. DOM SELECTION: JS menugaskan agen mencari wadah kosong
+// 2. Seleksi DOM: Mengambil elemen referensi target
 const tempatKemampuan = document.getElementById('daftar-kemampuan');
-tempatKemampuan.innerHTML = ""; // Bersihkan isi awal HTML untuk berjaga-jaga
+tempatKemampuan.innerHTML = ""; // Mereset state awal struktur internal HTML
 
-// 3. PERULANGAN (FOR LOOP)
-// Rumus: for (mulai dari 0; ulangi selama 'i' kurang dari jumlah data; 'i' tambah 1)
+// 3. Iterasi / Perulangan (For Loop)
+// Sintaks: for(inisialisasi index; kondisi limitasi; increment)
 for (let i = 0; i < dataKemampuan.length; i++) {
     
-    // JS mengambil data ke-i dari Array, lalu membungkusnya dengan tag <li>
-    // += artinya menambahkan, bukan menimpa (agar list tidak saling tindih)
+    // Mengekstrak indeks ke-i dari Array dan mengonstruksinya ke dalam format tag <li>
+    // Operator += melakukan konkatenasi (menambahkan) string ke struktur eksisting tanpa menimpa
     tempatKemampuan.innerHTML += \`<li>\${dataKemampuan[i]}</li>\`;
     
 }`;
@@ -151,14 +151,14 @@ for (let i = 0; i < dataKemampuan.length; i++) {
                   Array & Perulangan
                 </h1>
                 <p className="text-base md:text-xl font-bold text-black bg-jade-vibrant inline-block px-4 py-2 md:px-6 md:py-3 border-4 border-black mb-6 md:mb-8 shadow-neo-md uppercase tracking-tight">
-                  Tinggalkan Cara Manual, Biarkan Mesin yang Bekerja!
+                  Otomatisasi Manipulasi Data Skala Besar dengan Komputasi Iteratif
                 </p>
                 <div>
                   <button
                     onClick={() => setIsStarted(!isStarted)}
                     className="bg-white text-black font-black text-lg md:text-2xl px-6 py-4 md:px-10 md:py-5 border-4 border-black shadow-[6px_6px_0px_0px_rgba(255,255,255,1)] md:shadow-[10px_10px_0px_0px_rgba(255,255,255,1)] hover:-translate-y-2 hover:-translate-x-2 hover:shadow-[12px_12px_0px_0px_rgba(255,255,255,1)] md:hover:shadow-[14px_14px_0px_0px_rgba(255,255,255,1)] active:translate-x-[6px] active:translate-y-[6px] active:shadow-none transition-all uppercase tracking-widest cursor-pointer"
                   >
-                    {isStarted ? "MEMPROSES DATA... 🔄" : "MULAI BELAJAR SEKARANG"}
+                    {isStarted ? "MEMULAI MODUL ARRAY & PERULANGAN..." : "MULAI BELAJAR SEKARANG"}
                   </button>
                 </div>
               </div>
@@ -168,11 +168,11 @@ for (let i = 0; i < dataKemampuan.length; i++) {
             <section className="bg-white border-4 border-black shadow-neo-xl p-6 md:p-12">
               <h2 className="text-2xl sm:text-3xl md:text-5xl font-black text-black uppercase mb-8 md:mb-10 border-b-4 border-black pb-4 flex items-center gap-3 md:gap-4 tracking-tighter">
                 <span className="bg-mint-soft text-black w-12 h-12 md:w-16 md:h-16 flex items-center justify-center border-4 border-black shadow-neo-sm flex-shrink-0 text-2xl md:text-4xl">1</span>
-                Otomatisasi Data
+                Otomatisasi Pengolahan Data
               </h2>
 
               <p className="text-lg md:text-xl font-bold text-forest-teal leading-relaxed mb-8 bg-mint-canvas p-6 border-4 border-black shadow-neo-sm">
-                Bayangkan kamu harus menulis tag <code className="bg-white text-black px-1 border-2 border-black">&lt;li&gt;</code> di HTML sebanyak 1.000 kali untuk menampilkan daftar barang. Melelahkan, bukan? Programmer yang cerdas akan membiarkan <strong>JavaScript</strong> yang menuliskannya menggunakan kombinasi kekuatan <strong>Array</strong> dan <strong>For Loop</strong>.
+                Mendeklarasikan elemen tag <code className="bg-white text-black px-1 border-2 border-black">&lt;li&gt;</code> di struktur HTML secara repetitif untuk komputasi skala besar sangat tidak efisien (hardcoding). Pendekatan <em>engineering</em> yang optimal mendelegasikan beban tersebut pada eksekusi <strong>JavaScript</strong> yang dinamis melalui integrasi <strong>Array</strong> dan metode iteratif <strong>For Loop</strong>.
               </p>
 
               <div className="grid grid-cols-1 md:grid-cols-2 gap-8 mb-8">
@@ -182,13 +182,13 @@ for (let i = 0; i < dataKemampuan.length; i++) {
                     <span className="material-symbols-outlined text-7xl">data_array</span>
                   </div>
                   <h3 className="text-2xl font-black uppercase mb-3 tracking-widest text-mint-soft z-10 border-b-2 border-mint-soft pb-2 inline-block self-start">Array</h3>
-                  <p className="text-sm font-black mb-2 uppercase tracking-wider text-gray-300 z-10">Laci Penyimpanan</p>
+                  <p className="text-sm font-black mb-2 uppercase tracking-wider text-gray-300 z-10">Struktur Koleksi Data</p>
                   <p className="text-base font-bold z-10 leading-relaxed text-gray-100">
-                    Jika variabel biasa ibarat sebuah gelas yang hanya bisa diisi satu minuman, maka <strong>Array</strong> adalah lemari es besar tempat kamu menyimpan banyak barang sekaligus. Array ditandai dengan kurung siku <code className="bg-white text-black px-1">{"[ ]"}</code>.
+                    Sebuah primitif variabel tunggal hanya dapat menampung satu representasi data. Berbeda dengan <strong>Array</strong>, yang dirancang sebagai objek terstruktur untuk mengumpulkan, mengorganisasi, dan menyimpan multiple-data dalam satu referensi memori. Array ditandai dengan sintaks <em>bracket</em> <code className="bg-white text-black px-1">{"[ ]"}</code>.
                   </p>
                   <div className="mt-4 bg-black p-4 border-2 border-white z-10">
                     <p className="text-jade-vibrant font-black uppercase text-sm mb-1 flex items-center gap-1"><span className="material-symbols-outlined text-base">warning</span> ATURAN EMAS:</p>
-                    <p className="font-bold text-sm text-gray-300">Urutan (Index) Array selalu dimulai dari <strong>NOL (0)</strong>, bukan satu (1)!</p>
+                    <p className="font-bold text-sm text-gray-300">Perhitungan kalkulasi urutan (<em>Zero-based Indexing</em>) selalu diinisiasi dari representasi angka <strong>NOL (0)</strong>!</p>
                   </div>
                 </div>
 
@@ -198,12 +198,12 @@ for (let i = 0; i < dataKemampuan.length; i++) {
                     <span className="material-symbols-outlined text-7xl">all_inclusive</span>
                   </div>
                   <h3 className="text-2xl font-black uppercase mb-3 tracking-widest text-black z-10 border-b-2 border-black pb-2 inline-block self-start">For Loop</h3>
-                  <p className="text-sm font-black mb-2 uppercase tracking-wider text-forest-teal z-10">Mesin Fotokopi</p>
+                  <p className="text-sm font-black mb-2 uppercase tracking-wider text-forest-teal z-10">Algoritma Iteratif (Looping)</p>
                   <p className="text-base font-bold z-10 leading-relaxed text-gray-900">
-                    Ini adalah mantra perulangan. Daripada melakukan <em>copy-paste</em> kodemu sendiri, JS akan menjalankan blok kodemu berkali-kali secara otomatis selama kondisinya masih terpenuhi.
+                    Sebuah algoritma kontrol alur perulangan. Alih-alih mereduplikasi baris kode secara manual (redundansi statis), mesin kompilator JavaScript akan mengeksekusi iterasi pada blok kode spesifik secara konstan dan berulang hingga parameter limitasi terminasinya (<em>condition state</em>) mencapai status <em>false</em>.
                   </p>
                   <div className="mt-4 z-10 border-l-4 border-black pl-3 py-1">
-                    <p className="font-bold italic text-sm text-gray-800">"Mulai dari 0, ulangi selama angkanya masih kurang dari 100, lalu setiap putaran angkanya ditambah satu."</p>
+                    <p className="font-bold italic text-sm text-gray-800">for(let i = 0; i &lt; 100; i++) // Menginisialisasi index 0, eksekusi jika index kurang dari 100, increment per putaran.</p>
                   </div>
                 </div>
               </div>
@@ -215,18 +215,18 @@ for (let i = 0; i < dataKemampuan.length; i++) {
               
               <h2 className="text-2xl sm:text-3xl md:text-5xl font-black text-black uppercase mb-8 md:mb-10 border-b-4 border-black pb-4 flex items-center gap-3 md:gap-4 tracking-tighter relative z-10">
                 <span className="bg-jade-vibrant text-black w-12 h-12 md:w-16 md:h-16 flex items-center justify-center border-4 border-black shadow-neo-sm flex-shrink-0 text-2xl md:text-4xl">2</span>
-                Praktik: Daftar Skill Otomatis
+                Implementasi: Render Koleksi List Dinamis
               </h2>
 
               <div className="bg-white border-4 border-black p-6 md:p-8 mb-10 shadow-neo-md relative z-10">
                 <p className="text-xl font-bold text-forest-teal mb-4 uppercase tracking-widest flex items-center gap-2">
-                  <span className="material-symbols-outlined text-jade-vibrant text-3xl">build</span> Target Misi Kita:
+                  <span className="material-symbols-outlined text-jade-vibrant text-3xl">build</span> Tujuan Implementasi:
                 </p>
                 <p className="text-lg font-bold leading-relaxed">
-                  Kita akan membuat sebuah elemen daftar (list) di HTML <strong>tanpa</strong> menuliskan tag <code className="bg-gray-200 px-1 border border-black">&lt;li&gt;</code> sama sekali! Kita hanya menyediakan wadah kosong <code className="bg-gray-200 px-1 border border-black">&lt;ul&gt;</code>, dan membiarkan <strong>For Loop</strong> milik JavaScript yang berkeliling menyuntikkan data <strong>Array</strong> ke dalamnya.
+                  Kita akan merekonstruksi modul <em>list</em> di dalam hirarki HTML <strong>tanpa</strong> mendefinisikan <em>hardcode</em> tag <code className="bg-gray-200 px-1 border border-black">&lt;li&gt;</code>. Kita cukup mereservasi <em>parent container</em> <code className="bg-gray-200 px-1 border border-black">&lt;ul&gt;</code>, lalu mengonfigurasi mesin iterasi <strong>For Loop</strong> untuk merender dan menginjeksikan data <strong>Array</strong> secara otomatis.
                 </p>
                 <p className="text-lg font-bold leading-relaxed mt-4 bg-mint-canvas p-4 border-l-4 border-black">
-                  Silakan <em>copy-paste</em> ketiga file di bawah ini secara bersamaan ke folder belajarmu, lalu buka file HTML-nya di browser untuk melihat sihir otomatisasinya!
+                  Silakan salin instruksi dari ketiga bahasa secara komprehensif ke <em>workspace</em> Anda guna menganalisis fungsionalitas otomatisasi dom-injection pada <em>browser engine</em>.
                 </p>
               </div>
 
@@ -325,9 +325,9 @@ for (let i = 0; i < dataKemampuan.length; i++) {
                 <div className="bg-white text-black border-4 border-black p-6 md:p-8 shadow-[4px_4px_0px_rgba(0,0,0,1)] flex flex-col md:flex-row gap-6 items-center">
                   <span className="material-symbols-outlined text-[60px] md:text-[80px] text-jade-vibrant">auto_awesome</span>
                   <div>
-                    <h4 className="text-2xl font-black uppercase mb-2 tracking-widest">Kekuatan +=</h4>
+                    <h4 className="text-2xl font-black uppercase mb-2 tracking-widest">Analisis Operator Penugasan (+=)</h4>
                     <p className="text-lg font-bold leading-relaxed">
-                      Pada baris JavaScript, perhatikan simbol <code>+=</code> saat menambahkan tag <code>&lt;li&gt;</code> ke dalam <code>innerHTML</code>. Itu dibaca <em>"tambahkan dengan..."</em>. Jika kita hanya menggunakan tanda <code>=</code> biasa, maka setiap putaran loop akan <strong>menghapus</strong> data sebelumnya dan menimpanya dengan data baru, sehingga pada akhirnya kita hanya akan melihat data terakhir saja!
+                      Dalam sintaks JavaScript, parameter <code>+=</code> <em>(Addition Assignment)</em> pada variabel modifikasi <code>innerHTML</code> menginstruksikan sistem melakukan proses append (menambahkan entri di posisi terakhir). Apabila dieksekusi dengan operator substitusi murni <code>=</code>, setiap siklus iterasi akan <strong>menghapus dan menimpa <em>(overwrite)</em></strong> struktur data sebelumnya. Hal ini akan menyebabkan hanya iterasi data final yang akan divisualisasikan oleh render DOM!
                     </p>
                   </div>
                 </div>

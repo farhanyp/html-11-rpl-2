@@ -25,18 +25,18 @@ export default function CrudLocalStoragePage() {
 <body>
     <div class="kontainer">
         <h2>Buku Tamu 📖</h2>
-        <p>Tinggalkan jejakmu! Pesan ini akan tersimpan selamanya di browsermu.</p>
+        <p>Modul interaktif: Data pesan akan direkam secara persisten pada local storage browser.</p>
         
         <form class="contact-form">
             <input type="text" id="input-nama" placeholder="Siapa namamu?" required />
-            <textarea id="input-pesan" placeholder="Pesan untuk dunia..." required></textarea>
+            <textarea id="input-pesan" placeholder="Deskripsi entri..." required></textarea>
             <button type="submit" class="btn">Kirim Pesan</button>
         </form>
 
         <hr>
 
         <h3>Daftar Pesan:</h3>
-        <!-- Di sinilah JavaScript akan mencetak kotak-kotak pesan -->
+        <!-- Container target DOM untuk injeksi data -->
         <div id="wadah-pesan"></div>
     </div>
     
@@ -152,25 +152,25 @@ textarea {
     background-color: black;
 }`;
 
-  const jsCode = `// 1. Menyiapkan elemen DOM
+  const jsCode = `// 1. Inisialisasi Elemen Referensi DOM
 const formBukuTamu = document.querySelector('.contact-form');
 const inputNama = document.getElementById('input-nama');
 const inputPesan = document.getElementById('input-pesan');
 const wadahPesan = document.getElementById('wadah-pesan');
 
-// [READ] 2. Mengambil data dari Gudang (Local Storage)
-// Jika gudang kosong, sediakan array kosong []
+// [READ] 2. Ekstraksi Data dari Local Storage
+// Fallback ke array kosong jika data tidak ditemukan (null)
 let daftarTamu = JSON.parse(localStorage.getItem('dataTamu')) || [];
 
-// 3. Fungsi untuk menggambar ulang daftar pesan di layar HTML
+// 3. Deklarasi Fungsi Render UI
 function renderPesan() {
-    wadahPesan.innerHTML = ""; // Bersihkan layar sebelum digambar ulang
+    wadahPesan.innerHTML = ""; // Reset state innerHTML mencegah duplikasi data
     
-    // Perulangan untuk membaca setiap data di dalam Array
+    // Eksekusi iterasi pada array data
     for (let i = 0; i < daftarTamu.length; i++) {
-        let tamu = daftarTamu[i]; // Menyimpan data spesifik putaran saat ini
+        let tamu = daftarTamu[i]; // Menyimpan referensi objek data pada iterasi ke-i
         
-        // Menyuntikkan elemen HTML ke dalam wadah (pakai Backtick \` )
+        // Injeksi elemen DOM menggunakan Template Literal
         wadahPesan.innerHTML += \`
             <div class="kartu-pesan">
                 <span class="nama-tamu">\${tamu.nama}</span>
@@ -181,38 +181,38 @@ function renderPesan() {
     }
 }
 
-// Langsung panggil fungsinya saat web pertama kali dibuka!
+// Eksekusi awal fungsi render pada siklus muat halaman
 renderPesan(); 
 
-// [CREATE] 4. Logika saat form dikirim
+// [CREATE] 4. Event Handler Pengiriman Form
 formBukuTamu.addEventListener('submit', function(event) {
-    event.preventDefault(); // Cegah halaman reload
+    event.preventDefault(); // Mencegah default behavior pengiriman form
     
-    // Membuat Object untuk menyimpan data ketikan user
+    // Konstruksi Objek Data Baru
     let pesanBaru = {
-        id: Date.now(), // Memakai waktu milidetik saat ini sebagai ID unik
+        id: Date.now(), // Menggunakan timestamp sebagai unique identifier
         nama: inputNama.value,
         pesan: inputPesan.value
     };
     
-    // === LANGKAH AJAIB ===
-    daftarTamu.push(pesanBaru); // A. Masukkan object ke dalam Array
-    localStorage.setItem('dataTamu', JSON.stringify(daftarTamu)); // B. Simpan Array ke Gudang secara permanen!
+    // === TRANSAKSI DATA ===
+    daftarTamu.push(pesanBaru); // A. Injeksi objek baru ke array memori
+    localStorage.setItem('dataTamu', JSON.stringify(daftarTamu)); // B. Serialisasi array dan komit ke Local Storage
     
-    renderPesan(); // C. Gambar ulang layar agar pesan baru muncul
-    formBukuTamu.reset(); // D. Kosongkan form kembali
+    renderPesan(); // C. Panggil fungsi render untuk sinkronisasi UI
+    formBukuTamu.reset(); // D. Reset input form
 });
 
-// [DELETE] 5. Logika untuk menghapus pesan
-// Sengaja ditaruh di 'window' agar bisa dipanggil langsung oleh HTML
+// [DELETE] 5. Fungsi Penghapusan Entri
+// Ekspos fungsi ke global scope untuk eksekusi inline HTML
 window.hapusPesan = function(idTarget) {
-    // Menyaring Array: Biarkan data bertahan JIKA ID-nya TIDAK SAMA dengan target yang dihapus
+    // Menggunakan fungsi filter: Pertahankan data dengan id yang tidak ekuivalen
     daftarTamu = daftarTamu.filter(function(tamu) {
         return tamu.id !== idTarget;
     });
     
-    localStorage.setItem('dataTamu', JSON.stringify(daftarTamu)); // Update gudang
-    renderPesan(); // Gambar ulang layar
+    localStorage.setItem('dataTamu', JSON.stringify(daftarTamu)); // Komit pembaruan state ke Local Storage
+    renderPesan(); // Sinkronisasi UI
 };`;
 
 
@@ -243,7 +243,7 @@ window.hapusPesan = function(idTarget) {
               </div>
               <div className="relative z-10">
                 <h1 className="text-4xl sm:text-5xl md:text-7xl font-black text-black tracking-tighter uppercase mt-6 mb-4 md:mb-6 drop-shadow-[2px_2px_0px_rgba(42,131,95,0.4)]">
-                  Konsep Backend
+                  Konsep Integrasi Data
                 </h1>
                 <p className="text-base md:text-xl font-bold text-white bg-black inline-block px-4 py-2 md:px-6 md:py-3 border-4 border-black mb-6 md:mb-8 shadow-neo-md uppercase tracking-tight">
                   Menyimpan Data Secara Permanen (CRUD & Local Storage)
@@ -253,7 +253,7 @@ window.hapusPesan = function(idTarget) {
                     onClick={() => setIsStarted(!isStarted)}
                     className="bg-jade-vibrant text-black font-black text-lg md:text-2xl px-6 py-4 md:px-10 md:py-5 border-4 border-black shadow-[6px_6px_0px_0px_rgba(0,0,0,1)] md:shadow-[10px_10px_0px_0px_rgba(0,0,0,1)] hover:-translate-y-2 hover:-translate-x-2 hover:shadow-[12px_12px_0px_0px_rgba(0,0,0,1)] md:hover:shadow-[14px_14px_0px_0px_rgba(0,0,0,1)] active:translate-x-[6px] active:translate-y-[6px] active:shadow-none transition-all uppercase tracking-widest cursor-pointer"
                   >
-                    {isStarted ? "MENGHUBUNGKAN KE GUDANG... 📡" : "MULAI BELAJAR SEKARANG"}
+                    {isStarted ? "MEMULAI MODUL PENYIMPANAN DATA... 📡" : "MULAI BELAJAR SEKARANG"}
                   </button>
                 </div>
               </div>
@@ -263,11 +263,11 @@ window.hapusPesan = function(idTarget) {
             <section className="bg-canvas border-4 border-black shadow-neo-xl p-6 md:p-12">
               <h2 className="text-2xl sm:text-3xl md:text-5xl font-black text-black uppercase mb-8 md:mb-10 border-b-4 border-black pb-4 flex items-center gap-3 md:gap-4 tracking-tighter">
                 <span className="bg-mint-soft text-black w-12 h-12 md:w-16 md:h-16 flex items-center justify-center border-4 border-black shadow-neo-sm flex-shrink-0 text-2xl md:text-4xl">1</span>
-                Rahasia Penyimpanan
+                Mekanisme Penyimpanan Data
               </h2>
 
               <p className="text-lg md:text-xl font-bold text-forest-teal leading-relaxed mb-8 bg-white p-6 border-4 border-black shadow-neo-sm">
-                Sejauh ini, jika kita me-*refresh* halaman web, semua data yang kita masukkan akan langsung hilang! Mengapa? Karena JavaScript menyimpannya di memori sementara. Untuk membuat aplikasi nyata (seperti Instagram atau WhatsApp), kita butuh <strong>Gudang Penyimpanan</strong> dan konsep <strong>CRUD</strong>!
+                Skrip JavaScript murni mengeksekusi data pada <em>volatile memory</em> (RAM). Hal ini mengakibatkan lenyapnya seluruh <em>state</em> data ketika halaman web direkayasa ulang (refresh/reload). Untuk membangun aplikasi nyata yang memiliki kapabilitas retensi data, kita memerlukan implementasi mekanisme <strong>Penyimpanan Data Persisten</strong> serta arsitektur <strong>CRUD</strong>!
               </p>
 
               <div className="grid grid-cols-1 md:grid-cols-2 gap-6 mb-8">
@@ -277,7 +277,7 @@ window.hapusPesan = function(idTarget) {
                     <span className="material-symbols-outlined">data_object</span> Object
                   </h3>
                   <p className="text-base font-bold text-gray-200">
-                    Bentuk penyimpanan data kompleks yang saling berkaitan menggunakan pasangan <em>Kunci-Nilai</em>. Ditandai kurung kurawal <code className="bg-white text-black px-1">{"{ }"}</code>. Sangat cocok menyimpan data formulir secara terstruktur.
+                    Struktur data terorganisasi yang digunakan untuk merepresentasikan entitas kompleks, mengandalkan pemetaan berpasangan antara Kunci (Key) dan Nilai (Value). Diinisialisasi melalui kurung kurawal <code className="bg-white text-black px-1">{"{ }"}</code>. Konstruksi ini sangat optimal untuk manajemen representasi data formulir.
                   </p>
                   <code className="block bg-pine-deep p-2 mt-3 font-bold border-2 border-white text-sm">
                     {"{ nama: 'Budi', pesan: 'Halo' }"}
@@ -290,7 +290,7 @@ window.hapusPesan = function(idTarget) {
                     <span className="material-symbols-outlined">sd_storage</span> Local Storage
                   </h3>
                   <p className="text-base font-bold text-gray-200">
-                    Gudang penyimpanan mini bawaan browser milik pengguna. Data yang disimpan di sini tidak akan hilang meskipun browser ditutup (kecuali dihapus manual)!
+                    API penyimpanan web (Web Storage API) terintegrasi pada klien (<em>browser</em>). Data yang disisipkan ke dalam Local Storage direkam secara persisten dan tidak memiliki kadaluarsa siklus hidup, menjamin retensi data pasca-penutupan sesi browser.
                   </p>
                 </div>
 
@@ -300,11 +300,11 @@ window.hapusPesan = function(idTarget) {
                     <span className="material-symbols-outlined">text_format</span> Konsep JSON
                   </h3>
                   <p className="text-base font-bold text-gray-900">
-                    <em>Local Storage</em> punya kelemahan: ia HANYA BISA menyimpan teks murni! Karenanya, kita butuh "sihir" pembungkus.
+                    <em>Local Storage</em> memiliki konvensi ketat: arsitekturnya hanya memvalidasi penyimpanan berbasis tipe <em>string</em> murni. Sehingga, kita memerlukan mekanisme serialisasi objek.
                   </p>
                   <ul className="text-base font-bold mt-2 space-y-1">
-                    <li><code className="bg-white px-1">JSON.stringify</code>: Membungkus kode jadi Teks.</li>
-                    <li><code className="bg-white px-1">JSON.parse</code>: Membongkar Teks kembali jadi kode.</li>
+                    <li><code className="bg-white px-1">JSON.stringify</code>: Serialisasi struktur objek ke dalam representasi string JSON.</li>
+                    <li><code className="bg-white px-1">JSON.parse</code>: Deserialisasi representasi string JSON kembali ke format objek.</li>
                   </ul>
                 </div>
 
@@ -313,7 +313,7 @@ window.hapusPesan = function(idTarget) {
                   <h3 className="text-2xl font-black uppercase mb-3 text-forest-teal tracking-widest flex items-center gap-2">
                     <span className="material-symbols-outlined">autorenew</span> Pola CRUD
                   </h3>
-                  <p className="text-base font-bold text-gray-700 mb-2">Ini adalah 4 pilar suci cara semua aplikasi di dunia bekerja memanipulasi data:</p>
+                  <p className="text-base font-bold text-gray-700 mb-2">Standar arsitektural pengelolaan data presisten, mendefinisikan empat operasi fundamental dalam manipulasi <em>database</em> sistem:</p>
                   <ul className="text-base font-black italic space-y-1 bg-canvas p-3 border-2 border-black">
                     <li><span className="text-pine-deep">C</span>reate (Membuat Data)</li>
                     <li><span className="text-pine-deep">R</span>ead (Membaca/Menampilkan Data)</li>
@@ -330,18 +330,18 @@ window.hapusPesan = function(idTarget) {
               
               <h2 className="text-2xl sm:text-3xl md:text-5xl font-black text-white uppercase mb-8 md:mb-10 border-b-4 border-black pb-4 flex items-center gap-3 md:gap-4 tracking-tighter relative z-10 drop-shadow-[2px_2px_0px_rgba(0,0,0,1)]">
                 <span className="bg-white text-black w-12 h-12 md:w-16 md:h-16 flex items-center justify-center border-4 border-black shadow-[4px_4px_0px_rgba(0,0,0,1)] flex-shrink-0 text-2xl md:text-4xl">2</span>
-                Praktik: Buku Tamu
+                Implementasi: Aplikasi Buku Tamu
               </h2>
 
               <div className="bg-black text-white border-4 border-black p-6 md:p-8 mb-10 shadow-[6px_6px_0px_rgba(42,131,95,1)] relative z-10">
                 <p className="text-xl font-bold text-jade-vibrant mb-4 uppercase tracking-widest flex items-center gap-2">
-                  <span className="material-symbols-outlined text-jade-vibrant text-3xl">build</span> Target Misi Kita:
+                  <span className="material-symbols-outlined text-jade-vibrant text-3xl">build</span> Tujuan Implementasi:
                 </p>
                 <p className="text-lg font-bold leading-relaxed mb-4">
-                  Kita akan menyulap "Form Kontak" pada modul sebelumnya menjadi sebuah <strong>Aplikasi Buku Tamu Permanen</strong>. Siapapun yang mengisi form akan melihat pesan mereka muncul tepat di bawah form secara ajaib, dan datanya <strong>TIDAK AKAN HILANG</strong> meskipun halaman di-refresh!
+                  Kita akan merekonstruksi arsitektur "Form Kontak" sebelumnya dan mengekspansinya menjadi <strong>Aplikasi Buku Tamu Persisten</strong>. Tiap entri pengiriman akan dikomit langsung ke <em>Local Storage</em> dan dirender ke dalam DOM secara seketika. Manipulasi data yang terintegrasi ini menjamin keamanan <em>state</em> informasi meskipun siklus halaman (page reload) direset!
                 </p>
                 <p className="text-lg font-bold leading-relaxed bg-white text-black p-4 border-l-4 border-jade-vibrant">
-                  Kita akan menerapkan 3 pilar CRUD: <em>Read</em> (Membaca data dari gudang), <em>Create</em> (Memasukkan pesan baru ke gudang), dan <em>Delete</em> (Menghapus pesan tertentu dari gudang). Copy 3 file ini dan bersiaplah takjub!
+                  Implementasi operasional mengadopsi tiga modul CRUD: <em>Read</em> (Ekstraksi data pasca-muat awal), <em>Create</em> (Injeksi state objek baru ke <em>storage</em>), dan <em>Delete</em> (Terminasi referensi objek berdasarkan ID). Silakan salin instruksi konfigurasi di bawah untuk evaluasi analitik!
                 </p>
               </div>
 

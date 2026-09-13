@@ -26,7 +26,7 @@ export default function DomFunctionPage() {
         <button id="btn-sapa">Sapa Saya!</button>
     </div>
     
-    <!-- Memanggil otak JS -->
+    <!-- Memuat skrip eksternal JavaScript -->
     <script src="script.js"></script>
 </body>
 </html>`;
@@ -72,10 +72,10 @@ button:hover {
     box-shadow: 6px 6px 0px 0px black;
 }`;
 
-  const jsCode = `// 1. DOM: JS menugaskan agen mencari tombol
+  const jsCode = `// 1. Seleksi DOM: Mengambil elemen tombol HTML berdasarkan ID
 const tombolSapa = document.getElementById('btn-sapa');
 
-// 2. FUNCTION: Kita buat dan simpan resep tindakannya
+// 2. Deklarasi Fungsi: Mendefinisikan instruksi eksekusi
 function berikanSapaan(event) {
     // Variabel ini berada di dalam Local Scope!
     // Hanya bisa dipakai di dalam kurung kurawal ini.
@@ -85,7 +85,7 @@ function berikanSapaan(event) {
     alert(pesanSapaan);
 }
 
-// 3. EVENT LISTENER: Sang Telinga bersiap...
+// 3. Event Listener: Menambahkan pemicu interaksi klik pada elemen tombol
 // HATI-HATI: Jangan panggil dengan () di sini!
 // Cukup berikan nama fungsinya saja.
 tombolSapa.addEventListener('click', berikanSapaan);`;
@@ -120,14 +120,14 @@ tombolSapa.addEventListener('click', berikanSapaan);`;
                   DOM & Function
                 </h1>
                 <p className="text-base md:text-xl font-bold text-white bg-pine-deep inline-block px-4 py-2 md:px-6 md:py-3 border-4 border-black mb-6 md:mb-8 shadow-neo-md uppercase tracking-tight">
-                  Berkomunikasi dengan HTML & Merapikan Kode!
+                  Mekanisme Interaksi dengan HTML & Modularisasi Kode
                 </p>
                 <div>
                   <button
                     onClick={() => setIsStarted(!isStarted)}
                     className="bg-white text-black font-black text-lg md:text-2xl px-6 py-4 md:px-10 md:py-5 border-4 border-black shadow-[6px_6px_0px_0px_rgba(0,0,0,1)] md:shadow-[10px_10px_0px_0px_rgba(0,0,0,1)] hover:-translate-y-2 hover:-translate-x-2 hover:shadow-[12px_12px_0px_0px_rgba(0,0,0,1)] md:hover:shadow-[14px_14px_0px_0px_rgba(0,0,0,1)] active:translate-x-[6px] active:translate-y-[6px] active:shadow-none transition-all uppercase tracking-widest cursor-pointer"
                   >
-                    {isStarted ? "MEMANGGIL DOM... 📡" : "MULAI BELAJAR SEKARANG"}
+                    {isStarted ? "MEMULAI MODUL DOM & FUNCTION..." : "MULAI BELAJAR SEKARANG"}
                   </button>
                 </div>
               </div>
@@ -137,11 +137,11 @@ tombolSapa.addEventListener('click', berikanSapaan);`;
             <section className="bg-white border-4 border-black shadow-neo-xl p-6 md:p-12">
               <h2 className="text-2xl sm:text-3xl md:text-5xl font-black text-black uppercase mb-8 md:mb-10 border-b-4 border-black pb-4 flex items-center gap-3 md:gap-4 tracking-tighter">
                 <span className="bg-mint-soft text-black w-12 h-12 md:w-16 md:h-16 flex items-center justify-center border-4 border-black shadow-neo-sm flex-shrink-0 text-2xl md:text-4xl">1</span>
-                Senjata Utama JavaScript
+                Konsep Dasar JavaScript
               </h2>
 
               <p className="text-lg md:text-xl font-bold text-forest-teal leading-relaxed mb-8 bg-mint-canvas p-6 border-4 border-black shadow-neo-sm">
-                Bagaimana cara otak (JS) memerintah tulang (HTML) untuk bergerak? Kita menggunakan kombinasi dari <strong>DOM</strong>, <strong>Event Listener</strong>, dan <strong>Function</strong>.
+                Mekanisme bagaimana JavaScript berinteraksi dengan struktur HTML bergantung pada tiga komponen krusial: <strong>DOM</strong>, <strong>Event Listener</strong>, dan <strong>Function</strong>.
               </p>
 
               <div className="grid grid-cols-1 md:grid-cols-2 gap-8 mb-8">
@@ -153,7 +153,7 @@ tombolSapa.addEventListener('click', berikanSapaan);`;
                   <h3 className="text-2xl font-black uppercase mb-3 tracking-widest text-jade-vibrant z-10 border-b-2 border-jade-vibrant pb-2 inline-block self-start">DOM</h3>
                   <p className="text-sm font-black mb-2 uppercase tracking-wider text-mint-soft z-10">Document Object Model</p>
                   <p className="text-base font-bold z-10 leading-relaxed text-gray-200">
-                    Cara JavaScript mengenali struktur halaman HTML. Anggap saja ini adalah <strong>Radar</strong> atau <strong>Peta</strong>. JS menggunakannya untuk menunjuk elemen yang spesifik.
+                    Antarmuka pemrograman yang merepresentasikan dokumen web sebagai struktur hirarki (<em>tree</em>). JavaScript memanfaatkannya untuk mengakses dan memodifikasi elemen secara spesifik.
                   </p>
                   <div className="mt-4 z-10">
                     <code className="bg-white text-black px-2 py-1 font-black text-sm block mb-2 border-2 border-white">document.getElementById('btn')</code>
@@ -167,9 +167,9 @@ tombolSapa.addEventListener('click', berikanSapaan);`;
                     <span className="material-symbols-outlined text-7xl">hearing</span>
                   </div>
                   <h3 className="text-2xl font-black uppercase mb-3 tracking-widest text-white z-10 border-b-2 border-white pb-2 inline-block self-start">Event Listener</h3>
-                  <p className="text-sm font-black mb-2 uppercase tracking-wider text-mint-soft z-10">Telinga Pendengar</p>
+                  <p className="text-sm font-black mb-2 uppercase tracking-wider text-mint-soft z-10">Mekanisme Pemicu Interaksi</p>
                   <p className="text-base font-bold z-10 leading-relaxed text-gray-100">
-                    Ini adalah <strong>'Telinga'</strong> JS yang ditugaskan untuk mendengarkan aksi user. Apakah tombol itu "diklik"? Apakah form "disubmit"? Apakah mouse "digeser"? JS selalu siaga!
+                    Sebuah metode JavaScript yang diinisiasi untuk merespons interaksi pengguna. Event Listener mendeteksi pemicu seperti aktivitas klik (click), pengiriman form (submit), dan pergerakan kursor mouse (hover).
                   </p>
                   <div className="mt-4 z-10">
                     <code className="bg-black text-white px-2 py-1 font-black text-sm block mb-2 border-2 border-white">.addEventListener('click', ...)</code>
@@ -195,10 +195,10 @@ tombolSapa.addEventListener('click', berikanSapaan);`;
                   </div>
                   <div className="lg:w-2/3 flex flex-col justify-center">
                     <p className="text-lg font-bold leading-relaxed">
-                      <strong>Function</strong> ibarat sebuah <strong>"Buku Resep Masakan"</strong>. Kita bisa menulis ratusan instruksi (kode) di dalamnya, memberikannya sebuah NAMA, lalu membungkusnya.
+                      <strong>Function</strong> merupakan sebuah blok kode modular. Anda dapat merangkum berbagai instruksi program di dalamnya, mendefinisikan sebuah nama pengenal, dan mengelompokkannya ke dalam satu eksekusi tunggal.
                     </p>
                     <p className="text-lg font-bold leading-relaxed mt-4 bg-mint-canvas p-4 border-l-4 border-forest-teal">
-                      Sifat uniknya: Instruksi di dalam resep itu <strong>tidak akan berjalan sendirinya</strong> sampai kita dengan sengaja <strong>"memanggil"</strong> nama resep tersebut! Ini membuat kode kita jadi sangat terorganisir dan bisa dipakai berulang kali.
+                      Karakteristik utamanya: Blok instruksi dalam fungsi tersebut <strong>tidak akan dieksekusi secara otonom</strong> hingga kita secara eksplisit <strong>memanggil (invoke)</strong> fungsinya. Pendekatan ini meningkatkan organisasi arsitektural kode dan mempromosikan prinsip reusabilitas (penggunaan ulang kode).
                     </p>
                   </div>
                 </div>
@@ -211,10 +211,10 @@ tombolSapa.addEventListener('click', berikanSapaan);`;
                   </div>
                   <div className="lg:w-2/3 flex flex-col justify-center">
                     <p className="text-lg font-bold leading-relaxed">
-                      <strong>Scope</strong> berarti Batas Wilayah. Jika kamu membuat Variabel di dalam kurung kurawal <code className="bg-white text-black px-1">{"{ }"}</code> milik sebuah Function, maka variabel itu hanya "hidup" dan bisa diakses di dalam kurung itu saja.
+                      <strong>Scope</strong> merepresentasikan batas ruang lingkup aksesibilitas. Jika Anda mendeklarasikan variabel di dalam area blok kode <code className="bg-white text-black px-1">{"{ }"}</code> milik sebuah Function, maka siklus hidup dan akses variabel tersebut terisolasi sepenuhnya di dalam fungsi bersangkutan.
                     </p>
                     <p className="text-lg font-bold leading-relaxed mt-4 bg-forest-teal p-4 border-l-4 border-jade-vibrant">
-                      Ini disebut <strong>Local Scope</strong>. Artinya rahasia dapur tidak boleh bocor keluar!
+                      Konsep ini disebut <strong>Local Scope</strong>. Isolasi ini mencegah akses dari luar fungsi (<em>global scope</em>) untuk menjaga keamanan dan modularitas data.
                     </p>
                   </div>
                 </div>
@@ -235,7 +235,7 @@ tombolSapa.addEventListener('click', berikanSapaan);`;
                   <span className="material-symbols-outlined text-jade-vibrant text-3xl">build</span> Target Misi Kita:
                 </p>
                 <p className="text-lg font-bold leading-relaxed">
-                  Kita akan membuat sebuah aplikasi mini super simpel: <strong>Tombol Sapaan!</strong> Silakan *copy-paste* tiga file di bawah ini ke *text editor* milikmu (seperti VS Code) untuk melihat hasilnya secara langsung di browser.
+                  Kita akan mengimplementasikan skrip JavaScript sederhana: <strong>Aplikasi Tombol Sapaan</strong>. Silakan salin kompilasi tiga file di bawah ini ke dalam <em>text editor</em> Anda (seperti VS Code) guna menganalisis hasil integrasinya secara instan melalui browser.
                 </p>
               </div>
 
@@ -340,9 +340,9 @@ tombolSapa.addEventListener('click', berikanSapaan);`;
                 <div className="bg-mint-canvas text-black border-4 border-black p-6 md:p-8 shadow-[4px_4px_0px_rgba(0,0,0,1)] flex flex-col md:flex-row gap-6 items-center">
                   <span className="material-symbols-outlined text-[60px] md:text-[80px]">warning</span>
                   <div>
-                    <h4 className="text-2xl font-black uppercase mb-2 tracking-widest">Hati-Hati Pemanggilan!</h4>
+                    <h4 className="text-2xl font-black uppercase mb-2 tracking-widest">Perhatian pada Pemanggilan Fungsi (Invocation)!</h4>
                     <p className="text-lg font-bold leading-relaxed">
-                      Perhatikan baris paling bawah pada <code>script.js</code>. Kita memanggil nama <code>berikanSapaan</code> <strong>tanpa tanda kurung ()</strong>. Jika kita menuliskannya dengan <code>berikanSapaan()</code>, maka fungsi tersebut akan tereksekusi paksa seketika sebelum tombol sempat diklik! Kita hanya menempelkan <em>namanya</em> saja ke Event Listener.
+                      Perhatikan baris kode pada <code>script.js</code>, kita mendefinisikan argumen referensi <code>berikanSapaan</code> <strong>tanpa menggunakan tanda kurung (parenthesis) ()</strong>. Apabila ditulis sebagai <code>berikanSapaan()</code>, fungsi akan tereksekusi segera setelah file dimuat secara otonom, bahkan sebelum interaksi klik dipicu. Kita cukup menyertakan <em>referensi fungsinya</em> sebagai argumen <em>callback</em> pada metode Event Listener.
                     </p>
                   </div>
                 </div>

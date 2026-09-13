@@ -92,28 +92,28 @@ body {
     box-shadow: 6px 6px 0px black;
 }`;
 
-  const jsDarkMode = `// 1. Mencari tombol dan elemen <body>
+  const jsDarkMode = `// 1. Seleksi DOM untuk tombol toggle dan elemen target (body)
 const tombolTema = document.getElementById('btn-tema');
 const judul = document.getElementById('judul');
-const bodyWebsite = document.body; // Tag body bisa langsung diakses!
+const bodyWebsite = document.body; // Referensi statis ke elemen body
 
-// 2. Memberikan Event Listener pada tombol
+// 2. Registrasi Event Listener bertipe 'click'
 tombolTema.addEventListener('click', function(event) {
     
-    // Logika If-Else: Cek apakah body SUDAH memiliki class 'dark-mode'
+    // Percabangan If-Else: Evaluasi apakah 'dark-mode' eksis di struktur classList
     if (bodyWebsite.classList.contains('dark-mode')) {
-        // JIKA IYA (sedang gelap):
-        // 1. Hapus class 'dark-mode' (Kembali terang)
+        // Jika kondisi true (Mode Gelap saat ini aktif):
+        // 1. Hapus 'dark-mode' untuk kembali ke representasi default (Terang)
         bodyWebsite.classList.remove('dark-mode');
-        // 2. Ubah teks tombol dan judul
+        // 2. Modifikasi state UI ke mode gelap
         tombolTema.textContent = "🌙 Mode Gelap";
         judul.textContent = "Selamat Datang! 🌞";
         
     } else {
-        // JIKA TIDAK (sedang terang):
-        // 1. Tambahkan class 'dark-mode' (Ubah jadi gelap)
+        // Jika kondisi false (Mode Terang saat ini aktif):
+        // 1. Terapkan 'dark-mode' pada hierarki body
         bodyWebsite.classList.add('dark-mode');
-        // 2. Ubah teks tombol dan judul
+        // 2. Modifikasi state UI ke mode terang
         tombolTema.textContent = "☀️ Mode Terang";
         judul.textContent = "Mode Malam Aktif 🌙";
     }
@@ -212,21 +212,21 @@ const formKontak = document.querySelector('.contact-form');
 const inputNama = document.getElementById('input-nama');
 const inputPesan = document.getElementById('input-pesan');
 
-// 2. Memberikan Event Listener 'submit' pada FORM (bukan pada tombol)
+// 2. Registrasi Event Listener 'submit' pada blok form
 formKontak.addEventListener('submit', function(event) {
     
-    // Mencegah halaman refresh otomatis saat form dikirim
+    // Mencegah default behavior pengiriman form (refresh halaman)
     event.preventDefault(); 
     
-    // Logika OR (||): Jika nama kosong ATAU pesan kosong
+    // Logika Evaluasi OR (||): Cek jika input nama ATAU input pesan bernilai string kosong
     if (inputNama.value === "" || inputPesan.value === "") {
-        // Hentikan proses dan beri peringatan
-        alert("Peringatan: Nama dan Pesan tidak boleh kosong, agen!");
+        // Blokir proses pengiriman dan tampilkan alert error
+        alert("Peringatan: Field Nama dan Pesan wajib diisi penuh.");
     } else {
-        // Jika keduanya terisi
-        alert(\`Pesan berhasil dikirim dari: \${inputNama.value}\`);
+        // Jika kedua input lolos validasi (memiliki nilai)
+        alert(\`Transmisi data sukses dari: \${inputNama.value}\`);
         
-        // Mengosongkan form kembali otomatis
+        // Mereset nilai elemen input form ke state awal
         formKontak.reset(); 
     }
 });`;
@@ -262,14 +262,14 @@ formKontak.addEventListener('submit', function(event) {
                   Logika Keputusan
                 </h1>
                 <p className="text-base md:text-xl font-bold text-black bg-mint-soft inline-block px-4 py-2 md:px-6 md:py-3 border-4 border-black mb-6 md:mb-8 shadow-neo-md uppercase tracking-tight">
-                  Membuat Website Pintar yang Bisa Memilih Tindakan!
+                  Implementasi Pengambilan Keputusan Kondisional pada Interaksi Web
                 </p>
                 <div>
                   <button
                     onClick={() => setIsStarted(!isStarted)}
                     className="bg-white text-black font-black text-lg md:text-2xl px-6 py-4 md:px-10 md:py-5 border-4 border-black shadow-[6px_6px_0px_0px_rgba(45,212,191,1)] md:shadow-[10px_10px_0px_0px_rgba(45,212,191,1)] hover:-translate-y-2 hover:-translate-x-2 hover:shadow-[12px_12px_0px_0px_rgba(45,212,191,1)] md:hover:shadow-[14px_14px_0px_0px_rgba(45,212,191,1)] active:translate-x-[6px] active:translate-y-[6px] active:shadow-none transition-all uppercase tracking-widest cursor-pointer"
                   >
-                    {isStarted ? "MESIN LOGIKA AKTIF... ⚙️" : "MULAI BELAJAR SEKARANG"}
+                    {isStarted ? "MEMULAI MODUL LOGIKA KEPUTUSAN..." : "MULAI BELAJAR SEKARANG"}
                   </button>
                 </div>
               </div>
@@ -279,11 +279,11 @@ formKontak.addEventListener('submit', function(event) {
             <section className="bg-white border-4 border-black shadow-neo-xl p-6 md:p-12">
               <h2 className="text-2xl sm:text-3xl md:text-5xl font-black text-black uppercase mb-8 md:mb-10 border-b-4 border-black pb-4 flex items-center gap-3 md:gap-4 tracking-tighter">
                 <span className="bg-mint-soft text-black w-12 h-12 md:w-16 md:h-16 flex items-center justify-center border-4 border-black shadow-neo-sm flex-shrink-0 text-2xl md:text-4xl">1</span>
-                Kekuatan Memilih (Conditionals)
+                Pengambilan Keputusan (Conditionals)
               </h2>
 
               <p className="text-lg md:text-xl font-bold text-forest-teal leading-relaxed mb-8 bg-mint-canvas p-6 border-4 border-black shadow-neo-sm">
-                Tanpa logika keputusan, website hanya akan merespons dengan cara yang sama terus-menerus (seperti robot bodoh). Dengan <strong>Conditionals</strong> (Pengkondisian), JavaScript bisa berpikir layaknya manusia: <em>"Jika situasinya begini, lakukan ini. Jika kondisinya begitu, lakukan hal lain!"</em>
+                Tanpa logika kondisional, sebuah aplikasi web hanya akan mengeksekusi instruksi secara linier dan statis. Menggunakan <strong>Conditionals</strong> (Pengkondisian), JavaScript mampu mengevaluasi <em>state</em> secara dinamis: <em>"Jika (if) kondisi A bernilai true, eksekusi blok kode X; Jika kondisi A bernilai false (else), eksekusi blok kode Y."</em>
               </p>
 
               <div className="grid grid-cols-1 md:grid-cols-2 gap-6 mb-8">
@@ -292,18 +292,18 @@ formKontak.addEventListener('submit', function(event) {
                   <h3 className="text-2xl font-black uppercase mb-3 text-jade-vibrant tracking-widest flex items-center gap-2">
                     <span className="material-symbols-outlined">toggle_on</span> Tipe Data Boolean
                   </h3>
-                  <p className="text-base font-bold text-gray-200">Hanya memiliki dua nilai mutlak di dunia pemrograman: <code className="bg-white text-black px-1">true</code> (benar) atau <code className="bg-white text-black px-1">false</code> (salah). Ibarat saklar lampu, hanya ada nyala atau mati.</p>
+                  <p className="text-base font-bold text-gray-200">Tipe data fundamental yang hanya merepresentasikan dua nilai kebenaran mutlak (<em>Truth Value</em>): <code className="bg-white text-black px-1">true</code> (benar) atau <code className="bg-white text-black px-1">false</code> (salah). Tipe ini digunakan sebagai parameter kalkulasi logika Aljabar Boolean di komputasi mesin.</p>
                 </div>
 
                 {/* Operator Pembanding */}
                 <div className="bg-pine-deep text-white border-4 border-black p-6 shadow-neo-md hover:-translate-y-2 transition-transform">
                   <h3 className="text-2xl font-black uppercase mb-3 text-mint-soft tracking-widest flex items-center gap-2">
-                    <span className="material-symbols-outlined">balance</span> Pembanding
+                    <span className="material-symbols-outlined">balance</span> Operator Relasional
                   </h3>
                   <ul className="text-base font-bold text-gray-200 space-y-2">
-                    <li><code className="bg-black px-1 text-jade-vibrant">===</code> : Sama persis (identik).</li>
-                    <li><code className="bg-black px-1 text-red-400">!==</code> : Tidak sama dengan.</li>
-                    <li><code className="bg-black px-1">{">"}</code> / <code className="bg-black px-1">{"<"}</code> : Lebih besar / lebih kecil.</li>
+                    <li><code className="bg-black px-1 text-jade-vibrant">===</code> : Identik (<em>Strict Equality</em> - nilai & tipe data sama).</li>
+                    <li><code className="bg-black px-1 text-red-400">!==</code> : Tidak Identik (<em>Strict Inequality</em>).</li>
+                    <li><code className="bg-black px-1">{">"}</code> / <code className="bg-black px-1">{"<"}</code> : Lebih besar / lebih kecil secara matematis.</li>
                   </ul>
                 </div>
 
@@ -313,8 +313,8 @@ formKontak.addEventListener('submit', function(event) {
                     <span className="material-symbols-outlined">hub</span> Operator Logika
                   </h3>
                   <ul className="text-base font-bold space-y-2">
-                    <li><code className="bg-white px-1">&&</code> (DAN) : Semua kondisi <strong>wajib</strong> benar.</li>
-                    <li><code className="bg-white px-1">||</code> (ATAU) : Cukup <strong>salah satu</strong> kondisi yang benar.</li>
+                    <li><code className="bg-white px-1">&&</code> (Logical AND) : Evaluasi bernilai true jika <strong>semua</strong> operan bernilai true.</li>
+                    <li><code className="bg-white px-1">||</code> (Logical OR) : Evaluasi bernilai true jika <strong>minimal satu</strong> operan bernilai true.</li>
                   </ul>
                 </div>
 
@@ -323,9 +323,9 @@ formKontak.addEventListener('submit', function(event) {
                   <h3 className="text-2xl font-black uppercase mb-3 text-forest-teal tracking-widest flex items-center gap-2">
                     <span className="material-symbols-outlined">alt_route</span> If-Else Statement
                   </h3>
-                  <p className="text-base font-bold text-gray-700">Rumus utama pengambilan keputusan:</p>
-                  <div className="bg-canvas p-3 border-2 border-black mt-2 font-black italic">
-                    "JIKA [kondisi terpenuhi], maka lakukan [A]. JIKA TIDAK (else), lakukan [B]."
+                  <p className="text-base font-bold text-gray-700">Sintaks fundamental untuk percabangan (<em>branching</em>):</p>
+                  <div className="bg-canvas p-3 border-2 border-black mt-2 font-black italic text-sm">
+                    if (kondisiEvaluasi === true) {"{"} blokEksekusiA(); {"}"} else {"{"} blokEksekusiB(); {"}"}
                   </div>
                 </div>
               </div>
@@ -337,18 +337,18 @@ formKontak.addEventListener('submit', function(event) {
               
               <h2 className="text-2xl sm:text-3xl md:text-5xl font-black text-black uppercase mb-8 md:mb-10 border-b-4 border-black pb-4 flex items-center gap-3 md:gap-4 tracking-tighter relative z-10">
                 <span className="bg-black text-white w-12 h-12 md:w-16 md:h-16 flex items-center justify-center border-4 border-black shadow-neo-sm flex-shrink-0 text-2xl md:text-4xl">2</span>
-                Praktik A: Dark Mode Toggle
+                Implementasi A: Fitur Dark Mode (Toggle)
               </h2>
 
               <div className="bg-white border-4 border-black p-6 md:p-8 mb-10 shadow-neo-md relative z-10">
                 <p className="text-xl font-bold text-forest-teal mb-4 uppercase tracking-widest flex items-center gap-2">
-                  <span className="material-symbols-outlined text-jade-vibrant text-3xl">dark_mode</span> Target Misi Kita:
+                  <span className="material-symbols-outlined text-jade-vibrant text-3xl">dark_mode</span> Tujuan Implementasi:
                 </p>
                 <p className="text-lg font-bold leading-relaxed">
-                  Membuat fitur super populer: <strong>Tombol Pengubah Tema (Mode Gelap)</strong>. Saat pengguna menekan tombol, JS akan mengecek tema saat ini. Jika sedang Terang, ubah jadi Gelap. Jika sedang Gelap, kembalikan jadi Terang!
+                  Mengembangkan fitur peralihan tema visual (<strong>Dark/Light Mode Toggle</strong>). Saat diinisiasi melalui interaksi klik, skrip JavaScript akan mengevaluasi kelas state aktif pada elemen body. Algoritma kondisional akan membalik (toggle) representasi visual dari Mode Terang menjadi Mode Gelap, atau sebaliknya.
                 </p>
                 <p className="text-lg font-bold leading-relaxed mt-4 bg-mint-canvas p-4 border-l-4 border-black">
-                  Silakan <em>copy-paste</em> ketiga file di bawah ini ke editor kodemu (seperti VS Code) untuk melihat keajaibannya secara langsung!
+                  Silakan salin instruksi blok kode terpadu di bawah ini ke dalam proyek Anda (misal: di VS Code) untuk menganalisis mekanisme pergantian <em>state</em> ini secara komprehensif.
                 </p>
               </div>
 
@@ -452,18 +452,18 @@ formKontak.addEventListener('submit', function(event) {
             <section className="bg-pine-deep text-white border-4 border-black shadow-neo-xl p-6 md:p-12 relative overflow-hidden">
               <h2 className="text-2xl sm:text-3xl md:text-5xl font-black text-white uppercase mb-8 md:mb-10 border-b-4 border-white pb-4 flex items-center gap-3 md:gap-4 tracking-tighter relative z-10 drop-shadow-[2px_2px_0px_rgba(0,0,0,1)]">
                 <span className="bg-white text-black w-12 h-12 md:w-16 md:h-16 flex items-center justify-center border-4 border-black shadow-[4px_4px_0px_rgba(0,0,0,1)] flex-shrink-0 text-2xl md:text-4xl">3</span>
-                Praktik B: Validasi Kontak
+                Implementasi B: Validasi Form Kontak
               </h2>
 
               <div className="bg-black text-white border-4 border-white p-6 md:p-8 mb-10 shadow-[6px_6px_0px_rgba(45,212,191,1)] relative z-10">
                 <p className="text-xl font-bold text-mint-soft mb-4 uppercase tracking-widest flex items-center gap-2">
-                  <span className="material-symbols-outlined text-mint-soft text-3xl">security</span> Target Misi Kita:
+                  <span className="material-symbols-outlined text-mint-soft text-3xl">security</span> Tujuan Implementasi:
                 </p>
                 <p className="text-lg font-bold leading-relaxed text-gray-200">
-                  Formulir di website tidak boleh dikirim dalam keadaan kosong! Kita menggunakan Event Listener tipe <code>'submit'</code> pada Form dan logika <strong>OR (||)</strong> untuk mengecek. <em>"JIKA nama kosong ATAU pesan kosong, maka hentikan pengiriman dan beri peringatan!"</em>
+                  Data pada form input tidak boleh ditransmisikan dalam struktur state <em>null</em> (string kosong). Anda akan menerapkan Event Listener tipe <code>'submit'</code> pada modul formulir yang dikombinasikan dengan gerbang logika <strong>OR (||)</strong>. Algoritma kondisional ini melakukan validasi: <em>"Jika karakter panjang input nama adalah 0 ATAU isi field pesan adalah 0, cegah eksekusi pengiriman dan instansiasikan parameter alert pencegahan."</em>
                 </p>
                 <p className="text-lg font-bold leading-relaxed mt-4 bg-forest-teal text-white p-4 border-l-4 border-mint-soft">
-                  Sama seperti Praktik A, silakan <em>copy-paste</em> ketiga file ini untuk mencoba sendiri bagaimana formulir "marah" jika tidak diisi lengkap!
+                  Sebagaimana desain arsitektur sebelumnya, silakan salin instruksi konfigurasi ini guna mengimplementasikan modul mekanisme pencegahan <em>Client-Side Validation</em> secara mandiri!
                 </p>
               </div>
 
