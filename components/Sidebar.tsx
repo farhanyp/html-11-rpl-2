@@ -83,7 +83,7 @@ export default function Sidebar() {
 
   const phpLinks = [
     { href: '/pengantar-php', icon: 'php', label: '1. Pengantar PHP', color: 'bg-pine-deep text-white' },
-    { href: '/aturan-pulau-php', icon: 'code_blocks', label: '2. Pulau PHP', color: 'bg-canvas text-black' },
+    { href: '/aturan-pulau-php', icon: 'code_blocks', label: '2. Aturan Penulisan', color: 'bg-canvas text-black' },
     { href: '/sintaks-dasar-php', icon: 'data_object', label: '3. Sintaks Dasar', color: 'bg-mint-soft text-black' },
     { href: '/error-php-layar-putih', icon: 'error', label: '4. Error Layar Putih', color: 'bg-jade-vibrant text-white' },
     { href: '/debugging-php', icon: 'bug_report', label: '5. Teknik Debugging', color: 'bg-pine-deep text-white' },
