@@ -2,6 +2,7 @@
 
 import Headbar from '@/components/Headbar';
 import Sidebar from '@/components/Sidebar';
+import CodeBlock from '@/components/CodeBlock';
 import { useState } from 'react';
 
 export default function DebuggingPage() {
@@ -33,10 +34,10 @@ export default function DebuggingPage() {
               
               <div className="relative z-10 pt-8">
                 <h1 className="text-4xl sm:text-5xl md:text-7xl font-black text-[#FFD700] tracking-tighter uppercase mb-4 md:mb-6 drop-shadow-[4px_4px_0px_rgba(0,0,0,1)]">
-                  Teknik Debugging: <br className="hidden md:block" /> Detektif Kode
+                  Teknik Debugging: <br className="hidden md:block" /> Mencari Akar Masalah
                 </h1>
                 <p className="text-base md:text-xl font-bold text-black bg-white inline-block px-4 py-2 md:px-6 md:py-3 border-4 border-black mb-8 md:mb-10 shadow-neo-md uppercase tracking-tight">
-                  Mencari asal mula masalah saat webmu bungkam!
+                  Melacak penyebab error saat web terlihat normal tapi tidak berfungsi!
                 </p>
                 <div>
                   <button
@@ -57,22 +58,22 @@ export default function DebuggingPage() {
             <section className="bg-white border-4 border-black shadow-neo-xl p-6 md:p-12 rotate-1 hover:rotate-0 transition-transform">
               <h2 className="text-2xl sm:text-3xl md:text-5xl font-black text-black uppercase mb-8 md:mb-10 border-b-4 border-black pb-4 flex items-center gap-3 md:gap-4 tracking-tighter">
                 <span className="bg-black text-white w-12 h-12 md:w-16 md:h-16 flex items-center justify-center border-4 border-black shadow-neo-sm flex-shrink-0 text-2xl md:text-4xl">01</span>
-                Masalah Paling Menjengkelkan
+                Error yang Tidak Terlihat
               </h2>
 
               <p className="text-lg md:text-xl font-bold text-gray-700 leading-relaxed mb-6">
-                Di dunia nyata, *error* layar merah / layar putih itu justru <strong>menguntungkan</strong> karena kamu langsung tahu salahnya di mana.
+                Saat ngoding PHP, pesan <em>error</em> atau layar putih terkadang justru membantumu menemukan masalah dengan cepat karena lokasi salahnya diberi tahu.
               </p>
 
               <div className="bg-mint-soft border-4 border-black p-6 shadow-[8px_8px_0px_0px_#000] flex flex-col md:flex-row gap-6 items-center">
                 <span className="material-symbols-outlined text-[80px] text-forest-teal">sentiment_dissatisfied</span>
                 <p className="text-lg md:text-xl font-black text-black">
-                  Masalah paling menjengkelkan adalah saat layar putih TIDAK MUNCUL, pesan error TIDAK ADA, web seolah normal... TAPI saat kamu submit Form, datanya GAGAL MASUK ke Database!
+                  Masalah yang paling memusingkan adalah ketika tidak ada pesan <em>error</em> sama sekali, web seolah normal... TAPI saat kamu mengisi form, datanya gagal tersimpan ke Database!
                 </p>
               </div>
 
               <p className="text-lg font-bold text-black mt-6">
-                Jika hal ini terjadi, kamu harus menjadi <strong>Detektif Kode (Debugging)</strong> menggunakan dua jurus andalan Koki PHP.
+                Jika ini terjadi, kamu harus mencari tahu di mana datanya terhenti. Dalam PHP, proses pencarian ini (<strong>Debugging</strong>) dilakukan dengan dua fungsi utama.
               </p>
             </section>
 
@@ -86,11 +87,11 @@ export default function DebuggingPage() {
                 </div>
                 <h3 className="text-2xl md:text-3xl font-black uppercase mb-4 text-[#2965F1]">1. var_dump()</h3>
                 <p className="text-lg font-bold text-gray-800 mb-4 bg-white p-3 border-2 border-black flex-1">
-                  Berfungsi untuk <strong>"Membongkar Paksa"</strong> isi sebuah variabel atau paket data. Ibarat polisi membongkar koper tersangka untuk melihat isinya (apakah isinya kosong atau ada barangnya).
+                  Fungsi ini digunakan untuk <strong>mengecek isi</strong> dari sebuah variabel. Dengan alat ini, kamu bisa melihat apakah datanya masuk, kosong, atau salah tipe data.
                 </p>
-                <div className="font-mono text-sm bg-black text-mint-soft p-4 border-4 border-black mt-auto">
-                  <span className="text-gray-500">// Bongkar paksa data Form (POST)</span><br/>
-                  <span className="text-blue-300">var_dump</span>(<span className="text-pink-400">$_POST</span>);
+                <div className="w-full mt-auto">
+                  <CodeBlock language="php" code={`// Cek data Form (POST)
+var_dump($_POST);`} />
                 </div>
               </section>
 
@@ -101,11 +102,11 @@ export default function DebuggingPage() {
                 </div>
                 <h3 className="text-2xl md:text-3xl font-black uppercase mb-4 text-[#FF0000]">2. die()</h3>
                 <p className="text-lg font-bold text-gray-800 mb-4 bg-white p-3 border-2 border-black flex-1">
-                  Rem darurat! Berfungsi untuk <strong>menghentikan total</strong> eksekusi kode di baris itu juga. Mencegah PHP memproses (menyimpan ke database) sebuah data yang sejak awal sudah cacat/kosong.
+                  Fungsi ini bertindak seperti rem darurat. Ia akan <strong>menghentikan eksekusi kode PHP secara total</strong> pada baris tersebut sehingga kode di bawahnya tidak akan dijalankan.
                 </p>
-                <div className="font-mono text-sm bg-black text-mint-soft p-4 border-4 border-black mt-auto">
-                  <span className="text-gray-500">// STOP! Jangan proses kode ke bawah!</span><br/>
-                  <span className="text-blue-300">die</span>();
+                <div className="w-full mt-auto">
+                  <CodeBlock language="php" code={`// STOP! Kode di bawah tidak diproses
+die();`} />
                 </div>
               </section>
             </div>
@@ -116,28 +117,76 @@ export default function DebuggingPage() {
               <div className="relative z-10">
                 <h2 className="text-2xl sm:text-3xl md:text-5xl font-black text-[#FFD700] uppercase mb-8 md:mb-10 border-b-4 border-[#FFD700] pb-4 flex items-center gap-3 md:gap-4 tracking-tighter">
                   <span className="bg-[#FFD700] text-black w-12 h-12 md:w-16 md:h-16 flex items-center justify-center border-4 border-black shadow-[4px_4px_0px_0px_#FFF] flex-shrink-0 text-2xl md:text-4xl">03</span>
-                  Kombinasi Detektif
+                  Kombinasi Saat Debugging
                 </h2>
 
                 <p className="text-lg md:text-xl font-bold mb-6">
-                  Gabungkan keduanya di baris paling atas kodemu setiap kali ada data form yang masuk. Ini adalah rutinitas wajib saat kode tidak berjalan sesuai keinginan!
+                  Gabungkan kedua alat tersebut setiap kali ada data form yang masuk tapi bermasalah. Pastikan meletakkannya sebelum kode penyimpanan ke Database (INSERT).
                 </p>
 
-                <div className="font-mono text-sm md:text-lg bg-gray-900 border-4 border-gray-600 p-6 leading-relaxed">
-                  <span className="text-gray-500">{"// CONTOH INVESTIGASI FORM:"}</span><br/><br/>
-                  
-                  <span className="text-gray-500">{"// 1. Bongkar isinya di layar sekarang!"}</span><br/>
-                  <span className="text-blue-300 font-black">var_dump</span>(<span className="text-pink-400">$_POST</span>);<br/><br/>
+                <div className="w-full text-left">
+                  <CodeBlock 
+                    language="php"
+                    code={`<?php
+// 1. Tampilkan datanya ke layar
+var_dump($_POST);
 
-                  <span className="text-gray-500">{"// 2. Berhenti! Jangan coba simpan ke Database dulu!"}</span><br/>
-                  <span className="text-[#FF0000] font-black">die</span>();<br/><br/>
-                  
-                  <span className="text-gray-500 line-through block mb-1">{"// Kode menyimpan ke database..."}</span>
-                  <span className="text-gray-500 line-through block mb-1">{"// Kode redirect ke halaman lain..."}</span>
+// 2. Hentikan eksekusi, jangan sampai masuk database!
+die();
+
+// Kode insert ke database di bawah ini TIDAK AKAN berjalan
+// ...`}
+                  />
                 </div>
 
                 <div className="mt-8 bg-[#FFD700] p-4 text-black font-black uppercase text-center border-4 border-white transform rotate-1">
-                  Jika isi var_dump() adalah "array(0) { }", berarti kopernya KOSONG! <br className="hidden md:block" /> Cek penulisan "name" pada Form HTML-mu!
+                  Jika <code>var_dump</code> menampilkan isi KOSONG, periksa atribut <code>name="..."</code> pada input HTML kamu!
+                </div>
+              </div>
+            </section>
+            
+            {/* Section 4: Latihan Praktik */}
+            <section className="bg-canvas border-4 border-black shadow-neo-xl p-6 md:p-12 rotate-1 hover:rotate-0 transition-transform">
+              <h2 className="text-2xl sm:text-3xl md:text-5xl font-black text-black uppercase mb-8 md:mb-10 border-b-4 border-black pb-4 flex items-center gap-3 md:gap-4 tracking-tighter">
+                <span className="bg-jade-vibrant text-white w-12 h-12 md:w-16 md:h-16 flex items-center justify-center border-4 border-black shadow-neo-sm flex-shrink-0 text-2xl md:text-4xl">04</span>
+                Latihan Praktik
+              </h2>
+
+              <p className="text-lg md:text-xl font-bold text-forest-teal mb-6">
+                Ayo coba praktikkan teknik debugging ini! Buatlah variabel sederhana dan pastikan penggunaannya dihentikan oleh <code>die()</code>.
+              </p>
+
+              <div className="w-full mb-6">
+                <CodeBlock 
+                  language="php"
+                  code={`<?php
+  $nama = "Siswa Kreatif";
+  
+  // Tampilkan apa isi nama
+  var_dump($nama);
+  
+  // Berhenti di sini
+  die();
+  
+  echo "Teks ini tidak akan pernah dicetak ke layar!";
+?>`}
+                />
+              </div>
+
+              <div className="bg-white border-4 border-black p-6 shadow-[8px_8px_0px_0px_#000] flex flex-col gap-4 text-black">
+                <div className="flex items-start gap-4">
+                  <div className="w-10 h-10 bg-[#FFD700] shrink-0 border-4 border-black flex items-center justify-center font-black text-xl">1</div>
+                  <div>
+                    <h3 className="text-lg md:text-xl font-black uppercase mb-1">Coba Kode di Atas</h3>
+                    <p className="font-bold text-gray-700">Simpan di file <code>latihan_php.php</code> dan jalankan di browser.</p>
+                  </div>
+                </div>
+                <div className="flex items-start gap-4">
+                  <div className="w-10 h-10 bg-[#2965F1] text-white shrink-0 border-4 border-black flex items-center justify-center font-black text-xl">2</div>
+                  <div>
+                    <h3 className="text-lg md:text-xl font-black uppercase mb-1">Hapus <code>die()</code></h3>
+                    <p className="font-bold text-gray-700">Coba hapus baris <code>die();</code> dan <em>refresh</em> lagi browsermu untuk melihat perbedaan perilaku sistem.</p>
+                  </div>
                 </div>
               </div>
             </section>

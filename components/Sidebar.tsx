@@ -91,7 +91,7 @@ export default function Sidebar() {
     { href: '/get-vs-post-php', icon: 'move_up', label: '7. GET vs POST', color: 'bg-mint-soft text-black' },
     { href: '/undefined-array-key', icon: 'warning', label: '8. Undefined Array Key', color: 'bg-jade-vibrant text-white' },
     { href: '/koneksi-mysql-php', icon: 'cable', label: '9. Koneksi MySQL', color: 'bg-pine-deep text-white' },
-    { href: '/project-crud-buku-tamu', icon: 'menu_book', label: '10. Project: Buku Tamu', color: 'bg-canvas text-black' },
+    { href: '/project-crud-kasir', icon: 'point_of_sale', label: '10. Project: Kasir Simple', color: 'bg-canvas text-black' },
   ];
 
   const isLinkActive = (href: string) => {

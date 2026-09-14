@@ -2,6 +2,7 @@
 
 import Headbar from '@/components/Headbar';
 import Sidebar from '@/components/Sidebar';
+import CodeBlock from '@/components/CodeBlock';
 import { useState } from 'react';
 
 export default function HardRefreshPage() {
@@ -33,10 +34,10 @@ export default function HardRefreshPage() {
               
               <div className="relative z-10 pt-8">
                 <h1 className="text-4xl sm:text-5xl md:text-7xl font-black text-white tracking-tighter uppercase mb-4 md:mb-6 drop-shadow-[4px_4px_0px_rgba(0,0,0,1)]">
-                  Jurus Anti Frustrasi: <br className="hidden md:block" /> Hard Refresh!
+                  Solusi Kodingan: <br className="hidden md:block" /> Hard Refresh!
                 </h1>
                 <p className="text-base md:text-xl font-bold text-black bg-[#FFD700] inline-block px-4 py-2 md:px-6 md:py-3 border-4 border-black mb-8 md:mb-10 shadow-neo-md uppercase tracking-tight">
-                  Kodingan sudah benar, tapi kok nggak berubah di layar?
+                  Kodingan sudah benar dan disimpan, tapi kok webnya tidak berubah?
                 </p>
                 <div>
                   <button
@@ -60,19 +61,19 @@ export default function HardRefreshPage() {
             <section className="bg-white border-4 border-black shadow-neo-xl p-6 md:p-12 rotate-1 hover:rotate-0 transition-transform">
               <h2 className="text-2xl sm:text-3xl md:text-5xl font-black text-black uppercase mb-8 md:mb-10 border-b-4 border-black pb-4 flex items-center gap-3 md:gap-4 tracking-tighter">
                 <span className="bg-[#FF0000] text-white w-12 h-12 md:w-16 md:h-16 flex items-center justify-center border-4 border-black shadow-neo-sm flex-shrink-0 text-2xl md:text-4xl">01</span>
-                Penyakit Ingatan Kuat Browser
+                Masalah Cache Browser
               </h2>
 
               <div className="flex flex-col lg:flex-row gap-8 items-stretch">
                 <div className="flex-1 space-y-6">
                   <p className="text-lg md:text-xl font-bold text-black leading-relaxed">
-                    Seringkali kamu mengganti warna CSS dari merah ke biru, atau mengubah teks PHP, lalu kamu tekan tombol `Save` di VS Code.
+                    Seringkali kamu mengganti sebuah file (misal mengganti warna CSS atau teks PHP), lalu menyimpannya di VS Code.
                   </p>
                   <p className="text-lg md:text-xl font-bold text-black leading-relaxed bg-[#FF0000] text-white p-4 border-4 border-black shadow-neo-sm transform -rotate-1">
-                    Namun, saat kamu tekan <em>refresh</em> (F5 biasa) di Google Chrome... <strong>KOK TIDAK ADA YANG BERUBAH?!</strong> Kodenya masih sama persis seperti yang lama!
+                    Namun, saat kamu tekan tombol <em>refresh</em> (F5) di Google Chrome... <strong>KOK TIDAK ADA YANG BERUBAH?!</strong> Kodenya masih terlihat seperti versi lama!
                   </p>
                   <p className="text-lg font-bold text-gray-700">
-                    Tenang, kamu tidak gila dan kodenya tidak rusak. Ini terjadi karena Browser memiliki fitur <strong>Cache</strong> (Ingatan). Browser diam-diam menyimpan versi lama websitemu agar *loading*-nya lebih cepat, dan dia malas memuat ulang file terbarumu.
+                    Tenang, kodenya tidak rusak. Ini terjadi karena Browser memiliki fitur <strong>Cache</strong> (Ingatan). Browser diam-diam menyimpan versi lama websitemu agar proses <em>loading</em> lebih cepat, sehingga ia malas memuat ulang file terbarumu.
                   </p>
                 </div>
                 
@@ -88,11 +89,11 @@ export default function HardRefreshPage() {
             <section className="bg-pine-deep text-white border-4 border-black shadow-neo-xl p-6 md:p-12 -rotate-1 hover:rotate-0 transition-transform">
               <h2 className="text-2xl sm:text-3xl md:text-5xl font-black uppercase mb-8 md:mb-10 border-b-4 border-white pb-4 flex items-center gap-3 md:gap-4 tracking-tighter">
                 <span className="bg-[#FFD700] text-black w-12 h-12 md:w-16 md:h-16 flex items-center justify-center border-4 border-black shadow-neo-sm flex-shrink-0 text-2xl md:text-4xl">02</span>
-                Jurus "Cuci Otak" Browser
+                Cara Hard Refresh
               </h2>
 
               <p className="text-lg font-bold text-white mb-8 bg-black p-4 border-4 border-white shadow-[4px_4px_0px_0px_#FFF]">
-                Sebagai Programmer, me-*refresh* dengan tombol F5 biasa atau tombol putar di browser itu <strong>TIDAK CUKUP</strong>. Kamu wajib menggunakan jurus paksaan ini:
+                Sebagai Programmer, melakukan <em>refresh</em> biasa itu <strong>seringkali tidak cukup</strong>. Kamu wajib menggunakan pintasan keyboard berikut:
               </p>
 
               <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
@@ -132,7 +133,53 @@ export default function HardRefreshPage() {
               </div>
 
               <div className="mt-8 bg-mint-soft text-black p-4 border-4 border-black font-bold text-center -rotate-1 shadow-neo-sm">
-                Trik ini akan memaksa browser membuang "ingatan masa lalu" dan men-*download* ulang file CSS atau PHP terbarumu secara utuh!
+                Trik ini akan memaksa browser membuang "ingatan masa lalu" dan men-<em>download</em> ulang seluruh kodingan terbarumu secara utuh!
+              </div>
+            </section>
+            
+            {/* Section 3: Latihan Praktik */}
+            <section className="bg-canvas border-4 border-black shadow-neo-xl p-6 md:p-12 rotate-1 hover:rotate-0 transition-transform">
+              <h2 className="text-2xl sm:text-3xl md:text-5xl font-black text-black uppercase mb-8 md:mb-10 border-b-4 border-black pb-4 flex items-center gap-3 md:gap-4 tracking-tighter">
+                <span className="bg-jade-vibrant text-white w-12 h-12 md:w-16 md:h-16 flex items-center justify-center border-4 border-black shadow-neo-sm flex-shrink-0 text-2xl md:text-4xl">03</span>
+                Latihan Praktik
+              </h2>
+
+              <p className="text-lg md:text-xl font-bold text-forest-teal mb-6">
+                Mari buktikan kekuatan Hard Refresh! Buatlah sebuah file HTML sederhana dengan CSS terpisah.
+              </p>
+
+              <div className="w-full mb-6 text-left">
+                <CodeBlock 
+                  language="css"
+                  code={`/* Di dalam file style.css */
+body {
+  background-color: blue;
+}`}
+                />
+              </div>
+
+              <div className="bg-white border-4 border-black p-6 shadow-[8px_8px_0px_0px_#000] flex flex-col gap-4 text-black text-left">
+                <div className="flex items-start gap-4">
+                  <div className="w-10 h-10 bg-[#FFD700] shrink-0 border-4 border-black flex items-center justify-center font-black text-xl">1</div>
+                  <div>
+                    <h3 className="text-lg md:text-xl font-black uppercase mb-1">Cek Warna Awal</h3>
+                    <p className="font-bold text-gray-700">Hubungkan file HTML ke <code>style.css</code> di atas, dan buka browser. Latar belakangnya harus berwarna biru.</p>
+                  </div>
+                </div>
+                <div className="flex items-start gap-4">
+                  <div className="w-10 h-10 bg-[#FFD700] shrink-0 border-4 border-black flex items-center justify-center font-black text-xl">2</div>
+                  <div>
+                    <h3 className="text-lg md:text-xl font-black uppercase mb-1">Ubah Warna</h3>
+                    <p className="font-bold text-gray-700">Kembali ke VS Code, ubah kata <code>blue</code> menjadi <code>red</code>, dan simpan (Ctrl+S).</p>
+                  </div>
+                </div>
+                <div className="flex items-start gap-4">
+                  <div className="w-10 h-10 bg-[#2965F1] text-white shrink-0 border-4 border-black flex items-center justify-center font-black text-xl">3</div>
+                  <div>
+                    <h3 className="text-lg md:text-xl font-black uppercase mb-1">Hard Refresh!</h3>
+                    <p className="font-bold text-gray-700">Jika kamu menggunakan *refresh* biasa (F5), warna mungkin tetap biru. Coba tekan <strong>Ctrl + Shift + R</strong>, dan warnanya akan langsung berubah merah!</p>
+                  </div>
+                </div>
               </div>
             </section>
             

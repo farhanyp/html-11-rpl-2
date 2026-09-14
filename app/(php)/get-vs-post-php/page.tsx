@@ -2,6 +2,7 @@
 
 import Headbar from '@/components/Headbar';
 import Sidebar from '@/components/Sidebar';
+import CodeBlock from '@/components/CodeBlock';
 import { useState } from 'react';
 
 export default function GetVsPostPage() {
@@ -36,10 +37,10 @@ export default function GetVsPostPage() {
               
               <div className="relative z-10 pt-8">
                 <h1 className="text-4xl sm:text-5xl md:text-7xl font-black text-[#FFD700] tracking-tighter uppercase mb-4 md:mb-6 drop-shadow-[4px_4px_0px_rgba(255,255,255,0.2)]">
-                  Tas Kurir PHP: <br className="hidden md:block" /> $_GET vs $_POST
+                  Metode Pengiriman: <br className="hidden md:block" /> $_GET vs $_POST
                 </h1>
                 <p className="text-base md:text-xl font-bold text-black bg-white inline-block px-4 py-2 md:px-6 md:py-3 border-4 border-black mb-8 shadow-neo-md uppercase tracking-tight">
-                  Bagaimana Koki PHP menangkap data dari Form HTML?
+                  Bagaimana PHP menerima data dari Form HTML?
                 </p>
               </div>
             </section>
@@ -48,15 +49,15 @@ export default function GetVsPostPage() {
             <section className="bg-white border-4 border-black shadow-neo-xl p-6 md:p-12 rotate-1 hover:rotate-0 transition-transform">
               <h2 className="text-2xl sm:text-3xl md:text-5xl font-black text-black uppercase mb-8 md:mb-10 border-b-4 border-black pb-4 flex items-center gap-3 md:gap-4 tracking-tighter">
                 <span className="bg-[#FF0000] text-white w-12 h-12 md:w-16 md:h-16 flex items-center justify-center border-4 border-black shadow-neo-sm flex-shrink-0 text-2xl md:text-4xl">01</span>
-                Dua Jenis Tas Kurir
+                Dua Cara Mengirim Data
               </h2>
 
               <p className="text-lg md:text-xl font-bold text-gray-700 leading-relaxed mb-6">
-                Saat kamu mengetik nama di Form HTML lalu menekan "Submit", data tersebut akan dikirimkan ke PHP menggunakan sebuah "Tas Kurir" khusus yang disebut <strong>Superglobals</strong>.
+                Saat kamu mengisi Form HTML dan menekan tombol "Submit", data tersebut akan dikirimkan ke PHP menggunakan sebuah variabel khusus bawaan PHP (disebut <strong>Superglobals</strong>).
               </p>
 
               <p className="text-lg font-bold text-black bg-mint-soft border-4 border-black p-4 shadow-neo-sm">
-                Kamu, sebagai *Programmer*, harus menugaskan Koki PHP untuk membuka tas kurir yang <strong>TEPAT</strong> agar bisa mengambil data tersebut.
+                Kamu harus memberitahu PHP cara yang <strong>TEPAT</strong> untuk mengambil data tersebut, yaitu antara menggunakan metode GET atau POST.
               </p>
             </section>
 
@@ -164,6 +165,54 @@ export default function GetVsPostPage() {
                   </div>
                 </div>
               )}
+            </section>
+            
+            {/* Section 3: Latihan Praktik */}
+            <section className="bg-canvas border-4 border-black shadow-neo-xl p-6 md:p-12 rotate-1 hover:rotate-0 transition-transform">
+              <h2 className="text-2xl sm:text-3xl md:text-5xl font-black text-black uppercase mb-8 md:mb-10 border-b-4 border-black pb-4 flex items-center gap-3 md:gap-4 tracking-tighter">
+                <span className="bg-jade-vibrant text-white w-12 h-12 md:w-16 md:h-16 flex items-center justify-center border-4 border-black shadow-neo-sm flex-shrink-0 text-2xl md:text-4xl">03</span>
+                Latihan Praktik
+              </h2>
+
+              <p className="text-lg md:text-xl font-bold text-forest-teal mb-6">
+                Mari kita buat 2 jenis form berbeda untuk melihat langsung perbedaan URL-nya!
+              </p>
+
+              <div className="w-full mb-6 text-left">
+                <CodeBlock 
+                  language="html"
+                  code={`<!-- 1. Form menggunakan GET -->
+<form method="GET" action="proses.php">
+  <input type="text" name="cari_barang" placeholder="Cari barang...">
+  <button type="submit">Cari (GET)</button>
+</form>
+
+<br>
+
+<!-- 2. Form menggunakan POST -->
+<form method="POST" action="proses.php">
+  <input type="password" name="password_rahasia" placeholder="Password kamu...">
+  <button type="submit">Kirim (POST)</button>
+</form>`}
+                />
+              </div>
+
+              <div className="bg-white border-4 border-black p-6 shadow-[8px_8px_0px_0px_#000] flex flex-col gap-4 text-black text-left">
+                <div className="flex items-start gap-4">
+                  <div className="w-10 h-10 bg-[#FFD700] shrink-0 border-4 border-black flex items-center justify-center font-black text-xl">1</div>
+                  <div>
+                    <h3 className="text-lg md:text-xl font-black uppercase mb-1">Coba Tombol GET</h3>
+                    <p className="font-bold text-gray-700">Ketik sesuatu dan klik tombol Cari (GET). Perhatikan URL di bagian atas browsermu, tulisan yang kamu ketik akan muncul di sana (contoh: <code>?cari_barang=buku</code>).</p>
+                  </div>
+                </div>
+                <div className="flex items-start gap-4">
+                  <div className="w-10 h-10 bg-[#FF0000] text-white shrink-0 border-4 border-black flex items-center justify-center font-black text-xl">2</div>
+                  <div>
+                    <h3 className="text-lg md:text-xl font-black uppercase mb-1">Coba Tombol POST</h3>
+                    <p className="font-bold text-gray-700">Kembali ke halaman form, lalu ketik password di kotak kedua dan klik Kirim (POST). Perhatikan URL-nya, datamu disembunyikan dan URL tetap bersih!</p>
+                  </div>
+                </div>
+              </div>
             </section>
             
             {/* Footer Nav */}
