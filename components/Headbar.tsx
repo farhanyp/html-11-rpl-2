@@ -19,6 +19,7 @@ export default function Headbar({ links = [] }: HeadbarProps) {
   const mainSections = [
     { label: 'HTML', href: '/pengenalan-html', color: 'bg-jade-vibrant text-white' },
     { label: 'CSS', href: '/pengenalan-css', color: 'bg-[#2965F1] text-white' },
+    { label: 'Bootstrap', href: '/pengenalan-bootstrap', color: 'bg-[#7952b3] text-white' },
     { label: 'JS', href: '/pengantar-js', color: 'bg-[#F0DB4F] text-black' },
     { label: 'Arsitektur Web', href: '/arsitektur-aplikasi-web-frontend-vs-backend', color: 'bg-pine-deep text-white' },
     { label: 'Database', href: '/konsep-database', color: 'bg-[#00758F] text-white' },

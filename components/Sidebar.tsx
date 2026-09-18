@@ -49,6 +49,15 @@ export default function Sidebar() {
     { href: '/project-2-css', icon: 'brush', label: 'Project 2: Portfolio CSS', color: 'bg-mint-soft text-black' },
   ];
 
+  const bootstrapLinks = [
+    { href: '/pengenalan-bootstrap', icon: 'rocket_launch', label: '1. Pengenalan Bootstrap', color: 'bg-pine-deep text-white' },
+    { href: '/pemasangan-bootstrap', icon: 'download', label: '2. Cara Pemasangan', color: 'bg-canvas text-black' },
+    { href: '/grid-bootstrap', icon: 'view_column', label: '3. Sistem Grid 12 Kolom', color: 'bg-mint-soft text-black' },
+    { href: '/komponen-bootstrap', icon: 'extension', label: '4. Komponen Siap Pakai', color: 'bg-jade-vibrant text-white' },
+    { href: '/utilitas-bootstrap', icon: 'build_circle', label: '5. Kelas Utilitas', color: 'bg-pine-deep text-white' },
+    { href: '/project-bootstrap', icon: 'book', label: '6. Project: Buku Tamu', color: 'bg-canvas text-black' },
+  ];
+
   const jsLinks = [
     { href: '/pengantar-js', icon: 'emoji_objects', label: '1. Pengantar & Interaksi', color: 'bg-pine-deep text-white' },
     { href: '/dom-function', icon: 'build', label: '2. DOM & Function', color: 'bg-canvas text-black' },
@@ -106,17 +115,20 @@ export default function Sidebar() {
   const activeIndexCSS = cssLinks.findIndex(link => isLinkActive(link.href));
   const progressCSS = activeIndexCSS !== -1 ? Math.round(((activeIndexCSS + 1) / cssLinks.length) * 100) : (activeIndexHTML !== -1 ? 0 : 100);
 
+  const activeIndexBootstrap = bootstrapLinks.findIndex(link => isLinkActive(link.href));
+  const progressBootstrap = activeIndexBootstrap !== -1 ? Math.round(((activeIndexBootstrap + 1) / bootstrapLinks.length) * 100) : ((activeIndexHTML !== -1 || activeIndexCSS !== -1) ? 0 : 100);
+
   const activeIndexJS = jsLinks.findIndex(link => isLinkActive(link.href));
-  const progressJS = activeIndexJS !== -1 ? Math.round(((activeIndexJS + 1) / jsLinks.length) * 100) : ((activeIndexHTML !== -1 || activeIndexCSS !== -1) ? 0 : 100);
+  const progressJS = activeIndexJS !== -1 ? Math.round(((activeIndexJS + 1) / jsLinks.length) * 100) : ((activeIndexHTML !== -1 || activeIndexCSS !== -1 || activeIndexBootstrap !== -1) ? 0 : 100);
 
   const activeIndexArsitekturWeb = arsitekturWebLinks.findIndex(link => isLinkActive(link.href));
-  const progressArsitekturWeb = activeIndexArsitekturWeb !== -1 ? Math.round(((activeIndexArsitekturWeb + 1) / arsitekturWebLinks.length) * 100) : ((activeIndexHTML !== -1 || activeIndexCSS !== -1 || activeIndexJS !== -1) ? 0 : 100);
+  const progressArsitekturWeb = activeIndexArsitekturWeb !== -1 ? Math.round(((activeIndexArsitekturWeb + 1) / arsitekturWebLinks.length) * 100) : ((activeIndexHTML !== -1 || activeIndexCSS !== -1 || activeIndexBootstrap !== -1 || activeIndexJS !== -1) ? 0 : 100);
 
   const activeIndexDatabase = databaseLinks.findIndex(link => isLinkActive(link.href));
-  const progressDatabase = activeIndexDatabase !== -1 ? Math.round(((activeIndexDatabase + 1) / databaseLinks.length) * 100) : ((activeIndexHTML !== -1 || activeIndexCSS !== -1 || activeIndexJS !== -1 || activeIndexArsitekturWeb !== -1) ? 0 : 100);
+  const progressDatabase = activeIndexDatabase !== -1 ? Math.round(((activeIndexDatabase + 1) / databaseLinks.length) * 100) : ((activeIndexHTML !== -1 || activeIndexCSS !== -1 || activeIndexBootstrap !== -1 || activeIndexJS !== -1 || activeIndexArsitekturWeb !== -1) ? 0 : 100);
 
   const activeIndexPHP = phpLinks.findIndex(link => isLinkActive(link.href));
-  const progressPHP = activeIndexPHP !== -1 ? Math.round(((activeIndexPHP + 1) / phpLinks.length) * 100) : ((activeIndexHTML !== -1 || activeIndexCSS !== -1 || activeIndexJS !== -1 || activeIndexArsitekturWeb !== -1 || activeIndexDatabase !== -1) ? 0 : 100);
+  const progressPHP = activeIndexPHP !== -1 ? Math.round(((activeIndexPHP + 1) / phpLinks.length) * 100) : ((activeIndexHTML !== -1 || activeIndexCSS !== -1 || activeIndexBootstrap !== -1 || activeIndexJS !== -1 || activeIndexArsitekturWeb !== -1 || activeIndexDatabase !== -1) ? 0 : 100);
 
   const renderLinks = (links: any[]) => (
     <nav className="flex flex-col px-4 gap-4 mb-8">
@@ -208,9 +220,27 @@ export default function Sidebar() {
         </div>
         {renderLinks(cssLinks)}
 
-        {/* JS Section */}
-        <div className="p-5 border-4 border-black mb-4 bg-canvas shadow-neo-md mx-4 mt-6 transform hover:rotate-1 transition-transform">
+        {/* Bootstrap Section */}
+        <div className="p-5 border-4 border-black mb-4 bg-jade-vibrant shadow-neo-md mx-4 mt-6 transform hover:rotate-1 transition-transform">
           <h2 className="text-xl font-black text-black uppercase tracking-tight">Materi Pokok 3</h2>
+          <p className="text-xs font-bold text-black uppercase mt-1">Bootstrap Framework</p>
+          <div className="mt-4 w-full bg-mint-canvas border-4 border-black h-5 relative">
+            <div
+              className="bg-pine-deep h-full border-r-4 border-black transition-all duration-500 ease-in-out"
+              style={{ width: `${progressBootstrap}%` }}
+            ></div>
+          </div>
+        </div>
+        <div className="px-4 mb-2">
+          <span className="bg-white text-black font-black uppercase text-xs px-2 py-1 border-4 border-black inline-block -rotate-2 shadow-neo-sm">
+            Bagian 3
+          </span>
+        </div>
+        {renderLinks(bootstrapLinks)}
+
+        {/* JS Section */}
+        <div className="p-5 border-4 border-black mb-4 bg-canvas shadow-neo-md mx-4 mt-6 transform hover:-rotate-1 transition-transform">
+          <h2 className="text-xl font-black text-black uppercase tracking-tight">Materi Pokok 4</h2>
           <p className="text-xs font-bold text-black uppercase mt-1">JavaScript Dasar</p>
           <div className="mt-4 w-full bg-mint-canvas border-4 border-black h-5 relative">
             <div
@@ -220,15 +250,15 @@ export default function Sidebar() {
           </div>
         </div>
         <div className="px-4 mb-2">
-          <span className="bg-white text-black font-black uppercase text-xs px-2 py-1 border-4 border-black inline-block -rotate-2 shadow-neo-sm">
-            Bagian 3
+          <span className="bg-white text-black font-black uppercase text-xs px-2 py-1 border-4 border-black inline-block rotate-2 shadow-neo-sm">
+            Bagian 4
           </span>
         </div>
         {renderLinks(jsLinks)}
 
         {/* Arsitektur Web Section */}
         <div className="p-5 border-4 border-black mb-4 bg-white shadow-neo-md mx-4 mt-6 transform hover:rotate-1 transition-transform">
-          <h2 className="text-xl font-black text-black uppercase tracking-tight">Materi Pokok 4</h2>
+          <h2 className="text-xl font-black text-black uppercase tracking-tight">Materi Pokok 5</h2>
           <p className="text-xs font-bold text-black uppercase mt-1">Arsitektur Web</p>
           <div className="mt-4 w-full bg-mint-canvas border-4 border-black h-5 relative">
             <div
@@ -238,15 +268,15 @@ export default function Sidebar() {
           </div>
         </div>
         <div className="px-4 mb-2">
-          <span className="bg-white text-black font-black uppercase text-xs px-2 py-1 border-4 border-black inline-block rotate-2 shadow-neo-sm">
-            Bagian 4
+          <span className="bg-white text-black font-black uppercase text-xs px-2 py-1 border-4 border-black inline-block -rotate-2 shadow-neo-sm">
+            Bagian 5
           </span>
         </div>
         {renderLinks(arsitekturWebLinks)}
 
         {/* Database Section */}
         <div className="p-5 border-4 border-black mb-4 bg-mint-soft shadow-neo-md mx-4 mt-6 transform hover:-rotate-1 transition-transform">
-          <h2 className="text-xl font-black text-black uppercase tracking-tight">Materi Pokok 5</h2>
+          <h2 className="text-xl font-black text-black uppercase tracking-tight">Materi Pokok 6</h2>
           <p className="text-xs font-bold text-black uppercase mt-1">Database SQL</p>
           <div className="mt-4 w-full bg-white border-4 border-black h-5 relative">
             <div
@@ -256,15 +286,15 @@ export default function Sidebar() {
           </div>
         </div>
         <div className="px-4 mb-2">
-          <span className="bg-white text-black font-black uppercase text-xs px-2 py-1 border-4 border-black inline-block -rotate-2 shadow-neo-sm">
-            Bagian 5
+          <span className="bg-white text-black font-black uppercase text-xs px-2 py-1 border-4 border-black inline-block rotate-2 shadow-neo-sm">
+            Bagian 6
           </span>
         </div>
         {renderLinks(databaseLinks)}
 
         {/* PHP Section */}
         <div className="p-5 border-4 border-black mb-4 bg-canvas shadow-neo-md mx-4 mt-6 transform hover:rotate-1 transition-transform">
-          <h2 className="text-xl font-black text-black uppercase tracking-tight">Materi Pokok 6</h2>
+          <h2 className="text-xl font-black text-black uppercase tracking-tight">Materi Pokok 7</h2>
           <p className="text-xs font-bold text-black uppercase mt-1">PHP Dinamis</p>
           <div className="mt-4 w-full bg-mint-canvas border-4 border-black h-5 relative">
             <div
@@ -274,8 +304,8 @@ export default function Sidebar() {
           </div>
         </div>
         <div className="px-4 mb-2">
-          <span className="bg-white text-black font-black uppercase text-xs px-2 py-1 border-4 border-black inline-block rotate-2 shadow-neo-sm">
-            Bagian 6
+          <span className="bg-white text-black font-black uppercase text-xs px-2 py-1 border-4 border-black inline-block -rotate-2 shadow-neo-sm">
+            Bagian 7
           </span>
         </div>
         {renderLinks(phpLinks)}

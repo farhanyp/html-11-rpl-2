@@ -1,0 +1,50 @@
+version: '3.8'
+
+services:
+  db:
+    image: postgres:18
+    container_name: db
+    restart: always
+    environment:
+      POSTGRES_USER: ${DB_USERNAME:-postgres}
+      POSTGRES_PASSWORD: ${DB_PASSWORD:-root}
+      POSTGRES_DB: ${DB_DATABASE:-webdev_lms_db}
+    ports:
+      - '5432:5432'
+    volumes:
+      - 'D:/program/docker/postgres-data:/var/lib/postgresql'
+
+  minio:
+    image: minio/minio:latest
+    container_name: minio
+    restart: always
+    environment:
+      MINIO_ROOT_USER: ${MINIO_ROOT_USER:-admin}
+      MINIO_ROOT_PASSWORD: ${MINIO_ROOT_PASSWORD:-password123}
+    command: server /data --console-address ":9001"
+    ports:
+      - '9000:9000'
+      - '9001:9001'
+    volumes:
+      - 'D:/program/docker/minio-data:/data'
+
+  admin-console-minio:
+    image: ghcr.io/karlspace/minio-ui/minio-admin-console
+    container_name: admin-console-minio
+    restart: always
+    environment:
+      CONSOLE_MINIO_SERVER: http://minio:9000
+      CONSOLE_PBKDF_PASSPHRASE: secretpassphrase
+      CONSOLE_PBKDF_SALT: secretsalt
+      CONSOLE_MINIO_REGION: ap-southeast-3
+    ports:
+      - '9090:9090'
+
+  redis:
+    image: redis:alpine
+    container_name: redis
+    restart: always
+    ports:
+      - '${REDIS_PORT:-6379}:6379'
+    volumes:
+      - 'D:/program/docker/redis-data:/data'
