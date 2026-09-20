@@ -69,7 +69,7 @@ model Page {
 
   category    MaterialCategory @relation(fields: [categoryId], references: [id])
   summaries   PageSummary[]
-  quiz        Quiz?
+  quizPackage QuizPackage?
   pageAccesses PageAccess[]
 
   // For sequences where this page is the one to be unlocked
@@ -104,25 +104,37 @@ model PageSequence {
   prerequisitePage Page?  @relation("PrerequisitePage", fields: [prerequisitePageId], references: [id])
 }
 
-model Quiz {
+model QuizPackage {
   id           String   @id @default(uuid())
   pageId       String   @unique
   title        String
   description  String?
-  passingScore Float    @default(70.0)
-  timeLimit    Int?
-  isActive     Boolean  @default(true)
+  passingScore     Float    @default(70.0)
+  timeLimit        Int?
+  shuffleQuestions Boolean  @default(false)
+  isActive         Boolean  @default(true)
   createdAt    TimestamptzString @default(now())
   updatedAt    temporal.updatedAtString()
 
   page         Page     @relation(fields: [pageId], references: [id])
-  questions    Question[]
-  attempts     QuizAttempt[]
+  variants     QuizVariant[]
+}
+
+model QuizVariant {
+  id             String   @id @default(uuid())
+  quizPackageId  String
+  name           String
+  createdAt      TimestamptzString @default(now())
+  updatedAt      temporal.updatedAtString()
+
+  package        QuizPackage   @relation(fields: [quizPackageId], references: [id])
+  questions      Question[]
+  attempts       QuizAttempt[]
 }
 
 model Question {
   id           String       @id @default(uuid())
-  quizId       String
+  quizVariantId String
   questionText String
   questionType QuestionType @default(PILIHAN_GANDA)
   points       Float        @default(1.0)
@@ -130,7 +142,7 @@ model Question {
   createdAt    TimestamptzString @default(now())
   updatedAt    temporal.updatedAtString()
 
-  quiz         Quiz               @relation(fields: [quizId], references: [id])
+  variant      QuizVariant        @relation(fields: [quizVariantId], references: [id])
   options      QuestionOption[]
   answers      StudentAnswer[]
 }
@@ -148,14 +160,14 @@ model QuestionOption {
 
 model QuizAttempt {
   id          String            @id @default(uuid())
-  quizId      String
+  quizVariantId String
   studentId   String
   score       Float?
   status      QuizAttemptStatus @default(IN_PROGRESS)
   startedAt   TimestamptzString @default(now())
   finishedAt  TimestamptzString?
 
-  quiz        Quiz            @relation(fields: [quizId], references: [id])
+  variant     QuizVariant     @relation(fields: [quizVariantId], references: [id])
   student     User            @relation(fields: [studentId], references: [id])
   answers     StudentAnswer[]
 }

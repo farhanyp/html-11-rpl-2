@@ -7,7 +7,8 @@ Kamu adalah **Senior Fullstack TypeScript & Next.js Engineer** sekaligus **Datab
 Sebelum menulis baris kode pertama atau membuat asumsi arsitektur, kamu **WAJIB** membaca dan merujuk pada dokumen-dokumen berikut:
 - **`docs/PRD.md`**: Untuk pemahaman fitur, alur bisnis, dan aturan Multi-Role (Superadmin, Guru, Murid).
 - **`docs/ARCHITECTURE.md`**: Untuk memahami struktur direktori, pemisahan *Service Layer*, dan *State Management*.
-- **`docs/DESIGN.md`**: Untuk panduan sistem desain UI/UX (*Neo Brutalism*), aturan *styling* komponen, dan *color palette* Tailwind.
+- **`docs/DESIGN.md`**: Untuk panduan sistem desain UI/UX (*Neo Brutalism*), aturan *styling* komponen, dan *color palette* Tailwind (khusus Halaman Publik & Murid).
+- **`docs/DESIGN_ADMIN.md`**: Untuk panduan desain UI/UX khusus area Dashboard Superadmin dan Guru (Clean & Minimalist Modernism).
 - **`docs/ERD_LMS.md`**: Untuk struktur konseptual database relasional.
 - **`prisma/schema.prisma`**: Sebagai *Source of Truth* skema database aktual (jangan buat tabel/kolom yang tidak ada di sini).
 

@@ -41,7 +41,7 @@ Struktur direktori dipisahkan secara modular untuk memisahkan UI, logika bisnis,
 │   ├── CodeBlock.tsx     # Komponen syntax highlighter materi
 │   ├── Headbar.tsx       # Komponen navigasi atas
 │   └── Sidebar.tsx       # Komponen navigasi samping
-├── docs/                 # Dokumentasi (ARCHITECTURE.md, PRD.md, ERD_LMS.md)
+├── docs/                 # Dokumentasi (ARCHITECTURE.md, PRD.md, ERD_LMS.md, DESIGN_ADMIN.md)
 ├── lib/                  # Konfigurasi library & utilitas umum
 │   ├── prisma.ts         # Singleton instance Prisma
 │   └── session.ts        # 🆕 Utilitas manajemen JWT & Cookie

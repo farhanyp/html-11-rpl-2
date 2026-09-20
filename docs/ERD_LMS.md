@@ -136,21 +136,30 @@ Table page_sequences {
   Note: 'Mendefinisikan: "Untuk membuka page X, siswa harus menyelesaikan page Y dengan skor >= min_quiz_score"'
 }
 
-Table quizzes {
+Table quiz_packages {
   id            String    [pk, note: 'UUID']
   page_id       String    [unique, note: 'FK → pages (1 halaman = 1 quiz)']
   title         String
   description   String    [null]
   passing_score Float     [default: 70.0, note: 'Skor minimum untuk lulus quiz ini']
   time_limit    Int       [null, note: 'Batas waktu dalam menit, null = tanpa batas']
+  shuffle_questions Boolean [default: false, note: 'Acak soal saat ditampilkan']
   is_active     Boolean   [default: true]
   created_at    DateTime  [default: `now()`]
   updated_at    DateTime
 }
 
+Table quiz_variants {
+  id              String    [pk, note: 'UUID']
+  quiz_package_id String    [note: 'FK ? quiz_packages']
+  name            String    [note: 'Contoh: Paket A, Paket B']
+  created_at      DateTime  [default: `now()`]
+  updated_at      DateTime
+}
+
 Table questions {
   id            String        [pk, note: 'UUID']
-  quiz_id       String        [note: 'FK → quizzes']
+  quiz_variant_id String        [note: 'FK -> quiz_variants']
   question_text String        [note: 'Isi pertanyaan']
   question_type QuestionType  [default: 'PILIHAN_GANDA']
   points        Float         [default: 1.0, note: 'Bobot nilai soal']
@@ -169,7 +178,7 @@ Table question_options {
 
 Table quiz_attempts {
   id            String            [pk, note: 'UUID']
-  quiz_id       String            [note: 'FK → quizzes']
+  quiz_variant_id String        [note: 'FK -> quiz_variants']
   student_id    String            [note: 'FK → users (MURID)']
   score         Float             [null, note: 'Skor akhir, null jika belum selesai']
   status        QuizAttemptStatus [default: 'IN_PROGRESS']
@@ -223,16 +232,17 @@ Ref: page_sequences.page_id - pages.id
 Ref: page_sequences.prerequisite_page_id > pages.id
 
 // Setiap Halaman bisa punya satu Quiz (opsional, one-to-one)
-Ref: quizzes.page_id - pages.id
+Ref: quiz_packages.page_id - pages.id
+Ref: quiz_variants.quiz_package_id > quiz_packages.id
 
 // Quiz terdiri dari banyak Question
-Ref: questions.quiz_id > quizzes.id
+Ref: questions.quiz_variant_id > quiz_variants.id
 
 // Question (Pilihan Ganda) punya banyak Option
 Ref: question_options.question_id > questions.id
 
 // Quiz Attempt dilakukan oleh satu Student pada satu Quiz
-Ref: quiz_attempts.quiz_id > quizzes.id
+Ref: quiz_attempts.quiz_variant_id > quiz_variants.id
 Ref: quiz_attempts.student_id > users.id
 
 // Student Answer menyimpan jawaban per soal dalam satu Attempt
@@ -259,13 +269,14 @@ erDiagram
     material_categories ||--o{ pages : "memiliki halaman"
 
     pages ||--o{ page_summaries : "memiliki rangkuman"
-    pages ||--o| quizzes : "memiliki quiz"
+    pages ||--o| quiz_packages : "memiliki paket kuis"
+    quiz_packages ||--o{ quiz_variants : "memiliki varian kuis"
     pages ||--o| page_sequences : "punya sequence"
     pages ||--o{ page_access : "dikontrol akses"
     pages ||--o{ page_sequences : "menjadi prerequisite"
 
-    quizzes ||--o{ questions : "memiliki soal"
-    quizzes ||--o{ quiz_attempts : "dikerjakan siswa"
+    quiz_variants ||--o{ questions : "memiliki soal"
+    quiz_variants ||--o{ quiz_attempts : "dikerjakan siswa"
 
     questions ||--o{ question_options : "memiliki opsi"
     questions ||--o{ student_answers : "dijawab"
@@ -330,17 +341,23 @@ erDiagram
         float min_quiz_score
     }
 
-    quizzes {
+    quiz_packages {
         uuid id PK
         uuid page_id FK
         string title
         float passing_score
         int time_limit
+        boolean shuffle_questions    }
+
+    quiz_variants {
+        uuid id PK
+        uuid quiz_package_id FK
+        string name
     }
 
     questions {
         uuid id PK
-        uuid quiz_id FK
+        uuid quiz_variant_id FK
         string question_text
         enum question_type
         float points
@@ -355,7 +372,7 @@ erDiagram
 
     quiz_attempts {
         uuid id PK
-        uuid quiz_id FK
+        uuid quiz_variant_id FK
         uuid student_id FK
         float score
         enum status
@@ -588,21 +605,30 @@ Table page_sequences {
   Note: 'Mendefinisikan urutan prerequisite antar halaman'
 }
 
-Table quizzes {
+Table quiz_packages {
   id            String    [pk, note: 'UUID']
   page_id       String    [unique, note: 'FK → pages (1 halaman = 1 quiz)']
   title         String
   description   String    [null]
   passing_score Float     [default: 70.0, note: 'Skor minimum untuk lulus']
   time_limit    Int       [null, note: 'Batas waktu dalam menit, null = tanpa batas']
+  shuffle_questions Boolean [default: false]
   is_active     Boolean   [default: true]
   created_at    DateTime  [default: `now()`]
   updated_at    DateTime
 }
 
+Table quiz_variants {
+  id              String    [pk, note: 'UUID']
+  quiz_package_id String    [note: 'FK ? quiz_packages']
+  name            String    [note: 'Contoh: Paket A, Paket B']
+  created_at      DateTime  [default: `now()`]
+  updated_at      DateTime
+}
+
 Table questions {
   id            String        [pk, note: 'UUID']
-  quiz_id       String        [note: 'FK → quizzes']
+  quiz_variant_id String        [note: 'FK -> quiz_variants']
   question_text String        [note: 'Isi pertanyaan']
   question_type QuestionType  [default: 'PILIHAN_GANDA']
   points        Float         [default: 1.0, note: 'Bobot nilai soal']
@@ -613,7 +639,7 @@ Table questions {
 
 Table question_options {
   id            String    [pk, note: 'UUID']
-  question_id   String    [note: 'FK → questions']
+  question_id   String    [note: 'FK -> questions']
   option_text   String    [note: 'Teks pilihan jawaban']
   is_correct    Boolean   [default: false, note: 'Kunci jawaban']
   order_index   Int       [note: 'Urutan opsi']
@@ -621,8 +647,8 @@ Table question_options {
 
 Table quiz_attempts {
   id            String            [pk, note: 'UUID']
-  quiz_id       String            [note: 'FK → quizzes']
-  student_id    String            [note: 'FK → users (MURID)']
+  quiz_variant_id String          [note: 'FK -> quiz_variants']
+  student_id    String            [note: 'FK -> users (MURID)']
   score         Float             [null, note: 'Skor akhir, null jika belum selesai']
   status        QuizAttemptStatus [default: 'IN_PROGRESS']
   started_at    DateTime          [default: `now()`]
@@ -660,10 +686,11 @@ Ref: pages.category_id > material_categories.id
 Ref: page_summaries.page_id > pages.id
 Ref: page_sequences.page_id - pages.id
 Ref: page_sequences.prerequisite_page_id > pages.id
-Ref: quizzes.page_id - pages.id
-Ref: questions.quiz_id > quizzes.id
+Ref: quiz_packages.page_id - pages.id
+Ref: quiz_variants.quiz_package_id > quiz_packages.id
+Ref: questions.quiz_variant_id > quiz_variants.id
 Ref: question_options.question_id > questions.id
-Ref: quiz_attempts.quiz_id > quizzes.id
+Ref: quiz_attempts.quiz_variant_id > quiz_variants.id
 Ref: quiz_attempts.student_id > users.id
 Ref: student_answers.quiz_attempt_id > quiz_attempts.id
 Ref: student_answers.question_id > questions.id
@@ -673,3 +700,5 @@ Ref: page_access.student_id > users.id
 ```
 
 </details>
+
+
