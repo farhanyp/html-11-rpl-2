@@ -1,6 +1,7 @@
 "use client";
 
 import Headbar from '@/components/Headbar';
+import QuizTrigger from '@/components/quiz-engine/QuizTrigger';
 import Sidebar from '@/components/Sidebar';
 import { useState } from 'react';
 
@@ -73,7 +74,7 @@ export default function PemasanganBootstrapPage() {
                     <div className="bg-black text-white w-12 h-12 flex items-center justify-center border-4 border-black shadow-neo-sm rounded-full flex-shrink-0">
                       <span className="material-symbols-outlined text-3xl">wifi</span>
                     </div>
-                    <h3 className="text-2xl font-black uppercase text-black leading-none">Cara CDN <br/><span className="text-sm">Online</span></h3>
+                    <h3 className="text-2xl font-black uppercase text-black leading-none">Cara CDN <br /><span className="text-sm">Online</span></h3>
                   </div>
                   <p className="font-bold text-forest-teal text-lg mb-6 flex-1">
                     Meminjam file CSS Bootstrap langsung dari server internet. Ibarat kamu nonton film lewat <strong>Netflix</strong>.
@@ -89,7 +90,7 @@ export default function PemasanganBootstrapPage() {
                     <div className="bg-pine-deep text-white w-12 h-12 flex items-center justify-center border-4 border-black shadow-neo-sm rounded-full flex-shrink-0">
                       <span className="material-symbols-outlined text-3xl">folder_zip</span>
                     </div>
-                    <h3 className="text-2xl font-black uppercase text-black leading-none">Cara Lokal <br/><span className="text-sm">Offline</span></h3>
+                    <h3 className="text-2xl font-black uppercase text-black leading-none">Cara Lokal <br /><span className="text-sm">Offline</span></h3>
                   </div>
                   <p className="font-bold text-forest-teal text-lg mb-6 flex-1">
                     Mendownload file CSS Bootstrap ke dalam folder proyek komputermu. Ibarat kamu <strong>mendownload film</strong> ke laptop.
@@ -111,7 +112,7 @@ export default function PemasanganBootstrapPage() {
               <div className="flex flex-col xl:flex-row gap-8 items-stretch">
                 <div className="flex-1 bg-white border-4 border-black p-6 shadow-neo-md">
                   <p className="text-lg md:text-xl font-bold text-forest-teal leading-relaxed mb-6">
-                    Karena cara CDN (Online) adalah yang paling cepat dan sering dipakai untuk belajar, mari kita gunakan cara ini! 
+                    Karena cara CDN (Online) adalah yang paling cepat dan sering dipakai untuk belajar, mari kita gunakan cara ini!
                   </p>
                   <p className="text-lg font-bold text-black bg-mint-canvas p-4 border-4 border-black shadow-neo-sm">
                     Kamu hanya perlu meletakkan baris kode <code>&lt;link&gt;</code> ini ke dalam tag <strong className="uppercase bg-black text-white px-2 py-1 mx-1">&lt;head&gt;</strong> pada HTML kamu. Selesai! Kekuatan Bootstrap langsung aktif.
@@ -179,6 +180,8 @@ export default function PemasanganBootstrapPage() {
               </div>
 
             </section>
+
+            <QuizTrigger pageSlug="pemasangan-bootstrap" />
 
           </div>
         </main>

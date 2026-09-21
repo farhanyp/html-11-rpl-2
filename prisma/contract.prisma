@@ -23,6 +23,18 @@ enum PageAccessStatus {
   COMPLETED
 }
 
+model Classroom {
+  id          String   @id
+  name        String
+  joinCode    String   @unique
+  maxStudents Int      @default(32)
+  isActive    Boolean  @default(true)
+  createdAt   TimestamptzString @default(now())
+  updatedAt   temporal.updatedAtString()
+  
+  users       User[]
+}
+
 model User {
   id         String            @id @default(uuid())
   name       String
@@ -31,6 +43,8 @@ model User {
   role       Role              @default(MURID)
   avatar     String?
   isActive             Boolean           @default(true)
+  classId              String?
+  classroom            Classroom?        @relation(fields: [classId], references: [id])
   failedLoginAttempts  Int               @default(0)
   lockedUntil          TimestamptzString?
   createdAt            TimestamptzString @default(now())
@@ -39,7 +53,8 @@ model User {
   quizAttempts QuizAttempt[]
   pageAccesses PageAccess[]
   sessions     Session[]
-  auditLogs    AuditLog[]
+  auditLogs       AuditLog[]
+  quizAssignments QuizAssignment[]
 }
 
 model MaterialCategory {
@@ -104,6 +119,20 @@ model PageSequence {
   prerequisitePage Page?  @relation("PrerequisitePage", fields: [prerequisitePageId], references: [id])
 }
 
+model QuizAssignment {
+  id            String   @id @default(uuid())
+  quizPackageId String
+  quizVariantId String
+  studentId     String
+  assignedAt    TimestamptzString @default(now())
+  
+  package       QuizPackage @relation(fields: [quizPackageId], references: [id])
+  variant       QuizVariant @relation(fields: [quizVariantId], references: [id])
+  student       User        @relation(fields: [studentId], references: [id])
+
+  @@unique([quizPackageId, studentId])
+}
+
 model QuizPackage {
   id           String   @id @default(uuid())
   pageId       String   @unique
@@ -117,7 +146,8 @@ model QuizPackage {
   updatedAt    temporal.updatedAtString()
 
   page         Page     @relation(fields: [pageId], references: [id])
-  variants     QuizVariant[]
+  variants        QuizVariant[]
+  assignments     QuizAssignment[]
 }
 
 model QuizVariant {
@@ -129,7 +159,8 @@ model QuizVariant {
 
   package        QuizPackage   @relation(fields: [quizPackageId], references: [id])
   questions      Question[]
-  attempts       QuizAttempt[]
+  attempts        QuizAttempt[]
+  assignments     QuizAssignment[]
 }
 
 model Question {
@@ -200,6 +231,8 @@ model PageAccess {
   @@unique([pageId, studentId])
 }
 
+
+
 model Session {
   id           String            @id @default(uuid())
   userId       String
@@ -222,4 +255,7 @@ model AuditLog {
 
   user      User?             @relation(fields: [userId], references: [id])
 }
+
+
+
 

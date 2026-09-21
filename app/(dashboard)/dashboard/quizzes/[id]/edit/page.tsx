@@ -1,6 +1,8 @@
 import { getQuizPackageById, getQuizzesWithPageStatus } from '@/modules/quiz/quiz.service';
+import { getAllClasses } from '@/modules/class/class.service';
 import QuizPackageForm from '@/components/quiz/QuizPackageForm';
 import VariantList from '@/components/quiz/VariantList';
+import QuizAssignmentView from '@/components/quiz/QuizAssignmentView';
 import Link from 'next/link';
 import { notFound } from 'next/navigation';
 
@@ -14,6 +16,7 @@ export default async function EditQuizPage({ params }: { params: Promise<{ id: s
   const allPages = await getQuizzesWithPageStatus();
   // Include pages without quiz PLUS the current page for this quiz
   const availablePages = allPages.filter(p => !p.hasQuizPackage || p.id === pkg.pageId);
+  const classes = await getAllClasses();
 
   return (
     <div className="p-6 max-w-5xl mx-auto space-y-8">
@@ -35,9 +38,20 @@ export default async function EditQuizPage({ params }: { params: Promise<{ id: s
           />
         </div>
 
-        <div className="lg:col-span-2">
-          <h2 className="text-lg font-semibold mb-4">Daftar Varian Kuis</h2>
-          <VariantList packageId={pkg.id} variants={pkg.variants || []} />
+        <div className="lg:col-span-2 space-y-8">
+          <section>
+            <h2 className="text-lg font-semibold mb-4">Daftar Varian Kuis</h2>
+            <VariantList packageId={pkg.id} variants={pkg.variants || []} />
+          </section>
+
+          <section>
+            <h2 className="text-lg font-semibold mb-4">Penugasan Kuis per Kelas</h2>
+            <QuizAssignmentView 
+              packageId={pkg.id}
+              classes={classes}
+              variants={pkg.variants || []}
+            />
+          </section>
         </div>
       </div>
     </div>

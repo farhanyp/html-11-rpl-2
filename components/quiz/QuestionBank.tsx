@@ -1,6 +1,6 @@
 'use client';
 
-import { useState } from 'react';
+import { useState, useEffect } from 'react';
 import { useRouter } from 'next/navigation';
 import { createQuestionAction, deleteQuestionAction, reorderQuestionsAction } from '@/modules/quiz/quiz.action';
 
@@ -12,6 +12,11 @@ type QuestionBankProps = {
 export default function QuestionBank({ quizVariantId, initialQuestions }: QuestionBankProps) {
   const router = useRouter();
   const [questions, setQuestions] = useState(initialQuestions);
+
+  useEffect(() => {
+    setQuestions(initialQuestions);
+  }, [initialQuestions]);
+  
   const [showForm, setShowForm] = useState(false);
   const [formType, setFormType] = useState<'PILIHAN_GANDA' | 'ESSAY'>('PILIHAN_GANDA');
   const [options, setOptions] = useState([{ text: '', isCorrect: true }, { text: '', isCorrect: false }]);

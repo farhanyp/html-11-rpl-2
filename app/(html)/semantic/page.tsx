@@ -3,6 +3,7 @@
 import Headbar from '@/components/Headbar';
 import Sidebar from '@/components/Sidebar';
 import CodeBlock from '@/components/CodeBlock';
+import QuizTrigger from '@/components/quiz-engine/QuizTrigger';
 
 export default function SemanticPage() {
   return (
@@ -197,6 +198,8 @@ export default function SemanticPage() {
                 </div>
               </div>
             </section>
+
+            <QuizTrigger pageSlug="semantic" />
 
             {/* Footer */}
             <footer className="mt-16 mb-8 flex flex-col md:flex-row justify-between items-center gap-4 border-t-4 border-black pt-8">

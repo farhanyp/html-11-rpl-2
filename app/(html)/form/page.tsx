@@ -3,6 +3,7 @@
 import Headbar from '@/components/Headbar';
 import Sidebar from '@/components/Sidebar';
 import CodeBlock from '@/components/CodeBlock';
+import QuizTrigger from '@/components/quiz-engine/QuizTrigger';
 
 export default function FormPage() {
   return (
@@ -47,7 +48,7 @@ export default function FormPage() {
                     Form bertugas untuk "mengumpulkan data" dari pengunjung website, lalu mengirimkannya ke server (sistem di balik layar) agar bisa diproses (misal: untuk login, daftar akun, atau mengirim pesan).
                   </p>
                 </div>
-                
+
                 {/* Contoh Visual Form (Mockup UI) */}
                 <div className="lg:w-1/3 bg-white border-4 border-black shadow-[8px_8px_0px_rgba(0,0,0,1)] p-6 rotate-2 w-full max-w-sm">
                   <h3 className="font-black text-xl uppercase mb-6 text-center border-b-4 border-black pb-2">Contoh Real: Form Login</h3>
@@ -249,6 +250,8 @@ export default function FormPage() {
 
               </div>
             </section>
+
+            <QuizTrigger pageSlug="form" />
 
             {/* Footer */}
             <footer className="mt-16 mb-8 flex flex-col md:flex-row justify-between items-center gap-4 border-t-4 border-black pt-8">

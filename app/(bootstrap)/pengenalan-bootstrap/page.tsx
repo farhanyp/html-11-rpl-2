@@ -1,6 +1,7 @@
 "use client";
 
 import Headbar from '@/components/Headbar';
+import QuizTrigger from '@/components/quiz-engine/QuizTrigger';
 import Sidebar from '@/components/Sidebar';
 import { useState } from 'react';
 
@@ -65,7 +66,7 @@ export default function PengenalanBootstrapPage() {
               <div className="flex flex-col md:flex-row gap-8 items-stretch mb-10">
                 <div className="flex-1 bg-mint-canvas border-4 border-black p-6 md:p-8 shadow-neo-md hover:-translate-y-2 transition-transform">
                   <p className="text-lg md:text-xl font-bold text-forest-teal leading-relaxed mb-4">
-                    Kata <strong>Framework</strong> secara bahasa artinya "Kerangka Kerja". 
+                    Kata <strong>Framework</strong> secara bahasa artinya "Kerangka Kerja".
                     Nah, Bootstrap itu adalah salah satu jenis <em>CSS Framework</em> yang paling terkenal di dunia.
                   </p>
                   <p className="text-lg md:text-xl font-bold text-forest-teal leading-relaxed">
@@ -86,27 +87,27 @@ export default function PengenalanBootstrapPage() {
                 <span className="bg-white text-black w-12 h-12 md:w-16 md:h-16 flex items-center justify-center border-4 border-black shadow-neo-sm flex-shrink-0 text-2xl md:text-4xl">02</span>
                 Biar Paham: Analogi Tukang Kayu
               </h2>
-              
+
               <div className="grid grid-cols-1 md:grid-cols-2 gap-8 mb-6">
-                
+
                 {/* Kartu 1: Manual */}
                 <div className="bg-white border-4 border-black p-6 md:p-8 shadow-neo-lg flex flex-col items-center text-center group hover:-translate-y-2 transition-transform">
                   <div className="w-20 h-20 bg-canvas border-4 border-black rounded-full flex items-center justify-center mb-6 group-hover:scale-110 transition-transform shadow-neo-sm">
                     <span className="material-symbols-outlined text-5xl text-pine-deep">hardware</span>
                   </div>
-                  <h3 className="text-2xl md:text-3xl font-black uppercase text-black mb-4 border-b-4 border-black pb-2">Cara Lama <br/> <span className="text-xl">(HTML & CSS Murni)</span></h3>
+                  <h3 className="text-2xl md:text-3xl font-black uppercase text-black mb-4 border-b-4 border-black pb-2">Cara Lama <br /> <span className="text-xl">(HTML & CSS Murni)</span></h3>
                   <p className="font-bold text-forest-teal text-lg">
-                    Bayangkan kamu ingin membuat lemari. Kamu harus pergi ke hutan, menebang pohon, memotong kayu dari nol, merakit, lalu mengecatnya sendiri. 
+                    Bayangkan kamu ingin membuat lemari. Kamu harus pergi ke hutan, menebang pohon, memotong kayu dari nol, merakit, lalu mengecatnya sendiri.
                   </p>
                   <p className="mt-4 bg-black text-white px-4 py-2 font-black uppercase shadow-neo-sm w-full">Sangat Lama & Lelah! 🥵</p>
                 </div>
-                
+
                 {/* Kartu 2: Bootstrap */}
                 <div className="bg-jade-vibrant border-4 border-black p-6 md:p-8 shadow-neo-lg flex flex-col items-center text-center group hover:-translate-y-2 transition-transform">
                   <div className="w-20 h-20 bg-white border-4 border-black rounded-full flex items-center justify-center mb-6 group-hover:scale-110 transition-transform shadow-neo-sm">
                     <span className="material-symbols-outlined text-5xl text-black">inventory_2</span>
                   </div>
-                  <h3 className="text-2xl md:text-3xl font-black uppercase text-white mb-4 border-b-4 border-white pb-2 drop-shadow-[2px_2px_0px_rgba(0,0,0,1)]">Cara Modern <br/> <span className="text-xl">(Pakai Bootstrap)</span></h3>
+                  <h3 className="text-2xl md:text-3xl font-black uppercase text-white mb-4 border-b-4 border-white pb-2 drop-shadow-[2px_2px_0px_rgba(0,0,0,1)]">Cara Modern <br /> <span className="text-xl">(Pakai Bootstrap)</span></h3>
                   <p className="font-bold text-white text-lg drop-shadow-[1px_1px_0px_rgba(0,0,0,0.5)]">
                     Seperti kamu beli perabotan di toko <strong>IKEA</strong>. Lemarinya sudah dipotong rapi, sudah dicat, dan ada lubang baut. Tugasmu sisa <strong>MERAKITNYA</strong>!
                   </p>
@@ -124,7 +125,7 @@ export default function PengenalanBootstrapPage() {
               </h2>
 
               <div className="space-y-6 md:space-y-8">
-                
+
                 <div className="flex flex-col md:flex-row items-stretch border-4 border-black bg-white shadow-neo-md hover:translate-x-2 transition-transform group">
                   <div className="bg-mint-soft w-full md:w-32 border-b-4 md:border-b-0 md:border-r-4 border-black flex items-center justify-center p-6">
                     <span className="material-symbols-outlined text-6xl text-black group-hover:scale-125 transition-transform">timer</span>
@@ -172,6 +173,8 @@ export default function PengenalanBootstrapPage() {
               </div>
 
             </section>
+
+            <QuizTrigger pageSlug="pengenalan-bootstrap" />
 
           </div>
         </main>

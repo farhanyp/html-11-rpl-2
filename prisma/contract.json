@@ -8,6 +8,10 @@
       "model": "AuditLog",
       "namespace": "public"
     },
+    "classroom": {
+      "model": "Classroom",
+      "namespace": "public"
+    },
     "materialCategory": {
       "model": "MaterialCategory",
       "namespace": "public"
@@ -34,6 +38,10 @@
     },
     "questionOption": {
       "model": "QuestionOption",
+      "namespace": "public"
+    },
+    "quizAssignment": {
+      "model": "QuizAssignment",
       "namespace": "public"
     },
     "quizAttempt": {
@@ -217,6 +225,103 @@
               },
               "namespaceId": "public",
               "table": "auditLog"
+            }
+          },
+          "Classroom": {
+            "fields": {
+              "createdAt": {
+                "nullable": false,
+                "type": {
+                  "codecId": "pg/timestamptz-string@1",
+                  "kind": "scalar"
+                }
+              },
+              "id": {
+                "nullable": false,
+                "type": {
+                  "codecId": "pg/text@1",
+                  "kind": "scalar"
+                }
+              },
+              "isActive": {
+                "nullable": false,
+                "type": {
+                  "codecId": "pg/bool@1",
+                  "kind": "scalar"
+                }
+              },
+              "joinCode": {
+                "nullable": false,
+                "type": {
+                  "codecId": "pg/text@1",
+                  "kind": "scalar"
+                }
+              },
+              "maxStudents": {
+                "nullable": false,
+                "type": {
+                  "codecId": "pg/int4@1",
+                  "kind": "scalar"
+                }
+              },
+              "name": {
+                "nullable": false,
+                "type": {
+                  "codecId": "pg/text@1",
+                  "kind": "scalar"
+                }
+              },
+              "updatedAt": {
+                "nullable": false,
+                "type": {
+                  "codecId": "pg/timestamptz-string@1",
+                  "kind": "scalar"
+                }
+              }
+            },
+            "relations": {
+              "users": {
+                "cardinality": "1:N",
+                "on": {
+                  "localFields": [
+                    "id"
+                  ],
+                  "targetFields": [
+                    "classId"
+                  ]
+                },
+                "to": {
+                  "model": "User",
+                  "namespace": "public"
+                }
+              }
+            },
+            "storage": {
+              "fields": {
+                "createdAt": {
+                  "column": "createdAt"
+                },
+                "id": {
+                  "column": "id"
+                },
+                "isActive": {
+                  "column": "isActive"
+                },
+                "joinCode": {
+                  "column": "joinCode"
+                },
+                "maxStudents": {
+                  "column": "maxStudents"
+                },
+                "name": {
+                  "column": "name"
+                },
+                "updatedAt": {
+                  "column": "updatedAt"
+                }
+              },
+              "namespaceId": "public",
+              "table": "classroom"
             }
           },
           "MaterialCategory": {
@@ -1080,6 +1185,116 @@
               "table": "questionOption"
             }
           },
+          "QuizAssignment": {
+            "fields": {
+              "assignedAt": {
+                "nullable": false,
+                "type": {
+                  "codecId": "pg/timestamptz-string@1",
+                  "kind": "scalar"
+                }
+              },
+              "id": {
+                "nullable": false,
+                "type": {
+                  "codecId": "pg/text@1",
+                  "kind": "scalar"
+                }
+              },
+              "quizPackageId": {
+                "nullable": false,
+                "type": {
+                  "codecId": "pg/text@1",
+                  "kind": "scalar"
+                }
+              },
+              "quizVariantId": {
+                "nullable": false,
+                "type": {
+                  "codecId": "pg/text@1",
+                  "kind": "scalar"
+                }
+              },
+              "studentId": {
+                "nullable": false,
+                "type": {
+                  "codecId": "pg/text@1",
+                  "kind": "scalar"
+                }
+              }
+            },
+            "relations": {
+              "package": {
+                "cardinality": "N:1",
+                "nullable": false,
+                "on": {
+                  "localFields": [
+                    "quizPackageId"
+                  ],
+                  "targetFields": [
+                    "id"
+                  ]
+                },
+                "to": {
+                  "model": "QuizPackage",
+                  "namespace": "public"
+                }
+              },
+              "student": {
+                "cardinality": "N:1",
+                "nullable": false,
+                "on": {
+                  "localFields": [
+                    "studentId"
+                  ],
+                  "targetFields": [
+                    "id"
+                  ]
+                },
+                "to": {
+                  "model": "User",
+                  "namespace": "public"
+                }
+              },
+              "variant": {
+                "cardinality": "N:1",
+                "nullable": false,
+                "on": {
+                  "localFields": [
+                    "quizVariantId"
+                  ],
+                  "targetFields": [
+                    "id"
+                  ]
+                },
+                "to": {
+                  "model": "QuizVariant",
+                  "namespace": "public"
+                }
+              }
+            },
+            "storage": {
+              "fields": {
+                "assignedAt": {
+                  "column": "assignedAt"
+                },
+                "id": {
+                  "column": "id"
+                },
+                "quizPackageId": {
+                  "column": "quizPackageId"
+                },
+                "quizVariantId": {
+                  "column": "quizVariantId"
+                },
+                "studentId": {
+                  "column": "studentId"
+                }
+              },
+              "namespaceId": "public",
+              "table": "quizAssignment"
+            }
+          },
           "QuizAttempt": {
             "fields": {
               "finishedAt": {
@@ -1289,6 +1504,21 @@
               }
             },
             "relations": {
+              "assignments": {
+                "cardinality": "1:N",
+                "on": {
+                  "localFields": [
+                    "id"
+                  ],
+                  "targetFields": [
+                    "quizPackageId"
+                  ]
+                },
+                "to": {
+                  "model": "QuizAssignment",
+                  "namespace": "public"
+                }
+              },
               "page": {
                 "cardinality": "N:1",
                 "nullable": false,
@@ -1397,6 +1627,21 @@
               }
             },
             "relations": {
+              "assignments": {
+                "cardinality": "1:N",
+                "on": {
+                  "localFields": [
+                    "id"
+                  ],
+                  "targetFields": [
+                    "quizVariantId"
+                  ]
+                },
+                "to": {
+                  "model": "QuizAssignment",
+                  "namespace": "public"
+                }
+              },
               "attempts": {
                 "cardinality": "1:N",
                 "on": {
@@ -1703,6 +1948,13 @@
                   "kind": "scalar"
                 }
               },
+              "classId": {
+                "nullable": true,
+                "type": {
+                  "codecId": "pg/text@1",
+                  "kind": "scalar"
+                }
+              },
               "createdAt": {
                 "nullable": false,
                 "type": {
@@ -1796,6 +2048,22 @@
                   "namespace": "public"
                 }
               },
+              "classroom": {
+                "cardinality": "N:1",
+                "nullable": true,
+                "on": {
+                  "localFields": [
+                    "classId"
+                  ],
+                  "targetFields": [
+                    "id"
+                  ]
+                },
+                "to": {
+                  "model": "Classroom",
+                  "namespace": "public"
+                }
+              },
               "pageAccesses": {
                 "cardinality": "1:N",
                 "on": {
@@ -1808,6 +2076,21 @@
                 },
                 "to": {
                   "model": "PageAccess",
+                  "namespace": "public"
+                }
+              },
+              "quizAssignments": {
+                "cardinality": "1:N",
+                "on": {
+                  "localFields": [
+                    "id"
+                  ],
+                  "targetFields": [
+                    "studentId"
+                  ]
+                },
+                "to": {
+                  "model": "QuizAssignment",
                   "namespace": "public"
                 }
               },
@@ -1846,6 +2129,9 @@
               "fields": {
                 "avatar": {
                   "column": "avatar"
+                },
+                "classId": {
+                  "column": "classId"
                 },
                 "createdAt": {
                   "column": "createdAt"
@@ -1962,6 +2248,71 @@
                 ]
               },
               "uniques": []
+            },
+            "classroom": {
+              "columns": {
+                "createdAt": {
+                  "codecId": "pg/timestamptz-string@1",
+                  "default": {
+                    "expression": "now()",
+                    "kind": "function"
+                  },
+                  "nativeType": "timestamptz",
+                  "nullable": false
+                },
+                "id": {
+                  "codecId": "pg/text@1",
+                  "nativeType": "text",
+                  "nullable": false
+                },
+                "isActive": {
+                  "codecId": "pg/bool@1",
+                  "default": {
+                    "kind": "literal",
+                    "value": true
+                  },
+                  "nativeType": "bool",
+                  "nullable": false
+                },
+                "joinCode": {
+                  "codecId": "pg/text@1",
+                  "nativeType": "text",
+                  "nullable": false
+                },
+                "maxStudents": {
+                  "codecId": "pg/int4@1",
+                  "default": {
+                    "kind": "literal",
+                    "value": 32
+                  },
+                  "nativeType": "int4",
+                  "nullable": false
+                },
+                "name": {
+                  "codecId": "pg/text@1",
+                  "nativeType": "text",
+                  "nullable": false
+                },
+                "updatedAt": {
+                  "codecId": "pg/timestamptz-string@1",
+                  "nativeType": "timestamptz",
+                  "nullable": false
+                }
+              },
+              "foreignKeys": [],
+              "indexes": [],
+              "primaryKey": {
+                "columns": [
+                  "id"
+                ]
+              },
+              "uniques": [
+                {
+                  "columns": [
+                    "joinCode"
+                  ]
+                }
+              ]
             },
             "materialCategory": {
               "columns": {
@@ -2603,6 +2954,128 @@
               },
               "uniques": []
             },
+            "quizAssignment": {
+              "columns": {
+                "assignedAt": {
+                  "codecId": "pg/timestamptz-string@1",
+                  "default": {
+                    "expression": "now()",
+                    "kind": "function"
+                  },
+                  "nativeType": "timestamptz",
+                  "nullable": false
+                },
+                "id": {
+                  "codecId": "pg/text@1",
+                  "nativeType": "text",
+                  "nullable": false
+                },
+                "quizPackageId": {
+                  "codecId": "pg/text@1",
+                  "nativeType": "text",
+                  "nullable": false
+                },
+                "quizVariantId": {
+                  "codecId": "pg/text@1",
+                  "nativeType": "text",
+                  "nullable": false
+                },
+                "studentId": {
+                  "codecId": "pg/text@1",
+                  "nativeType": "text",
+                  "nullable": false
+                }
+              },
+              "foreignKeys": [
+                {
+                  "source": {
+                    "columns": [
+                      "quizPackageId"
+                    ],
+                    "namespaceId": "public",
+                    "tableName": "quizAssignment"
+                  },
+                  "target": {
+                    "columns": [
+                      "id"
+                    ],
+                    "namespaceId": "public",
+                    "tableName": "quizPackage"
+                  }
+                },
+                {
+                  "source": {
+                    "columns": [
+                      "quizVariantId"
+                    ],
+                    "namespaceId": "public",
+                    "tableName": "quizAssignment"
+                  },
+                  "target": {
+                    "columns": [
+                      "id"
+                    ],
+                    "namespaceId": "public",
+                    "tableName": "quizVariant"
+                  }
+                },
+                {
+                  "source": {
+                    "columns": [
+                      "studentId"
+                    ],
+                    "namespaceId": "public",
+                    "tableName": "quizAssignment"
+                  },
+                  "target": {
+                    "columns": [
+                      "id"
+                    ],
+                    "namespaceId": "public",
+                    "tableName": "user"
+                  }
+                }
+              ],
+              "indexes": [
+                {
+                  "columns": [
+                    "quizPackageId"
+                  ],
+                  "name": "quizAssignment_quizPackageId_idx_5e8f85e9",
+                  "prefix": "quizAssignment_quizPackageId_idx",
+                  "unique": false
+                },
+                {
+                  "columns": [
+                    "quizVariantId"
+                  ],
+                  "name": "quizAssignment_quizVariantId_idx_bb620c0b",
+                  "prefix": "quizAssignment_quizVariantId_idx",
+                  "unique": false
+                },
+                {
+                  "columns": [
+                    "studentId"
+                  ],
+                  "name": "quizAssignment_studentId_idx_bf255322",
+                  "prefix": "quizAssignment_studentId_idx",
+                  "unique": false
+                }
+              ],
+              "primaryKey": {
+                "columns": [
+                  "id"
+                ]
+              },
+              "uniques": [
+                {
+                  "columns": [
+                    "quizPackageId",
+                    "studentId"
+                  ]
+                }
+              ]
+            },
             "quizAttempt": {
               "checks": [
                 {
@@ -3111,6 +3584,11 @@
                   "nativeType": "text",
                   "nullable": true
                 },
+                "classId": {
+                  "codecId": "pg/text@1",
+                  "nativeType": "text",
+                  "nullable": true
+                },
                 "createdAt": {
                   "codecId": "pg/timestamptz-string@1",
                   "default": {
@@ -3184,8 +3662,34 @@
                   "nullable": false
                 }
               },
-              "foreignKeys": [],
-              "indexes": [],
+              "foreignKeys": [
+                {
+                  "source": {
+                    "columns": [
+                      "classId"
+                    ],
+                    "namespaceId": "public",
+                    "tableName": "user"
+                  },
+                  "target": {
+                    "columns": [
+                      "id"
+                    ],
+                    "namespaceId": "public",
+                    "tableName": "classroom"
+                  }
+                }
+              ],
+              "indexes": [
+                {
+                  "columns": [
+                    "classId"
+                  ],
+                  "name": "user_classId_idx_0089e5e7",
+                  "prefix": "user_classId_idx",
+                  "unique": false
+                }
+              ],
               "primaryKey": {
                 "columns": [
                   "id"
@@ -3238,10 +3742,10 @@
         "kind": "postgres-schema"
       }
     },
-    "storageHash": "7823346cea26900d3c59288fa4764df1b3d248f1eb4d353474fe6b45fdc5ca35"
+    "storageHash": "407b46c154bb38a02b8230257fa223d6d895beda3be9a303ea177563a37cfa0b"
   },
   "execution": {
-    "executionHash": "f657b12d92159794fcd84e5a63aa2aade63bff505dd347c53d1d4b1f35d496f5",
+    "executionHash": "5fd717a4f45a0609d14dc591720ad1ac46ef28252c26f89a27286cea456a7772",
     "mutations": {
       "defaults": [
         {
@@ -3253,6 +3757,21 @@
             "column": "id",
             "namespace": "public",
             "table": "auditLog"
+          }
+        },
+        {
+          "onCreate": {
+            "id": "timestampNow",
+            "kind": "generator"
+          },
+          "onUpdate": {
+            "id": "timestampNow",
+            "kind": "generator"
+          },
+          "ref": {
+            "column": "updatedAt",
+            "namespace": "public",
+            "table": "classroom"
           }
         },
         {
@@ -3405,6 +3924,17 @@
             "column": "id",
             "namespace": "public",
             "table": "questionOption"
+          }
+        },
+        {
+          "onCreate": {
+            "id": "uuidv4",
+            "kind": "generator"
+          },
+          "ref": {
+            "column": "id",
+            "namespace": "public",
+            "table": "quizAssignment"
           }
         },
         {

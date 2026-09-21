@@ -1,6 +1,7 @@
 "use client";
 
 import Headbar from '@/components/Headbar';
+import QuizTrigger from '@/components/quiz-engine/QuizTrigger';
 import Sidebar from '@/components/Sidebar';
 import { useState } from 'react';
 
@@ -61,7 +62,7 @@ export default function UtilitasBootstrapPage() {
                 <span className="bg-mint-soft text-black w-12 h-12 md:w-16 md:h-16 flex items-center justify-center border-4 border-black shadow-neo-sm flex-shrink-0 text-2xl md:text-4xl">A</span>
                 Spasi (Margin & Padding)
               </h2>
-              
+
               <div className="mb-8 p-6 md:p-8 bg-mint-canvas border-4 border-black shadow-neo-md hover:-translate-y-2 transition-transform">
                 <p className="text-lg md:text-xl font-bold text-forest-teal leading-relaxed">
                   Ingin memberi jarak antar kotak supaya tidak saling berdempetan? Bootstrap punya rumus singkatan yang super gampang untuk mengatur <strong>Margin</strong> (Jarak Luar) dan <strong>Padding</strong> (Jarak Dalam).
@@ -73,7 +74,7 @@ export default function UtilitasBootstrapPage() {
                   <h3 className="text-2xl font-black uppercase text-black border-b-4 border-black pb-2 mb-4">Rumus Rahasia</h3>
                   <ol className="list-decimal pl-5 space-y-4 font-bold text-lg text-forest-teal">
                     <li><strong className="text-black bg-mint-soft px-1 border-2 border-black inline-block mb-1">Pilih Jenisnya:</strong> Huruf <code>m</code> (untuk Margin) atau <code>p</code> (untuk Padding).</li>
-                    <li><strong className="text-black bg-mint-soft px-1 border-2 border-black inline-block mb-1">Pilih Arahnya:</strong> 
+                    <li><strong className="text-black bg-mint-soft px-1 border-2 border-black inline-block mb-1">Pilih Arahnya:</strong>
                       <ul className="list-disc pl-5 mt-2 space-y-1">
                         <li><code>t</code> = Top (Atas)</li>
                         <li><code>b</code> = Bottom (Bawah)</li>
@@ -90,7 +91,7 @@ export default function UtilitasBootstrapPage() {
                   <span className="material-symbols-outlined text-6xl text-jade-vibrant mb-4">calculate</span>
                   <p className="text-xl md:text-2xl font-black uppercase tracking-widest mb-2">Jadi, kalau digabung:</p>
                   <p className="text-4xl md:text-6xl font-black text-mint-soft drop-shadow-[2px_2px_0px_rgba(255,255,255,0.2)]">mt-3</p>
-                  <p className="font-bold text-gray-300 mt-2">Artinya: <br/>Margin (m) + Top (t) + Ukuran 3</p>
+                  <p className="font-bold text-gray-300 mt-2">Artinya: <br />Margin (m) + Top (t) + Ukuran 3</p>
                 </div>
               </div>
 
@@ -128,12 +129,12 @@ export default function UtilitasBootstrapPage() {
                 <span className="bg-jade-vibrant text-white w-12 h-12 md:w-16 md:h-16 flex items-center justify-center border-4 border-black shadow-neo-sm flex-shrink-0 text-2xl md:text-4xl">B</span>
                 Modifikasi Teks Instan
               </h2>
-              
+
               <div className="flex flex-col xl:flex-row gap-8 items-stretch">
                 {/* Visual Demo */}
                 <div className="flex-1 flex flex-col gap-4 border-4 border-black p-6 md:p-10 bg-white shadow-neo-md justify-center group">
                   <p className="text-lg font-bold text-forest-teal mb-4 text-center">Tadinya teks biasa, cukup tambah <code className="bg-mint-soft px-1 border-2 border-black">text-center</code> dan <code className="bg-mint-soft px-1 border-2 border-black">fw-bold</code>, jadinya:</p>
-                  
+
                   <div className="bg-mint-canvas border-4 border-black p-8 group-hover:bg-jade-vibrant group-hover:text-white transition-colors shadow-neo-sm">
                     <h1 className="text-4xl md:text-6xl font-black text-center tracking-tighter uppercase">Halo Dunia!</h1>
                   </div>
@@ -157,6 +158,8 @@ export default function UtilitasBootstrapPage() {
                 </div>
               </div>
             </section>
+
+            <QuizTrigger pageSlug="utilitas-bootstrap" />
 
           </div>
         </main>

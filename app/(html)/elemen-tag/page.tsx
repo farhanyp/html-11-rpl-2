@@ -4,6 +4,7 @@ import Headbar from '@/components/Headbar';
 import Sidebar from '@/components/Sidebar';
 import CodeBlock from '@/components/CodeBlock';
 import Link from 'next/link';
+import QuizTrigger from '@/components/quiz-engine/QuizTrigger';
 
 export default function ElemenTagPage() {
   return (
@@ -89,7 +90,7 @@ export default function ElemenTagPage() {
                         code={`<div>Ini adalah blok pertama</div>\n<p>Ini adalah blok kedua (di baris baru)</p>`}
                       />
                     </div>
-                    
+
                     {/* Ilustrasi Visual Block */}
                     <div className="mb-8 bg-mint-canvas border-4 border-black p-4 md:p-6 relative mt-10 shadow-neo-sm">
                       <div className="absolute top-[-20px] left-4 bg-jade-vibrant text-black px-3 py-1 border-4 border-black font-black uppercase text-sm shadow-[2px_2px_0px_rgba(0,0,0,1)]">Ilustrasi Visual</div>
@@ -257,6 +258,8 @@ export default function ElemenTagPage() {
                 </div>
               </div>
             </section>
+
+            <QuizTrigger pageSlug="elemen-tag" />
 
             {/* Footer */}
             <footer className="mt-16 mb-8 flex flex-col md:flex-row justify-between items-center gap-4 border-t-4 border-black pt-8">

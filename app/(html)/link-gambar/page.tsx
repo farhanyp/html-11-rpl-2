@@ -3,6 +3,7 @@
 import Headbar from '@/components/Headbar';
 import Sidebar from '@/components/Sidebar';
 import CodeBlock from '@/components/CodeBlock';
+import QuizTrigger from '@/components/quiz-engine/QuizTrigger';
 
 export default function LinkGambarPage() {
   return (
@@ -154,7 +155,7 @@ export default function LinkGambarPage() {
                     code={`<!-- Gambar berhasil dimuat -->\n<img src="/link-gambar/image1.jpg" alt="Pemandangan Alam yang Indah">\n\n<!-- Gambar GAGAL dimuat (karena salah URL atau file tidak ada) -->\n<img src="/gambar-salah.jpg" alt="Gambar ini gagal dimuat karena URL salah">`}
                   />
                 </div>
-                
+
                 <h4 className="font-black text-xl uppercase mb-4 text-forest-teal">Hasil Render di Browser:</h4>
                 <div className="grid grid-cols-1 md:grid-cols-2 gap-6 bg-mint-canvas border-4 border-black p-4 md:p-6 shadow-[4px_4px_0px_rgba(0,0,0,1)]">
                   {/* Gambar Sukses */}
@@ -214,7 +215,7 @@ export default function LinkGambarPage() {
                   </div>
                   <span className="font-black text-black uppercase tracking-widest text-sm group-hover:text-jade-vibrant transition-colors">GitHub</span>
                 </a>
-                
+
                 {/* TikTok */}
                 <a href="https://tiktok.com" target="_blank" rel="noopener noreferrer" className="group flex flex-col items-center gap-3">
                   <div className="w-24 h-24 bg-[#ff90e8] border-4 border-black flex items-center justify-center shadow-neo-sm group-hover:-translate-y-2 group-hover:shadow-neo-md transition-all">
@@ -284,6 +285,8 @@ export default function LinkGambarPage() {
                 </div>
               </div>
             </section>
+
+            <QuizTrigger pageSlug="link-gambar" />
 
             {/* Footer */}
             <footer className="mt-16 mb-8 flex flex-col md:flex-row justify-between items-center gap-4 border-t-4 border-black pt-8">

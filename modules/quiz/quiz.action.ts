@@ -36,7 +36,7 @@ export async function createQuizPackageAction(formData: FormData) {
     const validatedData = quizFormSchema.parse(rawData);
     await createQuizPackage(validatedData);
     
-    revalidatePath('/(dashboard)/dashboard/quizzes');
+  revalidatePath(`/dashboard/quizzes`);
     return { success: true };
   } catch (error) {
     if (error instanceof z.ZodError) {
@@ -61,8 +61,8 @@ export async function updateQuizPackageAction(id: string, formData: FormData) {
     const validatedData = quizFormSchema.parse(rawData);
     await updateQuizPackage(id, validatedData);
     
-    revalidatePath('/(dashboard)/dashboard/quizzes');
-    revalidatePath(`/(dashboard)/dashboard/quizzes/${id}/edit`);
+  revalidatePath(`/dashboard/quizzes`);
+    revalidatePath(`/dashboard/quizzes/${id}/edit`);
     return { success: true };
   } catch (error) {
     if (error instanceof z.ZodError) {
@@ -75,7 +75,7 @@ export async function updateQuizPackageAction(id: string, formData: FormData) {
 export async function deleteQuizPackageAction(id: string) {
   try {
     await deleteQuizPackage(id);
-    revalidatePath('/(dashboard)/dashboard/quizzes');
+  revalidatePath(`/dashboard/quizzes`);
     return { success: true };
   } catch (error) {
     return { success: false, message: error instanceof Error ? error.message : 'Unknown error' };
@@ -87,7 +87,7 @@ export async function createQuestionAction(data: any) {
     const validatedData = questionFormSchema.parse(data);
     await createQuestion(validatedData);
     
-    revalidatePath(`/(dashboard)/dashboard/quizzes/variants/${validatedData.quizVariantId}/questions`);
+    revalidatePath(`/dashboard/quizzes/variants/${validatedData.quizVariantId}/questions`);
     return { success: true };
   } catch (error) {
     if (error instanceof z.ZodError) {
@@ -102,7 +102,7 @@ export async function updateQuestionAction(id: string, data: any) {
     const validatedData = questionFormSchema.parse(data);
     await updateQuestion(id, validatedData);
     
-    revalidatePath(`/(dashboard)/dashboard/quizzes/variants/${validatedData.quizVariantId}/questions`);
+    revalidatePath(`/dashboard/quizzes/variants/${validatedData.quizVariantId}/questions`);
     return { success: true };
   } catch (error) {
     if (error instanceof z.ZodError) {
@@ -115,7 +115,7 @@ export async function updateQuestionAction(id: string, data: any) {
 export async function deleteQuestionAction(id: string, quizVariantId: string) {
   try {
     await deleteQuestion(id);
-    revalidatePath(`/(dashboard)/dashboard/quizzes/variants/${quizVariantId}/questions`);
+    revalidatePath(`/dashboard/quizzes/variants/${quizVariantId}/questions`);
     return { success: true };
   } catch (error) {
     return { success: false, message: error instanceof Error ? error.message : 'Unknown error' };
@@ -126,7 +126,7 @@ export async function reorderQuestionsAction(data: any) {
   try {
     const validatedData = reorderQuestionsSchema.parse(data);
     await reorderQuestions(validatedData.quizVariantId, validatedData.questionIds);
-    revalidatePath(`/(dashboard)/dashboard/quizzes/variants/${validatedData.quizVariantId}/questions`);
+    revalidatePath(`/dashboard/quizzes/variants/${validatedData.quizVariantId}/questions`);
     return { success: true };
   } catch (error) {
     return { success: false, message: 'Gagal mengubah urutan' };
@@ -144,7 +144,7 @@ export async function createQuizVariantAction(formData: FormData) {
     };
     const validatedData = quizVariantFormSchema.parse(rawData);
     await createQuizVariant(validatedData);
-    revalidatePath(`/(dashboard)/dashboard/quizzes/${validatedData.quizPackageId}/edit`);
+    revalidatePath(`/dashboard/quizzes/${validatedData.quizPackageId}/edit`);
     return { success: true };
   } catch (error) {
     return { success: false, message: error instanceof Error ? error.message : 'Unknown error' };
@@ -154,7 +154,7 @@ export async function createQuizVariantAction(formData: FormData) {
 export async function deleteQuizVariantAction(id: string, packageId: string) {
   try {
     await deleteQuizVariant(id);
-    revalidatePath(`/(dashboard)/dashboard/quizzes/${packageId}/edit`);
+    revalidatePath(`/dashboard/quizzes/${packageId}/edit`);
     return { success: true };
   } catch (error) {
     return { success: false, message: 'Gagal menghapus varian' };

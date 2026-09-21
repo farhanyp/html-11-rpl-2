@@ -3,6 +3,7 @@
 import Headbar from '@/components/Headbar';
 import Sidebar from '@/components/Sidebar';
 import CodeBlock from '@/components/CodeBlock';
+import QuizTrigger from '@/components/quiz-engine/QuizTrigger';
 
 export default function HeadingParagrafPage() {
   return (
@@ -214,6 +215,8 @@ export default function HeadingParagrafPage() {
                 </div>
               </div>
             </section>
+
+            <QuizTrigger pageSlug="heading-paragraf" />
 
             {/* Footer */}
             <footer className="mt-16 mb-8 flex flex-col md:flex-row justify-between items-center gap-4 border-t-4 border-black pt-8">

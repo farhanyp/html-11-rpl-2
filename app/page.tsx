@@ -2,6 +2,7 @@ import Headbar from '@/components/Headbar';
 import Sidebar from '@/components/Sidebar';
 import Link from 'next/link';
 import { getSession } from '@/lib/session';
+import QuizTrigger from '@/components/quiz-engine/QuizTrigger';
 
 export default async function Page() {
   const session = await getSession();
@@ -112,6 +113,8 @@ export default async function Page() {
             </div>
 
             {/* Footer */}
+            <QuizTrigger pageSlug="" />
+
             <footer className="mt-16 mb-8 flex flex-col md:flex-row justify-between items-center gap-4 border-t-4 border-black pt-8">
               <p className="font-black text-sm md:text-base uppercase tracking-widest text-forest-teal bg-white border-4 border-black px-4 py-2 shadow-neo-sm text-center md:text-left">
                 © 2026 FARHAN YUDHA PRATAMA

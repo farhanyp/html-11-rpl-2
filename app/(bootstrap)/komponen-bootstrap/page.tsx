@@ -1,6 +1,7 @@
 "use client";
 
 import Headbar from '@/components/Headbar';
+import QuizTrigger from '@/components/quiz-engine/QuizTrigger';
 import Sidebar from '@/components/Sidebar';
 import { useState } from 'react';
 
@@ -61,7 +62,7 @@ export default function KomponenBootstrapPage() {
                 <span className="bg-white text-black w-12 h-12 md:w-16 md:h-16 flex items-center justify-center border-4 border-black shadow-neo-sm flex-shrink-0 text-2xl md:text-4xl">A</span>
                 Warna Sakti Bootstrap
               </h2>
-              
+
               <div className="mb-8 p-6 md:p-8 bg-white border-4 border-black shadow-neo-md hover:-translate-y-2 transition-transform">
                 <p className="text-lg md:text-xl font-bold text-forest-teal leading-relaxed">
                   Bootstrap sudah menyiapkan palet warna sakti bawaan. Kamu tinggal tambahkan awalan <code className="bg-mint-soft px-2 py-1 text-black border-2 border-black inline-block mb-1">text-</code> untuk merubah warna tulisan, atau awalan <code className="bg-mint-soft px-2 py-1 text-black border-2 border-black inline-block mb-1">bg-</code> untuk warna latar belakang.
@@ -70,27 +71,27 @@ export default function KomponenBootstrapPage() {
 
               <div className="grid grid-cols-2 md:grid-cols-5 gap-4 md:gap-6">
                 <div className="bg-[#0d6efd] text-white p-6 border-4 border-black font-black text-center shadow-neo-md group hover:-translate-y-2 transition-transform">
-                  <span className="text-xl md:text-2xl uppercase tracking-widest group-hover:scale-110 inline-block transition-transform">primary</span> 
+                  <span className="text-xl md:text-2xl uppercase tracking-widest group-hover:scale-110 inline-block transition-transform">primary</span>
                   <hr className="border-black border-2 my-2 opacity-50" />
                   <span className="text-sm font-bold opacity-90">Biru (Utama)</span>
                 </div>
                 <div className="bg-[#198754] text-white p-6 border-4 border-black font-black text-center shadow-neo-md group hover:-translate-y-2 transition-transform">
-                  <span className="text-xl md:text-2xl uppercase tracking-widest group-hover:scale-110 inline-block transition-transform">success</span> 
+                  <span className="text-xl md:text-2xl uppercase tracking-widest group-hover:scale-110 inline-block transition-transform">success</span>
                   <hr className="border-black border-2 my-2 opacity-50" />
                   <span className="text-sm font-bold opacity-90">Hijau (Berhasil)</span>
                 </div>
                 <div className="bg-[#dc3545] text-white p-6 border-4 border-black font-black text-center shadow-neo-md group hover:-translate-y-2 transition-transform">
-                  <span className="text-xl md:text-2xl uppercase tracking-widest group-hover:scale-110 inline-block transition-transform">danger</span> 
+                  <span className="text-xl md:text-2xl uppercase tracking-widest group-hover:scale-110 inline-block transition-transform">danger</span>
                   <hr className="border-black border-2 my-2 opacity-50" />
                   <span className="text-sm font-bold opacity-90">Merah (Hapus/Error)</span>
                 </div>
                 <div className="bg-[#ffc107] text-black p-6 border-4 border-black font-black text-center shadow-neo-md group hover:-translate-y-2 transition-transform">
-                  <span className="text-xl md:text-2xl uppercase tracking-widest group-hover:scale-110 inline-block transition-transform">warning</span> 
+                  <span className="text-xl md:text-2xl uppercase tracking-widest group-hover:scale-110 inline-block transition-transform">warning</span>
                   <hr className="border-black border-2 my-2 opacity-50" />
                   <span className="text-sm font-bold opacity-90">Kuning (Peringatan)</span>
                 </div>
                 <div className="bg-[#212529] text-white p-6 border-4 border-black font-black text-center shadow-neo-md group hover:-translate-y-2 transition-transform">
-                  <span className="text-xl md:text-2xl uppercase tracking-widest group-hover:scale-110 inline-block transition-transform">dark</span> 
+                  <span className="text-xl md:text-2xl uppercase tracking-widest group-hover:scale-110 inline-block transition-transform">dark</span>
                   <hr className="border-black border-2 my-2 opacity-50" />
                   <span className="text-sm font-bold opacity-90">Hitam Gelap</span>
                 </div>
@@ -103,7 +104,7 @@ export default function KomponenBootstrapPage() {
                 <span className="bg-jade-vibrant text-white w-12 h-12 md:w-16 md:h-16 flex items-center justify-center border-4 border-black shadow-neo-sm flex-shrink-0 text-2xl md:text-4xl">B</span>
                 Tombol Instan (Buttons)
               </h2>
-              
+
               <div className="flex flex-col md:flex-row items-center gap-8 mb-10">
                 <div className="flex-1 bg-mint-canvas border-4 border-black p-6 shadow-neo-md">
                   <p className="text-lg md:text-xl font-bold text-forest-teal leading-relaxed">
@@ -119,7 +120,7 @@ export default function KomponenBootstrapPage() {
                     <button className="bg-[#0d6efd] text-white font-bold py-2 px-6 rounded-md hover:bg-blue-700 transition-colors shadow-sm">Simpan Data</button>
                     <button className="bg-[#dc3545] text-white font-bold py-2 px-6 rounded-md hover:bg-red-700 transition-colors shadow-sm">Hapus Data</button>
                   </div>
-                  <p className="mt-6 font-black text-gray-500 uppercase tracking-widest text-sm border-t-2 border-gray-300 pt-2 text-center">Demo Hasil Tombol <br/>Bawaan Bootstrap</p>
+                  <p className="mt-6 font-black text-gray-500 uppercase tracking-widest text-sm border-t-2 border-gray-300 pt-2 text-center">Demo Hasil Tombol <br />Bawaan Bootstrap</p>
                 </div>
 
                 {/* Code Block Visual */}
@@ -149,7 +150,7 @@ export default function KomponenBootstrapPage() {
                 <span className="bg-black text-white w-12 h-12 md:w-16 md:h-16 flex items-center justify-center border-4 border-black shadow-neo-sm flex-shrink-0 text-2xl md:text-4xl drop-shadow-none">C</span>
                 Kartu Keren (Cards)
               </h2>
-              
+
               <div className="mb-8 p-6 md:p-8 bg-black border-4 border-black shadow-neo-md hover:-translate-y-2 transition-transform">
                 <p className="text-lg md:text-xl font-bold text-gray-300 leading-relaxed">
                   Ingin membuat kotak elegan yang isinya foto, judul, dan tombol (seperti profil Instagram, produk Shopee, atau daftar berita)? Bootstrap menyebutnya <strong>Card</strong>! Sangat cocok untuk mendesain galeri karya atau produk.
@@ -182,9 +183,9 @@ export default function KomponenBootstrapPage() {
                       <span className="text-gray-400">&lt;</span><span className="text-white">div</span> <span className="text-mint-soft">class</span><span className="text-gray-400">=</span><span className="text-jade-vibrant">"card"</span> <span className="text-white">style</span><span className="text-gray-400">=</span><span className="text-jade-vibrant">"width: 18rem;"</span><span className="text-gray-400">&gt;</span><br />
                       <span className="text-gray-400 pl-4">&lt;</span><span className="text-white">img</span> <span className="text-mint-soft">src</span><span className="text-gray-400">=</span><span className="text-jade-vibrant">"foto.jpg"</span> <span className="text-mint-soft">class</span><span className="text-gray-400">=</span><span className="text-jade-vibrant">"card-img-top"</span><span className="text-gray-400">&gt;</span><br />
                       <span className="text-gray-400 pl-4">&lt;</span><span className="text-white">div</span> <span className="text-mint-soft">class</span><span className="text-gray-400">=</span><span className="text-jade-vibrant">"card-body"</span><span className="text-gray-400">&gt;</span><br />
-                      
+
                       <span className="text-gray-400 pl-8">&lt;</span><span className="text-white">h5</span> <span className="text-mint-soft">class</span><span className="text-gray-400">=</span><span className="text-jade-vibrant">"card-title"</span><span className="text-gray-400">&gt;</span><span className="text-white">Judul Produk</span><span className="text-gray-400">&lt;/</span><span className="text-white">h5</span><span className="text-gray-400">&gt;</span><br />
-                      
+
                       <span className="text-gray-400 pl-8">&lt;</span><span className="text-white">p</span> <span className="text-mint-soft">class</span><span className="text-gray-400">=</span><span className="text-jade-vibrant">"card-text"</span><span className="text-gray-400">&gt;</span><br />
                       <span className="text-white pl-12">Ini adalah deskripsi singkat.</span><br />
                       <span className="text-gray-400 pl-8">&lt;/</span><span className="text-white">p</span><span className="text-gray-400">&gt;</span><br />
@@ -192,7 +193,7 @@ export default function KomponenBootstrapPage() {
                       <span className="text-gray-400 pl-8">&lt;</span><span className="text-white">a</span> <span className="text-mint-soft">href</span><span className="text-gray-400">=</span><span className="text-jade-vibrant">"#"</span> <span className="text-mint-soft">class</span><span className="text-gray-400">=</span><span className="text-jade-vibrant">"btn btn-primary"</span><span className="text-gray-400">&gt;</span><br />
                       <span className="text-white pl-12">Beli Sekarang</span><br />
                       <span className="text-gray-400 pl-8">&lt;/</span><span className="text-white">a</span><span className="text-gray-400">&gt;</span><br />
-                      
+
                       <span className="text-gray-400 pl-4">&lt;/</span><span className="text-white">div</span><span className="text-gray-400">&gt;</span><br />
                       <span className="text-gray-400">&lt;/</span><span className="text-white">div</span><span className="text-gray-400">&gt;</span>
                     </pre>
@@ -200,6 +201,8 @@ export default function KomponenBootstrapPage() {
                 </div>
               </div>
             </section>
+
+            <QuizTrigger pageSlug="komponen-bootstrap" />
 
           </div>
         </main>

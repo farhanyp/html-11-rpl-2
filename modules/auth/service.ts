@@ -32,6 +32,7 @@ export async function loginService(data: LoginInput) {
     email: user.email,
     role: user.role,
     name: user.name,
+    classId: user.classId,
   });
 
   return { 
@@ -80,6 +81,7 @@ export async function registerService(data: RegisterInput) {
     email: newUser.email,
     role: newUser.role,
     name: newUser.name,
+    classId: newUser.classId || null,
   });
   
   const { setRefreshToken } = await import('@/lib/session');

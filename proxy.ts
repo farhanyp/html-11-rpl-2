@@ -24,9 +24,24 @@ export async function proxy(req: NextRequest) {
     }
   }
 
-  // Role-based protection
+  // Role-based protection for /dashboard
   if (session && path.startsWith('/dashboard') && session.role !== 'SUPERADMIN' && session.role !== 'GURU') {
     return NextResponse.redirect(new URL('/unauthorized', req.nextUrl));
+  }
+
+  // Handle class join logic for MURID
+  if (session && session.role === 'MURID') {
+    const hasClass = !!session.classId;
+    
+    // If they don't have a class and are not on /join-class, force them to /join-class
+    if (!hasClass && path !== '/join-class') {
+      return NextResponse.redirect(new URL('/join-class', req.nextUrl));
+    }
+
+    // If they already have a class and try to access /join-class, send them to homepage
+    if (hasClass && path === '/join-class') {
+      return NextResponse.redirect(new URL('/', req.nextUrl));
+    }
   }
 
   return NextResponse.next();

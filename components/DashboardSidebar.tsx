@@ -31,18 +31,22 @@ export default function DashboardSidebar({
     ? [
         { label: 'Overview', icon: 'dashboard', href: '/dashboard' },
         { label: 'Manajemen Pengguna', icon: 'group', href: '/dashboard/users' },
+        { label: 'Manajemen Kelas', icon: 'school', href: '/dashboard/classes' },
         { label: 'Kelola Materi', icon: 'menu_book', href: '/dashboard/materi' },
         { label: 'Summary AI', icon: 'summarize', href: '/dashboard/summaries' },
         { label: 'Akses Siswa', icon: 'lock_open', href: '/dashboard/student-access' },
         { label: 'Manajemen Kuis', icon: 'quiz', href: '/dashboard/quizzes' },
+        { label: 'Laporan Nilai', icon: 'analytics', href: '/dashboard/reports' },
         { label: 'Pengaturan', icon: 'settings', href: '/dashboard/settings' },
       ]
     : [
         { label: 'Overview', icon: 'dashboard', href: '/dashboard' },
+        { label: 'Manajemen Kelas', icon: 'school', href: '/dashboard/classes' },
         { label: 'Kelola Materi', icon: 'menu_book', href: '/dashboard/materi' },
         { label: 'Summary AI', icon: 'summarize', href: '/dashboard/summaries' },
         { label: 'Akses Siswa', icon: 'lock_open', href: '/dashboard/student-access' },
         { label: 'Evaluasi & Kuis', icon: 'quiz', href: '/dashboard/quizzes' },
+        { label: 'Laporan Nilai', icon: 'analytics', href: '/dashboard/reports' },
       ];
 
   return (

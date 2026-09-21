@@ -4,6 +4,7 @@ import Headbar from '@/components/Headbar';
 import Sidebar from '@/components/Sidebar';
 import CodeBlock from '@/components/CodeBlock';
 import { useState } from 'react';
+import QuizTrigger from '@/components/quiz-engine/QuizTrigger';
 
 export default function ProjectBukuTamuPage() {
     const [showFullCode, setShowFullCode] = useState(false);
@@ -195,16 +196,16 @@ export default function ProjectBukuTamuPage() {
                                 <div className="border-4 border-black border-dashed bg-mint-canvas min-h-[400px] flex items-center justify-center relative group overflow-hidden shadow-inner p-4">
                                     {/* Mockup Preview Bootstrap CSS */}
                                     <div className="bg-white border border-gray-200 shadow-xl rounded-lg w-full max-w-lg p-6 md:p-10 text-left relative z-10 transition-transform group-hover:scale-105">
-                                      <h3 className="text-center font-bold text-2xl mb-5 text-[#212529]">📝 Buku Tamu Digital</h3>
-                                      <div className="mb-3">
-                                        <label className="font-bold mb-2 block text-sm text-[#212529]">Nama Lengkap</label>
-                                        <div className="border border-gray-300 rounded p-2 text-gray-400 bg-white">Masukkan nama kamu</div>
-                                      </div>
-                                      <div className="mb-4">
-                                        <label className="font-bold mb-2 block text-sm text-[#212529]">Pesan & Kesan</label>
-                                        <div className="border border-gray-300 rounded p-2 h-28 text-gray-400 bg-white">Tulis pesanmu di sini...</div>
-                                      </div>
-                                      <div className="bg-[#198754] text-white text-center font-bold py-2 px-4 rounded hover:bg-green-700 cursor-pointer">Kirim Pesan!</div>
+                                        <h3 className="text-center font-bold text-2xl mb-5 text-[#212529]">📝 Buku Tamu Digital</h3>
+                                        <div className="mb-3">
+                                            <label className="font-bold mb-2 block text-sm text-[#212529]">Nama Lengkap</label>
+                                            <div className="border border-gray-300 rounded p-2 text-gray-400 bg-white">Masukkan nama kamu</div>
+                                        </div>
+                                        <div className="mb-4">
+                                            <label className="font-bold mb-2 block text-sm text-[#212529]">Pesan & Kesan</label>
+                                            <div className="border border-gray-300 rounded p-2 h-28 text-gray-400 bg-white">Tulis pesanmu di sini...</div>
+                                        </div>
+                                        <div className="bg-[#198754] text-white text-center font-bold py-2 px-4 rounded hover:bg-green-700 cursor-pointer">Kirim Pesan!</div>
                                     </div>
                                 </div>
                             </div>
@@ -239,7 +240,7 @@ export default function ProjectBukuTamuPage() {
                                     <div>
                                         <h3 className="text-xl md:text-3xl font-black uppercase mb-4 text-black tracking-widest border-b-4 border-black pb-2 inline-block">Card & Bayangan Elegan</h3>
                                         <p className="font-bold text-forest-teal text-base md:text-lg leading-relaxed mb-4">
-                                            Komponen form sengaja dibungkus ke dalam <code>.card</code> agar terlihat rapi dan memiliki <em>border</em> pembatas. 
+                                            Komponen form sengaja dibungkus ke dalam <code>.card</code> agar terlihat rapi dan memiliki <em>border</em> pembatas.
                                         </p>
                                         <p className="font-bold text-black text-base md:text-lg leading-relaxed bg-white p-4 border-4 border-black shadow-neo-sm">
                                             Tambahan kelas utilitas <code>.shadow</code> otomatis memberikan efek bayangan melayang (drop-shadow) yang membuat form tersebut terangkat dan menonjol kontras dari latar belakang yang berwarna abu-abu cerah (<code>.bg-light</code>).
@@ -288,6 +289,8 @@ export default function ProjectBukuTamuPage() {
 
                             </div>
                         </section>
+
+                        <QuizTrigger pageSlug="project-bootstrap" />
 
                         {/* Footer / Penutup */}
                         <div className="mt-16 mb-8 flex flex-col md:flex-row justify-between items-center gap-4 border-t-4 border-black pt-8">

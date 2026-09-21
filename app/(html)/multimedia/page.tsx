@@ -3,6 +3,7 @@
 import Headbar from '@/components/Headbar';
 import Sidebar from '@/components/Sidebar';
 import CodeBlock from '@/components/CodeBlock';
+import QuizTrigger from '@/components/quiz-engine/QuizTrigger';
 
 export default function MultimediaPage() {
   return (
@@ -158,19 +159,21 @@ export default function MultimediaPage() {
                 <div className="bg-pine-deep border-4 border-black p-6 md:p-8 shadow-neo-lg flex flex-col justify-center hover:scale-[1.01] transition-transform">
                   <h3 className="font-black text-white text-2xl uppercase mb-6 text-center drop-shadow-[2px_2px_0px_rgba(0,0,0,1)]">Hasil Render Browser</h3>
                   <div className="bg-white border-4 border-black w-full max-w-4xl mx-auto overflow-hidden relative shadow-neo-sm">
-                    <iframe 
+                    <iframe
                       className="w-full aspect-video"
-                      src="https://www.youtube.com/embed/62bIsvRcPv0" 
-                      title="SPIDER-MAN: BRAND NEW DAY – New Trailer (4K)" 
-                      frameBorder="0" 
-                      allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" 
-                      referrerPolicy="strict-origin-when-cross-origin" 
+                      src="https://www.youtube.com/embed/62bIsvRcPv0"
+                      title="SPIDER-MAN: BRAND NEW DAY – New Trailer (4K)"
+                      frameBorder="0"
+                      allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+                      referrerPolicy="strict-origin-when-cross-origin"
                       allowFullScreen
                     ></iframe>
                   </div>
                 </div>
               </div>
             </section>
+
+            <QuizTrigger pageSlug="multimedia" />
 
             {/* Footer */}
             <footer className="mt-16 mb-8 flex flex-col md:flex-row justify-between items-center gap-4 border-t-4 border-black pt-8">

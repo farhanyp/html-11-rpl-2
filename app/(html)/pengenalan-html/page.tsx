@@ -4,6 +4,7 @@ import Headbar from '@/components/Headbar';
 import Sidebar from '@/components/Sidebar';
 import CodeBlock from '@/components/CodeBlock';
 import { useState } from 'react';
+import QuizTrigger from '@/components/quiz-engine/QuizTrigger';
 
 export default function PengenalanHTMLPage() {
   const [isStarted, setIsStarted] = useState(false);
@@ -70,10 +71,10 @@ export default function PengenalanHTMLPage() {
                   </p>
                 </div>
                 <div className="md:w-1/3 border-4 border-black shadow-neo-md rotate-2 hover:rotate-0 transition-transform flex items-center justify-center bg-white p-4 h-auto min-h-[200px]">
-                  <img 
-                    src="/pengenalan-html/image1.jpg" 
-                    alt="Analogi Rumah" 
-                    className="w-full h-full object-cover border-4 border-black shadow-neo-sm" 
+                  <img
+                    src="/pengenalan-html/image1.jpg"
+                    alt="Analogi Rumah"
+                    className="w-full h-full object-cover border-4 border-black shadow-neo-sm"
                   />
                 </div>
               </div>
@@ -240,6 +241,8 @@ export default function PengenalanHTMLPage() {
                 "Segala kemegahan visual di layarmu awalnya hanyalah blok-blok teks mati dari HTML yang disusun penuh cinta!"
               </p>
             </footer>
+
+            <QuizTrigger pageSlug="pengenalan-html" />
 
             <div className="mt-16 mb-8 flex flex-col md:flex-row justify-between items-center gap-4 border-t-4 border-black pt-8">
               <p className="font-black text-sm md:text-base uppercase tracking-widest text-forest-teal bg-white border-4 border-black px-4 py-2 shadow-neo-sm text-center md:text-left">

@@ -49,11 +49,13 @@ export async function getMaterialNav() {
     if (!sequence || !sequence.prerequisitePageId) return true;
 
     // Check if prerequisite quiz is passed
-    const prereqQuizzes = await db.orm.public.Quiz.where({ pageId: sequence.prerequisitePageId }).all();
+    const prereqQuizzes = await db.orm.public.QuizPackage.where({ pageId: sequence.prerequisitePageId }).all();
     const prereqQuiz = prereqQuizzes[0];
     
     if (prereqQuiz) {
-      const passedAttempt = attempts.find(a => a.quizId === prereqQuiz.id && a.status === 'COMPLETED' && a.score >= sequence.minQuizScore);
+      const variants = await db.orm.public.QuizVariant.where({ quizPackageId: prereqQuiz.id }).all();
+      const variantIds = variants.map(v => v.id);
+      const passedAttempt = attempts.find(a => variantIds.includes(a.quizVariantId) && a.status === 'COMPLETED' && (a.score ?? 0) >= sequence.minQuizScore);
       if (passedAttempt) return true;
     } else {
       const prereqAccess = accesses.find(a => a.pageId === sequence.prerequisitePageId);
@@ -122,12 +124,14 @@ export async function verifyPageAccess(userId: string, role: string, pageSlug: s
     return { isUnlocked: true, reason: 'NO_PREREQUISITE' };
   }
 
-  const prereqQuizzes = await db.orm.public.Quiz.where({ pageId: sequence.prerequisitePageId }).all();
+  const prereqQuizzes = await db.orm.public.QuizPackage.where({ pageId: sequence.prerequisitePageId }).all();
   const prereqQuiz = prereqQuizzes[0];
   
   if (prereqQuiz) {
-    const attempts = await db.orm.public.QuizAttempt.where({ quizId: prereqQuiz.id, studentId: userId }).all();
-    const passedAttempt = attempts.find((a: any) => a.status === 'COMPLETED' && a.score >= sequence.minQuizScore);
+    const variants = await db.orm.public.QuizVariant.where({ quizPackageId: prereqQuiz.id }).all();
+    const variantIds = variants.map(v => v.id);
+    const attempts = await db.orm.public.QuizAttempt.where({ studentId: userId }).all();
+    const passedAttempt = attempts.find((a: any) => variantIds.includes(a.quizVariantId) && a.status === 'COMPLETED' && (a.score ?? 0) >= sequence.minQuizScore);
     if (passedAttempt) return { isUnlocked: true, reason: 'PREREQUISITE_MET' };
   } else {
     const prereqAccesses = await db.orm.public.PageAccess.where({ pageId: sequence.prerequisitePageId, studentId: userId }).all();

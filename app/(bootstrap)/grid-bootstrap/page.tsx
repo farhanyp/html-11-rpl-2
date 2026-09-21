@@ -1,6 +1,7 @@
 "use client";
 
 import Headbar from '@/components/Headbar';
+import QuizTrigger from '@/components/quiz-engine/QuizTrigger';
 import Sidebar from '@/components/Sidebar';
 import { useState } from 'react';
 
@@ -61,7 +62,7 @@ export default function GridBootstrapPage() {
                 <span className="bg-mint-soft text-black w-12 h-12 md:w-16 md:h-16 flex items-center justify-center border-4 border-black shadow-neo-sm flex-shrink-0 text-2xl md:text-4xl">01</span>
                 Konsep 12 Potong Kue
               </h2>
-              
+
               <div className="mb-8 p-6 md:p-8 bg-mint-canvas border-4 border-black shadow-neo-md hover:-translate-y-2 transition-transform">
                 <p className="text-lg md:text-xl font-bold text-forest-teal leading-relaxed">
                   Bootstrap selalu membagi lebar layarmu menjadi tepat <strong>12 kolom imajiner</strong> (seperti 12 potong kue yang sama besar). Tugasmu hanyalah membagikan ke-12 potongan ini ke bagian-bagian website!
@@ -72,7 +73,7 @@ export default function GridBootstrapPage() {
               <div className="flex gap-1 mb-8 overflow-x-auto pb-4">
                 {[...Array(12)].map((_, i) => (
                   <div key={i} className="flex-1 min-w-[30px] h-12 bg-pine-deep border-2 border-black flex items-center justify-center text-white font-black text-xs md:text-sm shadow-neo-sm">
-                    {i+1}
+                    {i + 1}
                   </div>
                 ))}
               </div>
@@ -158,7 +159,7 @@ export default function GridBootstrapPage() {
                 <span className="bg-black text-white w-12 h-12 md:w-16 md:h-16 flex items-center justify-center border-4 border-black shadow-neo-sm flex-shrink-0 text-2xl md:text-4xl">03</span>
                 Magic: Responsif Instan!
               </h2>
-              
+
               <div className="flex flex-col md:flex-row items-center gap-8 mb-10">
                 <div className="flex-1 bg-mint-canvas border-4 border-black p-6 md:p-8 shadow-neo-md">
                   <p className="text-lg md:text-xl font-bold text-forest-teal leading-relaxed mb-4">
@@ -172,10 +173,10 @@ export default function GridBootstrapPage() {
                   <span className="material-symbols-outlined text-[60px] md:text-[80px] text-white drop-shadow-[4px_4px_0px_rgba(0,0,0,1)]">magic_button</span>
                 </div>
               </div>
-              
+
               <div className="flex flex-col lg:flex-row gap-8 items-stretch">
                 <div className="flex-1 bg-white border-4 border-black p-6 md:p-8 shadow-neo-md flex flex-col justify-center">
-                  <h3 className="text-2xl font-black uppercase mb-6 text-black border-b-4 border-black pb-2">Bedah Kode: <br/><span className="text-xl inline-block mt-2 bg-black text-white px-3 py-2 leading-tight">col-12 col-md-6</span></h3>
+                  <h3 className="text-2xl font-black uppercase mb-6 text-black border-b-4 border-black pb-2">Bedah Kode: <br /><span className="text-xl inline-block mt-2 bg-black text-white px-3 py-2 leading-tight">col-12 col-md-6</span></h3>
                   <ul className="space-y-4 text-lg font-bold text-forest-teal list-disc pl-5">
                     <li><code className="text-black bg-mint-soft px-2 py-1 border-2 border-black inline-block mb-1">col-12</code> : Secara bawaan (di layar HP sempit), ambil <strong>FULL 12 kolom</strong> (otomatis numpuk atas-bawah).</li>
                     <li><code className="text-black bg-mint-soft px-2 py-1 border-2 border-black inline-block mb-1">col-md-6</code> : Pas layarnya membesar mencapai ukuran MD (Laptop), <strong>ubah ukurannya jadi 6 kolom</strong> (berjejer kiri-kanan).</li>
@@ -200,6 +201,8 @@ export default function GridBootstrapPage() {
               </div>
 
             </section>
+
+            <QuizTrigger pageSlug="grid-bootstrap" />
 
           </div>
         </main>

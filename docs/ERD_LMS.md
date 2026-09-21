@@ -54,7 +54,24 @@ Enum PageAccessStatus {
 // TABLE DEFINITIONS
 // ================================
 
-Table users {
+Table classrooms {
+  id            String    [pk, note: 'UUID']
+  name          String    [note: 'Contoh: XI RPL 2']
+  join_code     String    [unique, note: 'Kode unik untuk murid join, misal RPL2-XYZ9']
+  max_students  Int       [default: 32, note: 'Kapasitas maksimal kelas']
+  is_active     Boolean   [default: true]
+  created_at    DateTime  [default: `now()`]
+  updated_at    DateTime
+}
+
+Table     classrooms {
+        uuid id PK
+        string name
+        string join_code
+        int max_students
+    }
+
+    users {
   id            String    [pk, note: 'UUID']
   name          String
   email         String    [unique]
@@ -176,6 +193,16 @@ Table question_options {
   order_index   Int       [note: 'Urutan opsi']
 }
 
+Table quiz_assignments {
+  id              String    [pk, note: 'UUID']
+  quiz_package_id String    [note: 'FK -> quiz_packages']
+  quiz_variant_id String    [note: 'FK -> quiz_variants']
+  student_id      String    [note: 'FK -> users']
+  assigned_at     DateTime  [default: `now()`]
+
+  Note: 'Unique constraint pada [quiz_package_id, student_id]'
+}
+
 Table quiz_attempts {
   id            String            [pk, note: 'UUID']
   quiz_variant_id String        [note: 'FK -> quiz_variants']
@@ -218,6 +245,7 @@ Table page_access {
 // ================================
 
 // User memiliki banyak Session dan Audit Log
+Ref: users.class_id > classrooms.id
 Ref: sessions.user_id > users.id
 Ref: audit_logs.user_id > users.id
 
@@ -242,6 +270,9 @@ Ref: questions.quiz_variant_id > quiz_variants.id
 Ref: question_options.question_id > questions.id
 
 // Quiz Attempt dilakukan oleh satu Student pada satu Quiz
+Ref: quiz_assignments.quiz_package_id > quiz_packages.id
+Ref: quiz_assignments.quiz_variant_id > quiz_variants.id
+Ref: quiz_assignments.student_id > users.id
 Ref: quiz_attempts.quiz_variant_id > quiz_variants.id
 Ref: quiz_attempts.student_id > users.id
 
@@ -261,8 +292,10 @@ Ref: page_access.student_id > users.id
 
 ```mermaid
 erDiagram
-    users ||--o{ quiz_attempts : "mengerjakan quiz"
-    users ||--o{ page_access : "memiliki akses halaman"
+    users ||--o{ quiz_assignments : "mendapat penugasan"
+      users ||--o{ quiz_attempts : "mengerjakan quiz"
+    classrooms ||--o{ users : "memiliki murid"
+      users ||--o{ page_access : "memiliki akses halaman"
     users ||--o{ sessions : "punya sesi"
     users ||--o{ audit_logs : "riwayat aktivitas"
 
@@ -283,6 +316,13 @@ erDiagram
 
     quiz_attempts ||--o{ student_answers : "berisi jawaban"
     question_options ||--o{ student_answers : "dipilih"
+
+        classrooms {
+        uuid id PK
+        string name
+        string join_code
+        int max_students
+    }
 
     users {
         uuid id PK
@@ -368,6 +408,13 @@ erDiagram
         uuid question_id FK
         string option_text
         boolean is_correct
+    }
+
+    quiz_assignments {
+        uuid id PK
+        uuid quiz_package_id FK
+        uuid quiz_variant_id FK
+        uuid student_id FK
     }
 
     quiz_attempts {
@@ -523,7 +570,24 @@ Enum PageAccessStatus {
 // TABLE DEFINITIONS
 // ================================
 
-Table users {
+Table classrooms {
+  id            String    [pk, note: 'UUID']
+  name          String    [note: 'Contoh: XI RPL 2']
+  join_code     String    [unique, note: 'Kode unik untuk murid join, misal RPL2-XYZ9']
+  max_students  Int       [default: 32, note: 'Kapasitas maksimal kelas']
+  is_active     Boolean   [default: true]
+  created_at    DateTime  [default: `now()`]
+  updated_at    DateTime
+}
+
+Table     classrooms {
+        uuid id PK
+        string name
+        string join_code
+        int max_students
+    }
+
+    users {
   id                    String    [pk, note: 'UUID']
   name                  String
   email                 String    [unique]
@@ -531,6 +595,7 @@ Table users {
   role                  Role      [default: 'MURID']
   avatar                String    [null]
   is_active             Boolean   [default: true, note: 'Akun dinonaktifkan oleh Superadmin']
+  class_id              String    [null, note: 'FK -> classrooms (Hanya untuk MURID)']
   failed_login_attempts Int       [default: 0, note: 'Anti brute-force']
   locked_until          DateTime  [null, note: 'Batas waktu akun terkunci']
   created_at            DateTime  [default: `now()`]
@@ -645,6 +710,16 @@ Table question_options {
   order_index   Int       [note: 'Urutan opsi']
 }
 
+Table quiz_assignments {
+  id              String    [pk, note: 'UUID']
+  quiz_package_id String    [note: 'FK -> quiz_packages']
+  quiz_variant_id String    [note: 'FK -> quiz_variants']
+  student_id      String    [note: 'FK -> users']
+  assigned_at     DateTime  [default: `now()`]
+
+  Note: 'Unique constraint pada [quiz_package_id, student_id]'
+}
+
 Table quiz_attempts {
   id            String            [pk, note: 'UUID']
   quiz_variant_id String          [note: 'FK -> quiz_variants']
@@ -680,6 +755,7 @@ Table page_access {
 // RELATION DEFINITIONS
 // ================================
 
+Ref: users.class_id > classrooms.id
 Ref: sessions.user_id > users.id
 Ref: audit_logs.user_id > users.id
 Ref: pages.category_id > material_categories.id
@@ -690,6 +766,9 @@ Ref: quiz_packages.page_id - pages.id
 Ref: quiz_variants.quiz_package_id > quiz_packages.id
 Ref: questions.quiz_variant_id > quiz_variants.id
 Ref: question_options.question_id > questions.id
+Ref: quiz_assignments.quiz_package_id > quiz_packages.id
+Ref: quiz_assignments.quiz_variant_id > quiz_variants.id
+Ref: quiz_assignments.student_id > users.id
 Ref: quiz_attempts.quiz_variant_id > quiz_variants.id
 Ref: quiz_attempts.student_id > users.id
 Ref: student_answers.quiz_attempt_id > quiz_attempts.id
@@ -700,5 +779,7 @@ Ref: page_access.student_id > users.id
 ```
 
 </details>
+
+
 
 
