@@ -7,11 +7,19 @@ export async function getQuizzesWithPageStatus() {
   const quizPackages = await db.orm.public.QuizPackage.all();
   const categories = await db.orm.public.MaterialCategory.all();
   const variants = await db.orm.public.QuizVariant.all();
+  const sequences = await db.orm.public.PageSequence.all();
 
   return pages.map(page => {
     const quizPackage = quizPackages.find(q => q.pageId === page.id);
     const category = categories.find(c => c.id === page.categoryId);
     const packageVariants = quizPackage ? variants.filter(v => v.quizPackageId === quizPackage.id) : [];
+
+    // Cari halaman mana saja yang mensyaratkan halaman ini (prerequisitePageId === page.id)
+    const unlockedSequences = sequences.filter(seq => seq.prerequisitePageId === page.id);
+    const unlockedPages = unlockedSequences.map(seq => {
+      const unlockedPage = pages.find(p => p.id === seq.pageId);
+      return unlockedPage ? unlockedPage.title : 'Halaman Tidak Diketahui';
+    });
 
     return {
       ...page,
@@ -19,6 +27,7 @@ export async function getQuizzesWithPageStatus() {
       quizPackage,
       hasQuizPackage: !!quizPackage,
       variantsCount: packageVariants.length,
+      unlocks: unlockedPages,
     };
   }).sort((a, b) => {
     if (a.categoryId === b.categoryId) {

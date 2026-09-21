@@ -25,7 +25,14 @@ export default async function PageSummariesManagement({ params }: { params: Prom
         </div>
       </div>
 
-      <div className="flex justify-end">
+      <div className="flex justify-end gap-3">
+        <Link
+          href={`/dashboard/summaries/${page.id}/generate-quiz`}
+          className="inline-flex items-center gap-2 bg-indigo-600 hover:bg-indigo-700 text-white rounded-lg px-4 py-2 transition-colors"
+        >
+          <span className="material-symbols-outlined text-[20px]">smart_toy</span>
+          <span>Generate Kuis AI</span>
+        </Link>
         <Link
           href={`/dashboard/summaries/${page.id}/create`}
           className="inline-flex items-center gap-2 bg-blue-600 hover:bg-blue-700 text-white rounded-lg px-4 py-2 transition-colors"

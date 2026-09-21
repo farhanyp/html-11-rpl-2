@@ -24,6 +24,7 @@ export default async function QuizzesPage() {
               <tr>
                 <th className="px-6 py-4 font-semibold">Materi / Halaman</th>
                 <th className="px-6 py-4 font-semibold">Status Paket Kuis</th>
+                <th className="px-6 py-4 font-semibold">Membuka Akses</th>
                 <th className="px-6 py-4 font-semibold">Passing Score</th>
                 <th className="px-6 py-4 font-semibold">Limit Waktu</th>
                 <th className="px-6 py-4 font-semibold">Jumlah Varian</th>
@@ -46,6 +47,17 @@ export default async function QuizzesPage() {
                       <span className="inline-flex items-center px-2.5 py-1 rounded-full text-xs font-medium bg-amber-50 text-amber-700 border border-amber-200">
                         Belum ada Paket Kuis
                       </span>
+                    )}
+                  </td>
+                  <td className="px-6 py-4 text-gray-600">
+                    {page.unlocks && page.unlocks.length > 0 ? (
+                      <ul className="list-disc pl-4 text-xs space-y-1">
+                        {page.unlocks.map((title: string, i: number) => (
+                          <li key={i}>{title}</li>
+                        ))}
+                      </ul>
+                    ) : (
+                      <span className="text-xs text-gray-400 italic">Tidak ada (Akhir Materi)</span>
                     )}
                   </td>
                   <td className="px-6 py-4 text-gray-600">
@@ -80,7 +92,7 @@ export default async function QuizzesPage() {
               ))}
               {pages.length === 0 && (
                 <tr>
-                  <td colSpan={6} className="px-6 py-8 text-center text-gray-500">
+                  <td colSpan={7} className="px-6 py-8 text-center text-gray-500">
                     Belum ada halaman materi.
                   </td>
                 </tr>
