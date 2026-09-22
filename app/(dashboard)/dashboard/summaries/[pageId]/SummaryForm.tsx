@@ -5,21 +5,14 @@ import { useRouter } from 'next/navigation';
 import { createSummaryAction, updateSummaryAction } from '@/app/actions/summary';
 import { PageSummaryInput } from '@/modules/summary/summary.schema';
 import Link from 'next/link';
-
-type SummaryData = {
-  id?: string;
-  pageId: string;
-  title: string;
-  content: string;
-  orderIndex: number;
-};
+import { SummaryRow } from '../types';
 
 export default function SummaryForm({ 
   initialData, 
   pageId,
   isEdit = false 
 }: { 
-  initialData?: SummaryData; 
+  initialData?: SummaryRow; 
   pageId: string;
   isEdit?: boolean;
 }) {
@@ -48,14 +41,20 @@ export default function SummaryForm({
     setError('');
 
     try {
+      let res;
       if (isEdit && initialData?.id) {
-        await updateSummaryAction(initialData.id, formData);
+        res = await updateSummaryAction(initialData.id, formData);
       } else {
-        await createSummaryAction(formData);
+        res = await createSummaryAction(formData);
       }
-      router.push(`/dashboard/summaries/${pageId}`);
+
+      if (res.success) {
+        router.push(`/dashboard/summaries/${pageId}`);
+      } else {
+        setError(res.error || 'Terjadi kesalahan saat menyimpan ringkasan.');
+      }
     } catch (err: any) {
-      setError(err.message || 'Terjadi kesalahan saat menyimpan summary');
+      setError('Mohon maaf, terjadi kesalahan jaringan atau server.');
     } finally {
       setIsSubmitting(false);
     }
@@ -69,8 +68,9 @@ export default function SummaryForm({
       <form onSubmit={handleSubmit}>
         <div className="p-6 space-y-6">
           {error && (
-            <div className="bg-red-50 text-red-600 p-4 rounded-lg text-sm">
-              {error}
+            <div className="bg-red-50 border border-red-200 text-red-700 p-4 rounded-lg text-sm flex items-start gap-2">
+              <span className="material-symbols-outlined text-[20px]">error</span>
+              <p>{error}</p>
             </div>
           )}
           
@@ -130,7 +130,7 @@ export default function SummaryForm({
               placeholder="Tulis ringkasan materi di sini menggunakan format Markdown..."
             />
             {isOverLimit && (
-              <p className="mt-1 text-sm text-red-600">Konten melebihi batas maksimum 3000 karakter yang disarankan untuk AI.</p>
+              <p className="mt-1 text-sm text-red-600">Konten melebihi batas maksimum 3000 karakter yang disarankan untuk performa AI.</p>
             )}
           </div>
         </div>
@@ -138,16 +138,18 @@ export default function SummaryForm({
         <div className="bg-gray-50 px-6 py-4 border-t border-gray-200 flex justify-end gap-3">
           <Link
             href={`/dashboard/summaries/${pageId}`}
-            className="bg-white border border-gray-300 text-gray-700 hover:bg-gray-50 rounded-lg px-4 py-2 transition-colors flex items-center gap-2"
+            className="bg-white border border-gray-300 text-gray-700 hover:bg-gray-50 rounded-lg px-4 py-2 transition-colors flex items-center gap-2 font-medium"
           >
             Batal
           </Link>
           <button
             type="submit"
             disabled={isSubmitting || isOverLimit}
-            className="bg-blue-600 hover:bg-blue-700 text-white rounded-lg px-4 py-2 transition-colors flex items-center gap-2 disabled:opacity-50 disabled:cursor-not-allowed"
+            className="bg-blue-600 hover:bg-blue-700 text-white rounded-lg px-4 py-2 transition-colors flex items-center gap-2 font-medium disabled:opacity-50 disabled:cursor-not-allowed shadow-sm"
           >
-            <span className="material-symbols-outlined text-[20px]">save</span>
+            <span className="material-symbols-outlined text-[20px]">
+              {isSubmitting ? 'sync' : 'save'}
+            </span>
             {isSubmitting ? 'Menyimpan...' : 'Simpan Summary'}
           </button>
         </div>
