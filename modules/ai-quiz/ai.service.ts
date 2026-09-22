@@ -5,7 +5,7 @@ export async function generateQuizDraft({
   questionType,
   totalQuestions,
   difficultyDistribution,
-  model = "gemini/gemini-3-flash-preview",
+  model = "free-tier",
 }: {
   summaryText: string;
   questionType: "PILIHAN_GANDA" | "ESSAY";
@@ -133,11 +133,11 @@ Format JSON jika Essay:
 
     const data = await response.json();
     let content = data.choices?.[0]?.message?.content;
-    
+
     if (!content) {
       throw new Error("Respon API kosong atau format salah.");
     }
-    
+
     // Bersihkan backticks markdown jika ada (misal: ```json ... ```)
     content = content.replace(/^```json\s*/, '').replace(/\s*```$/, '');
 
