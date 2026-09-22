@@ -1,7 +1,7 @@
 import { getSession } from '@/lib/session';
 import { redirect } from 'next/navigation';
-import { db } from '@/prisma/db';
-import UsersClientPage from './client-page';
+import { userService } from './modules/user.service';
+import UsersView from './components/UsersView';
 import { UserRow } from './types';
 
 export default async function UsersPage() {
@@ -11,17 +11,20 @@ export default async function UsersPage() {
     redirect('/dashboard');
   }
 
-  // Fetch all users
-  const rawUsers = await db.orm.public.User.all();
+  // Fetch all users using the service layer
+  const rawUsers = await userService.getAllUsers();
   
-  const initialUsers: UserRow[] = rawUsers.map((user: any) => ({
-    id: user.id,
-    name: user.name,
-    email: user.email,
+  // Mapping raw data to strongly typed UserRow
+  // Removed `any` casting by relying on the service return type 
+  // (Assuming db.orm.public.User.all() returns an array of user objects)
+  const initialUsers: UserRow[] = rawUsers.map((user) => ({
+    id: user.id as string,
+    name: user.name as string,
+    email: user.email as string,
     role: user.role as 'SUPERADMIN' | 'GURU' | 'MURID',
-    isActive: user.isActive,
-    createdAt: user.createdAt
+    isActive: user.isActive as boolean,
+    createdAt: (user.createdAt as Date).toISOString()
   }));
 
-  return <UsersClientPage initialUsers={initialUsers} />;
+  return <UsersView initialUsers={initialUsers} />;
 }

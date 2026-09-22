@@ -5,14 +5,14 @@ Dokumen ini mendefinisikan arsitektur teknis, standar penulisan kode, dan pola d
 ---
 
 ## 1. Tech Stack & Environment
-- **Framework Utama**: Next.js 14/15 (App Router).
+- **Framework Utama**: Next.js 16 (App Router).
 - **Bahasa**: TypeScript (Strict Mode).
-- **Database**: PostgreSQL (Production) / SQLite atau PostgreSQL (Local Development).
-- **ORM**: Prisma Client.
-- **Styling**: Tailwind CSS.
-- **Authentication**: Custom JWT (menggunakan `jose`) disimpan pada HttpOnly Secure Cookies.
+- **Database**: PostgreSQL.
+- **ORM**: Prisma 8 (`@prisma/orm-postgres`).
+- **Styling**: Tailwind CSS v4.
+- **Authentication**: Custom JWT (menggunakan `jose` dan `bcryptjs`) disimpan pada HttpOnly Secure Cookies.
 - **Validation**: Zod (untuk validasi input form dan payload API).
-- **Icons**: Lucide React / Heroicons.
+- **AI**: Vercel AI SDK (`ai`, `@ai-sdk/openai`).
 
 ---
 
@@ -22,36 +22,43 @@ Struktur direktori dipisahkan secara modular untuk memisahkan UI, logika bisnis,
 ```text
 /
 ├── app/                  # Next.js App Router
+│   ├── (arsitektur-web)/ # Route group materi
 │   ├── (auth)/           # Route group untuk halaman Login & Register
-│   ├── (dashboard)/      # Route group untuk layout Dashboard (Superadmin, Guru, Murid)
-│   ├── (materi)/         # Struktur materi saat ini (bisa bertahap migrasi ke Dinamis / DB)
-│   │   ├── (arsitektur-web)/
-│   │   ├── (bootstrap)/
-│   │   ├── (css)/
-│   │   ├── (database)/
-│   │   ├── (html)/
-│   │   ├── (js)/
-│   │   └── (php)/
-│   ├── api/              # Route Handlers (Auth API, Webhooks, dll)
+│   ├── (bootstrap)/      # Route group materi
+│   ├── (css)/            # Route group materi
+│   ├── (dashboard)/      # Route group untuk layout Dashboard
+│   ├── (database)/       # Route group materi
+│   ├── (html)/           # Route group materi
+│   ├── (js)/             # Route group materi
+│   ├── (php)/            # Route group materi
+│   ├── actions/          # Server Actions (access.ts, materi.ts, dll)
 │   ├── globals.css       # Tailwind base styles
 │   ├── layout.tsx        # Root layout
 │   └── page.tsx          # Halaman utama (Landing Page)
 ├── components/           # Reusable UI components
-│   ├── ui/               # 🆕 Base components (Button, Input, Form, Table)
+│   ├── quiz/             # Komponen kuis (engine & report)
+│   ├── AccessGuard.tsx   # Guard komponen berbasis role
 │   ├── CodeBlock.tsx     # Komponen syntax highlighter materi
+│   ├── DashboardShell.tsx# Komponen layout dashboard
+│   ├── DashboardSidebar.tsx # Sidebar khusus dashboard
 │   ├── Headbar.tsx       # Komponen navigasi atas
 │   └── Sidebar.tsx       # Komponen navigasi samping
-├── docs/                 # Dokumentasi (ARCHITECTURE.md, PRD.md, ERD_LMS.md, DESIGN_ADMIN.md)
+├── docs/                 # Dokumentasi (ARCHITECTURE.md, ERD_LMS.md, dll)
 ├── lib/                  # Konfigurasi library & utilitas umum
-│   ├── prisma.ts         # Singleton instance Prisma
-│   └── session.ts        # 🆕 Utilitas manajemen JWT & Cookie
-├── modules/              # 🌟 🆕 Business Logic (Service Layer untuk LMS)
-│   ├── auth/             # Logika verifikasi password, sign JWT
-│   ├── materials/        # Logika akses materi & sekuensial (lock/unlock)
-│   └── quizzes/          # Logika validasi jawaban & kalkulasi skor
-├── prisma/               # Schema dan migrasi database
-│   ├── schema.prisma     # Definisi 11 Tabel & Enum LMS
-│   └── seed.ts           # 🆕 Script inisialisasi data awal (Superadmin)
+│   ├── session.ts        # Utilitas manajemen JWT & Cookie
+│   └── user-helpers.ts   # Helper data user
+├── migrations/           # File migrasi database
+├── modules/              # Business Logic (Service Layer untuk LMS)
+│   ├── ai-quiz/          # Generator kuis berbasis AI
+│   ├── auth/             # Logika verifikasi dan JWT
+│   ├── class/            # Manajemen kelas
+│   ├── quiz/             # Logika validasi dan assignment kuis
+│   ├── quiz-engine/      # Core logic pengerjaan kuis
+│   ├── quiz-report/      # Laporan nilai
+│   └── summary/          # Ekstraksi dan pembuatan rangkuman
+├── prisma/               # Schema dan konfigurasi Prisma
+│   ├── contract.prisma   # Definisi model database LMS
+│   └── db.ts             # Instansiasi Prisma client
 └── public/               # Asset statis
 ```
 
@@ -60,15 +67,14 @@ Struktur direktori dipisahkan secara modular untuk memisahkan UI, logika bisnis,
 ## 3. Separation of Concerns & Design Patterns
 Kita menggunakan variasi **Service Pattern** untuk memisahkan antara *UI Layer* dan *Business Logic*.
 
-1. **Controller / Handler Layer** (`app/`):
-   - Server Actions (`actions.ts`) atau Route Handlers (`app/api/...`).
-   - Bertugas menerima request, memanggil validator (Zod), dan memanggil Service Layer.
+1. **Controller / Handler Layer** (`app/actions/` atau Page Components):
+   - Server Actions (`app/actions/*.ts`).
+   - Bertugas memvalidasi input, dan memanggil Service Layer.
 2. **Service Layer** (`modules/`):
-   - Tempat *Business Logic* berada.
-   - Contoh: Fungsi `calculateQuizScore(attemptId, answers)`.
-   - Tidak boleh mengembalikan Response HTTP secara langsung.
+   - Tempat *Business Logic* berada (contoh `modules/quiz-engine/`).
+   - Tidak berurusan langsung dengan HTTP Request/Response secara mentah, namun menerima parameter fungsi.
 3. **Data Access Layer** (via `Prisma`):
-   - Digunakan di dalam Service Layer. Query langsung ke database (`prisma.user.findUnique()`).
+   - Digunakan di dalam Service Layer. Query langsung ke database (`db.user.findUnique()`).
 
 ---
 
@@ -130,7 +136,7 @@ type ActionResponse<T> = {
 
 ## 8. Database Strategy (Migration & Seeding)
 
-- **Perubahan Skema**: Setiap merubah `schema.prisma`, harus menjalankan perintah `npx prisma migrate dev --name deskripsi_perubahan` agar riwayat perubahan (history) tersimpan dalam folder `prisma/migrations`.
-- **Seeding (`prisma/seed.ts`)**: 
-  - Harus ada seeder default untuk mendaftarkan 1 akun SUPERADMIN.
-  - Membantu developer baru agar database langsung memiliki data *dummy* kategori (HTML, CSS) tanpa perlu mengisi manual.
+- **Perubahan Skema**: Karena menggunakan Prisma 8, skema didefinisikan dalam `prisma/contract.prisma`. Perubahan perlu diikuti dengan `npm run contract:emit` (atau sejenisnya) dan migrasi diletakkan di dalam folder root `migrations/`.
+- **Seeding Data**: 
+  - File seeding bisa berupa script `.ts` (seperti `scratch_db.ts`) atau raw SQL (seperti `seed_materi.sql`).
+  - Digunakan untuk mendaftarkan akun SUPERADMIN atau untuk inisialisasi data materi dan kategori (seperti HTML, CSS) di lingkungan baru.

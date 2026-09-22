@@ -64,14 +64,7 @@ Table classrooms {
   updated_at    DateTime
 }
 
-Table     classrooms {
-        uuid id PK
-        string name
-        string join_code
-        int max_students
-    }
-
-    users {
+Table users {
   id            String    [pk, note: 'UUID']
   name          String
   email         String    [unique]
@@ -79,6 +72,7 @@ Table     classrooms {
   role          Role      [default: 'MURID']
   avatar        String    [null]
   is_active             Boolean   [default: true, note: 'Akun bisa dinonaktifkan oleh Superadmin']
+  class_id              String    [null, note: 'FK -> classrooms (Hanya untuk MURID)']
   failed_login_attempts Int       [default: 0, note: 'Tracking gagal login berturut-turut untuk anti brute-force']
   locked_until          DateTime  [null, note: 'Batas waktu akun terkunci akibat brute-force']
   created_at            DateTime  [default: `now()`]
@@ -317,11 +311,14 @@ erDiagram
     quiz_attempts ||--o{ student_answers : "berisi jawaban"
     question_options ||--o{ student_answers : "dipilih"
 
-        classrooms {
+    classrooms {
         uuid id PK
         string name
         string join_code
         int max_students
+        boolean is_active
+        datetime created_at
+        datetime updated_at
     }
 
     users {
@@ -330,16 +327,23 @@ erDiagram
         string email UK
         string password
         enum role
+        string avatar
         boolean is_active
+        uuid class_id FK
         int failed_login_attempts
         datetime locked_until
+        datetime created_at
+        datetime updated_at
     }
 
     sessions {
         uuid id PK
         uuid user_id FK
         string refresh_token UK
+        string user_agent
+        string ip_address
         datetime expires_at
+        datetime created_at
     }
 
     audit_logs {
@@ -347,14 +351,20 @@ erDiagram
         uuid user_id FK
         string action
         string details
+        string ip_address
+        datetime created_at
     }
 
     material_categories {
         uuid id PK
         string name
         string slug UK
+        string description
+        string icon
         int order_index UK
         boolean is_active
+        datetime created_at
+        datetime updated_at
     }
 
     pages {
@@ -362,8 +372,11 @@ erDiagram
         uuid category_id FK
         string title
         string slug UK
+        string description
         int order_index
         boolean is_published
+        datetime created_at
+        datetime updated_at
     }
 
     page_summaries {
@@ -580,14 +593,7 @@ Table classrooms {
   updated_at    DateTime
 }
 
-Table     classrooms {
-        uuid id PK
-        string name
-        string join_code
-        int max_students
-    }
-
-    users {
+Table users {
   id                    String    [pk, note: 'UUID']
   name                  String
   email                 String    [unique]
