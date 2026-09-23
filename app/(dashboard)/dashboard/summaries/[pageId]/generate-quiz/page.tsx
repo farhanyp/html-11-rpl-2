@@ -35,6 +35,8 @@ export default async function GenerateQuizPage(props: {
     );
   }
 
+  const isAiEnabled = process.env.ENABLE_AI_FEATURES !== "false";
+
   return (
     <div className="p-8 max-w-4xl mx-auto space-y-6">
       <div>
@@ -48,6 +50,7 @@ export default async function GenerateQuizPage(props: {
         pageId={page.id} 
         pageTitle={page.title} 
         summaryText={combinedSummary} 
+        isAiEnabled={isAiEnabled}
       />
     </div>
   );

@@ -8,10 +8,12 @@ export default function ClientQuizGenerator({
   pageId,
   pageTitle,
   summaryText,
+  isAiEnabled = true,
 }: {
   pageId: string;
   pageTitle: string;
   summaryText: string;
+  isAiEnabled?: boolean;
 }) {
   const router = useRouter();
   
@@ -83,6 +85,25 @@ export default function ClientQuizGenerator({
     updated[qIndex].options[optIndex].optionText = newText;
     setGeneratedQuestions(updated);
   };
+
+  if (!isAiEnabled) {
+    return (
+      <div className="p-8 bg-slate-50 border border-slate-200 rounded-xl text-center space-y-4">
+        <span className="material-symbols-outlined text-4xl text-slate-400 block">block</span>
+        <h2 className="text-xl font-bold text-slate-700">AI Generator Nonaktif</h2>
+        <p className="text-slate-500 max-w-md mx-auto">
+          Fitur pembuatan soal otomatis menggunakan AI saat ini dinonaktifkan (Mode Shared Hosting).
+          Silakan hubungi administrator jika Anda merasa ini adalah sebuah kesalahan.
+        </p>
+        <button 
+          onClick={() => router.push(`/dashboard/summaries/${pageId}`)}
+          className="mt-4 px-4 py-2 bg-white border border-slate-300 text-slate-700 rounded-lg hover:bg-slate-50 font-medium shadow-sm transition-colors"
+        >
+          Kembali ke Kelola Summary
+        </button>
+      </div>
+    );
+  }
 
   return (
     <div className="space-y-6">

@@ -22,6 +22,8 @@ export default async function PageSummariesManagement({ params }: { params: Prom
     orderIndex: s.orderIndex
   }));
 
+  const isAiEnabled = process.env.ENABLE_AI_FEATURES !== "false";
+
   return (
     <div className="max-w-4xl mx-auto space-y-6 p-6">
       <div className="flex items-center gap-4">
@@ -35,13 +37,23 @@ export default async function PageSummariesManagement({ params }: { params: Prom
       </div>
 
       <div className="flex justify-end gap-3">
-        <Link
-          href={`/dashboard/summaries/${page.id}/generate-quiz`}
-          className="inline-flex items-center gap-2 bg-indigo-600 hover:bg-indigo-700 text-white rounded-lg px-4 py-2 transition-colors shadow-sm font-medium"
-        >
-          <span className="material-symbols-outlined text-[20px]">smart_toy</span>
-          <span>Generate Kuis AI</span>
-        </Link>
+        {isAiEnabled ? (
+          <Link
+            href={`/dashboard/summaries/${page.id}/generate-quiz`}
+            className="inline-flex items-center gap-2 bg-indigo-600 hover:bg-indigo-700 text-white rounded-lg px-4 py-2 transition-colors shadow-sm font-medium"
+          >
+            <span className="material-symbols-outlined text-[20px]">smart_toy</span>
+            <span>Generate Kuis AI</span>
+          </Link>
+        ) : (
+          <span
+            className="inline-flex items-center gap-2 bg-gray-300 text-gray-500 rounded-lg px-4 py-2 shadow-sm font-medium cursor-not-allowed"
+            title="Fitur AI dinonaktifkan sementara"
+          >
+            <span className="material-symbols-outlined text-[20px]">smart_toy</span>
+            <span>Generate Kuis AI (Nonaktif)</span>
+          </span>
+        )}
         <Link
           href={`/dashboard/summaries/${page.id}/create`}
           className="inline-flex items-center gap-2 bg-blue-600 hover:bg-blue-700 text-white rounded-lg px-4 py-2 transition-colors shadow-sm font-medium"

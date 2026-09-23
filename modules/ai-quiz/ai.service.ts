@@ -13,6 +13,13 @@ export async function generateQuizDraft({
   difficultyDistribution: { easy: number; medium: number; hard: number };
   model?: string;
 }) {
+  if (process.env.ENABLE_AI_FEATURES === "false") {
+    return {
+      success: false,
+      message: "Fitur AI dinonaktifkan sementara pada mode Shared Hosting.",
+    };
+  }
+
   const apiKey = process.env.NINEROUTER_API_KEY;
   const baseURL = process.env.NINEROUTER_BASE_URL || "https://api.9router.com/v1";
 
